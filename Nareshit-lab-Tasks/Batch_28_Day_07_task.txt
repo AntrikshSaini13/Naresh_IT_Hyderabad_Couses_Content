@@ -1,0 +1,62 @@
+Que-1
+------------------
+Print the following output in C Language
+   
+          /\
+         //\\
+        ///\\\
+         |{}|
+         |{}|
+         |{}|
+         |{}|
+(By using printing statement only)
+_____________________________________________
+Que-2)
+-----------------
+Write a program to accept three numbers from user and print them in 
+ascending and descending order in C language?
+
+Input 1 as: a=9 b=4 c=6
+Output as:
+In Asc order - b c a   i.e (4 6 9)
+In Dec order - a c b   i.e (9 6 4)
+
+Input 2 as: 9 6 4
+Output as:
+In Asc order - c b a  i.e(4 6 9)
+In Dec order - a b c  i.e(9 6 4)
+________________________________________________
+Que-3)
+-----------------
+Write a c program for the tea stall counter by giving the menu as the 
+option and their price 
+
+Menu as:
+1) Tea         --------------------- Rs. 10
+2) Coffee      --------------------- Rs. 20
+3) Cold coffee --------------------- Rs. 50
+and so on you can provide the input by your own choice
+
+Now based on the user choice you have to print the bill with the
+price of the product.
+
+Also write a logic if customer want to add some more option after 
+bill printing
+
+Also wirte a logic for cancelling the order and giving the paid
+money back to the user.
+__________________________________________________
+Que-4)
+Write a C program for checking the person is eligible for marraige
+or not by following few Requirement 
+
+Req 1:- Person should be of Indian Nationality 
+Req 2:- Person have to tell their gender and then based on the gender logic will 
+        be execute
+Req 3:-If "MALE"   age should be greater than 21 or less than 65.
+Req 4:-If "Female" age should be greter  than 18 or less than 60.
+
+If the Person is eligible show the message as
+"You are eligible for marriage but think twice".
+else
+"You are not eligible for marriage live freely".

@@ -1,0 +1,53 @@
+						(MCQ)
+
+Que-1
+______________
+Write a C program to round of a number to it's next multiplication of 10?
+For example :-
+Input as:- 35
+Output as: 40
+
+Input as :- 62
+Output as:- 70
+_____________________________________________________________________________________
+Que-2
+________________
+Write a C program to round of a number to it's previous multiplication of 10?
+For example :-
+Input as:- 35
+Output as: 30
+
+Input as :- 52
+Output as:- 50
+____________________________________________________________________________________
+Que-3
+________________
+Write a c program to check number is even or not without using if and ternary 
+only by the use of conditional operator ?
+
+Input as 4
+Output as even 
+_____________________________________________________________________________________
+Que-4
+_________________
+Write a c program to check the number is divisible by both 2 and 3 without using if 
+and ternary only by the use of conditional operator ?
+
+INPUT AS 6
+OUTPUT AS  6 is divisible by both 2 and 3 
+_____________________________________________________________________________________
+Que-5
+_________________
+Write a c program to make the reverse of a number without using if 
+and ternary only by the use of conditional operator ?
+
+Input as : 123
+Output as : 321
+_____________________________________________________________________________________
+Que-6
+___________________
+Write a c program to check the number is divisible by 5 without using if 
+and ternary only by the use of conditional operator ?
+
+INPUT as 10
+OUTPUT as.  10 is divisible by 5

@@ -1,0 +1,638 @@
+MCQ
+Answered: 3 / 30
+Question: 1
+Choose the correct output for the following Snippet?
+
+include
+int main()
+{
+int a=10,b=11,c=0,d;
+d=a/=b-=c*=5;
+printf(“d value is:%d”,d);
+return 0;
+}
+
+A)0
+
+
+B)1
+
+
+c)10
+
+
+D)Compile time error
+
+Question: 2
+Choose the correct output for the following Snippet?
+
+include
+int main()
+{
+int a=10,b=11;
+char c=1,c1=0;
+printf(“The given Characters are %c and %c:”,c,c1);
+return 0;
+}
+
+A)garbage and garbage
+
+
+B)1 and 0
+
+
+c)49 and 48
+
+
+D)%c and %c
+
+Question: 3
+Choose the correct output for the following Snippet?
+(According to Turbo c Compiler)
+
+include
+int main()
+{
+int a=10,b=12;
+printf(“Modified values are:%d %d %d %d %d”,a++,a++,++a,–b,b–);
+return 0;
+}
+
+A)12 11 13 10 12
+
+
+B)12 11 11 10 13
+
+
+c)12 11 11 10 12
+
+
+D)Compile time error
+
+Question: 4
+Choose the correct output for the following Snippet?
+
+include
+int main()
+{
+int a=10,b=12,c=13,d;
+d=(a+=2,b-=1),((a*=2,b+=1),(c+=2,c/=1));
+printf(“Modified values are:%d %d %d %d”,a,b,c,d);
+return 0;
+}
+
+A)24 12 15 12
+
+
+B)Compile time error
+
+
+c)24 12 15 11
+
+
+D)24 12 14 10
+
+Question: 5
+What type of value sizeof operator will return?
+
+A)int
+
+
+B)short
+
+
+c)long
+
+
+D)unsigned int
+
+Question: 6
+Which of the following is not a operator in C?
+
+A),
+
+
+B)~
+
+
+c)none of the above
+
+
+D)sizeof()
+
+Question: 7
+Choose the correct output for the following Snippet?
+
+include
+int main()
+{
+int a=10,b=12,c=13,d;
+d= a++ + ++b + –c * b– / c– % –a;
+printf(“Modified values are:%d %d %d %d”,a,b,c,d);
+return 0;
+}
+
+A)10 12 11 26
+
+
+B)10 14 13 26
+
+
+C)10 13 11 25
+
+
+D)Compile time error
+
+Question: 8
+Choose the correct output for the following Snippet?
+
+include
+int main()
+{
+int a=10,b=12,c=13,d;
+d= (!b<<2 || c>>2 && a++);
+printf(“Modified values are:%d %d %d %d”,a,b,c,d);
+return 0;
+}
+
+A)10 12 13 1
+
+
+B)11 12 13 1
+
+
+C)11 48 3 1
+
+
+D)Compile time error
+
+Question: 9
+Choose the correct output for the following Snippet?
+
+include
+int main()
+{
+int a=10,b=12,c=13,d;
+d= a+=1 && b-=2 || c–;
+printf(“Modified values are:%d %d %d %d”,a,b,c,d);
+return 0;
+}
+
+A)11 10 12 1
+
+
+B)11 12 12 0
+
+
+C)Compile time error
+
+
+D)10 12 13 0
+
+Question: 10
+Choose the correct output for the following Snippet?
+
+include
+int main()
+{
+int x=10,y=12,z=13,d;
+d= x!=10,y/=10,z==13;
+printf(“Modified values are:%d %d %d %d”,x,y,z,d);
+return 0;
+}
+
+A)0 1 13 1
+
+
+B)10 12 13 0
+
+
+C)Compile time error
+
+
+D)10 1 13 0
+
+Question: 11
+Choose the correct output for the following Snippet?
+
+include
+int main()
+{
+int x=10,y=2;
+result=x ^ y;
+printf(“Result is:%d”,result);
+return 0;
+}
+
+A)10
+
+
+B)100
+
+
+C)8
+
+
+D)2
+
+Question: 12
+Choose the correct output for the following Snippet?
+
+include
+int main()
+{
+int x=10,y=2;
+result=(!(!(x>>y)));
+printf(“Result is:%d”,result);
+return 0;
+}
+
+A)1
+
+
+B)0
+
+
+C)10
+
+
+D)2
+
+Question: 13
+Choose the correct output for the following Snippet?
+
+include
+int main()
+{
+int x=32,y=100,z=70;
+printf(“x=%c,y=%c,z=%c”,x,y,z);
+return 0;
+}
+
+A) d F
+
+
+B)garbage d F
+
+
+C)%c d F
+
+
+D)Compiletime Error
+
+Question: 14
+Choose the correct output for the following Snippet?
+
+include
+int main()
+{
+int x=32,y=100,z=70;
+printf(“x=%c,y=%c,z=%c”,x,y,z);
+return 0;
+}
+
+A) d F
+
+
+B)garbage d F
+
+
+C)%c d F
+
+
+D)Compiletime Error
+
+Question: 15
+Choose the correct output for the following Snippet?
+
+include
+int main()
+{
+char ch=65;
+printf(“%d”,sizeof(ch));
+return 0;
+}
+
+A)65
+
+
+B)1
+
+
+C)4
+
+
+D)2310
+
+Question: 16
+Choose the correct output for the following Snippet?
+
+include
+int main()
+{
+printf(“%d”,sizeof(‘100’));
+return 0;
+}
+
+A)Compiletime Error
+
+
+B)4
+
+
+C)1
+
+
+D)%d
+
+Question: 17
+Which of the following Operator will not work for division
+with float values?
+
+A)float
+
+
+B)long int
+
+
+C)int
+
+
+D)char
+
+Question: 18
+Choose the correct output for the following Snippet?
+
+include
+int main()
+{
+int i=0,2;
+if(i)printf(“Exam is easy”);
+return 0;
+}
+
+A)Compiletime Error
+
+
+B)Exam is easy
+
+
+C)Blank Screen
+
+
+D)Segmentation fails
+
+Question: 19
+Choose the correct output for the following Snippet?
+
+include
+int main()
+{
+char ch=0,ch1=1;
+if(ch,ch1,0)printf(“Working”);
+return 0;
+}
+
+A)Parenthesis required
+
+
+B)Working
+
+
+C)Compiletime Error
+
+
+D)Blank Screen
+
+Question: 20
+Choose the correct output for the following Snippet?
+
+include
+int main()
+{
+int x=10,y=2,result;
+result=x & y;
+printf(“Result is:%d”,result);
+return 0;
+}
+
+A)2
+
+
+B)10
+
+
+C)8
+
+
+D)0
+
+Question: 21
+Choose the correct output for the following Snippet?
+
+include
+int main()
+{
+int x=8,y=2,result;
+result=x | y;
+printf(“Result is:%d”,result);
+return 0;
+}
+
+A)2
+
+
+B)10
+
+
+C)8
+
+
+D)0
+
+Question: 22
+Choose the correct output for the following Snippet?
+
+include
+int main()
+{
+char ch=’y’;
+if(!ch!=y)
+printf(“C-language is awesome”);
+return 0;
+}
+
+A)C-language is awesome
+
+
+B)Compiletile Error
+
+
+C)Blank Screen
+
+
+D)L-value required
+
+Question: 23
+Choose the correct output for the following Snippet?
+
+include
+int main()
+{
+char ch=’z’;
+printf(“%d”,ch+’y’-76);
+return 0;
+}
+
+A)167
+
+
+B)Compiletile Error
+
+
+C)162
+
+
+D)-78
+
+Question: 24
+Choose the correct output for the following Snippet?
+
+include
+int main()
+{
+if(1)
+printf(“All”);
+printf(” the”);
+if(2.0)
+printf(” MCQ’s”);
+printf(” are”);
+if(‘A’)
+printf(” Little”);
+printf(” tough”);
+return 0;
+}
+
+A)All the MCQ’s are Little tough
+
+
+B)Compiletile Error
+
+
+C)All are tough
+
+
+D)the are tough
+
+Question: 25
+Choose the correct output for the following Snippet?
+
+include
+int main()
+{
+if(0)printf(“C-language”);
+printf(” sir is”);
+else printf(” kishore sir”);
+return 0;
+}
+
+A)C-language sir is kishore sir
+
+
+B)Compiletile Error
+
+
+C)kishore sir
+
+
+D)C-language kishore sir
+
+Question: 26
+Choose the correct output for the following Snippet?
+
+include
+int main()
+{
+int a=0,b=1,c=49;
+if(a==’0’)printf(“output”);
+printf(” is”);
+if(c==’2’)printf(” coming”);
+return 0;
+}
+
+A)output is coming
+
+
+B)Compiletile Error
+
+
+C)is
+
+
+D)is coming
+
+Question: 27
+Choose the correct output for the following Snippet?
+(According to Turbo-C)
+
+include
+int main()
+{
+int a=0,b=1,c=2;
+printf(“%d %d %d”,a++,++a,b++);
+printf(“%d %d %d”,c++,++c,++b);
+return 0;
+}
+
+A)1 2 1 3 4 3
+
+
+B)1 2 1 2 5 3
+
+
+C)1 2 1 2 4 3
+
+
+D)can’t predict the output
+
+Question: 28
+Which of the following is not a comparision operator?
+
+A)==
+
+
+B)<=
+
+
+C)=>
+
+
+D)!=
+
+Question: 29
+Which of the following is a bitwise operator?
+
+A)~
+
+
+B)||
+
+
+C)&&
+
+
+D)=
+
+Question: 30
+Which of the following is a unary operator?
+
+A)+
+
+
+B)-
+
+
+C)*
+
+
+D)++

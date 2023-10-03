@@ -1,0 +1,431 @@
+							(MCQ)
+
+Que-1>A
+__________________________
+what is the precedence of arithmetic operators (from highest to lowest)?
+a) %, *, /, +, –
+b) %, +, /, *, –
+c) +, -, %, *, /
+d) %, +, -, *, /
+___________________________________________________________________________________________
+Que-2>C
+__________________________
+Which of the following is not an arithmetic operation?
+a) a * = 10;
+b) a / = 10;
+c) a ! = 10;
+d) a % = 10;
+
+___________________________________________________________________________________________
+Que-3>D
+______________
+Which of the following data type will throw an error on modulus operation(%)?
+a) char
+b) short
+c) int
+d) float
+______________________________________________________________________________________
+Que-4>D                                                              Dought
+__________________________
+Which among the following are the fundamental arithmetic operators, i.e, 
+performing the desired operation can be done using that operator only?
+
+a) +, –
+b) +, -, %
+c) +, -, *, /
+d) +, -, *, /, %
+
+___________________________________________________________________________________________
+Que-5>A
+__________________________
+What will be the output of the following C code?
+
+    #include <stdio.h>
+    int main()
+    {
+        int a = 10;
+        double b = 5.6;
+        int c;
+        c = a + b;
+        printf("%d", c);
+    }
+a) 15
+b) 16
+c) 15.6
+d) 10
+
+_____________________________________________________________________________________________
+Que-6>B
+__________________________
+What will be the output of the following C code?
+
+    #include <stdio.h>
+    int main()
+    {
+        int a = 10, b = 5, c = 5;
+        int d;
+        d = a == (b + c);
+        printf("%d", d);
+    }
+a) Syntax error
+b) 1
+c) 10
+d) 5
+
+________________________________________________________________________________________________
+Que-7>B
+_________________________
+What will be the output of the following C code?
+
+Take C Programming Tests Now!
+    #include <stdio.h>
+    void main()
+    {
+        int k = 8;
+        int x = 0 == 1 && k++;
+        printf("%d%d\n", x, k);
+    }
+a) 0 9
+b) 0 8
+c) 1 8
+d) 1 9
+_________________________________________________________________________________________________
+Que-8>D                                                        Dought
+____________________________
+What will be the output of the following C code?
+
+    #include <stdio.h>
+    void main()
+    {
+        char a = 'a';
+        int x = (a % 10)++;
+        printf("%d\n", x);
+    }
+
+a) 6
+b) Junk value
+c) Compile time error
+d) 7
+
+__________________________________________________________________________________________________
+Que-9>C
+________________________
+What will be the output of the following C code snippet?
+
+    #include <stdio.h>
+    void main()
+    {
+        unsigned int x = -5;
+        printf("%d", x);
+    }
+a) Run time error
+b) Aries
+c) -5
+d) 5
+
+__________________________________________________________________________________________________
+Que-10>B
+_________________________
+ What will be the output of the following C code?
+
+    #include <stdio.h>
+    int main()
+    {
+        int x = 2, y = 1;
+        x *= x + y;
+        printf("%d\n", x);
+        return 0;
+    }
+a) 5
+b) 6
+c) Undefined behaviour
+d) Compile time error
+
+__________________________________________________________________________________________________
+Que-11>A
+_________________________
+ What will be the output of the following C code?
+
+    #include <stdio.h>
+    int main()
+    {
+        int x = 2, y = 2;
+        x /= x / y;
+        printf("%d\n", x);
+        return 0;
+    }
+a) 2
+b) 1
+c) 0.5
+d) Undefined behaviour
+___________________________________________________________________________________________________
+Que-12>C
+_________________________
+What will be the output of the following C code?
+
+    #include <stdio.h>
+    int main()
+    {
+        int x = 1, y = 0;
+        x &&= y;
+        printf("%d\n", x);
+    }
+a) Compile time error
+b) 1
+c) 0
+d) Undefined behaviour
+
+___________________________________________________________________________________________________
+Que-13>A
+__________________________
+
+What will be the output of the following C code?
+
+    #include <stdio.h>
+    int main()
+    {
+        int a = 10;
+        double b = 5.6;
+        int c;
+        c = a + b;
+        printf("%d", c);
+    }
+a) 15
+b) 16
+c) 15.6
+d) 10
+
+___________________________________________________________________________________________________
+Que-14>B
+__________________________
+What will be the output of the following C code?
+
+    #include <stdio.h>
+    int main()
+    {
+        int a = 10, b = 5, c = 5;
+        int d;
+        d = a == (b + c);
+        printf("%d", d);
+    }
+a) Syntax error
+b) 1
+c) 10
+d) 5
+
+___________________________________________________________________________________________________
+Que-15>A
+_________________________
+x -= y + 1;means
+
+A> x = x – y + 1
+B> x = -x – y – 1
+C> x = -x + y + 1
+D> x = x – y – 1
+
+
+___________________________________________________________________________________________________
+Que-16>D
+___________________________
+The statement printf("%d", (a++)); will print
+A> the current value of a
+B> the value of a + 1
+C> an error message
+D> garbage
+
+___________________________________________________________________________________________________
+Que-17>C
+__________________________
+The statement printf("%d", ++5); will print
+
+A> 5
+B> 6
+C> an error message
+D> garbage
+
+__________________________________________________________________________________________________
+Que-18>C
+__________________________
+Choose a right statement.
+int a = 10 + 4.867;
+A) a = 10
+B) a = 14.867
+C) a = 14
+D) compiler error.
+
+__________________________________________________________________________________________________
+Que-19>B
+__________________________
+Choose a right statement.
+int a = 3.5 + 4.5;
+A) a = 0
+B) a = 7
+C) a = 8
+D) a = 8.0
+_________________________________________________________________________________________________
+Que-20>A
+_________________________
+Choose a right statement.
+float var = 3.5 + 4.5;
+A) var = 8.0
+B) var = 8
+C) var = 7
+D) var = 0.0
+_________________________________________________________________________________________________
+Que-21>B
+__________________________
+Choose right statement.
+int main()
+{
+    float c = 3.5 + 4.5;
+    printf("%f", c);
+
+    return 0;
+}
+A) 8.0
+B) 8.000000
+C) 8
+D) 7
+
+__________________________________________________________________________________________________
+Que-22>D
+_________________________
+Choose a right statement.
+int main()
+{
+    float c = 3.5 + 4.5;
+    printf("%d", (int)c);
+
+    return 0;
+}
+A) 8.0
+B) 8.000000
+C) 7
+D) 8
+_________________________________________________________________________________________________
+Que-23>A
+_________________________
+Choose a right statement.
+int a = 5/2;
+int b = 5.0/2;
+int c = 5 / 2.0;
+int d = 5.0/2.0;
+
+A) a = 2, b = 2, c = 2, d= 2
+B) a = 2, b = 2.0, c = 2, d= 2.0
+C) a = 2, b = 2.5, c = 2.5, d= 2.5
+D) a = 2.5, b = 2.5, c = 2.5, d= 2.5
+
+__________________________________________________________________________________________________
+Que-24>C
+_________________________
+Choose a right statement.
+float a = 5/2;
+float b = 5/2.0;
+float c = 5.0/2;
+float d = 5.0/2.0;
+
+A) a=2.5, b=2.5, c=2.5, d=2.5
+B) a=2, b=2.5, c=2.5, d=2.5
+C) a=2.0, b=2.5, c=2.5, d=2.5
+D) a=2.0, b=2.0, c=2.0, d=2.0
+
+
+__________________________________________________________________________________________________
+Que-25>B
+_________________________
+Choose a right statement.
+int var = 3.5;
+A) a = 3.5
+B) a = 3
+C) a = 0
+D) Compiler error
+
+_________________________________________________________________________________________________
+Que-26>C
+___________________________
+Choose a right statement.
+int main()
+{
+    int var = 3.5;;
+    printf("%f", var);
+
+    return 0;
+}
+
+A) 3.500000
+B) 3
+C) 3.5
+D) 0.000000
+
+_________________________________________________________________________________________________
+Que-27>A
+___________________________
+#include<stdio.h>
+int main()
+{
+    int var = 3,5;
+    printf("%d", var);
+
+    return 0;
+}
+A> compile time error
+B> 3
+C> 5
+D> garbage value
+
+
+__________________________________________________________________________________________________
+Que-28>C
+______________________________
+#include<stdio.h>
+int main()
+{
+    int var = (3,5);
+    printf("%d", var);
+
+    return 0;
+}
+A> compile time error
+B> 3
+C> 5
+D> garbage value
+__________________________________________________________________________________________________
+Que-29>B
+_____________________________
+#include<stdio.h>
+int main()
+{
+    int a =6;
+    int b=2;
+    a/=b/=b/=b;
+    printf("%d", a);
+
+    return 0;
+}
+
+A> compile time error
+B> 6
+C> 2
+D> garbage value
+
+
+_________________________________________________________________________________________________
+Que-30>B
+_______________________________
+#include<stdio.h>
+int main()
+{
+    int a =16;
+    int b=2;
+    a/=b*=b+=b;
+    printf("%d", a);
+
+    return 0;
+}
+A> 2
+B> 1
+C> garbage value
+D> compile time error
+__________________________________________________________________________________________________
+

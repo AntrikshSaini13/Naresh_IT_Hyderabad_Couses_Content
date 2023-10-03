@@ -1,0 +1,58 @@
+1) wap in c to calculate the total  electricity bill including gst as per the given requirement .
+if the cost is greater than 100 gst will be 10%
+if the cost is greater than 500 gst will be 20%
+while calculating the gst in the bill print the total bill along with the owner name.
+
+Answer
+
+#include <stdio.h>
+int main(int argc, char const *argv[])
+{
+    float bill_amount;
+    printf("Emter the Cost of Electic bill = ");
+    scanf("%f",&bill_amount);
+
+    ((bill_amount < 100 || bill_amount <200) && printf("%.2f",bill_amount *0.1) || printf("%.2f",bill_amount *0.2));
+    
+    return 0;
+}
+
+
+
+2)wap in c to calculate the tax of employee based on the position
+indicate manager as M or m 
+indicate clerk as C or c
+indicate developer as D or d
+if the employee is manager the tax will be 20% of its salary 
+if the employee is clerk the tax will be 10% of its salary
+if the employee is developer the tax will be 5% of its salary
+
+Answer 
+
+#include<stdio.h>
+void main()
+{
+    float M_Salary, C_Salary, D_Salary;
+    printf("Enter the Salary of Manger, Clerk, Developer = ");
+    scanf("%f %f %f",&M_Salary,&C_Salary,&D_Salary);
+    printf("Manager salary after tax is = %.2f\n",M_Salary-M_Salary*20/100);
+    printf("Clark salary after tax is = %.2f\n",C_Salary-C_Salary*10/100);
+    printf("Developer salary after tax is = %.2f\n",D_Salary-D_Salary*5/100);
+}
+
+
+
+3)wap in c to check given character is consonent or vowel 
+
+
+note:-
+solve all this program without using any control statement or ternary operator.
+
+aNSWER
+#include<stdio.h>
+void main(){
+    char c;
+    printf("Enter the character ");
+    scanf("%c",&c);
+    ((c == 'a'|| c=='e'||c=='i'||c=='o'||c=='u'||c=='A'||c=='E'||c=='I'||c=='O'||c=='U') &&printf("Consonants")) || printf("Vowels");
+}

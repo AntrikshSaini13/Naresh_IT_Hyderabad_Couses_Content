@@ -1,0 +1,332 @@
+					conditional operaters (if, else, ladder, if else)
+
+// Write a c program for the alarm clock by following the requirement 
+// Req:- 
+
+// =======================
+
+// There are 7 days in a week as 
+
+// Sunday ---------------------------------   represented as  1
+
+// Monday---------------------------------   represented as  2
+
+// Tuesday--------------------------------   represented as  3
+
+// Wednesday --------------------------   represented as  4
+
+// Thursday------------------------------   represented as  5
+
+// Friday ---------------------------------   represented as  6
+
+// Saturday-----------------------------    represented as  7
+// Saturday and sunday is known as weekend 
+
+// Monday to Friday is known as weekdays 
+
+
+
+// suppose you need to take leave from the office so 
+
+// the representing holiday varaible name will be OnVaccation
+
+
+
+// OnVaccation is true represented by t or T indicate you had taken 
+
+// the leave 
+
+// OnVaccation is false represented by f or F indicate you had not
+
+// taken the leave 
+
+
+
+// * If the day are between monday to fri and OnVaccation is 
+
+//  false that means your alarm will ring at "7:00 clock". 
+
+
+
+// * If the day are between monday to fri and OnVaccation is 
+
+//  true that means your alarm will ring at "9:00 clock". 
+
+
+
+// * If the day are Sat or Sunday and OnVaccation is 
+
+//  false that means your alarm will ring at "8:00 clock".
+
+
+
+// * If the day are Sat or Sunday and OnVaccation is 
+
+//  true that means your alarm will be "off".
+
+
+
+// [note :- You can use ladder if or if and else if]
+
+
+#include<stdio.h>
+int main(){
+    char OnVaccation ;
+    
+    printf("I want live the vaccation for yes[Y/y] and no[n/N] and sun as weel as sat[s/S] \n");
+    scanf("%c",&OnVaccation);
+    
+    // this for working time mon - fri
+    if(OnVaccation == 'y' || OnVaccation == 'y' )
+    {
+        printf("Your alarm will ring at 7:00 clock");
+    }
+    //this for vaccation
+    else if(OnVaccation == 'n' || OnVaccation == 'N')
+    {
+        printf(" your alarm will ring at 9:00 clock");
+    }
+    //thid for sat and sun
+    else if (OnVaccation == 's'|| OnVaccation == 'S')
+    {
+        printf("your alarm will ring at 8:00 clock");
+    }
+    else
+    {
+        printf("Enter valid options");
+    }
+     return 0;
+}
+
+// Write a c program to calculate the salary and based on that salary calculate the tax for the person
+
+// based on their designation by following few rules which are below
+
+
+
+// * 3 Type of Designation are there name as
+
+//  -> Developer
+
+//  (Indicated by D or d)
+
+//  -> Trainer 
+
+//  (Indicated by T or t)
+
+//  -> Manager 
+
+//  (Indicated by M or m)
+
+
+
+// [Note - For wrong designation print a message as "Invalid input".
+
+
+
+// * 3 Type of Extra Allowance are there which will be added in the salary 
+
+//  Home Allowance  =10000
+
+//  Food Allowance  =3000
+
+//  Travel Allowance =10000
+
+
+
+
+
+// * If the designation is Developer There salary will be calculated by adding 
+
+//  Total Salary= Salary + Home Allowance
+
+
+
+//  If the designation is Trainer There salary will be calculated by adding 
+
+//  Total Salary= Salary + Home Allowance + Food Allowance 
+
+
+
+//  If the designation is Trainer There salary will be calculated by adding 
+
+//  Total Salary= Salary + Home Allowance + Food Allowance + Travel Allowance
+
+
+
+// * If the Total Salary is greater than 40000 then calculate the tax as 10% from the total salary 
+
+//  else 5% of total salary
+
+
+
+// [note: Take the Designation and salary from the user and based on the that 
+
+//     calculate Total Salary and also based on Total Salary calculate the tax].
+
+
+
+
+
+#include<stdio.h>
+int main(){
+    char var;
+    const unsigned int Home_Allowance  =10000, Food_Allowance  =3000, Travel_Allowance =10000;
+    int Total_Salary,Salary;
+    float tax, After_tax;
+    
+    
+    printf("Enter here How you are ? [Manager(M/n)/] and [Trainer(t/T) and [Developer(d/D)]]\n");
+    scanf("%c",&var);
+    
+    if(var == 'm' || var || 'M'){
+        printf("Enter the Salary of manager is = ");
+        scanf("%d",&Salary);
+         Total_Salary = Salary + Home_Allowance + Food_Allowance + Travel_Allowance;
+         printf("Total Salary is %d\n",Total_Salary);
+         if (Total_Salary > 40000){
+            tax = Total_Salary * 10 / 100.00;
+            After_tax = Total_Salary - tax;
+            printf("Tax on Salary %.2f \nAfter Tax the salary is %.2f\n",tax,After_tax);
+            return 0;
+         }
+         else{
+            tax = Total_Salary * 5 / 100.00;
+            After_tax = Total_Salary - tax;
+            printf("Tax on Salary %.2f \nAfter Tax the salary is %.2f\n",tax,After_tax);
+            return 0;
+         }
+    }
+    
+    else if(var == 'd' || var || 'D'){
+        printf("Enter the Salary of manager is = ");
+        scanf("%d",&Salary);
+        Total_Salary = Salary + Home_Allowance;
+        printf("Total Salary is %d\n",Total_Salary);
+        if (Total_Salary > 40000){
+            tax = Total_Salary * 10 / 100.00;
+            After_tax = Total_Salary - tax;
+            printf("Tax on Salary %.2f \nAfter Tax the salary is %.2f\n",tax,After_tax);
+            return 0;
+         }
+         else{
+            tax = Total_Salary * 5 / 100.00;
+            After_tax = Total_Salary - tax;
+            printf("Tax on Salary %.2f \nAfter Tax the salary is %.2f\n",tax,After_tax);
+            return 0;
+         }
+    }
+    
+    else if(var == 't' || var || 'T'){
+        printf("Enter the Salary of manager is = ");
+        scanf("%d",&Salary);
+        Total_Salary = Salary + Home_Allowance + Food_Allowance;
+        printf("Total Salary is %d\n",Total_Salary);
+        if (Total_Salary > 40000){
+            tax = Total_Salary * 10 / 100.00;
+            After_tax = Total_Salary - tax;
+            printf("Tax on Salary %.2f \nAfter Tax the salary is %.2f\n",tax,After_tax);
+            return 0;
+         }
+         else{
+            tax = Total_Salary * 5 / 100.00;
+            After_tax = Total_Salary - tax;
+            printf("Tax on Salary %.2f \nAfter Tax the salary is %.2f\n",tax,After_tax);
+            return 0;
+         }
+    }
+    
+
+}
+
+// Write a c program to round of the number to it's next  
+
+// multiplication of 10 if the right side of the number is 
+
+// greater than 5.
+
+
+
+// if the right side is less than 5 round off to it's previous 
+
+// multiplication of 10.
+
+
+
+// if the right side is zero no need to round off print the number 
+
+// as it is.
+
+
+
+// Input as : - 27
+
+// Output as: - 30
+
+
+
+// Input as :- 42
+
+// Output as:- 40
+
+
+
+// Input as :- 50
+
+// Output as:- 50
+
+#include<stdio.h>
+int main(){
+    int num, result1, result2 ;
+    printf("Enter the value\n");
+    scanf("%d",&num);
+    
+    result1 = num % 10;
+    result2 = num / 10;
+    if (result1 >= 5){
+        printf("the next number is %d",++result2 * 10);
+    }
+    else if (5 > result1 && result1 >= 1){
+        printf("The previous number is %d",--result2 * 10);
+    }
+    else
+    {
+        printf("No need of round off = %d",num);
+    }
+     return 0;
+}
+
+// Write a C program to enter month number between(1-12) and print number of days in month using if else. How to print number of days in a given month using if else in C programming. Logic to find number of days in a month in C program. 
+
+
+
+// Input as :
+
+// Enter month number (1-12): 4
+
+// Output as :
+
+// Number of days: 30
+
+#include<stdio.h>
+int main(){
+    int mounth;
+    
+    printf("Enter the number of month\n");
+    scanf("%d",&mounth);
+    
+    if(mounth == 4 || mounth == 6 || mounth == 9 ||mounth == 11){
+        printf("These mounth is 30 Days");
+    }
+    else if (mounth == 1 ||mounth == 3 || mounth == 5 ||mounth == 7 ||mounth == 8 || mounth == 10 || mounth == 12){
+        printf("These mounth is 30 Days");
+    }
+    else if (mounth == 2){
+        printf("These mounth is 28 and 29 Days");
+    }
+    else{
+        printf("Invalid mount Plz Try Again");
+    }
+    
+     return 0;
+}

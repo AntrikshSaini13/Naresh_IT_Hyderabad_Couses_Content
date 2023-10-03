@@ -1,0 +1,95 @@
+Q-1 Write a C program to find the biggest number among three number by using if only.
+
+
+#include<stdio.h>
+int main() {
+    int a, b, c;
+    printf("Enter the values of a b c \n");
+    scanf("%d %d %d",&a,&b,&c);
+    
+    
+    if (a == b && b == c && c == a)puts(" a b c are equals");
+    if (a == b && a > c )puts("a and b are bigger");
+    if (b == c && b > a )puts("b and c are bigger");
+    if (c == a && c > b )puts("a and c are bigger");
+    if(a > b && a > c)printf("A is bigger");
+    if(b>c && b > a) puts("B is Bigger");
+    // if(c>a && c>b)puts("C is Bigger");
+    else puts("C is bigger");   
+    
+    
+}
+
+
+Q-2Write C program to check the person is eligible for marriage or not by following few requirements.
+
+1) Person should be Indian represent by I or i
+
+2) Person age should be above 21 and below 60 for male, where male is represented by M or m.
+
+3) Person age should be above 18 and below 55 for male, where female is represented by F or f.
+
+If the above requirements are not fulfilled then show a status i.e "Not eligible for marriage". Develop the program by using if and else.
+
+
+ans #include<stdio.h>
+#include<string.h>
+int main()
+{
+    char gender_f,gender_m;
+    char national[12];
+    int age1 , age2;
+    printf("Enter the Nationality (indian/INDIAN)\n");
+    scanf("%s",national);
+    printf("Enter the age female as well as gernder(F) \n");
+    scanf("%d %c",&age1,&gender_f);
+    printf("Enter the age male as well as gernder(M)\n");
+    scanf("%d %c",&age2,&gender_m);
+    if((strcmp(national,"indian")==0 || strcmp(national,"INDIAN")==0) && age1 >18 && age1 <= 55 && age2 >21 && age2 <= 65 && (gender_m == 'M' || gender_m == 'm') && (gender_f == 'f' || gender_f == 'F'))
+    {
+        printf("You are eligible for marriage but think twice");
+    }
+    else{
+        printf("You are not eligible for marriage live freely");
+    }
+    return 0;
+  
+}
+
+
+
+Q-3 Write a C program to find the profit and loss on user given cost price and selling price.
+
+
+
+Input as : 
+
+Enter Cost price :  1000
+
+Enter Selling price : 1500
+
+
+
+Output as : 
+
+The profit is : Rs.500
+
+The profit percentage is : 50%
+
+
+ans
+#include<stdio.h>
+int main() {
+    int cost, sell, profit;
+    printf("Enter the cost price\n");
+    scanf("%d",&cost);
+    printf("Enter the selling price\n");
+    scanf("%d",&sell);
+    profit = sell -cost;
+    
+    
+    printf("The profit is : %d\nThe profit percentage is : %d\n" ,profit , profit*100/cost );
+    
+    
+    return 0;
+}
