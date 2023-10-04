@@ -62,17 +62,6 @@ void main(){
         {
             goto start;
         }
-
-
-
-
-
-
-
-
-
-
-        
     }
     Total = result1 +result2 + result3;;
     if ((int)Total != 0){
@@ -86,7 +75,6 @@ void main(){
         {
             goto start;
         }
-
     }
     printf("Thank you for Coming ");  
 }
