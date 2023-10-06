@@ -28,7 +28,7 @@
 #include <string.h>
 
 int main() {
-    char name_owener[20], bike_name[20];
+    char name_owener[20], bike_name[20],issue[20];
     int wheeler,mon,chooses,tyres;
     float total;
     start:
@@ -52,17 +52,21 @@ int main() {
                 printf("\n\"How many tyres you are facing the issue ?\"\n");
                 scanf(" %d",&tyres);
                 total = 400 * tyres;
+                strcpy(issue,"Tyres Repairing");
             }
             else if(chooses == 2){
                 total = 1500;
+                strcpy(issue,"Fuel Problem");
                 // issue[] = "fuel problem";
             }
             else if(chooses == 3){
                 total = 5000;
+                strcpy(issue,"Engine Issue");
                 // issue[] = "engine issue";
             }
             else if(chooses == 4){
                 total = 1000;
+                strcpy(issue,"Generl Issue");
                 // issue[] = "general services";
             }
             else{
@@ -70,7 +74,7 @@ int main() {
             }
         }
         if((int)total != 0){ 
-            printf("\nOwener is %s\nBike is %s\nTotal charge of bkie repair  is %.2f\n",name_owener,bike_name,total);
+            printf("\nOwener is %s\n\nBike is %s\n\nBike issue is %s\n\nTotal charge of bkie repair  is %.2f\n\n\"Thank You For Comming\"",name_owener,bike_name,issue,total);
         }
         else{
             printf("\"your vehicle servie will done after while\"\n");

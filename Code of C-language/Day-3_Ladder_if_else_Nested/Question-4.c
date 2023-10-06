@@ -47,9 +47,9 @@ void main()
         else{
             printf("yOu are Fail\n");
         }  
-        printf("StuName\tHindi\tEnglish\tMath\tScience\tTelgu\tPercent\n");
-        printf("-----------------------------------------------------------------\n");
-        printf("%s\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t\n",name,hindi,english,math,sci,telgu,total,avg);
+        printf("St.Name\tHindi\tEnglish\tMath\tScience\tTelgu\tTt.Marks\tPercent\n");
+        printf("--------------------------------------------------------------------------------\n");
+        printf("%s\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t\t%.2f\n",name,hindi,english,math,sci,telgu,total,avg);
     }
     else{
         printf("You are Fail Better \"Luck Next Time\"");
