@@ -15,7 +15,7 @@
 #include <stdio.h>
 
 int main() {
-   
+
 //Write your logic here...
 int num1, num2;
 printf("Enter the numbre \n");

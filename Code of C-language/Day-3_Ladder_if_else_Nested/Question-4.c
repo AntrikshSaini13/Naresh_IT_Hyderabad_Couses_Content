@@ -21,7 +21,7 @@ void main()
     // printf("%.2f\t%.2f\t%.2f\t%.2f\t%.2f",hindi,english,math,sci,telgu,avg);
     if ((hindi >= 35 && hindi <= 100) && (math >= 35 && math <= 100) && (english >= 35 && english <= 100) && (sci >= 35 && sci <= 100) &&( telgu >= 35 && telgu <= 100))
     {
-        printf("Enter your Namr\n");
+        printf("Enter your Nam\n");
         scanf("%s",name);
         total = hindi + english + math + sci + telgu;
         // printf("marks %f",total);

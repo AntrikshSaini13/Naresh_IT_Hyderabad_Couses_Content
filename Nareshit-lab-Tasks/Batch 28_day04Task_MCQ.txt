@@ -1,4 +1,5 @@
                                                      (MCQ)
+
 1.what will be the output when following code is executed?
 
 Ans - A(i=3,j=2)->beczof size of give only value not perform any task under the the sizeof() 

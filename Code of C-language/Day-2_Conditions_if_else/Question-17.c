@@ -17,11 +17,12 @@ int main(){
     printf("Enter the number of month\n");
     scanf("%d",&mounth);
     
-    if(mounth == 4 || mounth == 6 || mounth == 9 ||mounth == 11){
+    if (mounth == 4 || mounth == 6 || mounth == 9 ||mounth == 11){
+        printf("thid is %d",mounth);
         printf("These mounth is 30 Days");
     }
     else if (mounth == 1 ||mounth == 3 || mounth == 5 ||mounth == 7 ||mounth == 8 || mounth == 10 || mounth == 12){
-        printf("These mounth is 30 Days");
+        printf("These mounth is 31 Days");
     }
     else if (mounth == 2){
         printf("These mounth is 28 and 29 Days");
@@ -30,5 +31,5 @@ int main(){
         printf("Invalid mount Plz Try Again");
     }
     
-     return 0;
+    return 0;
 }

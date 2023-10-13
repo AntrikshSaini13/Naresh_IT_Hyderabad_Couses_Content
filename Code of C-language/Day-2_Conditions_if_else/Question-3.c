@@ -31,7 +31,7 @@ void main(){
     {
         printf("Ente the quantity of Tea = ");
         scanf("%d",&var2); 
-        result1 = result1 + var2*10;
+        result1 += var2*10;
         printf("DO you want more any thing 'y'otherwise 'n'\n  ");
         scanf(" %c",&var2);
         if(var2 == 'y' || var2 == 'Y')
@@ -43,7 +43,7 @@ void main(){
     {
         printf("Ente the quantity of coffee = ");
         scanf("%d",&var2); 
-        result2 =result2 + var2*20;
+        result2 += var2*20;
         printf("DO you want more any thing 'y' otherwise 'n'\n ");
         scanf(" %c",&var2);
         if(var2 == 'y')
@@ -55,7 +55,7 @@ void main(){
     {
         printf("Ente the quantity of cold cofee = ");
         scanf("%d",&var2);
-        result3 = result3 + var2*50;
+        result3 += var2*50;
         printf("DO you want more any thing Enter 'y' otherwise 'n' \n");
         scanf(" %c",&var2);
         if(var2 == 'y')

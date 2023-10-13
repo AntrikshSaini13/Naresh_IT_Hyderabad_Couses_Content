@@ -1,0 +1,409 @@
+******************************************************************************** SWITCH CONDITIONS ***************************************************************************************
+
+
+Q-1  Write a C to take the value from the user as input the month number and print number of days in that month. Using switch statement.
+
+
+Ans->
+
+#include<stdio.h>
+
+int main() {
+    
+    int mon;
+    printf("Enter the Number month\n");
+    scanf("%d",&mon);
+    
+    switch(mon)
+    {
+        case 1: case 3: case 5: case 7: case 8: case 10: case 12 : printf("31 Daay");break;
+        case 2 : printf("28 and 29 Days");break;
+        case 4: case 6: case 9: case 11 : printf("31 Days");break;
+        default :printf("Invalid input");
+    }
+    return 0;
+}
+
+Q-2  Write a C program to check whether a Alphabet is vowel or consonant using Switch Case.
+
+Ans ->
+
+#include<stdio.h>
+
+int main(){
+    
+    char mon;
+    printf("check vovels and consonat\n");
+    scanf("%c",&mon);
+    
+    if(mon >= 'A' && mon <= 'Z')mon+=32;
+    if(mon >= 'a' && mon <= 'z')
+    {
+        switch(mon)
+        {
+        case 'a': case 'e': case 'i': case 'o': case 'u':  printf("Vowels");break;
+        default :printf("Consonants");
+        }
+    }
+    else if(mon >=0 && mon <= 9 )puts("Digits");
+    else puts("Spical Character");
+    return 0;
+}
+
+Q-> 3  Write a C program to find the maximum between two numbers using Switch statement.
+
+Ans->
+
+#include<stdio.h>
+
+int main()
+{
+    int num1, num2;
+    printf("Enter the Two Number for check Which greater \n");
+    scanf("%d %d",&num1,&num2);
+    switch(num1 > num2)
+    {
+        case 1: printf("number 1 is greater %d",num1); break;
+        default : printf("number 2 is greater %d",num2);
+    }
+    return 0;
+}
+
+Q-4  Write a C program to check the number is even or odd by using Switch Case.
+
+Ams -> 
+
+#include<stdio.h>
+
+int main(){
+    int num;
+    printf("Enter the  number for check odd even\n");
+    scanf("%d",&num);
+    switch(num%2)
+    {
+        case 1:printf("Odd number %d",num);break;
+        case 0:printf("Even number %d",num);break;
+        default:puts("invalid");
+    }
+    return 0;
+}
+
+Q-5  Write a C program to do a arithmetic operation on two numbers by using Switch Case. Take the operators(+,-,*,/,%) as cases and take the input from the user that what kind of operation user want to do on two number.
+
+Input as: 
+
+------------
+
+Enter num1 :10
+
+Enter num2 :20
+
+Enter operation : *
+
+O/P as :
+
+---------
+
+Multiplication is :200
+
+Ans ->
+
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int num;
+    float num1,num2;
+    printf("Select Options :\nAdditions\t1\nSubstraction\t2\nMutiplications\t3\nDivision\t4\nModules\t\t5\n");
+    scanf("%d",&num);
+    
+    switch(num)
+    {
+    //   system("cls");
+        case 1:
+            printf("Sum\nEnter the two number\n");
+            scanf("%f %f",&num1,&num2);
+            
+            printf("sum is %f",num1 + num2);
+        case 2:
+            printf("Subtraction\nEnter the two number\n");
+            scanf("%f %f",&num1,&num2);
+            
+            printf("Subtractionis %f",num1 - num2);
+        case 3:
+            printf("Multiplication\nEnter the two number\n");
+            scanf("%f %f",&num1,&num2);
+            
+            printf("multiplication is %f",num1 * num2);
+        case 4:
+            printf("Divission\nEnter the two number\n");
+            scanf("%f %f",&num1,&num2);
+            
+            printf("Divission is %f",num1 / num2);
+        case 5:
+            printf("Modules\nEnter the two number\n");
+            scanf("%f %f",&num1,&num2);
+            
+            printf("Modules is %d",(int)num1 % (int)num2);
+    }
+    return 0;
+}
+
+Q-6  Using switch statement write a C Program to take the value from the user as input marks of five subjects Physics, Chemistry, Biology, Mathematics, and Computer. Calculate percentage and grade according to the following: Percentage >= 90% : Grade A, Percentage >= 80% : Grade B, Percentage >= 70% : Grade C, Percentage >= 60% : Grade D, Percentage >= 40% : Grade E, Percentage < 40% : Grade F, Using switch statement.
+
+[Note:-Take All the values as Integer]
+
+Ans ->
+
+#include<stdio.h>
+int main()
+{
+    int phy, che, bio, mat, com, sum, avg;
+    char ch;
+    printf("Enter the Marks of Five Subject\n");
+    scanf("%d %d %d %d %d",&phy, &che, &bio, &mat, &com);
+     sum = phy + che + bio + mat + com;
+    //  printf("sum %d\n",sum);
+     avg = sum /5;
+    //  printf("avg %d\n",avg);
+     if(phy>33 && phy <= 100 && che > 33&& che <= 100 && bio > 33 && che <= 100 && com > 33&&com <= 100)
+     {
+         if (avg>=80 && avg <= 90) ch = 'a';
+         else if (avg>=70 && avg <= 80) ch = 'b';
+         else if (avg>=60 && avg <= 70) ch = 'c';
+         else if (avg>=50 && avg <= 60) ch = 'd';
+         else if (avg>=40 && avg <= 50) ch = 'e';
+     }
+     else puts("Fail");
+     
+     switch(ch)
+     {
+         case 'a':
+            printf("Grade A prcentage is %d%c",avg,37);
+            break;
+         case 'b':
+            printf("Grade B prcentage is %d%c",avg,37);
+            break;
+         case 'c':
+            printf("Grade C prcentage is %d%c",avg,37);
+            break;
+         case 'd':
+            printf("Grade D prcentage is %d%c",avg,37);
+            break;
+         case 'e':
+            printf("Grade E prcentage is %d%c",avg,37);
+            break;
+        // default : puts("Fail");
+     }
+    return 0;
+}
+
+*****************************************************************************Coding Challenge -ll ( Switch Case )************************************************************************
+
+Q-7  Write a C program to accept id from user and display department.
+
+Id: 11 to 15 is Software department
+
+  16 to 20 is Developer department
+
+  21 to 23 is Management department
+
+Ans-.
+#include<stdio.h>
+int main()
+{
+    int num;
+    printf("Enter the number \n");
+    scanf("%d",&num);
+    
+    switch(num){
+        case 11 ... 15:
+        printf("Software department");
+        break;
+        case 16 ... 20:
+        printf("Developer  department");
+        case 21 ... 23:
+        break;
+        printf("Management department");
+        break;
+    }
+    return 0;
+}
+Q-8  Write a C program that will ask for a person’s name and his/her game score. Then it will ask for a second person’s name and score. The program will print the winner’s name and also print by how many 
+
+points that person won by comparing the scores. Develop this program by using switch case.
+
+Ans ->
+
+#include<stdio.h>
+int main()
+{
+    int num1, num2; 
+    char name1[10],name2[10];
+    printf("Enter the name first person and scroe\n");
+    scanf("%s %d",name1,&num1);
+    printf("Enter the name Second person and scroe\n");
+    scanf("%s %d",name2,&num2);
+    
+    switch(num1>num2){
+        case 1:printf("Winer %s",name1);
+        break;
+        case 0 :printf("winer %s",name2);
+        break;
+    }
+  return 0;
+}
+
+Q-9 Develop below program using switch case)
+
+Write a C program that will read a float and a character from console. The character could be d for deposit or w for withdrawal.
+
+Starting with a balance of 2000.
+
+
+
+*Ask the user to initialize the balance and don't allow 0 and -ve values if it is 0 or -ve then print "Ammount Can't be stored".
+
+
+
+*If the user want deposit operation then ask how much ammount he want to deposit and add that ammount
+
+ with balance and print the balance.
+
+*if the user want withdrwal operation then ask how much ammount he want to withdrwal and substract that 
+
+ ammount from the balance and print the balance.
+
+
+
+[Note: If the deposit ammount is negetive or 0 print "Invalid ammount".
+
+    If the withdrawl ammount is negetive , 0 or greater than balance then print "Invalid ammount"]
+
+
+
+Hints:
+
+-------
+
+Declare variables for the amount in float, balance in float and transaction code in char types.
+
+
+
+Test the transaction code, if ‘d’ it is deposit. Test the ammount so that it is not negative.
+
+If the balance is not negative or positive sum-up
+
+the balance.
+
+balance = balance + amount;
+
+Test the transaction code for withdrawal, ‘w’. If the transaction code is ‘w’
+
+Minus the withdrawn amount to update the
+
+balance.
+
+balance = balance - amount;
+
+And print the balance.
+
+
+Ans->
+
+#include<stdio.h>
+int main(){
+    int amount,num;
+    float bal = 2000;
+    printf("Select the Options\n\nDepoist Ammount \t\t1\nWithdrawal Amount\t\t2\n");
+    scanf("%d",&num);
+    switch(num){
+        case 1: 
+            printf("For Deposit\nEnter the Deposit amount of our account\t[     ]\b\b\b\b\b\b");
+            scanf("%d",&amount);
+            bal+=amount;
+            printf("Deposit ammount is %d\n",amount);
+            printf("After deposit Balance is \n\n%.2f",bal);
+            break;
+        case 2:
+            if (bal > 0){
+                printf("For withdwarl\nEnter the withdwral amount of our account\t[     ]\b\b\b\b\b\b");
+                scanf("%d",&amount);
+                bal-=amount;
+                printf("\nwithdwral ammount is %d\n",amount);
+                if (bal > 0) {
+                    printf("\nAfter withdwral balance is \n\n%.2f ",bal);
+                }
+                else {
+                    printf("After withdrawl Insufficent balance %.2f",bal);
+                }
+            }
+            else {
+                printf("Insufficent balance");
+            }
+            break;
+        default : printf("Invalid input");
+    }
+}
+
+Q-10  Write a C program to take user Id as 1001 and Pasword as 1010. Ask the user to enter his id, if the id is valid 
+
+then ask the user to enter his password ,if the password is correct then print the name of the user, otherwise 
+
+the program will print incorrect Passoword and if the Id doesnot exits, the program will print Incorrect Id.
+
+develop this program by using Switch case.
+
+Ans->
+
+#include<stdio.h>
+int main(){
+    int num1, num2;
+    char name[10];
+    printf("Enter the your name plz\n");
+    scanf("%s",name);
+    printf("Enter the uour id plz\n");
+    scanf("%d",&num1);
+    printf("Enter the your passward plz\n");
+    scanf("%d",&num2);
+    switch(num1 == 1001 && num2==1000){
+        case 1:printf("Welcome\t%s",name);
+            break;
+        case 0 : printf("Incorrect passward");
+            break;
+        default : printf("Invalid");
+            break;
+    }
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

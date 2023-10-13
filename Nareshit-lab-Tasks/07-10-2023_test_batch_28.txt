@@ -1,0 +1,934 @@
+ 							MCQ
+
+
+Question: 1
+Answer -> a) inside if (becozof if and else if both condition are ture but execute only 'if' statements not going inside the 'else if' only check one conditions) 
+
+What will be the output of the following C code?
+
+#include <stdio.h>
+int main()
+{
+    int x = 1;
+    if (x > 0)
+        printf("inside if\n");
+    else if (x > 0)
+        printf("inside elseif\n");
+}
+
+a) inside if
+
+
+b) inside elseif
+
+
+c)inside if
+inside elseif
+
+
+d) compile time error
+
+Question: 2
+
+Answer -> 
+
+D. 0inside if block (becof if is true nothing is zero it means false otherwise true)
+
+What will be the output of the C program?
+
+include
+int main()
+{
+int i=0;
+if(printf(“%d”,i)) //if we give input as 0
+printf(“inside if block”);
+else
+printf(“inside else block”);
+return 0;
+}
+
+
+A. Runtime Error
+
+
+B. Compilation Error
+
+
+C. 0inside else block
+
+
+D. 0inside if block
+
+Question: 3
+
+Answer -> a) hi
+
+What will be the output of the following C code?
+
+#include <stdio.h>
+void main()
+{
+    int x = 5;
+    if (x < 1)
+        printf("hello");
+    if (x == 5)
+        printf("hi");
+    else
+        printf("no");
+}
+
+a) hi
+
+
+b) hello
+
+
+c) no
+
+
+d) error
+
+Question: 4
+
+d) hihello
+
+What will be the output of the following C code?
+
+#include <stdio.h>
+void main()
+{
+    int x = 0;
+    if (x == 0)
+        printf("hi");
+    else
+        printf("how are u");
+        printf("hello");
+}
+
+a) hi
+
+
+b) how are you
+
+
+c) hello
+
+
+d) hihello
+
+Question: 5
+
+A. Hai
+
+What will be the output of the C program?
+
+include
+int main(){
+int i = 5;
+if(i == 3, 4)
+printf("Hai");
+else
+printf("No Hai");
+return 0;
+}
+
+A. Hai
+
+
+B. No Hai
+
+
+C. Compilation Error
+
+
+D. None of the Above
+
+Question: 6
+
+C. Hai
+
+
+What will be the output of the C program?
+
+include
+int main()
+{
+int i = 2;
+if(i == (1, 2))
+printf(“Hai”);
+else
+printf(“No Hai”);
+return 0;
+}
+
+
+
+A. Compilation Error
+
+
+B. Runtime Error
+
+
+C. Hai
+
+
+D. No Hai
+
+Question: 7
+
+d) Compile time errors during compilation 
+(becozof after if without curly bracket only single printf statements allow)
+
+
+What will be the output of the following C code?
+
+#include <stdio.h>
+int main()
+{
+    int a = 1;
+    if (a)
+        printf("All is Well ");
+        printf("I am Well\n");
+    else
+        printf("I am not a River\n");
+}
+
+
+a) Output will be All is Well I am Well
+
+
+b) Output will be I am Well I am not a River
+
+
+c) Output will be I am Well
+
+
+d) Compile time errors during compilation
+
+Question: 8
+
+Answer - c) abcd (else is close there)
+
+-Find the output of the given C program.
+
+include
+int main()
+{
+if(-5)
+{
+printf(“a”);
+printf(“b”);
+}
+else;
+{
+printf(“c”);
+printf(“d”);
+}
+return 0;
+}
+
+a) cd
+
+
+b) ab
+
+
+c) abcd
+
+
+d) Compile time error
+
+Question: 9
+
+b) It will throw an error
+(becozof true is nothing real is there "True")
+
+What will be the output of the following C code?
+
+#include <stdio.h>
+void main()
+{
+    int x = 5;
+    if (true);
+        printf("hello");
+}
+
+a) It will display hello
+
+
+b) It will throw an error
+
+
+c) Nothing will be displayed
+
+
+d) no output
+
+Question: 10
+
+Answer -> A. True
+
+
+What is the output of this C code?
+
+int main()
+
+{
+
+    int a = 1;
+
+    if (a--)
+
+        printf("True");
+
+        if (a++)
+
+            printf("False");
+
+}
+
+A. True
+
+
+B. False
+
+
+C. True False
+
+
+D. No Output
+
+Question: 11
+
+d) compile time error (that not work)
+
+What will be the output of the following C code?
+
+#include <stdio.h>
+int main()
+{
+    if (printf("%d", printf(")))
+        printf("We are Happy");
+    else if (printf("1"))
+        printf("We are Sad");
+}
+
+a) 0We are Happy
+
+
+b) 1We are Happy
+
+
+c) 1We are Sad
+
+
+d) compile time error
+
+
+Question: 12
+
+
+b) true, 0
+
+What will be the output of the following C code?
+
+#include <stdio.h>
+int main()
+{
+    int x = 0;
+    if (x == 0)
+        printf("true, ");
+    else if (x = 10)
+        printf("false, ");
+    printf("%d\n", x);
+}
+
+a) false, 0
+
+
+b) true, 0
+
+
+c) true, 10
+
+
+d) compile time error
+
+Question: 13
+Which of the following is an invalid if-else statement?
+
+
+a) if (if (a == 1)){}
+
+
+b) if (func1 (a)){}
+
+
+c) if (a){}
+
+
+d) if ((char) a){}
+
+Question: 14
+
+a) True
+
+What will be the output of the following C code?
+
+#include <stdio.h>
+int main()
+{
+    int a = 1;
+    if (a--)
+        printf("True");
+        if (a++)
+            printf("False");
+}
+
+a) True
+
+
+b) False
+
+
+c) True False
+
+
+d) No Output
+
+Question: 15
+
+c) Compile time error
+
+Find the output of the given C program.
+
+include
+int main()
+{
+if(-5)
+printf(“a”);
+printf(“b”);
+else
+printf(“c”);
+printf(“d”);
+return 0;
+}
+
+
+a) abd
+
+
+b) cd
+
+
+c) Compile time error
+
+
+d) ab
+
+Question: 16
+
+b) a
+
+
+Find the output of the given C program.
+
+include
+int main()
+{
+if(“true”) printf(“a”);
+else printf(“b”);
+return 0;
+}
+
+a) error
+
+
+b) a
+
+
+c) b
+
+
+d) ab
+
+Question: 17
+
+
+b) true
+
+Find the output of the given C program.
+
+include
+int main()
+{
+if(5 && 5 == 5) printf(“true”);
+else printf(“false”);
+return 0;
+}
+
+a) error
+
+
+b) true
+
+
+c) None of these
+
+
+d) false
+
+Question: 18
+
+
+c) true (becozof use of f(float))
+
+Find the output of the given C program.
+
+include
+int main()
+{
+float a = 1.3;
+if(1.3f==a) printf(“true”);
+else printf(“false”);
+return 0;
+}
+
+a) false
+
+
+b) None of these
+
+
+c) true
+
+
+d) error
+
+Question: 19
+
+
+D. No output
+
+What is the output of this C code?
+
+int main()
+
+{
+
+    int x = 0;
+
+    if (x == 1)
+
+        if (x >= 0)
+
+            printf("true\n");
+
+        else
+
+            printf("false\n");
+
+}
+
+A. true
+
+
+B. false
+
+
+C. Depends on the compiler
+
+
+D. No output
+
+Question: 20
+
+
+d) No output
+
+What will be the output of the following C code?
+
+#include <stdio.h>
+int main()
+{
+    int x = 0;
+    if (x == 1)
+        if (x >= 0)
+            printf("true\n");
+        else
+            printf("false\n");
+}
+
+a) true
+
+
+b) false
+
+
+c) Depends on the compiler
+
+
+d) No output
+
+Question: 21
+
+a) false
+
+Find the output of the given C program.
+
+include
+int main()
+{
+float a = 1.2;
+if(1.2==a) printf(“true”);
+else printf(“false”);
+return 0;
+}
+
+a) false
+
+
+b) error
+
+
+c) true
+
+
+d) None of these
+
+Question: 22
+
+b) how are you
+
+What will be the output of the following C code?
+
+#include <stdio.h>
+int x;
+void main()
+{
+    if (x)
+        printf("hi");
+    else
+        printf("how are u");
+}
+
+a) hi
+
+
+b) how are you
+
+
+c) compile time error
+
+
+d) error
+
+Question: 23
+
+a) Nothing
+
+What will be the output of the following C code?
+
+#include <stdio.h>
+void main()
+{
+    int x = 5;
+    if (x < 1);
+        printf("Hello");
+
+}
+
+a) Nothing
+
+
+b) Run time error
+
+
+c) Hello
+
+
+d) Varies
+
+Question: 24
+
+c) inside else
+
+What will be the output of the following C code?
+
+#include <stdio.h>
+int main()
+{
+    int x = 0;
+    if (x == 1)
+        if (x == 0)
+            printf("inside if\n");
+        else
+            printf("inside else if\n");
+    else
+        printf("inside else\n");
+}
+
+a) inside if
+
+
+b) inside else if
+
+
+c) inside else
+
+
+d) compile time error
+
+Question: 25
+
+D. inside else block
+
+What will be the output of the C program?
+
+include
+int main()
+{
+int i = 5;
+if(i = i - 5 > 4)
+printf(“inside if block”);
+else
+printf(“inside else block”);
+return 0;
+}
+
+A. Compilation Error
+
+
+B. None
+
+
+C. inside if block
+
+
+D. inside else block
+
+Question: 26
+Find the output of the given C program.
+
+include
+int main()
+{
+if(-5); // (not apply here semi collumn its a ERROR)
+{
+printf(“a”);
+printf(“b”);
+}
+else
+{
+printf(“c”);
+printf(“d”);
+}
+return 0;
+}
+
+
+Find the output of the given C program.
+
+include
+int main()
+{
+if(-5);
+{
+printf(“a”);
+printf(“b”);
+}
+else
+{
+printf(“c”);
+printf(“d”);
+}
+return 0;
+}
+
+
+a) Compile time error
+
+
+b) cd
+
+
+c) ab
+
+
+d) abd
+
+Question: 27
+What will be the output of the following C code?
+
+#include <stdio.h>
+int main()
+{
+    int x = 0;
+    if (x++)
+        printf("true\n");
+    else if (x == 1)
+        printf("false\n");
+}
+
+What will be the output of the following C code?
+
+#include <stdio.h>
+int main()
+{
+    int x = 0;
+    if (x++)
+        printf("true\n");
+    else if (x == 1)
+        printf("false\n");
+}
+
+a) true
+
+
+b) false
+
+
+c) compile time error
+
+
+d) undefined behaviour
+
+Question: 28
+Find the output of the given C program.
+
+include
+int main()
+{
+float a = 1.0;
+if(1.0==a) printf(“true”);
+else printf(“false”);
+return 0;
+}
+
+
+Find the output of the given C program.
+
+include
+int main()
+{
+float a = 1.0;
+if(1.0==a) printf(“true”);
+else printf(“false”);
+return 0;
+}
+
+
+a) None of these
+
+
+b) false
+
+
+c) true
+
+
+d) error
+
+Question: 29
+Find the output of the given C program.
+
+include
+int main()
+{
+if(-5)
+{
+printf(“a”);
+printf(“b”);
+}
+else
+printf(“c”);
+printf(“d”);
+return 0;
+}
+
+
+Find the output of the given C program.
+
+include
+int main()
+{
+if(-5)
+{
+printf(“a”);
+printf(“b”);
+}
+else
+printf(“c”);
+printf(“d”);
+return 0;
+}
+
+
+a) abd
+
+
+b) ab
+
+
+c) cd
+
+
+d) Compile time error
+
+Question: 30
+Find the output of the given C program.
+
+include
+int main()
+{
+if(-5)
+{
+printf(“a”);
+pintf(“b”);
+}
+else
+{
+printf(“c”);
+printf(“d”);
+}
+return 0;
+}
+
+
+a) abd
+
+
+b) Compile time error
+
+
+c) ab
+
+
+d) cd
+
+
+Question: 31
+a) 0We are Happy
+
+What will be the output of the following C code?
+
+#include <stdio.h>
+int main()
+{
+    if (printf("%d", printf("")))
+        printf("We are Happy");
+    else if (printf("1"))
+        printf("We are Sad");
+}
+
+a) 0We are Happy
+
+
+b) 1We are Happy
+
+
+c) 1We are Sad
+
+
+d) compile time error
+

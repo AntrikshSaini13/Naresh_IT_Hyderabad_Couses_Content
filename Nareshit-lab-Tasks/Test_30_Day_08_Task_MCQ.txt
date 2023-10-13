@@ -1,6 +1,10 @@
 MCQ
 Answered: 3 / 30
 Question: 1
+
+anser A
+
+
 Choose the correct output for the following Snippet?
 
 include
@@ -54,7 +58,7 @@ include
 int main()
 {
 int a=10,b=12;
-printf(“Modified values are:%d %d %d %d %d”,a++,a++,++a,–b,b–);
+printf("Modified values are:%d %d %d %d %d",a++,a++,++a,–b,b–);
 return 0;
 }
 
@@ -121,6 +125,9 @@ c)none of the above
 D)sizeof()
 
 Question: 7
+
+Answer -> A priority work here
+
 Choose the correct output for the following Snippet?
 
 include
@@ -144,6 +151,9 @@ C)10 13 11 25
 D)Compile time error
 
 Question: 8
+
+Answer -> B (a= 11) hogi prority per work krega
+
 Choose the correct output for the following Snippet?
 
 include
@@ -151,7 +161,7 @@ int main()
 {
 int a=10,b=12,c=13,d;
 d= (!b<<2 || c>>2 && a++);
-printf(“Modified values are:%d %d %d %d”,a,b,c,d);
+printf("Modified values are:%d %d %d %d",a,b,c,d);
 return 0;
 }
 
@@ -197,7 +207,7 @@ int main()
 {
 int x=10,y=12,z=13,d;
 d= x!=10,y/=10,z==13;
-printf(“Modified values are:%d %d %d %d”,x,y,z,d);
+printf("Modified values are:%d %d %d %d",x,y,z,d);
 return 0;
 }
 

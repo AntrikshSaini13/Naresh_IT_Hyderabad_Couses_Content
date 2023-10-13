@@ -117,12 +117,12 @@ int main(){
          }
     }
     
-    else if(var == 't' || var || 'T'){
-        printf("Enter the Salary of manager is = ");
-        scanf("%d",&Salary);
-        Total_Salary = Salary + Home_Allowance + Food_Allowance;
-        printf("Total Salary is %d\n",Total_Salary);
-        if (Total_Salary > 40000){
+      else if(var == 't' || var || 'T'){
+         printf("Enter the Salary of manager is = ");
+         scanf("%d",&Salary);
+         Total_Salary = Salary + Home_Allowance + Food_Allowance;
+         printf("Total Salary is %d\n",Total_Salary);
+         if (Total_Salary > 40000){
             tax = Total_Salary * 10 / 100.00;
             After_tax = Total_Salary - tax;
             printf("Tax on Salary %.2f \nAfter Tax the salary is %.2f\n",tax,After_tax);
@@ -134,7 +134,7 @@ int main(){
             printf("Tax on Salary %.2f \nAfter Tax the salary is %.2f\n",tax,After_tax);
             return 0;
          }
-    }
-    
+      }
+     
 
 }
