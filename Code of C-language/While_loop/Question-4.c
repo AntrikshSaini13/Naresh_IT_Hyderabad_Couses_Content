@@ -1,22 +1,37 @@
-// Write a C program to check the given number is a perfect number or not?
+// Q-4  Write a C prgram that asks the user to input an integer and reverse that number and display the reverse of that given number.
 
-// If a sum of the multiples of the number excluding the given number is same as the original number then we can say that number is a perfect number.
+// Case-1
+// -------
 
-// 6 multiples are 1,2,3,6 : sum of multiples = 1+2+3 = 6
+// Input as : 
 
-// 6 is a perfect number.
+// Enter a number : 123
+
+// Output as : 
+
+// Reverse of the given number is : 321
+
+// Case -2
+// ________
+
+// Input as :
+
+// Enter a number : 2314
+
+// Output as : 
+
+// Reverse of the given number is : 4132
+
+// Ans ->
 
 #include<stdio.h>
-int main(){
-    int num,i=1,sum=0;
-    printf("Enter the number = ");
+int main() {
+    int num,sum=0;
+    printf("Enter the number\n");
     scanf("%d",&num);
-    while(i<num){
-        if(num%i == 0)
-        sum = sum + i;
-        i++;
+    while(num){
+        sum = sum *10 + num % 10; num /= 10;
     }
-    if(num == sum) printf("perfect number");
-    else printf("perfect number. not");
-    return 0;
+    printf("reverse number is %d\n",sum);
+    
 }

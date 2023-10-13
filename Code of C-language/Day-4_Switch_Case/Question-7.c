@@ -8,14 +8,22 @@
 
 
 #include<stdio.h>
-void main(){
-    switch (a,b)
-    {
-    case a||b:
-        printf("hi");
-        break;
+int main()
+{
+    int num;
+    printf("Enter the number \n");
+    scanf("%d",&num);
     
-    default:
+    switch(num){
+        case 11 ... 15:
+        printf("Software department");
+        break;
+        case 16 ... 20:
+        printf("Developer  department");
+        case 21 ... 23:
+        break;
+        printf("Management department");
         break;
     }
+    return 0;
 }

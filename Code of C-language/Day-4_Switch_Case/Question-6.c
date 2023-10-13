@@ -37,6 +37,6 @@ int main()
             printf("Grade E prcentage is %d%c",avg,37);
             break;
         // default : puts("Fail");
-     }
-    return 0;
-}
+      }
+      return 0;
+   }

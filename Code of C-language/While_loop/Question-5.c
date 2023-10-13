@@ -1,45 +1,25 @@
-// Write a C program to check if a given number is a strong number. A strong number is a positive integer in which the sum of the factorial of
-//  its digits is equal to the number itself. For example, 145 is a strong number since 1! + 4! + 5! = 145. The program should prompt the user
-//   to enter a positive integer and determine whether it is a strong number or not.
 
-// Input as:
+// Q-5  write a C program to find the factorial of a given number. Take the input from the user.
 
-// Enter a number : 145 
+// Input as :
 
-// Output as:
+// Enter a number : 5
 
-// 145 is a strong number.
+// Output as :
+
+// Factoria of 5 : 120
+
+// Ans -> 
+
 
 #include<stdio.h>
-#include<stdlib.h>
-#include<conio.h>
-void main(){
-    int num1, num, result,i=1,sum=0,mul;
-    printf("Enter the number = ");
+int main(){
+    int num, mul=1;
+    printf("Enter the number of factroial\n");
     scanf("%d",&num);
-    num1 = num;
-    while(num){
-        start:
-        // result=0;
-        result = num%10;
-        num/=10;
-        // printf("%d\n",result);
-        i=1;
-        mul=1;
-        while (i<=result)
-        {
-            mul = mul *i;
-            // printf("%d\n",i);
-            // printf("%d\n\n",mul);
-            i++;
-        }
-        sum += mul;
+    while(num>0){
+        mul*=num;num--;
     }
-        // printf("%d\n",num);
-        if(sum == num1){
-            // system("cls");
-            clrscr();
-            printf("A strong number is a positive integer\n\n");
-        }
-        else puts("Not strong number is a positive integer\n\n");
+    printf("Factorial is %d",mul);
+    return 0;
 }

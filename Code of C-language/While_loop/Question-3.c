@@ -1,24 +1,22 @@
-// Write a C program to check if a given number is a palindrome. A palindrome is a number that remains the same when its digits are reversed. For example, 121, 454 and 767 are palindromic numbers. The program should prompt the user to enter a positive integer and determine whether it is a palindrome or not.
+// Q-3  Write a C program to add all the natural number from 1 to n. Ask the user to give n value and print the addition value.
 
-// Input as:
+// Input as : 
 
-// Enter a number : 121 
+// Enter n value : 10
 
-// Output as:
+// Output as :
 
-// 121 is a Palindrome number.
+// Sum of the natural number from 1 to 10 : 55
+// Ans ->
 
 #include<stdio.h>
-int main(){
-    int num ,sum=0,num1;
-    printf("Enter the number");
+int main() {
+    int i=1,num,sum=0;
+    printf("Enter the number\n");
     scanf("%d",&num);
-    num1 = num;
-    while(num)
-    {
-        sum = sum * 10 + num%10;num/=10;
-    } 
-    if(sum == num1) printf("Palindrome number %d",sum);
-    else printf("not");
-    return 0;
+    while(i<=num){
+        sum += i;
+        i++;
+    }
+    printf("Sum of the natural number from 1 to %d = %d",num,sum);
 }
