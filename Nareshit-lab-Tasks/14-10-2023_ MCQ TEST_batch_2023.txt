@@ -1,0 +1,1163 @@
+****************************************************************************** MCQ TEST*************************************************************
+
+Question: 1
+
+What is the output of C Program.?
+int main()
+{
+while(true)
+{
+printf(“RABBIT”);
+break;
+}
+
+return 0;
+}
+
+
+A) RABBIT
+
+
+B) RABBIT is printed unlimited number of times.
+
+
+C) No output
+
+
+D) Compiler error.
+
+Question: 2
+What is the output of C Program.?
+int main()
+{
+int a=5;
+
+while(a==5)    
+{
+    printf("RABBIT");
+    break;
+}
+
+return 0;
+}
+
+
+What is the output of C Program.?
+int main()
+{
+int a=5;
+
+while(a==5)    
+{
+    printf("RABBIT");
+    break;
+}
+
+return 0;
+}
+
+
+A) RABBIT is printed unlimited number of times
+
+
+B) RABBIT
+
+
+C) Compiler error
+
+
+D) None of the above.
+
+Question: 3
+What is the output of C Program.?
+int main()
+{
+int a=5;
+
+while(a=123)    
+{
+    printf("RABBIT\n");
+    break;
+}
+printf("GREEN");
+
+return 0;
+}
+
+
+What is the output of C Program.?
+int main()
+{
+int a=5;
+
+while(a=123)    
+{
+    printf("RABBIT\n");
+    break;
+}
+printf("GREEN");
+
+return 0;
+}
+
+
+A) GREEN
+
+
+B) RABBIT
+GREEN
+
+
+C) RABBIT is printed unlimited number of times.
+
+
+D) Compiler error.
+
+Question: 4
+What is the output of C Program.?
+int main()
+{
+int a=5;
+
+while(a >= 3);
+{
+    printf("RABBIT\n");
+    break;
+}
+printf("GREEN");
+
+return 0;
+}
+
+
+What is the output of C Program.?
+int main()
+{
+int a=5;
+
+while(a >= 3);
+{
+    printf("RABBIT\n");
+    break;
+}
+printf("GREEN");
+
+return 0;
+}
+
+
+A) GREEN
+
+
+B) RABBIT
+GREEN
+
+
+C) RABBIT is printed infinite times
+
+
+D) Compiler error.
+
+Question: 5
+What is the output of C Program.?
+int main()
+{
+int a=25;
+
+while(a <= 27)
+{
+    printf("%d ", a);
+    a++;
+}
+
+return 0;
+}
+
+
+What is the output of C Program.?
+int main()
+{
+int a=25;
+
+while(a <= 27)
+{
+    printf("%d ", a);
+    a++;
+}
+
+return 0;
+}
+
+
+A) 25 25 25
+
+
+B) 25 26 27
+
+
+C) 27 27 27
+
+
+D) Compiler error
+
+Question: 6
+What is the output of C Program.?
+int main()
+{
+int a=32;
+
+do
+{
+    printf("%d ", a);
+    a++;
+}while(a <= 30);
+
+return 0;
+}
+
+
+What is the output of C Program.?
+int main()
+{
+int a=32;
+
+do
+{
+    printf("%d ", a);
+    a++;
+}while(a <= 30);
+
+return 0;
+}
+
+
+A) 32
+
+
+B) 33
+
+
+C) 30
+
+
+D) No Output
+
+Question: 7
+What is the output of C Program.?
+int main()
+{
+int a=32;
+
+do
+{
+    printf("%d ", a);
+    a++;
+    if(a > 35)
+        break;
+}while(1);
+
+return 0;
+}
+
+
+What is the output of C Program.?
+int main()
+{
+int a=32;
+
+do
+{
+    printf("%d ", a);
+    a++;
+    if(a > 35)
+        break;
+}while(1);
+
+return 0;
+}
+
+
+A) No Output
+
+
+B) 32 33 34
+
+
+C) 32 33 34 35
+
+
+D) Compiler error
+
+Question: 8
+What is the output of C Program.?
+int main()
+{
+int a=14;
+
+while(a<20)
+{
+    ++a;
+    if(a>=16 && a<=18)
+    {
+        continue;
+    }
+    printf("%d ", a);
+
+}
+
+return 0;
+}
+
+
+What is the output of C Program.?
+int main()
+{
+int a=14;
+
+while(a<20)
+{
+    ++a;
+    if(a>=16 && a<=18)
+    {
+        continue;
+    }
+    printf("%d ", a);
+
+}
+
+return 0;
+}
+
+
+A) 15 16 17 18 19
+
+
+B) 15 18 19
+
+
+C) 15 16 20
+
+
+D) 15 19 20
+
+Question: 9
+What is the output of C Program.?
+int main()
+{
+int a=0, b=0;
+while(++a < 4)
+printf(“%d “, a);
+
+while(b++ < 4)
+    printf("%d ", b);
+
+return 0;
+}
+
+
+What is the output of C Program.?
+int main()
+{
+int a=0, b=0;
+while(++a < 4)
+printf(“%d “, a);
+
+while(b++ < 4)
+    printf("%d ", b);
+
+return 0;
+}
+
+
+A) 0 1 2 3 1 2 3 4
+
+
+B) 1 2 3 1 2 3 4
+
+
+C) 1 2 3 4 1 2 3 4
+
+
+D) 1 2 3 4 0 1 2 3
+
+Question: 10
+What is the output of C Program.?
+int main()
+{
+int a=10,b=20;
+
+if(a==9 AND b==20)
+{
+    printf("Hurray..");
+}
+
+if(a==10 OR b==21)
+{
+    printf("Theatre");
+}
+
+return 0;
+}
+
+
+What is the output of C Program.?
+int main()
+{
+int a=10,b=20;
+
+if(a==9 AND b==20)
+{
+    printf("Hurray..");
+}
+
+if(a==10 OR b==21)
+{
+    printf("Theatre");
+}
+
+return 0;
+}
+
+
+A) Theatre
+
+
+B) Hurray
+Theatre
+
+
+C) No output
+
+
+D) Compiler error
+
+Question: 11
+How many times ‘i’ value is checked?
+
+include
+int main ()
+{
+int i = 0;
+while (i < 3)
+i++;
+printf (” In while loop\n”);
+}
+
+
+How many times ‘i’ value is checked?
+
+include
+int main ()
+{
+int i = 0;
+while (i < 3)
+i++;
+printf (” In while loop\n”);
+}
+
+
+4
+
+3
+
+2
+
+In while loop
+Question: 12
+Choose correct C while loop syntax.
+
+
+Choose correct C while loop syntax.
+
+
+A)while(condition)
+{
+//statements
+}
+
+
+B){
+//statements
+}while(condition)
+
+
+C)while(condition);
+{
+//statements
+}
+
+
+D)while()
+{
+if(condition)
+{
+//statements
+}
+}
+
+Question: 13
+-What is the output of C Program.?
+int main()
+{
+int a=5;
+
+while(a==5)    
+{
+    printf("RABBIT");
+    break;
+}
+
+return 0;
+}
+
+
+-What is the output of C Program.?
+int main()
+{
+int a=5;
+
+while(a==5)    
+{
+    printf("RABBIT");
+    break;
+}
+
+return 0;
+}
+
+
+A)RABBIT is printed unlimited number of times
+
+
+B)RABBIT
+
+
+C)Compiler error
+
+
+D)None of the above.
+
+Question: 14
+What is the output of C Program.?
+int main()
+{
+int a=5;
+
+while(a=123)    
+{
+    printf("RABBIT ");
+    break;
+}
+printf("GREEN");
+
+return 0;
+}
+
+
+What is the output of C Program.?
+int main()
+{
+int a=5;
+
+while(a=123)    
+{
+    printf("RABBIT ");
+    break;
+}
+printf("GREEN");
+
+return 0;
+}
+
+
+A)GREEN
+
+
+B)RABBIT GREEN
+
+
+C)RABBIT is printed unlimited number of times.
+
+
+D)Compiler error.
+
+Question: 15
+What is the output of C Program.?
+int main()
+{
+int a=5;
+
+while(a >= 3)
+{
+    break;
+    printf("RABBIT\n");
+
+}
+printf("GREEN");
+
+return 0;
+}
+
+
+What is the output of C Program.?
+int main()
+{
+int a=5;
+
+while(a >= 3)
+{
+    break;
+    printf("RABBIT\n");
+
+}
+printf("GREEN");
+
+return 0;
+}
+
+
+A)GREEN
+
+
+B)RABBIT GREEN
+
+
+C)RABBIT is printed infinite times/li>
+
+
+D)None of the above
+
+Question: 16
+What will be the output of the following C code?
+
+#include <stdio.h>
+int main()
+{
+    while ()
+        printf("In while loop ");
+    printf("After loop\n");
+}
+
+What will be the output of the following C code?
+
+#include <stdio.h>
+int main()
+{
+    while ()
+        printf("In while loop ");
+    printf("After loop\n");
+}
+
+a) In while loop after loop
+
+
+b) After loop
+
+
+c) Compile time error
+
+
+d) Infinite loop
+
+Question: 17
+What will be the output of the following C code?
+
+#include <stdio.h>
+int main()
+{
+    do
+        printf("In while loop ");
+    while (0);
+        printf("After loop\n");
+}
+
+What will be the output of the following C code?
+
+#include <stdio.h>
+int main()
+{
+    do
+        printf("In while loop ");
+    while (0);
+        printf("After loop\n");
+}
+
+a) In while loop
+
+
+b) In while loop After loop
+
+
+c) After loop
+
+
+d) Infinite loop
+
+Question: 18
+What will be the output of the following C code?
+
+#include <stdio.h>
+int main()
+{
+    int i = 0;
+    do {
+        i++;
+        printf("In while loop\n");
+    } while (i < 3);
+}
+
+What will be the output of the following C code?
+
+#include <stdio.h>
+int main()
+{
+    int i = 0;
+    do {
+        i++;
+        printf("In while loop\n");
+    } while (i < 3);
+}
+
+a)
+In while loop
+In while loop
+In while loop
+
+
+b)
+In while loop
+In while loop
+
+
+c) Depends on the compiler
+
+
+d) Compile time error
+
+Question: 19
+How many times i value is checked in the following C code?
+
+#include <stdio.h>
+int main()
+{
+    int i = 0;
+    do {
+        i++;
+        printf("in while loop\n");
+    } while (i < 3);
+}
+
+How many times i value is checked in the following C code?
+
+#include <stdio.h>
+int main()
+{
+    int i = 0;
+    do {
+        i++;
+        printf("in while loop\n");
+    } while (i < 3);
+}
+
+a) 2
+
+
+b) 3
+
+
+c) 4
+
+
+d) 1
+
+Question: 20
+What is the value of following C code?
+
+#include <stdio.h>
+int main()
+{
+    int i = 0;
+    while (i < 3)
+        i++;
+    printf("In while loop\n");
+}
+
+What is the value of following C code?
+
+#include <stdio.h>
+int main()
+{
+    int i = 0;
+    while (i < 3)
+        i++;
+    printf("In while loop\n");
+}
+
+a) 2
+
+
+b) 3
+
+
+c) 4
+
+
+d) In while loop
+
+Question: 21
+What will be the output of the following C code?
+
+#include <stdio.h>
+void main()
+{
+    int i = 2;
+    do
+    {
+        printf("Hi");
+    } while (i < 2)
+}
+
+What will be the output of the following C code?
+
+#include <stdio.h>
+void main()
+{
+    int i = 2;
+    do
+    {
+        printf("Hi");
+    } while (i < 2)
+}
+
+a) Compile time error
+
+
+b) Hi Hi
+
+
+c) Hi
+
+
+d) Varies
+
+Question: 22
+What will be the output of the following C code?
+
+#include <stdio.h>
+void main()
+{
+    int i = 0;
+    while (++i)
+    {
+        printf("H");
+    }
+}
+
+What will be the output of the following C code?
+
+#include <stdio.h>
+void main()
+{
+    int i = 0;
+    while (++i)
+    {
+        printf("H");
+    }
+}
+
+a) H
+
+
+b) H is printed infinite times
+
+
+c) Compile time error
+
+
+d) Varies
+
+Question: 23
+What will be the output of the following C code?
+
+#include <stdio.h>
+void main()
+{
+    int i = 0;
+    do
+    {
+        printf("Hello");
+    } while (i != 0);
+}
+
+What will be the output of the following C code?
+
+#include <stdio.h>
+void main()
+{
+    int i = 0;
+    do
+    {
+        printf("Hello");
+    } while (i != 0);
+}
+
+a) Nothing
+
+
+b) H is printed infinite times
+
+
+c) Hello
+
+
+d) Run time error
+
+Question: 24
+What will be the output of the following C code?
+
+#include <stdio.h>
+void main()
+{
+    char str;
+    do
+    {
+        printf("hello");
+    } while (str);
+}
+
+What will be the output of the following C code?
+
+#include <stdio.h>
+void main()
+{
+    char str;
+    do
+    {
+        printf("hello");
+    } while (str);
+}
+
+a) Nothing
+
+
+b) Run time error
+
+
+c) hello
+
+
+d) Hello is printed infinite times
+
+Question: 25
+What will be the output of the following C code?
+
+include
+void main()
+{
+int i = 0;
+while (i < 10)
+{
+i++;
+printf(“hi\n”);
+while (i < 8)
+{
+i++;
+printf(“hello\n”);
+}
+}
+}
+
+
+What will be the output of the following C code?
+
+include
+void main()
+{
+int i = 0;
+while (i < 10)
+{
+i++;
+printf(“hi\n”);
+while (i < 8)
+{
+i++;
+printf(“hello\n”);
+}
+}
+}
+
+
+a) Hi is printed 8 times, hello 7 times and then hi 2 times
+
+
+b) Hi is printed 10 times, hello 7 times
+
+
+c) Hi is printed once, hello 7 times
+
+
+d) Hi is printed once, hello 7 times and then hi 2 times
+
+Question: 26
+What is an example of iteration in C?
+
+
+What is an example of iteration in C?
+
+
+a) for
+
+
+b) while
+
+
+c) do-while
+
+
+d) all of the mentioned
+
+Question: 27
+What will be the output of the following C code?
+
+#include <stdio.h>
+int main()
+{
+    int i = 0;
+    while (i = 0)
+        printf("True\n");
+    printf("False\n");
+}
+
+What will be the output of the following C code?
+
+#include <stdio.h>
+int main()
+{
+    int i = 0;
+    while (i = 0)
+        printf("True\n");
+    printf("False\n");
+}
+
+a) True (infinite time)
+
+
+b) True (1 time) False
+
+
+c) False
+
+
+d) Compiler dependent
+
+Question: 28
+What will be the output of the following C code?
+
+#include <stdio.h>
+int main()
+{
+    int i = 0, j = 0;
+    while (i < 5, j < 10)
+    {
+        i++;
+        j++;
+    }
+    printf("%d, %d\n", i, j);
+}
+
+What will be the output of the following C code?
+
+#include <stdio.h>
+int main()
+{
+    int i = 0, j = 0;
+    while (i < 5, j < 10)
+    {
+        i++;
+        j++;
+    }
+    printf("%d, %d\n", i, j);
+}
+
+a) 5, 5
+
+
+b) 5, 10
+
+
+c) 10, 10
+
+
+d) Syntax error
+
+Question: 29
+What is the output of this program?
+
+void main()
+{
+if(!printf(“”))
+printf(“hello”);
+else
+printf(“world”);
+}
+
+
+What is the output of this program?
+
+void main()
+{
+if(!printf(“”))
+printf(“hello”);
+else
+printf(“world”);
+}
+
+
+A. hello
+
+
+B. world
+
+
+C. Compilation Error
+
+
+D. None of the above
+
+Question: 30
+What is the output of this program?
+
+include
+void main()
+{
+int a=10;
+if(a=5)
+printf(“YES”);
+else
+printf(“NO”);
+}
+
+
+What is the output of this program?
+
+include
+void main()
+{
+int a=10;
+if(a=5)
+printf(“YES”);
+else
+printf(“NO”);
+}
+
+
+A. YES
+
+
+B. NO
+
+
+C. Error
+
+
+D. None of the above
