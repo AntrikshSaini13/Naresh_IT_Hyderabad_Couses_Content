@@ -15,3 +15,16 @@
 // Number is : 4 and cube of the 4 is :64
 
 // Number is : 5 and cube of the 5 is :125
+
+#include<stdio.h>
+#include<math.h>
+void main(){
+    int num,i,j;
+    printf("Enter the number\n");
+    scanf("%d",&num);
+    for(i=1;i<=num;i++){
+        // for(j=1;j<=i;j++)
+        j=powf(i,3);
+        printf("Number is : %d and cube of the %d is :%d\n",num,i,j);
+    }
+}
