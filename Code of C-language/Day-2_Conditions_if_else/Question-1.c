@@ -1,7 +1,6 @@
 
 // ------------------
 // Print the following output in C Language
-   
 //           /\
 //          //\\
 //         ///\\\

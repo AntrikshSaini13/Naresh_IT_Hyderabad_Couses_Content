@@ -8,7 +8,9 @@
 
 // Input 2 as: 9 6 4
 // Output as:
-// In Asc order - c b a  i.e(4 6 9)
+/
+
+/ In Asc order - c b a  i.e(4 6 9)
 // In Dec order - a b c  i.e(9 6 4)  */
 
 #include<stdio.h>
