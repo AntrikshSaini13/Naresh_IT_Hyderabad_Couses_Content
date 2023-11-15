@@ -7,6 +7,6 @@ void main(){
     scanf("%d",&num);
     system("cls");
     for(i=1;i<=num;i++){
-        printf("%d = %c \t  ",i,i);
+        printf("%d = %c  ",i,i);
     }  
 }
