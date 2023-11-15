@@ -1,0 +1,166 @@
+******************************************************************String************************************************************
+
+Q-1 Write a C program to count the number of alphabet present in a given String .
+
+Input as : Apple
+
+Output as : The count of alphabet is : 5
+
+
+Q-2 Write a C program to print the reverse of a given String 
+
+Input as :
+
+Enter a String : NareshIT
+
+Output as : 
+
+The reverse of the String is : TIhseraN
+
+Q-3 Write a C program to count the Count the vowel, Consonant, Digit and Special Character in a given String .
+
+Input as : 
+
+Enter a String : Nareshit @123
+
+Output as :
+
+Vowel count is : 3
+
+Consonant count is : 5
+
+Digit count is : 3
+
+Special Character count is : 1
+
+Q-4 Write a C program to check is the String contains any vowel or not.
+
+
+
+Input as : 
+
+Enter a String : Apple
+
+Output as : 
+
+This String contains vowel.
+
+Input as : 
+
+Enter a String : Rhythm
+
+Output as : 
+
+There is no vowel present in this String.
+
+
+Q-5 Write a C program to sort the string data and print it.
+
+Input as : 
+
+Enter a String : apple
+
+Output as : 
+
+After Sorting the String is : aelpp
+
+
+Q-6 Write a c program to check the String is Palindrome  or Not 
+
+Q-7 Write a c Program to check whether two given strings are anagram of each other or not.
+
+input 1:- listen
+
+input 2:- silent
+
+this are anagram String
+______
+
+input 1:- Jack
+
+input 2:- Jake
+
+this is not are anagram String
+
+Q-8 Write a c program to print all the frequency of character present
+
+For Example:-
+
+String s=" Hello Everyone"
+
+Output as :-
+
+The frequency of H is 1
+
+The frequency of e is 3
+
+The frequency of l is 2
+
+The frequency of o is 2
+
+The frequency of   is 1  --------THIS IS FOP CHECKING THE SPACE COUNT 
+
+The frequency of E is 1
+
+The frequency of v is 1
+
+The frequency of r is 1
+
+The frequency of y is 1
+
+The frequency of n is 1
+
+Q-9 Write a c program to sort the String in ascending order ,after sorting print the result in string
+
+format? 
+
+Input as :- "CoreJava"
+
+output as:-
+
+Before sorting the array
+
+CoreJava
+
+After sorting the array
+
+CJaaeorv
+
+Q-10 Write a c program to sort the String in Descending Order  ,after sorting print the result in string
+
+format?  
+
+Input as :- "CoreJava"
+
+Before sorting the array
+
+CoreJava
+
+After sorting the array
+
+vroeaaJC
+
+Q -11 Sirting
+
+#include<stdio.h> #include<conio.h> #include<string.h>
+void main()
+{
+char s[5][100], t[100]; int i,j;
+clrscr();
+printf("Enter 5 names \n");
+for(i=0; i<5;i++) gets(s[i]);
+for(i=0;i<=3;i++)
+{
+for(j=i+1;j<=4;j++)
+{
+if(stricmp(s[i],s[j])>0)
+{ strcpy(t,s[i]); strcpy(s[i],s[j]);strcpy(s[j],t);}
+}
+}
+puts("Names");
+puts("-----------------------------");
+for(i=0;i<5;i++)puts(s[i]);
+getch();
+}
+
+
