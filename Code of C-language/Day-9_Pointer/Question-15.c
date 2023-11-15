@@ -1,5 +1,5 @@
 //Creating dynamic one-dimensional array: with help of calloc()
-
+// for int
 #include<stdio.h>
 #include<stdlib.h>
 void main(){
