@@ -1,9 +1,17 @@
+// Write a C program to count the number of alphabet present in a given String .
+
+// Input as : Apple
+
+// Output as : The count of alphabet is : 5
+
+
 #include<stdio.h>
-void main(){
-    char s1[2]="N",s2[]="N",s3[]={'N','\0'},s4[2]={'N'},s5[]={'k'};
-    puts(s1);
-    puts(s2);
-    puts(s3);
-    puts(s4);
-    puts(s5);
+int main() {
+    char s[10]={"Apple"};int i,w;
+    for(w=0,i=0;s[i]!='\0';i++){
+        if(s[i]>='a'&&s[i]<='z')w++;
+        if(s[i]>='A'&&s[i]<='Z')w++;
+    }
+    printf("%d",w);
+return 0;    
 }

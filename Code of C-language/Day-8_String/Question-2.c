@@ -1,11 +1,23 @@
+// Write a C program to print the reverse of a given String 
+
+// Input as :
+
+// Enter a String : NareshIT
+
+// Output as : 
+
+// The reverse of the String is : TIhseraN
+
 #include<stdio.h>
-void main(){
-    char name[7][100]={"Aman","Prachi","Mayank Ji","Advit","Mr Satish","Mrs Anita"};
-    char n[10]="aman";
-    int i;
-    puts("Name");
-    puts("***********************************************************************");
-    puts(n);
-    for(i=0;i<7;i++)
-        puts(name[i]);
+int main() {
+    char s[100]={"    NareshIT"}; int i;
+    puts("Enter String");gets(s);
+    for(i=0;s[i]!='\0';i++){
+        printf("%c",s[i]);
+    }
+    puts("\nRverse String");
+    for(;i>=0;i--){
+        printf("%c",s[i]);
+    }
+return 0;    
 }
