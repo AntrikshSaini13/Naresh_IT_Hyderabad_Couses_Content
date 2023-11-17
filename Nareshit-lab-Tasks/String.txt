@@ -140,9 +140,100 @@ After sorting the array
 
 vroeaaJC
 
-Q -11 Sirting
+Q -11 Write a C program to combine two string in a single String.
 
-#include<stdio.h> #include<conio.h> #include<string.h>
+Input as :
+
+Enter first String : Naresh
+
+Enter Second String : it
+
+Expected output :
+
+Resulting String is : Nareshit
+
+Q-12 Write a C program to remove given character from a String.
+
+Input as : 
+
+Enter a String : Bookstore
+
+Enter the character you want to remove : o
+
+Expected Output : 
+
+Resulting String is : Bkstre
+
+Q-13 Write a C program to remove all the Spaces from a given String.
+
+Input as : 
+
+Enter a String : Black cat on a mat
+
+Expected output : Blackcatonamat
+
+Q-14 Write a C program to convert all the character to upper case 
+
+from a given index to end index. If the given index is not available then print
+
+Index is not available.
+
+Input as :
+
+Enter a String : I am a student
+
+Enter the starting index number : 4
+
+Enter the ending index number : 13
+
+Expected output :
+
+Resulting String is : I am A STUDENT
+
+Q-15 Write a C program to check the given string contains a capital
+
+alphabet, small alphabet, special character and digit.
+
+Input as : 
+
+Enter a String : Nareshit@123
+
+Expected output :
+
+The given String is matching to our cases.
+
+Input as : 
+
+Enter a String : nareshit
+
+
+
+Expected output :
+
+The given String is not matching to our cases.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------
+Sorting
+
+#include<stdio.h> 
+#include<conio.h> 
+#include<string.h>
 void main()
 {
 char s[5][100], t[100]; int i,j;
