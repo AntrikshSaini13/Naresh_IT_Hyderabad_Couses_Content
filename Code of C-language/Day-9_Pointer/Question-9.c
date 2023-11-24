@@ -1,6 +1,8 @@
 
-//Write a C program to rotate an array of integers to the right by a specified number of positions. For example, if you have an array [1, 2, 3, 4, 5] and you want to rotate it to the right by 2 positions, the result should be [4, 5, 1, 2, 3].(Develop it by using pointers & function).
-
+/*Write a C program to rotate an array of integers to the right by a specified number of positions. For example, i
+f you have an array [1, 2, 3, 4, 5] and you want to rotate it to the right by 2 positions, the result should be [4, 5, 1, 2, 3].
+(Develop it by using pointers & function).
+*/
 #include<stdio.h>
 void rotate_array(int *p,int size);
 void rotate_array(int *p,int size){
