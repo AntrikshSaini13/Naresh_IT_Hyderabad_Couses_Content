@@ -1,15 +1,26 @@
+/*
+Write a program in C to add two numbers using pointers.
+
+Test Data :
+
+Input the first number : 5
+
+Input the second number : 6
+
+Expected Output :
+
+
+
+The sum of the entered numbers is : 11 
+
+
+*/
+
 #include<stdio.h>
-#include<conio.h>
-void show(int b[3])// or a[ ] or *a
-{
-printf("Array elements %d %d %d\n",b[0],b[1],b[2]);
-//a[0]=100; a[1]=200; a[2]=300;
-}
-void main()
-{
-int a[3]={10,20,30};
-//clrscr();
-show(a); //or show(&a);
-printf("Array elements %d %d %d",a[0],a[1],a[2]);
-getch();
+int main() {
+    int a,b,*p=&a,*q=&b;
+    printf("Enter the two number = ");
+    scanf("%d %d",&a,&b);
+    printf("Sum is %d",*p+*q);
+return 0;    
 }

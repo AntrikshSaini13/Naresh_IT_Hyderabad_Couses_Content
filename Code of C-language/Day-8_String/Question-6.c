@@ -3,7 +3,7 @@
 #include<stdio.h>
 int main()
 {
-    char s1[100],s2[100];
+    char s1[10][100],s2[100];
     int i,j;
     puts("Enter the String = ");scanf("%s",s1);
     for(i=0;s1[i]!='\0';i++);
@@ -17,7 +17,7 @@ int main()
             else {
                 puts("String  not Palindrome");
                 return 0;
-                }
+            }
         }
     }
     printf("String is Palindrome");
