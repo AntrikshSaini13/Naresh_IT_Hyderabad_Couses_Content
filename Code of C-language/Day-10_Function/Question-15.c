@@ -44,7 +44,7 @@ Amicable pairs between 100 and 10000 are:
 (6368, 6232)
 
 */
-
+/*
 #include <stdio.h>
 #include<stdlib.h>
 //function declerations
@@ -96,3 +96,4 @@ int main() {
     }
     return 0;
 }
+*/
