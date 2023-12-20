@@ -1,0 +1,307 @@
+11-DEC-23
+javaravishanker@gmail.com
+
+What is a language?
+-------------------
+A language is a communication media through which we can communicate with
+each other.
+
+What is a programming language?
+--------------------------------
+A Programming language is an intermediate between the user and computer System.
+
+Every language contains two important aspects :
+      1) Syntax (Rules given by the language)
+      2) Semantics (Meaning OR Structure of the language)
+
+In English language, if we want to make a translation then the syntax is :
+
+Subject + verb + Object
+She  is   a   girl. [Valid]
+She  is   a   box.  [Invalid but still I am following the syntax]
+
+In our programming language also :
+
+int x = 12;
+int y = 0;
+int z = x /y;
+
+In Java programming language we have 2 types of Security :
+
+1) At Compilation level : Here our java compiler will verify whether the 
+   code is valid or not according to the syntax.
+
+2) At Runtime Level : Here our runtime environment will verify the semantics of the code that means the code is meaningful or not?
+-------------------------------------------------------------------------
+Statically(Strongly) typed language :-
+---------------------------------------
+The languages where data type is compulsory before initialization of a variable are called statically typed language.
+In these languages we can hold same kind of value during the execution of the program.
+
+Ex:- C,C++,Core Java, C#
+
+Dynamically(Looesly) typed language :-
+-------------------------------------------
+The languages where data type is not compulsory and it is optional before initialization of a variable then it is called dynamically typed language.
+
+In these languages we can hold different kind of value during the execution of the program.
+Ex:- Visual Basic, Javascript, Python
+---------------------------------------------------------------
+What is a function :-
+-----------------------
+A function is a self defined block for any general purpose, calculation or printing some data.
+
+The major benefits with function are :-
+-------------------------------------------
+1) Modularity :- Dividing the bigger modules into number of smaller modules where each module will perform its independent task.
+
+2) Easy understanding :- Once we divide the bigger task into number of smaller tasks then it is easy to understand the entire code.
+
+3) Reusability :- We can reuse a particular module so many number of times so It enhances the reusability nature.
+
+Note :- In java we always reuse our classes.
+
+4) Easy Debugging :- Debugging means finding the errors, With function It is easy to find out the errors because each module is independent with another module. 
+
+Why we pass parameter to a function :-
+--------------------------------------------
+We pass parameter to a function for providing more information regrading the function.
+
+Eg:-
+
+userdefined function                  predefined function
+public void switchOn(int a)            switchOn(3); // The fan is running in mode 3
+{
+  //start the fan
+}
+
+-----------------------------------------------------------------
+Why member functions are called method in java ?
+--------------------------------------------------
+variable -> fields
+function -> methods
+
+Why functions are called method in java?
+----------------------------------------------
+In C++ there is a facility to write a function inside the class as well as outside of the class by using :: (Scope resolution Operator), But in java all the functions must be declared inside the class only.
+
+That is the reason member functions are called method in java.
+
+Variable -->  Field
+function ---> Method
+----------------------------------------------------------------
+History of java :
+----------------
+First Name of Java : OAK (In the year 1991 which is a tree name)
+
+Project Name :- Green Project 
+
+Inventor of Java : - James Gosling and his friends
+
+Official Symbol :- Coffee CUP
+
+Java :- Island (Indonesia)
+-----------------------------------------------------------------
+Why java become so popular in the IT Industry ?
+-----------------------------------------------------
+The role of compiler :
+-------------------------
+a) Compiler are used to check the syntax.
+b) It also check the compatibility issues(LHS = RHS)
+c) It converts the source code into machine code.
+
+
+Java code :
+-------------
+a) Java programs must be saved having extension .java
+
+b) java compiler(javac) is used to compile our code.
+
+c) After successful compilation we are getting .class file (bytecode)
+
+d) This .class file we submit to JVM for execution prupose (for executing my java code)
+
+JVM :- It stands for Java Virtual Machine. It is a software in the form of interpreter  written in 'C' language.
+
+Every browser contains JVM, Those browsers are known as JEB (Java Enabled Browsers) browsers.
+------------------------------------------------------------------
+
+C and C++ programs are platform dependent programs that means the .exe file created on one machine will not be executed on the another machine if the system configuration is different.
+
+That is the reason C and C++ programs are not suitable for website development.
+
+Where as on the other hand java is a platform independent language. Whenever we write a java program, the extension of java program must be .java. 
+
+Now this .java file we submit to java compiler (javac) for compilation process. After successful compilation the compiler will generate a very special machine code file i.e .class file (also known as bytecode). Now this .class file we submit to JVM for execution purpose.
+
+The role of JVM is to load and execute the .class file. Here JVM plays a major role because It converts the .class file into appropriate machine code instruction (Operating System format) so java becomes platform independent language and it is highly suitable for website development.
+
+Note :- We have different JVM for different Operating System that means JVM is platform dependent technology where as Java is platform Independent technology.
+-----------------------------------------------------------------
+What is the difference between the bit code and byte code.
+----------------------------------------------------------
+Bit code is directly understood by Operating System but on the other hand byte code is understood by JVM, JVM is going to convert this byte code into machine understandable format.
+------------------------------------------------------------------
+Comments in JAVA :-
+------------------------
+Comments are used to increase the readability of the program. It is ignored by the compiler.
+In java we have 3 types of comments 
+
+1) Single line Comment (//)
+
+2) Multiline Comment (/* ------------------------------- */)
+
+3) Documentation Comment (/** -------------------------- */)
+
+/**
+Name of the Project : Online Shopping
+Date created :- 12-12-2021
+Last Modified - 16-01-2022
+Author :- Ravishankar
+Modules : -  10 Modules
+*/
+------------------------------------------------------------------
+WAP in java to display welcome message :
+------------------------------------------------
+At initial level we can write a java program with the help class and methods.
+
+Syntax for a class 
+--------------------
+[Access Modifier]  class [Name of the class]
+{
+            
+}
+
+Example :- 
+public class Test
+{
+}
+
+Syntax for a method :
+-------------------------
+[Access modifier] [return type] [Name of the method] ()
+{
+
+
+}
+Example :-
+public  void accept()
+{
+}
+--------------------------------------------------------------------------------------
+Note :- 
+1) In java whenever we write a program we need at least a main method.
+
+2) In java the execution of the program always starts and ends with main method.
+
+----------------------------------------------------------------
+Description of main() method :
+-----------------------------------
+public :-
+--------
+public is an access modifier in java. The main method must be declared as public otherwise JVM cannot execute our main method or in other words JVM can't enter inside the main method for execution of the program.
+
+If main method is not declared as public then program will compile but it will not be executed by JVM.
+
+Note :- From java compiler point of view there is no rule to declare our methods as public.
+----------------------------------------------------------------
+static :-
+--------
+In java our main method is static so we need not to create an object to call the main method.
+
+If a method is declared as a static then we need not to create an object to call that method. We can directly call the static methods with the help of class name (Object is not required).
+
+If we don't declare the main method as static method then our program will compile but it will not be executed by JVM.
+------------------------------------------------------------------
+void :-
+-------
+It is a keyword. It means no return type. Whenever we define any method in java and if we don't want to return any kind of value from that particular method then we should write void before the name of the method.
+
+Eg:
+
+public void input()                              public int accept()
+{                                                 {
+}                                                    return 15;
+						   }
+
+Note :- In the main method if we don't write void or any other kind of return type then it will generate a compilation error.
+
+In java whenever we define a method then compulsory we should define return type of method.(Syntax rule)
+----------------------------------------------------------------
+main() :-
+----------
+It is a user-defined method because a user is responsible to define some logic inside the main method.
+
+main() method is very important method because every program execution will start from main() method only, as well as the execution of the program ends with main() method only.
+
+We can write multiple main methods in our class but argument must be different.
+----------------------------------------------------------------
+Command Line Argument (Introduction only) :-
+-------------------------------------------
+Whenever we pass an argument/parameter to the main method then it is called Command Line Argument.
+
+The argument inside the main method is String because String is a alpha-numeric collection of character so, It can accept numbers,decimals, characters, combination of number and character.
+
+That is the reason java software people has provided String as a parameter inside the main method.(More Wider scope to accept the value)
+--------------------------------------------------------------
+System.out.println() :-
+-------------------------
+It is an output statement in java, By using System.out.println() statement we can print anything on the console.
+
+In System.out.println(), System is a predefined class available in java.lang package, out is a reference variable of PrintStream class available in java.io package and println() is a predfined method available in PrintStream class.
+
+In System.out, .(dot) is a member access operator. It is called as period. It is used to access the member of the class.
+--------------------------------------------------------------
+WAP in java to add two numbers :
+--------------------------------
+Addition.java
+-------------
+public class Addition 
+{
+	public static void main(String[] args) 
+	{
+		int val1 = 100;
+		int val2 = 200;
+		int result = val1 + val2;
+		System.out.println(result);
+	}
+}
+
+In this program we are getting the result but it is not 
+user-friendly, to provide user-friendly message we should re-write the program
+
+public class AdditionWithMessage 
+{
+	public static void main(String[] args) 
+	{
+		int val1 = 100;
+		int val2 = 200;
+		int result = val1 + val2;
+		System.out.println("Sum is :" + result);
+	}
+}
+---------------------------------------------------------------
+//WAP to add two numbers without 3rd variable
+
+public class AdditionWithout3rdVariable 
+{
+	public static void main(String[] args) 
+	{
+		int x = 12;
+		int y = 15;
+		System.out.println("Addition is :"+x+y); //Addition is :1215
+		System.out.println(+x+y);//27
+		System.out.println("Addition is :"+(x+y));
+	}
+}
+-------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+

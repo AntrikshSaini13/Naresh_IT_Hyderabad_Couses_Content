@@ -1,0 +1,260 @@
+Q1) Write a program to perform addition,subtraction, multiplication and 
+    division between two numbers using 3rd variable.
+
+Q2) Write a program to perform addition using command line Argument.
+
+Q3) Write a program to find out the area of circle by taking the value
+    from Command line arguments
+
+ 1) Write a program to find out the cube of a number where number must be    taken from command line argument.
+
+2) Write a program to find out the area of Rectangle where length and       breadth of the Rectangle must be taken from user.
+
+3) Write a program to find the sum and average of three numbers where       number must be taken from command line argument.
+
+4) Write a program to interchange the value of two numbers without using    the third variable where number must be taken from command line          argument.
+
+5) Write a program to calculate the tax for a taxable income of Rs.         9,90,000, if the tax rate is fixed at 4.9%.
+Program 01:
+-----------
+Write a  program in Java that will generate and print the bill at Dominos for four chicken rolls (@ Rs 60 per chicken rolls) and three vegetable puffs (@ Rs 25 per vegetable puffs). There is a special Yoga Day discount of Rs 50 on the final bill amount. Calculate and print final bill as well as all item bill.
+
+Program 02:
+-----------
+Write a Java program and compute the sum of a two digit integer number
+Example :- Input = 54
+           Output = 9
+
+
+Program 03:
+----------
+Write a program in Java to display the following pattern on the screen without using loop.
+@@@@@@@@
+@      @
+@      @
+@      @
+@      @
+@      @
+@@@@@@@@
+
+Program 04:
+-----------
+Write a program to input the basic salary of a person. He get 15% of the basic as HRA, 15% of the basic as Conveyance allowance and 10% of the basic as Entertainment allowance. The total salary is calculated by adding Basic + HRA + Conveyance + Entertainment Allowance. Calculate and print the total salary of person.
+Take the Basic Salary from Command Line Argument
+
+Program 05 :
+-------------
+Write a program in java to Fahrenheit to Celsius Program
+Formula is :-  celsius=((fahrenheit-32)*5)/9;
+
+Program-1
+-----------
+A shopkeeper buys a TV set for Rs. 32,500 and sells it at a profit of 27%. Apart from this a VAT of 12.7% and Service Charge is 3.87% is charged. Display total selling price, profit along with vat and service charge.
+
+Program-2
+----------
+Rohan purchased an old cycle for Rs. 1200 and spend Rs. 250 on repairs, Rs. 350 in coloring and added new accessories worth Rs. 500. Rohan wants to make a profit of Rs. 1500 on selling the cycle. Find the selling price of the cycle. Write a java program to store all values and calculate and display the selling price.
+
+Program-3
+----------
+Write a program to enter Principal, Rate and Time. Calculate and display Simple Interest and Amount.
+
+Program-4
+----------
+Write a program in java to input number of days. Find and display number of years, months and days.
+
+Program-5
+-----------
+A whole-seller gives incentives in the form of discounts on the net bill. Write a program to input the net bill and calculate the discount as follows:
+
+     Net Bill in Rupees			    Discount %
+	<5000					5
+	>=5000 and <10000			10
+	>=10000					15
+
+Display Discount %, Discount Amount and Amount Payable
+
+
+Que-1)
+
+Ans -> 4.0
+____________________-
+What is the output of the following Java Code?
+
+int a=9;
+float b = a/2;
+System.out.println(b);
+
+a 4.0
+b 4.5
+c 5.0
+d None of the above
+_____________________________________________________________________
+Que-2
+Ans -> B
+____________________
+What is the output of the below Java code snippet?
+
+char ch = 'A';//ASCII 65
+int a = ch + 1;
+ch = (char)a;
+System.out.println(ch);
+
+a 66
+b A
+c B
+d 65
+_________________________________________________________________________
+QUE-3)
+___________________
+What is the output of the below Java code snippet?
+
+float a = 8.2/2;
+System.out.println(a);
+
+a.
+4.1
+b.
+8.1
+c.
+4
+d.
+Compiler error
+__________________________________________________________________________
+Que-4)
+__________________
+What is the output of the Java code snippet?
+
+int a = 260;
+byte b= (byte)a;
+System.out.println(b);
+
+a.
+0
+b.
+4
+c.
+255
+d.
+260
+__________________________________________________________________________
+Que-5)
+__________________
+What is the output of the Java code snippet?
+
+short a = (short)65540;
+System.out.println(a);
+
+a.
+0
+b.
+4
+c.
+65536
+d.
+65540
+__________________________________________________________________________
+Que-6)
+__________________
+public class MyFirstJavaProgram {
+ public static void main(String []args) {
+ int a = 300;
+ long b = a;
+ System.out.println(b);
+ }
+}
+__________________________________________________________________________
+Que-7)
+________________
+public class WideningExample {
+ public static void main(String args[]){
+ char ch = 'C';
+ int i = ch;
+ System.out.println(i);
+ }
+}
+__________________________________________________________________________
+Que-8)
+________________
+public class Sample {
+ public static void main(String[] args)
+ {
+ System.out.print("Y"+"O");
+ System.out.print('L');
+ System.out.print('O');
+ }
+}
+__________________________________________________________________________
+Que-9)
+________________
+public class Sample2 {
+ public static void main(String[] args)
+ {
+ System.out.print("Y"+"O");
+ System.out.print('L' + 'O');
+ }
+}
+_________________________________________________________________________
+Que-10)
+________________
+class Sample3{
+ public static void main(String[] args)
+ {
+ int i = 100;
+ long l = i;
+ float f = l;
+ System.out.println("Int value " + i);
+ System.out.println("Long value " + l);
+ System.out.println("Float value " + f);
+ }
+}
+________________________________________________________________________
+Que-11)
+_______________
+public class Sample4{
+public static void main(String[] argv)
+{
+char ch = 'c';
+int num = 88;
+ch = num;
+}
+}
+________________________________________________________________________
+Que-12)
+_______________
+class Sample5{
+public static void main(String args[])
+{
+byte b = 42;
+char c = 'a';
+short s = 1024;
+int i = 50000;
+float f = 5.67f;
+double d = .1234;
+double result = (f * b) + (i / c) - (d * s);
+System.out.println("result = " + result);
+}
+}
+________________________________________________________________________
+Programming Questions
+________________________________________________________________________
+QUE-1)
+-----------
+Write a java program to covert string to double using parseDouble() and multiply two Floating -point 
+Numbers and display the result by taking input from the command line argument?
+-----------------------------------------------------------------------
+Que-2)
+-----------
+Write a java program to find the ASCII value of a character
+For Example
+Output sholud be in below formart
+The ASCII value of a is :97
+----------------------------------------------------------------------
+Que-3)
+-----------
+Write a java program to find the profit and loss by following the formula
+Profit and loss Formulas   
+Profit = SP   CP
+Loss = CP   SP
+Profit percentage = (Profit /Cost Price) x 100
+Loss percentage = (Loss / Cost price) x 100

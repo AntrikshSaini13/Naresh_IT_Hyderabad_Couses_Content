@@ -1,7 +1,40 @@
 {
     "configurations": [
-        
-
+        {
+            "type": "java",
+            "name": "Calculate",
+            "request": "launch",
+            "mainClass": "Calculate",
+            "projectName": "NareshiT_Hyd_1895e334"
+        },
+        {
+            "type": "java",
+            "name": "Addition",
+            "request": "launch",
+            "mainClass": "Addition",
+            "projectName": "NareshiT_Hyd_1895e334"
+        },
+        {
+            "type": "java",
+            "name": "Addition",
+            "request": "launch",
+            "mainClass": "Java_Language_By_Ravi_Shankar.Lab_Task.Task_0.Addition",
+            "projectName": "NareshiT_Hyd_1895e334"
+        },
+        {
+            "type": "java",
+            "name": "Calculate",
+            "request": "launch",
+            "mainClass": "Java_Language_By_Ravi_Shankar.Lab_Task.Task_0.Calculate",
+            "projectName": "NareshiT_Hyd_1895e334"
+        },
+        {
+            "type": "java",
+            "name": "Public",
+            "request": "launch",
+            "mainClass": "Public",
+            "projectName": "NareshiT_Hyd_1895e334"
+        },
         {
             "name": "(gdb) Bash on Windows Attach",
             "type": "cppdbg",
