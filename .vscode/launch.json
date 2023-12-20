@@ -2,6 +2,90 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Welcome",
+            "request": "launch",
+            "mainClass": "Java_By_Ravi_Shanker.Lab_Tasks.Day_1_Task.Welcome",
+            "projectName": "NareshiT_Hyd_1895e334"
+        },
+        {
+            "type": "java",
+            "name": "Demo",
+            "request": "launch",
+            "mainClass": "Demo",
+            "projectName": "NareshiT_Hyd_1895e334"
+        },
+        {
+            "type": "java",
+            "name": "Add",
+            "request": "launch",
+            "mainClass": "javaProject.Demo.Add",
+            "projectName": "NareshiT_Hyd_1895e334"
+        },
+        {
+            "type": "java",
+            "name": "WithoutPublic",
+            "request": "launch",
+            "mainClass": "WithoutPublic",
+            "projectName": "NareshiT_Hyd_1895e334"
+        },
+        {
+            "type": "java",
+            "name": "Without_public",
+            "request": "launch",
+            "mainClass": "Without_public",
+            "projectName": "NareshiT_Hyd_1895e334"
+        },
+        {
+            "type": "java",
+            "name": "Welcome",
+            "request": "launch",
+            "mainClass": "Welcome",
+            "projectName": "NareshiT_Hyd_1895e334"
+        },
+        {
+            "type": "java",
+            "name": "With_Public",
+            "request": "launch",
+            "mainClass": "With_Public",
+            "projectName": "NareshiT_Hyd_1895e334"
+        },
+        {
+            "type": "java",
+            "name": "Demo",
+            "request": "launch",
+            "mainClass": "javaProject.Demo",
+            "projectName": "NareshiT_Hyd_1895e334"
+        },
+        {
+            "type": "java",
+            "name": "Demo",
+            "request": "launch",
+            "mainClass": "Java_By_Ravi_Shanker.Demo",
+            "projectName": "NareshiT_Hyd_1895e334"
+        },
+        {
+            "type": "java",
+            "name": "Addition",
+            "request": "launch",
+            "mainClass": "Java_By_Ravi_Shanker.labtask.task_0.Addition",
+            "projectName": "NareshiT_Hyd_1895e334"
+        },
+        {
+            "type": "java",
+            "name": "Addition",
+            "request": "launch",
+            "mainClass": "Java.labtask.task_0.Addition",
+            "projectName": "NareshiT_Hyd_1895e334"
+        },
+        {
+            "type": "java",
+            "name": "Add",
+            "request": "launch",
+            "mainClass": "Java.Add",
+            "projectName": "NareshiT_Hyd_1895e334"
+        },
+        {
+            "type": "java",
             "name": "Calculate",
             "request": "launch",
             "mainClass": "Calculate",

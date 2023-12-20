@@ -1,6 +1,6 @@
-// Before the class we are not defind "Public" assess modifier
+package Java_By_Ravi_Shanker.Lab_Tasks.Day_1_Task;
 
-class Without_public{
+public class Welcome {
     public static void main(String[] args) {
         System.out.println("Welcome");
     }
