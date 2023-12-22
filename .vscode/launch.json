@@ -4,6 +4,20 @@
             "type": "java",
             "name": "Welcome",
             "request": "launch",
+            "mainClass": "Java_By_Ravi_Shanker.Java_Class_Code.Welcome",
+            "projectName": "NareshiT_Hyd_1895e334"
+        },
+        {
+            "type": "java",
+            "name": "Welcome",
+            "request": "launch",
+            "mainClass": "Java_By_Ravi_Shanker.Java_Lab_Tasks.Day_1_Task.Welcome",
+            "projectName": "NareshiT_Hyd_1895e334"
+        },
+        {
+            "type": "java",
+            "name": "Welcome",
+            "request": "launch",
             "mainClass": "Java_By_Ravi_Shanker.Lab_Tasks.Day_1_Task.Welcome",
             "projectName": "NareshiT_Hyd_1895e334"
         },
