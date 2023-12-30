@@ -1,7 +1,7 @@
 {
-    "liveServer.settings.port": 5502,
-    "java.debug.settings.onBuildFailureProceed": true,
-    "java.configuration.runtimes": [
-        
-    ]
+    "java.project.sourcePaths": [
+        "."
+    ],
+    "liveServer.settings.port": 5500,
+    "java.debug.settings.onBuildFailureProceed": true
 }

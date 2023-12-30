@@ -1,0 +1,304 @@
+23-12-2023
+----------
+Character Literal :
+-------------------
+It is also known as char literal.
+
+Here we have only one data type i.e char data type which accepts 2 bytes of memory.
+
+We can represent char literal in different ways which are as follows :
+
+ a) Single character enclosed with single quotes.
+
+    Example :- char ch = 'A';
+
+ b) We can assign integral literal to char data type to represent the 
+    UNICODE value for that character. 
+    In older language like C and C++, the range is 0 - 255 which is representing the ASCII value of the character.
+    But Java supports UNICODE where the range is 0 - 65535.
+
+    char ch = 65535; //Valid
+    char ch = 65536; //InValid
+
+ c) The char literal we can assign to integeral data type to know the 
+    UNICODE number value of that character.
+
+    int ch = 'A';    -> 65
+
+ d) All our escape sequnces we can represent as char literal.
+
+    char ch = '\n';
+
+ e) We can represent char literal in 4 digit hexadecimal number to 
+    represent UNICODE value where the format is :
+
+                     '\uXXXX'
+
+     Here \u stands for UNICODE where as X represents Digits.
+--------------------------------------------------------------------------
+public class Test1 
+{
+	public static void main(String[] args) 
+	{
+		char ch1 = 'a';
+		System.out.println("ch1 value is :"+ch1); 
+
+		char ch2 = 97;   
+		System.out.println("ch2 value is :"+ch2); 
+
+		
+	}
+}
+-------------------------------------------------------------------------
+class Test2 
+{
+	public static void main(String[] args) 
+	{
+		int ch = 'A';
+		System.out.println("ch value is :"+ch);
+	}
+}
+--------------------------------------------------------------------------
+//The UNICODE value for ? character is 
+public class Test3 
+{
+	public static void main(String[] args) 
+	{
+		char ch1 = 63;  
+		System.out.println("ch1 value is :"+ch1);
+		
+		char ch2 = 64;  
+		System.out.println("ch2 value is :"+ch2); 
+
+		char ch3 = 65; 
+		System.out.println("ch3 value is :"+ch3); 
+	}
+}
+
+The UNICODE value for ? -> 63, @ -> 64
+-----------------------------------------------------------------------
+public class Test4 
+{
+	public static void main(String[] args) 
+	{
+		char ch1 = 47000;
+        System.out.println("ch1 value is :"+ch1); 
+
+		char ch2 = 0Xadd;  
+		System.out.println("ch2 value is :"+ch2); 
+	}
+}
+
+Here we will get the output as ? because the equivalent language translator is not available to represent these characters so we are getting the ? symbol.
+------------------------------------------------------------------------
+//Addition of two character in the form of Integer
+public class Test5
+{
+public static void main(String txt[ ])
+  {
+	int x = 'A'; 
+        int y = 'B';
+        System.out.println(x+y); 
+	System.out.println('A' + 'A'); 		
+   } 
+} 
+------------------------------------------------------------------------
+//Range of UNICODE Value (65535)
+class Test6 
+{
+	public static void main(String[] args) 
+	{
+		char ch1 = 65535; 
+		System.out.println("ch value is :"+ch1);
+
+		char ch2 = 65536; //error
+		System.out.println("ch value is :"+ch2);
+	}
+}
+------------------------------------------------------------------------
+//WAP in java to describe unicode representation of char in hexadecimal format
+class Test7 
+{
+	public static void main(String[] args) 
+	{
+		char ch1 = '\u0002'; 
+		System.out.println(ch1);
+
+		char ch2 = '\uffff'; 
+		System.out.println(ch2);
+
+		char ch3 = '\u0041'; 
+                System.out.println(ch3);  
+
+		char ch4 = '\u0061';
+		System.out.println(ch4); 
+	}
+}
+----------------------------------------------------------------------
+class Test8 
+{
+	public static void main(String[] args) 
+	{
+		char c1 = 'A';
+		char c2 = 65;
+		char c3 = '\u0041';
+
+		System.out.println("c1 = "+c1+", c2 ="+c2+", c3 ="+c3);
+	}
+}
+-----------------------------------------------------------------------
+class Test9 
+{
+	public static void main(String[] args) 
+	{
+		int x = 'A';
+		int y = '\u0041';
+		System.out.println("x = "+x+" y ="+y);
+	}
+}
+------------------------------------------------------------------------
+//Every escape sequence is char literal
+class Test10 
+{
+	public static void main(String [] args) 
+	{
+		char ch ='\n';
+		System.out.println(ch);
+	}
+}
+------------------------------------------------------------------------
+public class Test11  
+{
+	public static void main(String[] args) 
+	{
+		System.out.println(Character.MIN_VALUE); //white space
+		System.out.println(Character.MAX_VALUE); //?
+		System.out.println(Character.SIZE); //16 bits
+		
+	}
+}
+-----------------------------------------------------------------------
+//Java Unicodes
+public class Test12 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println(" Java Unicodes\n");
+
+		for (int i = 31; i < 126; i++)
+		{
+			char ch = (char)i; // Convert unicode to character
+			String str = i + "  "+ ch;  
+
+			System.out.print(str + "\t\t");
+			if ((i % 5) == 0) // Set 5 numbers per row
+			System.out.println();
+		}
+	}
+}
+------------------------------------------------------------------------
+Operator Related Concept :
+------------------------------------------------------------------------
+public class Demo 
+{
+	public static void main(String[] args) 
+	{
+	   char ch = 'A';
+	   ch++;
+	   System.out.println(ch);
+	}
+}
+
+Incremenet and decrement operator will work with all data type except boolean.
+------------------------------------------------------------------------
+public class Demo 
+{
+	public static void main(String[] args) 
+	{
+	   char ch1 = 'A';
+	   char ch2 = 'B';
+	   System.out.println(ch1+ch2);
+	}
+}
+------------------------------------------------------------------------
+While working with Arithmetic Operator and Unary minus operator the minimum data type required is int OR in other words after the expression the result is promoted to int type.
+
+public class Demo 
+{
+	public static void main(String[] args) 
+	{
+	  byte b = 1;
+	  byte c = 2;
+	  byte d = b + c; //error
+	  int d = b + c;
+	  System.out.println(d);
+	}
+}
+--------------------------------------------------------------------------
+public class Demo 
+{
+	public static void main(String[] args) 
+	{
+	  byte b = 1;
+	  byte c = -b; //error
+	}
+}
+------------------------------------------------------------------------
+public class Test15
+{
+	public static void main(String args[])
+	{
+	  /*short b = 6;
+      	   b = b + 7;  
+	  System.out.println(b); */
+
+	  byte b = 6;
+	  b += 6;   //short hand operator  b += 7 is equal to (b = b + 7)
+	  System.out.println(b); 
+ 
+	  bouble c =9;
+	  c=c+9;
+	  System.out.println(b); 
+	}
+}
+
+package day_8_task_of_Java;
+
+public class Test
+{
+	public static void main(String args[])
+	{
+//	  short b = 6;
+//      	   b = b + 7;  
+//	  System.out.println(b);
+//
+//	  byte b = 6;
+//	  b =b +6;   //short hand operator  b += 7 is equal to (b = b + 7)
+//	  System.out.println(b); 
+		
+	  byte b = 6;
+	  b +=6;   //short hand operator  b += 7 is equal to (b = b + 7)
+	  System.out.println(b);
+	  
+	  double c =9;
+	  c=c+9;
+	  System.out.println(b); 
+	}
+}
+------------------------------------------------------------------------
+public class Demo 
+{
+	public static void main(String[] args) 
+	{
+	   int x = 5;
+
+	       if(++x > 6 & ++x > 6) //Boolean AND [Both expression will 
+	                                         be evaluated]
+		{
+		   
+		}
+
+		System.out.println(x);
+	}
+}
+------------------------------------------------------------------------

@@ -1,0 +1,183 @@
+-----------------------------------------------------------------------
+27-12-2023
+-----------
+What is BLC and ELC class in Java :
+-----------------------------------
+BLC : It stands for Business Logic class, here we are responsible to 
+      write the logic and this class will never contain main method.
+
+ELC : It stands for Executable Logic class, here we need to define the 
+      main method and the execution of the program will always starts from ELC class only.
+
+-----------------------------------------------------------------------
+Note :- FOR NON STATIC MEMBERS LIKE (NON STATIC VARIABLE AND NON STATIC METHOD) OBJECT IS REQUIRED ON THE OTHER HAND FOR STATIC MEMBER (STATIC METHOD AND STATIC VARIABLE) 
+OBJECT IS NOT REQUIRED.
+-----------------------------------------------------------------------
+If a static method available in the same class then we can call the static method directly from another static method of the same class without object as shown in the program.
+
+//A static method can be directly call within the same class
+package com.ravi.pack1;
+
+public class Test1
+{
+	public static void main (String[] arg)
+	{
+		square(5); 	    
+	}
+
+	public static void square(int x)
+	{  
+	  System.out.println(x*x);
+	}
+}
+----------------------------------------------------------------------	
+If a static method available in the same class then we can directly call from another static method, on the other hand static method available
+ in another class then we need to call the static method with the help of class name as shown in the program below.
+
+2 Files :
+---------
+FindSquare.java
+---------------
+package com.ravi.pack2;
+
+//BLC(Business Logic class)
+public class FindSquare
+{
+   public static void getSqureOfTheNumber(int x)
+   {
+	   System.out.println("Square of "+x+" is :"+(x*x));
+   }
+}
+
+
+
+
+Test2.java
+-----------
+//A static method available in another class can be 
+//call with class name
+
+package com.ravi.pack2;
+
+import java.util.Scanner;
+
+//ELC(Executable Logic class)
+public class Test2
+{
+	public static void main (String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter the Number :");
+		int num = sc.nextInt();		
+		
+		FindSquare.getSqureOfTheNumber(num); 
+		sc.close();
+	}
+}
+----------------------------------------------------------------------
+Note :- In a single Java file we must have only one public class and remaining classes must be declared non-public.
+
+Example :
+----------
+Test.java
+----------
+ 
+public class Test //Writing public is valid
+{
+}
+
+class Welcome  //Welcome class we can't declare with public AM because
+{                Welcome and Test both the classes are available in the 
+}                same file Test.java
+-----------------------------------------------------------------------
+The program says the communication between BLC and ELC class using return statement.
+
+2 Files :
+---------
+FindSquare.java
+---------------
+//A static method returning integer value 
+package com.ravi.pack3;
+
+//BLC
+public class FindSquare
+{
+	public static int getSquare(int x)
+	{
+		return (x*x);
+	}
+}
+
+Test3.java
+----------
+
+package com.ravi.pack3;
+
+//ELC
+public class Test3
+{
+	public static void main (String[] arg)
+	{				
+         for(int i=1; i<=10; i++)
+          {
+    	    int square = FindSquare.getSquare(i);
+    	    System.out.println("Square of "+i+" is :"+square);
+          }
+	}
+}
+-----------------------------------------------------------------------
+2 Files :
+---------
+Calculate.java
+---------------
+/*Program to find out the square and cube of 
+  the number by following criteria
+ * 
+a) If number is 0 or Negative it should return -1
+b) If number is even It should return square of the number
+c) If number is odd It should return cube of the number
+*/
+
+package com.ravi.pack4;
+
+//BLC
+public class Calculate 
+{
+  public static int getSquareAndCube(int num)
+  {
+	  if(num==0 || num<0)
+	  {
+		  return -1;
+	  }
+	  else if(num %2 ==0)
+	  {
+		  return (num*num);
+	  }
+	  else
+	  {
+		  return (num*num*num);
+	  }
+  }
+}
+
+Test4.java
+-----------
+package com.ravi.pack4;
+
+import java.util.Scanner;
+
+//ELC
+public class Test4 
+{
+	public static void main(String[] args) 
+	{
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a Number :");
+        int num = sc.nextInt();
+        
+        int squareAndCube = Calculate.getSquareAndCube(num);
+        System.out.println(squareAndCube);
+	}
+	
+}
+----------------------------------------------------------------------

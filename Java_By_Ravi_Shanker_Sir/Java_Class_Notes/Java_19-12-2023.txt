@@ -1,0 +1,203 @@
+------------------------------------------------------------------------
+19-12-2023
+----------
+What is a Package ?
+-------------------
+A package is nothing but folder in windows or directory in DOS.
+A package is of two types :
+
+1) Predefined Package :- Created by java software people. 
+   Example :- java.lang, java.util, java.io, java.text, java.awt and so on
+
+2) Userdefined Package :- Created by user.
+   Example :- com.ravi.basic, com.ravi.introduction, com.ravi.oop and so on
+
+   The program which contains package statement is different style of
+   compiling :
+
+   javac -d . Test.java
+   (javac space -d space . space FileName.java)
+
+   Program :
+   ---------
+   package com.tcs.shopping;
+
+   public class Ravi 
+   {
+	
+   }
+
+   javac -d . Ravi.java
+   3 folders will be created and then the .class file will be placed 
+   inside the folder.
+------------------------------------------------------------------------
+Program which describes how Integer.parseInt(String str) is working :
+---------------------------------------------------------------------
+File Name :
+Main.java
+---------
+package com.ravi.basic;
+
+public class Main 
+{
+	public static void main(String[] args) 
+	{
+		int result =  Calculate.doSum(12, 36);
+		System.out.println("Addition of two number :"+result);
+		
+		result =  Calculate.getSquare(12);
+		System.out.println("Square is :"+result);
+		
+		result =  Calculate.getCube(2);
+		System.out.println("Cube is :"+result);
+	}
+}
+
+class Calculate
+{
+	public static int doSum(int x, int y)
+	{
+		int z = x + y;
+		return z;
+	}
+	
+	public static int getSquare(int a)
+	{
+		int b = a * a;
+		return b;
+	}
+	
+	public static int getCube(int p)
+	{
+		return (p*p*p);
+	}
+}
+------------------------------------------------------------------------
+*Naming convention in Java :
+----------------------------
+ 1) How to write a class in java 
+----------------------------------
+While writing a class in java we should follow pascal naming convention. A java class represents noun.
+
+ThisIsExampleOfClass (Each word first letter is capital)
+Example :
+-----------
+String 
+System
+Integer
+BufferedReader
+DataInputStream
+ClassNotFoundException
+ArithmeticException
+
+2) How to write a method in java :
+---------------------------------------
+In order to write methods in java we need to follow camel case naming convention. A java method represents verb.
+
+thisIsExampleOfMethod()
+
+Example:
+----------
+read()
+readLine()
+toUpperCase()
+charAt()
+
+
+3) How to write variable(Fields) in java 
+--------------------------------------------
+In order to write variables in java we need to follow camel case naming convention.
+
+rollNumber;
+employeeName;
+customerNumber;
+customerBill;
+
+4) How to write final variable(Field)
+-------------------------------
+final double PI = 3.14;
+final int A = 90;
+
+5) How to write final and static variable 
+
+   MAX_VALUE;
+   MIN_VALUE;
+Each character must be capital and in between every word _ symbol should be there.
+
+6) How to write package 
+
+   Package name must be in small character. It is reverse of company name.
+   com.ravi.basic;            
+-----------------------------------------------------------------------
+Token :
+--------
+A token is the smallest unit of the program that is identified by the compiler.
+
+Every Java statements and expressions are created using tokens.
+
+A token can be divided into 5 types 
+
+1) Keywords
+2) Identifiers
+3) Literals
+4) Punctuators
+5) Operators
+
+Keyword :- 
+----------
+A keyword is a predefined word whose meaning is already defined by the compiler.
+
+In java all the keywords must be in lowercase only.
+
+A keyword we can't use as a name of the variable, name of the class or name of the method.
+
+true, false and null look like keywords but actually they are literals.
+
+
+Identifiers :
+--------------
+A name in java program  by default considered as identifiers.
+
+Assigned to variable, method, classes to uniquely identify them.
+
+We can't use keyword as an identifier.
+
+Ex:-
+
+class Fan 
+{
+   int coil  ;
+   
+   void start()
+   {
+   }
+}
+
+Here Fan(Name of the class), coil (Name of the variable) and start(Name of the function) are identifiers.
+------------------------------------------------------------------------------------
+Rules for defining an identifier :
+------------------------------------
+1) Can consist of uppercase(A-Z), lowercase(a-z),  digits(0-9), $ sign, and   underscore (_)
+2) Begins with letter, $, and _
+3) It is case sensitive
+4) Cannot be a keyword
+5) No limitation of length 
+-----------------------------------------------------------------------
+Literals :-
+-----------
+Assigning some constant value to variable is called Literal.
+
+Java supports 5 types of Literals :
+
+1) Integral Literal  Ex:-  int x = 15;
+
+2) Floating Point Literal  Ex:- float x = 3.5f;
+
+3) Character Literal Ex:- char ch = 'A';
+
+4) Boolean Literal Ex:- boolean b = true;
+
+5) String Literal Ex:- String x = "Naresh i Technology";
+
+Note :- null is also a literal.
+------------------------------------------------------------------------

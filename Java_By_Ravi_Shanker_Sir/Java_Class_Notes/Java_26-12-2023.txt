@@ -1,0 +1,214 @@
+------------------------------------------------------------------------
+26-12-2023
+----------
+String Literal :-
+----------------
+A string literal in Java is basically a sequence of characters. These characters can be anything like alphabets, numbers or symbols which are enclosed with double quotes. So we can say String is alpha-numeric collection of character.
+
+
+How we can create String in Java :-
+-----------------------------------
+In java String can be created by using 3 ways :-
+
+1) By using String Literal 
+
+   String x = "Ravi";
+
+2) By using new keyword 
+
+   String y = new String("Hyderabad");
+
+3) By using character array
+
+   char z[] = {'H','E','L','L','O'};
+
+------------------------------------------------------------------------
+//Three Ways to create the String Object
+public class StringTest1 
+{
+	public static void main(String[] args) 
+	{
+		String s1 = "Hello World";       //Literal
+		System.out.println(s1);
+
+		String s2 = new String("Ravi"); //Using new Keyword
+		System.out.println(s2);
+
+		char s3[] = {'H','E','L','L','O'}; //Character Array 
+		System.out.println(s3);
+
+	}
+}
+-----------------------------------------------------------------------
+//String is collection of alpha-numeric character
+public class StringTest2 
+{
+	public static void main(String[] args) 
+	{
+		String x="B-61 Hyderabad";
+		System.out.println(x);
+		
+		String y = "123";  
+		System.out.println(y);
+
+		String z = "67.90";       
+		System.out.println(z);
+
+		String p = "A";        
+		System.out.println(p);
+	}
+}
+------------------------------------------------------------------------
+//IQ
+public class StringTest3
+{
+	public static void main(String []args)
+	{		
+		String s = 15+29+"Ravi"+40+40; 
+		System.out.println(s);	
+		
+	}
+}
+------------------------------------------------------------------------
+How to take the input from the user :
+-------------------------------------
+In order to take the input from the user, Java software people has provided a predefined class called Scanner available in java.util package.
+
+static variable of System class :
+---------------------------------
+As we know System is a predefined class available in java.lang package 
+which provided the following static variables :
+
+  a) System.out :- It is used to print normal message.
+  b) System.err :- It is used to print error message. (Red Colour)
+  c) System.in :- It is used to take the input from the source.
+
+How to create an object for Scanner class :
+-------------------------------------------
+ Scanner sc = new Scanner(System.in);
+
+
+Methods of Scanner class :
+--------------------------
+1) public String next() : Will read single word.
+
+2) public String nextLine() : Will read complete line. (Multiple Words)
+
+3) public byte nextByte() : Will read byte value.
+
+4) public short nextShort() : Will read short value.
+
+5) public int nextInt() : Will read int value.
+
+6) public long nextLong() : Will read long value.
+
+7) public float nextFloat() : Will read float value.
+
+8) public double nextDouble() : Will read double value.
+
+9) public boolean nextBoolean() : Will read boolean value.
+
+10) public char next().charAt(0) : Will read a character.       
+
+
+/*
+public class Scanner
+{
+  public String next()
+   {
+     will return and read a single word from the user
+   }
+}
+
+Scanner sc = new Scanner(System.in);  //Object creation
+String word =   sc.next();
+*/
+
+------------------------------------------------------------------------
+Note :- java.lang is a default package so it is available in all the classes by default, as a user we need not to import java.lang package that means all the classes which are available in java.lang package we can use from everywhere.
+
+Program on Scanner class :
+---------------------------
+//WAP to read your name from the user
+  
+public class ReadName 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter your Name :");
+		String name = sc.nextLine();
+		System.out.println("Your Name is :"+name);
+	}
+}
+------------------------------------------------------------------------
+//WAP to read the gender [M/F] from the user
+import java.util.Scanner;
+public class ReadGender  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter your Gender :");
+
+		char gen = sc.next().charAt(0);
+		System.out.println("Your Gender is :"+gen);
+	}
+}
+------------------------------------------------------------------------
+//WAP to read Employee id and Name from the keyboard.
+
+public class ReadEmployeeData 
+{
+	public static void main(String[] args) 
+	{
+		java.util.Scanner sc = new java.util.Scanner(System.in); // object create here becozof scanner is non static method
+ 
+		System.out.print("Enter Employee Id :");
+		int empId =  sc.nextInt();	//123 \n
+		
+		System.out.print("Enter Employee Name :");
+		String empName = sc.nextLine();  //Buffer Problem
+		empName = sc.nextLine();
+
+        System.out.println("Employee Id is :"+empId);
+		System.out.println("Employee Name is :"+empName);
+
+		
+	}
+}
+-----------------------------------------------------------------------
+4) Punctuators
+--------------
+It is also called as separators.
+
+It is used to inform the compiler that how the things will be grouped 
+together.
+
+Example :-  (), {}, [], ; , ... (var args) 
+
+------------------------------------------------------------------------
+5) Operator :
+--------------
+An operator is a symbol that describes how the calculation will be performed on the operands.
+
+Example :- a + b;  //Here a and b both are operands where as '+' is 
+                     operator 
+
+Java supports the following operators :
+
+1) Arithmetic Operator OR Binary Operator
+2) Unary Operator
+3) Assignment Operator
+4) Relational Operator
+5) Logical Operator (&&   ||    !)
+6) Booelan Operatot (&    |) 
+7) Bitwise Operator (~)
+8) Ternary Operator
+*9) new Operator
+*10) Dot Operator (. [Member Access Operator])
+*11) instanceof operator
+
+------------------------------------------------------------------------
+What is BLC and ELC class in Java :
+-----------------------------------

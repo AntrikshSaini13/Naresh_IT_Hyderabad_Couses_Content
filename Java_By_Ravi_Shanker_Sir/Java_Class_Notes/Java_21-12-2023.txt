@@ -1,0 +1,162 @@
+------------------------------------------------------------------------
+21-12-2023
+------------
+/* By default every integral literal is of type int only*/
+public class Test4
+{
+public static void main(String[] args)
+	{
+                byte b = 128; //error becoz out of the range -128 to 127
+		System.out.println(b);
+		
+		short s = 32768; //error becoz out of the range 
+		System.out.println(s);
+    }
+}
+-------------------------------------------------------------------------
+//Assigning smaller data type value to bigger data type
+public class Test5
+{
+public static void main(String[] args)
+	{
+   	    byte b = 125; becozof under the range
+		short s = b;   
+		System.out.println(s);
+	}
+}
+------------------------------------------------------------------------
+//Converting bigger type to smaller type
+public class Test6
+{
+public static void main(String[] args)
+	{
+		short s = 128;
+		byte b = (byte) s;  //Explicit type casting [Chance of data loss]
+		System.out.println(b);
+	}
+}
+output :- -128
+-------------------------------------------------------------------------
+public class Test7
+ {
+ public static void main(String[] args)
+ {
+		byte x = (byte) 127L;
+		System.out.println("x value  = "+x);
+
+		long l = 29L;
+		System.out.println("l value  = "+l);
+
+        	int y = (int) 18L; 
+		System.out.println("y value  = "+y);
+ 
+  }
+ }   
+-------------------------------------------------------------------------
+Is java pure Object-Oriented language ?
+----------------------------------------------
+No, Java is not a pure Object-Oriented language. In fact any language which accepts the primary data type like int, float, char is not a pure object oriented language hence java is also not a pure object oriented language.
+
+Example of pure object oriented language : Ruby, smalltalk and so on
+
+If we remove all 8 primitive data types from java then Java will become pure object oriented language.
+
+In java we have a concept called Wrapper classes through which we can convert the primary data types into corrosponding Wrapper Object.(Autoboxing 1.5V)
+
+Primary data types                Corresponding Wrapper Object
+byte				-		Byte
+short				-		Short
+int				-		Integer
+long				-		Long
+float				-		Float
+double				-		Double
+char				-		Character
+boolean				-		Boolean
+
+All these wrapper classes are available in java.lang package.
+------------------------------------------------------------------------
+//Wrapper claases
+public class Test8 
+{
+	public static void main(String[] args) 
+	{
+		Integer x = 24;  
+		Integer y = 24;
+		Integer z = x + y;
+		System.out.println("The sum is :"+z);	
+		
+		Boolean b = true;
+		System.out.println(b);
+
+		Double d = 90.90;
+		System.out.println(d);
+	}
+}
+-------------------------------------------------------------------------
+How to know the minimum and maximum value as well as size of integral literal data types:
+----------------------------------------------------------------
+Thses classes (Wrapper classe) are providing the static and final variables through which we can find out the minimum, maximum value as well as size of the data types
+
+Ex:- I want to find out the range and size of Byte class
+
+Byte.MIN_VALUE = -128
+
+Byte.MAX_VALUE = 127
+
+Byte.SIZE = 8 (in bits format)
+
+Here MIN_VALUE, MAX_VALUE and SIZE these are static and final variables available in these classes(Byte, Short, Integer and Long).
+-------------------------------------------------------------------------
+ //Program to find out the range and size of Integeral Data type
+public class Test9 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("\n Byte range:");
+		System.out.println(" min: " + Byte.MIN_VALUE);
+		System.out.println(" max: " + Byte.MAX_VALUE);
+		System.out.println(" size :"+Byte.SIZE);
+ 
+		System.out.println("\n Short range:");
+		System.out.println(" min: " + Short.MIN_VALUE);
+		System.out.println(" max: " + Short.MAX_VALUE);
+		System.out.println(" size :"+Short.SIZE);
+
+		System.out.println("\n Integer range:");
+		System.out.println(" min: " + Integer.MIN_VALUE);
+		System.out.println(" max: " + Integer.MAX_VALUE);
+		System.out.println(" size :"+Integer.SIZE);
+
+		System.out.println("\n Long range:");
+		System.out.println(" min: " + Long.MIN_VALUE);
+		System.out.println(" max: " + Long.MAX_VALUE);
+		System.out.println(" size :"+Long.SIZE);
+		
+	}
+}
+-------------------------------------------------------------------------
+//We can provide _ in integral literal
+public class Test10 
+{
+	public static void main(String[] args) 
+	{
+	    long mobile = 9812_3456_78L;
+		System.out.println("Mobile Number is :"+mobile);
+	}
+}
+
+Note :- From java 1.7V now we can provide _ symbol in numeric
+        literal just to increase the readability of the code.
+------------------------------------------------------------------
+public class Test11 
+{
+	public static void main(String[] args) 
+	{
+		final int x = 127;  // valid becoz under the range
+		byte b = x;
+		System.out.println(b);
+	}
+}
+
+The above program will generate the output.
+------------------------------------------------------------------------
