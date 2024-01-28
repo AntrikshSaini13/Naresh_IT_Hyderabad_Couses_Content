@@ -1,0 +1,287 @@
+
+------------------------------------------------------------------------
+25-01-2024
+----------
+HAS-A relation between the classes :
+------------------------------------------
+In order to acheive HAS-A relation concept we should use Association.
+
+Association (Relationship between the classes through Object reference)
+-----------------------------------------------------------------------
+Association :
+---------------
+Association is a connection between two separate classes that can be built up through their Objects. 
+
+The association builds a relationship between the classes and describes how much a class knows about another class. 
+
+This relationship can be unidirectional or bi-directional. In Java, the association can have one-to-one, one-to-many, many-to-one and many-to-many relationships.
+
+Example:-
+One to One: A person can have only one PAN card
+One to many: A Bank can have many Employees
+Many to one:  Many employees can work in single department 
+Many to Many: A Bank can have multiple customers and a customer can have multiple bank accounts.
+
+3 Files :
+---------
+Student.java
+-------------
+package com.ravi.association;
+
+public class Student 
+{
+	private int studentId;
+	private String studentName;
+	private double studentFees;
+	private int studentAge;
+	
+	public Student(int studentId, String studentName, double studentFees, int studentAge) {
+		super();
+		this.studentId = studentId;
+		this.studentName = studentName;
+		this.studentFees = studentFees;
+		this.studentAge = studentAge;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [studentId=" + studentId + ", studentName=" + studentName + ", studentFees=" + studentFees
+				+ ", studentAge=" + studentAge + "]";
+	}
+
+	public int getStudentId() {
+		return studentId;
+	}
+
+	public String getStudentName() {
+		return studentName;
+	}
+
+	public double getStudentFees() {
+		return studentFees;
+	}
+
+	public int getStudentAge() {
+		return studentAge;
+	}
+}
+
+Trainer.java
+------------
+package com.ravi.association;
+
+import java.util.Scanner;
+
+public class Trainer 
+{
+   public static void getStudentProfile(Student s)  //s = s1
+   {
+	 Scanner sc = new Scanner(System.in);
+	 System.out.print("Enter Student id :");
+	 int id = sc.nextInt();
+	 
+	 if(id == s.getStudentId())
+	 {
+		 System.out.println(s);
+	 }
+	 else
+	 {
+		 System.err.println("No such student is available!!!");
+	 }
+	 
+	 
+   }
+}
+
+AssociationDemo.java
+--------------------
+package com.ravi.association;
+
+public class AssociationDemo {
+
+	public static void main(String[] args) 
+	{
+		Student s1 = new Student(1,"John",12900,24);
+		Trainer.getStudentProfile(s1);
+		
+		System.out.println(".......................");
+		Trainer.getStudentProfile(new Student(2,"Scott",25000,25));
+	}
+
+}
+-----------------------------------------------------------------------
+Composition (Strong reference) :
+--------------------------------
+Composition in Java is a way to design classes such that one class contains an object of another class. It is a way of establishing a "HAS-A" relationship between classes.
+
+Composition represents a strong relationship between the containing class and the contained class.If the containing object (Car object) is destroyed, all the contained objects (Engine object) are also destroyed.
+
+A car has an engine. Composition makes strong relationship between the objects. It means that if we destroy the owner object, its members  will be also destroyed with it. For example, if the Car is destroyed the engine will also be destroyed as well.
+
+3 Files :
+---------
+1) Engine.java
+--------------
+package com.ravi.composition;
+
+public class Engine 
+{
+	private String engineType;
+	private int engineHorsePower;
+
+	public Engine(String engineType, int engineHorsePower) 
+	{
+		super();
+		this.engineType = engineType;
+		this.engineHorsePower = engineHorsePower;
+	}
+
+	@Override
+	public String toString() {
+		return "Engine [engineType=" + engineType + ", engineHorsePower=" + engineHorsePower + "]";
+	}	
+}
+
+2) Car.java
+-----------
+package com.ravi.composition;
+
+public class Car {
+	private String carName;
+	private int carModel;
+	private Engine engine; // HAS-A Relation
+
+	public Car(String carName, int carModel) 
+	{
+		super();
+		this.carName = carName;
+		this.carModel = carModel;
+		this.engine = new Engine("Petrol",1200);  //Composition
+	}
+
+	@Override
+	public String toString() {
+		return "Car [carName=" + carName + ", carModel=" + carModel + ", engine=" + engine + "]";
+	}
+
+	
+}
+
+3) CompositionDemo.java
+------------------------
+package com.ravi.composition;
+
+public class CompositionDemo {
+
+	public static void main(String[] args) 
+	{
+	  Car c1 = new Car("Naxon", 2024);
+	  System.out.println(c1);
+	  
+	  Car c2 = new Car("Ford",2023);
+	  System.out.println(c2);
+	}
+}
+-----------------------------------------------------------------------
+Assignment :
+------------
+Person and Heart
+Laptop and Motherboard
+-----------------------------------------------------------------------
+Aggregation :
+-------------
+
+
+
+3 Files :
+---------
+AadharCard.java
+----------------
+package com.ravi.aggregation;
+
+public class AadharCard {
+	private String aadharNumber;
+	private String issuingAuthority;
+
+	public AadharCard(String aadharNumber, String issuingAuthority) {
+		super();
+		this.aadharNumber = aadharNumber;
+		this.issuingAuthority = issuingAuthority;
+	}
+
+	@Override
+	public String toString() {
+		return "AadharCard [aadharNumber=" + aadharNumber + ", issuingAuthority=" + issuingAuthority + "]";
+	}
+
+	public String getAadharNumber() {
+		return aadharNumber;
+	}
+
+	public String getIssuingAuthority() {
+		return issuingAuthority;
+	}
+	
+}
+
+Citizen.java
+------------
+package com.ravi.aggregation;
+
+public class Citizen {
+	private String citizenAddress;
+	private String citizenName;
+	private AadharCard aadharCard; // HAS-A Relation
+
+	public Citizen(String citizenAddress, String citizenName, AadharCard aadharCard) {
+		super();
+		this.citizenAddress = citizenAddress;
+		this.citizenName = citizenName;
+		this.aadharCard = aadharCard;
+	}
+
+	public String validateAadharCard() 
+	{
+		if (aadharCard.getAadharNumber().length() == 12) {
+			return "It is a valid Aadhar Card :" + this.aadharCard;
+		} else {
+			return "Not a valid Aadhar Card";
+		}
+
+	}
+
+	@Override
+	public String toString() {
+		return "Citizen [citizenAddress=" + citizenAddress + ", citizenName=" + citizenName + ", aadharCard="
+				+ aadharCard + "]";
+	}
+
+}
+
+AggregationDemo.java
+---------------------
+package com.ravi.aggregation;
+
+import java.util.Scanner;
+
+public class AggregationDemo 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter your Aadhar number :");
+		String aadharNo = sc.nextLine();
+		
+		System.out.print("Enter Issuing Authority Name :");
+		String auth = sc.nextLine();
+		
+		AadharCard a = new AadharCard(aadharNo, auth);
+		Citizen c = new Citizen("Ameerpet", "Scott", a);		
+		String card = c.validateAadharCard();      
+		System.out.println(card);
+		System.out.println(c);	
+
+	}
+
+}
+------------------------------------------------------------------------

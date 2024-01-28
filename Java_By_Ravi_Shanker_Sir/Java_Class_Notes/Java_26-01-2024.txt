@@ -1,0 +1,169 @@
+------------------------------------------------------------------------
+26-01-2024
+
+Polymorphism :
+--------------
+Poly means "many" and morphism means "forms".
+
+It is a Greek word whose meaning is "same object having different behavior".
+
+In our real life a person or a human being can perform so many task, in the same way in our programming languages a method or a constructor can perform so many task.
+
+Eg:-
+
+void add(int a, int b)
+
+void add(int a, int b, int c)
+
+void add(float a, float b)
+
+void add(int a, float b)
+
+
+Polymorphism can be divided into two types :
+
+1) Static polymorphism OR Compile time polymorphism OR Early binding
+
+2) Dynamic Polymorphism OR Runtime polymorphism OR Late binding
+
+
+1) Static Polymorphism :
+------------------------
+The polymorphism which exist at the time of compilation is called Static OR compile time polymorphism.
+
+In static polymorphism, compiler has very good idea that which method is invoked depending upon METHOD PARAMETER.
+
+Here the binding of the method is done at compilation time so, it is known as early binding.
+
+We can achieve static polymorphism by using Method Overloading concept.
+
+Example of static polymorphism : Method Overloading.
+
+
+2) Dynamic Polymorphism OR Runtime Polymorphism
+------------------------------------------------
+The polymorphism which exist at runtime is called Dynamic polymorphim Or Runtime Polymorphism.
+
+*Here compiler does not have any idea about method calling, at runtime
+JVM will decide which method will be invoked depending upon CLASS TYPE.
+
+Here method binding is done at runtime so, it is also called Late Binding.
+
+We can achieve dynamic polymorphism by using Method Overriding.
+
+Example of Dynamic Polymorphism : Method Overriding
+----------------------------------------------------------------------
+Method Overloading :
+--------------------
+Writing two or more methods in the same class or even in the super and sub class in such a way that the method name must be same but the argument must be different.
+
+While Overloading a method we can change the return type of the method.
+
+If parameters are same but only method return type is different then it is not an overloaded method.
+
+Method overloading is possible in the same class as well as super and sub class.
+
+While overloading the method the argument must be different otherwise there will be ambiguity problem.
+
+IQ
+---
+Can we overload the main method/static method ?
+------------------------------------------------
+We can overload the main method but JVM will always search the main method which takes String array as a parameter. 
+
+Example :
+------------
+public static void main(String [] args)  //JVM will serach this method 
+{
+}
+
+public static void main(String x)
+{
+}
+
+public static void main(int y)
+{
+}
+------------------------------------------------------------------------
+Program on Constructor Overloading :
+------------------------------------
+Addition.java
+-------------
+package com.ravi.constructor_overloading;
+
+public class Addition 
+{
+   public Addition(int x, int y)
+   {	  
+	   System.out.println("Sum of two integer is :"+(x+y));
+   }
+   
+   public Addition(int x, int y, int z)
+   {  
+	   System.out.println("Sum of three integer is :"+(x+y+z));
+   }
+   
+   public Addition(float x, float y)
+   {	  
+	   System.out.println("Sum of two float is :"+(x+y));
+   }
+}
+
+Main.java
+---------
+package com.ravi.constructor_overloading;
+
+public class Main 
+{
+	public static void main(String []  args) 
+	{
+		new Addition(2.3f, 7.8F);		
+		new Addition(10, 20, 30);
+		new Addition(12,90);
+	}
+
+}
+
+-----------------------------------------------------------------------
+26-01-2024
+
+Program on Constructor Overloading (Constructor Chaining)
+---------------------------------------------------------
+2 Files :
+----------
+Addition.java
+--------------
+package com.ravi.constructor_overloading1;
+
+public class Addition 
+{
+   public Addition(int x, int y)
+   {	  
+	   System.out.println("Sum of two integer is :"+(x+y));
+   }
+   
+   public Addition(int x, int y, int z)
+   {
+	   this(100,200);
+	   System.out.println("Sum of three integer is :"+(x+y+z));
+   }
+   
+   public Addition(float x, float y)
+   {	
+	   this(10,20,30);
+	   System.out.println("Sum of two float is :"+(x+y));
+   }
+}
+
+Main.java
+---------
+package com.ravi.constructor_overloading1;
+
+public class Main {
+
+	public static void main(String []  args) 
+	{
+		new Addition(2.3f, 7.8F);		
+	}
+}
+-----------------------------------------------------------------------

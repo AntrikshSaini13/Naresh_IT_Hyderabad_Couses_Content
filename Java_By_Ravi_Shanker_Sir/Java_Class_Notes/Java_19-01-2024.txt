@@ -1,0 +1,84 @@
+-----------------------------------------------------------------------
+19-01-2024
+----------
+Relationship between the classes :
+----------------------------------
+In Java, in between the classes we have 2 types of relation 
+
+1) IS-A Relation
+2) HAS-A Relation
+
+IS-A relation we can achieve using Inheritance.
+HAS-A relation we can achieve using Association.
+
+Example of IS-A relation :
+
+class Vehicle
+{
+
+}
+class Car extends Vehicle
+{
+}
+
+In between Vehicle and Car we have IS-A relation because Car IS-A 
+Vehicle.
+
+Example of HAS-A relation :
+class Vehicle
+{
+  private Engine engine;
+}
+
+In between Vehicle and Engine, We have HAS-A relation because Vehicle has an engine.
+----------------------------------------------------------------------
+
+Inheritance (IS-A Relation) :
+--------------------------------
+Deriving a new class (child class) from existing class (parent class) in such a way 
+that the new class will acquire all the properties and features (except private) from 
+the existing class is called inheritance.
+
+It is one of the most imporatant feature of OOPs which provides "CODE REUSABILITY".
+
+Using inheritance mechanism the relationship between the  classes is parent and child. According 
+to Java the parent class is called super class and the child class is called sub class.
+
+In java we provide inheritance using 'extends' keyword.
+
+*By using inheritance all the feature of super class is by default available to the sub class so the sub class need not to start the process from begning onwards.
+
+Inheritance provides IS-A relation between the classes. IS-A relation is tightly coupled relation (Blood Relation) so if we modify the super class content then 
+automatically sub class content will also modify.
+
+Inheritance provides us hierarchical classification of classes, In this hierarchy if we move towards upward direction more generalized properties will occur, 
+on the other hand if we move towards downward more specialized properties will occur.
+-----------------------------------------------------------------------
+In java, We can classify inheritance into 5 types 
+
+1) Single Level Inheritance
+2) Multilevel Inheritance
+3) Hierarchical Inheritance
+4) Multiple Inheritance (Not supported by using classes)
+5) Hybrid Inheritance
+
+Note :- In java, by default java.lang.Object is the super class of all the classes we have in java.
+
+Demo.java
+----------
+class Demo
+{
+}
+
+Demo class is written by user but after compilation the .class file 
+would be 
+
+Demo.class
+----------
+class Demo extends java.lang.Object
+{
+
+}
+----------------------------------------------------------------------
+Program on Single Level Inheritance :
+-------------------------------------

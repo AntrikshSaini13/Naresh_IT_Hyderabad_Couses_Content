@@ -1,0 +1,897 @@
+Google Classroom
+Classroom
+Batch 28
+Java Batch 28 December 11th 2023
+Home
+Calendar
+Enrolled
+To-do
+B
+Batch 28
+Java Batch 28 December 11th 2023
+S
+Soft Skills by Amit Pandey Sir at 4.00 Pm
+Batch 28 ( Amit Pandey Sir)
+O
+Oracle by Sudhakar Sir Batch 28 11th September 2023
+Batch 28 11th September 2023
+B
+Batch 28 and .Net Batch 15 C Language by Kishore Sir Online Batch 28 and .Net Batch 15 C
+Boys Batch 28 and .Net Batch 15 (28th Aug 2023)
+B
+Batch 28 and .Net Batch 15 C Language by Kishore Sir
+Online Batch 28 and .Net Batch 15 C
+Archived classes
+Settings
+Stream
+Classwork
+People
+Batch 28
+Java Batch 28 December 11th 2023
+Upcoming
+Woohoo, no work due soon!
+
+Announce something to your class
+
+Announcement: "Happy Morning to All... Please try to…"
+Ravishankar Singh
+Created Jan 14Jan 14
+Happy Morning to All...
+Please try to complete the following task.
+
+Batch_28_Task.txt
+Text
+1 class comment
+
+raziya shaikJan 14
+okay sir
+
+Add class comment…
+
+
+Announcement: "Notes(12-JAN-24)"
+Ravishankar Singh
+Created Jan 12Jan 12
+Notes(12-JAN-24)
+Displaying 12-JAN-9AM.png
+12-JAN-9AM.png
+
+Batch_28_Notes.txt
+Text
+
+Add class comment…
+
+
+Announcement: "Notes(11-JAN-24)"
+Ravishankar Singh
+Created Jan 11Jan 11
+Notes(11-JAN-24)
+Displaying 11-JAN-9AM.png
+11-JAN-9AM.png
+
+Batch_28_Notes.txt
+Text
+
+Add class comment…
+
+
+Announcement: "Test MCQ"
+Ravishankar Singh
+Created Jan 10Jan 10
+Test MCQ
+
+BATCH_28_EXAM.txt
+Text
+
+Add class comment…
+
+
+Announcement: "Notes(10-01-23)"
+Ravishankar Singh
+Created Jan 10Jan 10
+Notes(10-01-23)
+Displaying 10-JAN-9AM.png
+10-JAN-9AM.png
+
+Batch_28_Notes.txt
+Text
+
+Add class comment…
+
+
+Announcement: "Notes(09-JAN-23)"
+Ravishankar Singh
+Created Jan 9Jan 9
+Notes(09-JAN-23)
+Displaying 09-JAN-9AM.png
+09-JAN-9AM.png
+
+Batch_28_Notes.txt
+Text
+
+Add class comment…
+
+
+Announcement: "Notes(08-JAN-23)"
+Ravishankar Singh
+Created Jan 8Jan 8
+Notes(08-JAN-23)
+Displaying 08-JAN-9AM.png
+08-JAN-9AM.png
+
+Batch_28_Notes.txt
+Text
+
+Add class comment…
+
+
+Announcement: "Notes(07-JAN-24)"
+Ravishankar Singh
+Created Jan 7Jan 7
+Notes(07-JAN-24)
+Displaying 07-JAN-9AM.png
+07-JAN-9AM.png
+
+Batch_28_Notes.txt
+Text
+
+Add class comment…
+
+
+Announcement: "Notes(06-JAN-24)"
+Ravishankar Singh
+Created Jan 6Jan 6
+Notes(06-JAN-24)
+Displaying 06-JAN-9AM.png
+06-JAN-9AM.png
+
+Batch_28_Notes.txt
+Text
+
+Add class comment…
+
+
+Announcement: "Notes(05-JAN-23)"
+Ravishankar Singh
+Created Jan 5Jan 5
+Notes(05-JAN-23)
+Displaying 05-JAN-9AM.png
+05-JAN-9AM.png
+
+Batch_28_Notes.txt
+Text
+
+Add class comment…
+
+Stream
+1. class Demo {
+	int x;
+	int y;
+	public Demo() {
+		x = 10;
+		y = x++;
+		x = this.y + this.x;
+		this.y = x + this.y;
+	}
+	public Demo(int x, int y) {
+		this.x = this.x + x;
+		this.y = this.x + y;
+	}
+}
+public class Exam {
+	public static void main(String[] args) {
+		System.out.print(new Demo().x + new Demo().y);
+		Demo demo = new Demo(20, 45);
+		System.out.print(" " + demo.x + " " + demo.y + " " + (new Demo().x - demo.y));
+	}
+}
+
+A) 50 22 60 -40
+B) 51 21 63 -45
+C) 52 20 65 -44
+D) 58 23 64 -49
+
+2. class Demo {
+	int x;
+	int y;
+	public Demo() {
+		x = 10;
+		y = x++;
+	}
+	public Demo(int x, int y) {
+		this.x += this.x + x++;
+		this.y -= this.x + --y;
+	}
+}
+public class Exam {
+	public static void main(String[] args) {
+		System.out.print(new Demo().x + new Demo().y);
+		Demo demo = new Demo(30, 50);
+		System.out.print(" " + demo.x + " " + demo.y + " " + (new Demo().x - demo.y));
+	}
+}
+
+A) 22 31 -77 92
+B) 23 32 -71 91
+C) 21 35 -80 90
+D) 21 30 -79 90
+
+
+
+3. class Demo {
+	int x;
+	int y;
+	public Demo() {
+		x = 10;
+		y = x++;
+	}
+	public Demo(Demo these) {
+		these.x += this.x + x++;
+		this.y -= these.x + --y;
+	}
+}
+public class Exam {
+	public static void main(String[] args) {
+		Demo d = new Demo();
+		d.x = d.x + 90;
+		d.y = d.y + d.x;
+		System.out.print(d.x+" ");
+		Demo demo = new Demo();
+		System.out.print(demo.x + " " + demo.y + " " + (new Demo().x - demo.y));
+	}
+}
+
+A) 100 10 11 1
+B) 101 11 11 1
+C) 101 11 10 1
+D) 102 12 10 0
+
+4. class Foo {
+	static int x = 90;
+	int v;
+	int w;
+	Foo(){
+		v = x + w; x = v; w = x;
+	}
+	public void foo(Foo foo)
+	{
+		this.x = foo.x++;
+		this.w = --foo.v;
+		System.out.println(foo.x +" "+foo.v+" "+foo.w);
+	}
+}
+public class Exam {
+	private Foo foo;
+	public static void main(String[] args) {
+		Exam exam = new Exam();
+		exam.foo = new Foo();
+		exam.foo.foo(exam.foo);
+	}
+}
+
+A) Compile Time Error
+B) 90 89 89
+C) Null Pointer Exception
+D) 91 88 87
+
+
+5. class Foo {
+	static int x = 90;
+	int v;
+	int w;
+	Foo(){
+		v = x + w; x = v; w = x;
+	}
+	public void foo(Foo foo)
+	{
+		foo = new Foo();
+		foo.v = x;
+		foo.w = foo.v + this.w;
+		System.out.println(foo.x +" "+foo.v+" "+foo.w);
+	}
+}
+public class Exam {
+	private Foo foo;
+	public static void main(String[] args) {
+		Exam exam = new Exam();
+		exam.foo = new Foo();
+		exam.foo.foo(exam.foo);
+	}
+}
+
+A) 90 90 180
+B) Compile Time Error
+C) 90 90 200
+D) None of The Above
+
+
+6. class Foo {
+	int x;
+	int y;
+	{
+		System.out.print(this.x = 10);
+		y = x;
+	}
+	Foo()
+	{
+		System.out.print(" Constructor Executed "+ y);
+	}
+	{
+		System.out.print(" Instance Block Excecuted");
+	}
+}
+public class Exam {
+	private Foo foo;
+	public static void main(String[] args) {
+		Exam exam = new Exam();
+		exam.foo = new Foo();
+	}
+}
+
+
+A) Compile Time Error
+B) 10 Constructor Executed Instance Block Excecuted 10
+C) 0 Instance Block Excecuted Constructor Executed 10
+D) 10 Instance Block Excecuted Constructor Executed 10
+
+
+7. class Doo
+{
+	private Zoom zoom;
+	int x;
+	public Zoom getZoom() {
+		zoom = new Zoom();
+		zoom.x = 45;
+		return zoom;
+	}
+	Doo(int x)
+	{
+		System.out.print(x+" ");
+	}
+}
+class Zoom
+{
+	private static Doo doo;
+	int x;
+	public Doo getDoo() {
+		doo = new Doo(this.x = 100);;
+		return doo;
+	}
+	public void print()
+	{
+		System.out.print(doo.x);
+	}
+}
+public class Exam {
+	static Zoom zoom = null;
+	public static void main(String[] args) {
+		zoom = new Zoom();
+		zoom.getDoo().getZoom().print();
+	}
+}
+
+
+A) 100 null pointer exception
+B) Compile Time Error
+C) 0 100
+D) 100 0
+
+
+8. class Omega {
+    static int updatedValue = 85;
+    int r;
+    int s;
+    Omega() {
+        r = updatedValue + s;
+        updatedValue = r;
+        s = updatedValue;
+    }
+    public void omega(Omega omega, int param) {
+        omega = new Omega();
+        omega.r = updatedValue;
+        omega.s = omega.r + this.s + param;
+        System.out.println(omega.updatedValue + " " + omega.r + " " + omega.s);
+    }
+}
+public class Exam {
+    private Omega omega;
+    public static void main(String[] args) {
+        Exam q5 = new Exam();
+        q5.omega = new Omega();
+        q5.omega.omega(q5.omega, 25);
+    }
+}
+
+A) 95 75 185
+B) 85 85 195
+C) 85 80 190
+D) None of The Above
+
+
+
+9. class Alpha {
+    int a;
+    int b;
+    int c;
+    public Alpha() {
+        a = 10;
+        b = a++;
+        c = calculateC();
+    }
+    public Alpha(int a, int b) {
+        this.a += this.a + a++;
+        this.b -= this.a + --b;
+        this.c = calculateC();
+    }
+    private int calculateC() {
+        return a * b + 2;
+    }
+    public void display() {
+        System.out.print(a + " " + b + " " + c);
+    }
+}
+public class Exam {
+    public static void main(String[] args) {
+        new Alpha().display();
+        Alpha alpha = new Alpha(30, 50);
+        System.out.print(" " + alpha.a + " " + alpha.b + " " + alpha.c + " " + (new Alpha().a - alpha.b));
+    }
+}
+
+A) 10 11 113 30 -78 -2364 90
+B) 12 11 111 30 -79 -2362 90
+C) 11 10 112 30 -79 -2368 90
+D) None Of the Above
+
+
+10. class Program1 {
+    int a;
+    int b;
+    int c;
+    {
+        System.out.println("Inside instance block");
+    }
+    public Program1() {
+        a = 10;
+        b = a++;
+        c = modifyC();
+    }
+    public Program1(int a, int b) {
+        this.a += this.a + a++;
+        this.b -= this.a + --b;
+        this.c = modifyC();
+    }
+    private int modifyC() {
+        return a * b - 5;
+    }
+    public void display() {   
+        System.out.print(a + " " + b + " " + c);
+    }
+    public void modifyValues(int x, int y) {
+        a += x;
+        b += y;
+        c = modifyC();
+    }
+    public static void main(String[] args) {
+        Program1 p1 = new Program1();
+        p1.display();
+        Program1 p2 = new Program1(30, 50);
+        System.out.print(" " + p2.a + " " + p2.b + " " + p2.c + " " + (new Program1().a - p2.b));
+    }
+}
+
+A) Inside instance block
+   11 10 105 Inside instance block
+   Inside instance block
+   30 -79 -2375 90
+B) Inside instance block
+   Inside instance block
+   Inside instance block
+   30 -79 -2375 90
+C) Inside instance block
+   11 10 103 Inside instance block
+   Inside instance block 
+   30 -90 -1000 90
+D) None of the Above
+
+
+11. class Test {
+	int a;
+	{
+		System.out.print(this.a +" ");
+		this.a = 100;
+	}
+	Test() {
+		System.out.println(this.a);
+	}
+	public static void main(String[] args) {
+		new Test();
+	}
+}
+
+A) 0 100
+B) 100 100
+C) 100 0
+D) None of the above
+
+
+
+12. class Foo {
+	{
+		int a = 25;
+	}
+	{
+		Foo obj = new Foo();
+		System.out.println(a);
+	}
+}
+public class Exam {
+	public static void main(String[] args) {
+		new Foo();
+	}
+}
+
+
+A) 25 
+B) 0 
+C) Compile Time Error
+D) Stack OverFlow
+
+
+13.  class Foo {
+	void print() {
+		System.out.println("India");
+	}
+}
+class Doo {
+	static Foo foo = new Foo();
+	void print()
+	{
+		System.out.println("India is great");
+	}
+	public static Foo foo()
+	{
+		return foo;
+	}
+}
+public class Exam {
+	public static void main(String[] args) {
+		Doo.foo().print();
+	}
+}
+
+A) Compile Time Error
+B) India
+C) India is Great
+D) None of the Above
+
+
+14. class Foo {
+	void print() {
+		System.out.println("Java Is Awesome");
+	}
+}
+class Doo {
+	static Doo foo = new Doo();
+	void print()
+	{
+		System.out.println("Adv Java Is More Awesome");
+	}
+	public static Foo foo()
+	{
+		return foo;
+	}
+}
+public class Exam {
+	public static void main(String[] args) {
+		Doo.foo().print();
+	}
+}
+
+A) Compile Time Error
+B) Java Is Awesome
+C) Adv Java Is More Awesome
+D) None of the Above
+
+
+
+15. class Example {
+	int x = 10;
+	int y = 20;
+	public Example()
+	{
+		x = 90;
+		y = y+80;
+	}
+}
+public class Exam {
+	public static void main(String[] args) {
+		Example e1 = new Example();
+		Example e2 = new Example();
+		e2.x = 25;
+		e1.x = e2.y + 10;
+		System.out.println(e1.x + " " + e1.y);
+		System.out.println(e2.x + " " + e2.y);
+	}
+}
+
+A) 90 80
+   25 100
+B) 100 110
+   25 110
+C) 110 100
+   25 100
+D) None of the above
+
+
+16. public class Exam {
+	int a = 10;
+	int b = 20;
+	{
+		a += b;
+		b -= b;
+	}
+	public static void main(String[] args) {
+		Exam e1 = new Exam();
+		Exam e2 = new Exam();
+		e1.a = 35;
+		System.out.println(e1.a + "  " + e1.b);
+		System.out.println(e2.a + "  " + e2.b);
+		e2.b = e1.a+10;
+		System.out.println(e2.a + "  " + e2.b);
+		System.out.println(e2.a + "  " + e2.b);
+	}
+}
+
+A) 35  45
+   30  0
+   30  45
+   30  45
+
+B) 30  0
+   30  0
+   30  45
+   30  45
+
+C) 35  0
+   35  0
+   30  45
+   30  45
+
+D) None Of These
+
+
+17. public class Exam {
+	int eid;
+	String ename;
+	String company;
+	public String toString() {
+		return "eid:" + eid + "\n" + "ename:" + ename + "\n" + "company:" + company + "\n";
+	}
+	public static void main(String[] args) {
+		Exam e1 = new Exam();
+		e1.eid = 7279;
+		e1.ename = "Ganesh";
+		e1.company = "Naresh IT";
+		e1 = new Exam();
+		System.out.println(e1.toString());
+	}
+}
+
+
+A) eid:7279
+   ename:Ganesh
+   company:Naresh IT
+
+B) eid:7279 ename:Ganesh company:Naresh IT
+
+C) eid:0
+   ename:null
+   company:null
+
+D) Compile Time Error
+
+
+18. public class Exam {
+	int x;
+	int y;
+	void m1(Exam t) {
+		x = x + 2;
+		y = y + 3;
+		t.x = t.x + 4;
+		t.y = t.y + 5;
+	}
+	public static void main(String[] args) {
+		Exam e1 = new Exam();
+		Exam e2 = new Exam();
+		e1.m1(e2);
+		System.out.println(e1.x + " " + e1.y);
+		System.out.println(e2.x + " " + e2.y);
+		e2.m1(e2);
+		System.out.println(e1.x + " " + e1.y);
+		System.out.println(e2.x + " " + e2.y);
+		e2.m1(e1);
+		System.out.println(e1.x + " " + e1.y);
+		System.out.println(e2.x + " " + e2.y);
+		e2.m1(e1);
+		System.out.println(e1.x + " " + e1.y);
+		System.out.println(e2.x + " " + e2.y);
+	}
+}
+
+A) 2 3
+   4 5
+   2 3
+   10 13
+   6 8
+   12 16
+   10 13
+   14 19
+
+B) 1 2
+   3 4
+   4 6
+   4 6
+   8 12
+   4 6
+   8 12
+   8 12
+
+C) 2 4
+   4 5
+   2 6
+   10 15
+   6 8
+   12 19
+   10 13
+   14 21
+D) None Of The Above
+
+
+19. public class Exam {
+	int x;
+	int y;
+	Exam()
+	{
+		x = 10;
+		y = 20;
+		new Exam(this);
+	}
+	Exam(Exam exam)
+	{
+		System.out.println(exam.x +" "+this.x + " " +exam.y);
+	}
+	public static void main(String[] args) {
+		Exam e1 = new Exam();
+		e1.x = 20;
+		e1 = new Exam(e1);
+	}
+}
+
+A) 10 0 20
+   20 0 20
+B) 10 0 20
+   10 0 20
+C) Compile Time Error
+D) None of These
+
+
+20. public class Exam {
+	int x;
+	int y;
+	Exam()
+	{
+		x = 10;
+		y = 20;
+	}
+	Exam(Exam exam)
+	{
+		System.out.println(exam.x+this.x+exam.y+this.y);
+	}
+	public static void main(String[] args) {
+		Exam e1 = new Exam();
+		e1.x = 20;
+		new Exam(e1);
+	}
+}
+
+A) 50
+B) 30
+C) 40
+D) 60
+
+
+21.  What is the purpose of a copy constructor in Java?
+
+a) To create a new object by copying the values of an existing object.
+
+b) To initialize an object with default values.
+
+c) To create a static method for copying objects.
+
+d) To clone an object using the clone() method.
+
+Answer: a) To create a new object by copying the values of an existing object.
+
+
+22. When does an instance block in Java get executed?
+
+a) During the declaration of variables.
+
+b) Before the constructor is called.
+
+c) After the constructor is called.
+
+d) Only when the object is instantiated.
+
+Answer: d) Only when the object is instantiated.
+
+
+
+23.  Which of the following is a local variable in Java?
+
+a) Instance variable
+
+b) Static variable
+
+c) Method parameter
+
+d) Class variable
+
+e) Non of these
+
+Ans e)
+
+
+
+
+24. What happens if there are multiple instance blocks in a Java class?
+
+a) Only the first instance block is executed.
+
+b) All instance blocks are executed in the order they appear.
+
+c) The last instance block is executed.
+
+d) Instance blocks cannot coexist in the same class.
+
+Answer: b) All instance blocks are executed in the order they appear.
+
+
+
+25. What is the scope of a static variable in Java?
+
+a) Limited to the class in which it is declared.
+
+b) Limited to the method in which it is declared.
+
+c) Limited to the object in which it is declared.
+
+d) Limited to the block in which it is declared.
+
+Answer: a) Limited to the class in which it is declared.   
+
+
+
+26. What is the default value of an instance variable in Java?
+ 
+a) 0 (zero)
+
+b) Null
+
+c) Depends on the data type
+
+d) Undefined
+
+Answer: c) Depends on the data type
+
+
+27. Can a copy constructor take more than one parameter?
+
+a) Yes
+
+b) No
+
+Answer: a) Yes
+Batch_28_Task.txt
+Displaying Batch_28_Task.txt.

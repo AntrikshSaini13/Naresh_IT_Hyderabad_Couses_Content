@@ -1,0 +1,130 @@
+---------------------------------------------------------------------
+01-01-2024
+-----------
+Initializing the object property through method :
+-------------------------------------------------
+package com.ravi.oop_method;
+
+public class Customer 
+{
+	//Instance variable
+	int customerId;
+	String customerName;
+	
+    //Initializing the object properties(instance variable )through method
+	public void setCustomerData()
+	{
+		customerId = 111;
+		customerName = "Rohit";
+	}
+	
+	public void getCustomerData()
+	{
+		System.out.println("Customer Id is :"+customerId);
+		System.out.println("Customer Name is :"+customerName);
+	}
+	
+
+	public static void main(String[] args) 
+	{
+		Customer c1 = new Customer(); // object creations is here
+		c1.setCustomerData();
+		c1.getCustomerData();
+	}
+
+}
+
+
+Note :- Here we are initializing the object properties through method but in the last program, we were initializing the object properties through object reference.
+-------------------------------------------------------------------------
+What is Constrcutor? (Introduction Only)
+----------------------------------------
+If the name of the class and name of the method both are exactly same and it does not contain any return type then it is called Constructor.
+
+Example :
+---------
+public class Employee
+{
+   public Employee() //Constructor 
+   {
+   }
+}
+
+Class name and Method name same in the following but it is not constructor :
+-----------------------------------------------------------
+public class Student
+{
+  public void Student()  //It is a method, not a constructor
+   {
+   }
+}
+------------------------------------------------------------------------
+Default constructor added by the compiler :
+-------------------------------------------
+In Java, whenever we write a class and if don't write any type of constructor in that class then automatically one default constructor will be added by compiler.
+
+*Every java class must contain at-least one constructor either explicitly written by user or implicitly added by compiler.
+
+The access modifier of defualt constructor depends upon class access 
+modifier.
+
+Example :
+-----------
+class Student
+{
+}
+
+javac Student.java (Compilation) 
+javap Student.class(To see the default constructor)
+
+class Student
+{
+   Student() //default constructor added by the compiler
+   {
+   }
+}
+
+Why compiler is adding default constructor to our class :
+---------------------------------------------------------
+We have 2 reasons that why compiler is adding default constructor :
+
+1) Without default constructor, Object creation is not possible in java.
+2) default constructor will initialize all the instance variables with
+   default values.
+  
+   Data type - Default value
+   byte  - 0
+   short - 0
+   int   - 0
+   long  - 0
+   float - 0.0
+   double - 0.0
+   char - (space)
+   boolean - false
+   String - null
+   Object - null (For any class i.e reference variable the default value
+                   is null)
+-------------------------------------------------------------------------
+//Program that describes default values will be provided by the default 
+  constrauctor.
+
+package com.ravi.oop_method;
+
+public class Student 
+{
+    int studentId;
+    String studentName;
+    
+    public void showStudentData()
+    {
+        System.out.println(studentId);
+        System.out.println(studentName);
+    }    
+    
+	public static void main(String[] args) 
+	{
+		Student raj = new Student();
+		raj.showStudentData();
+	}
+
+}

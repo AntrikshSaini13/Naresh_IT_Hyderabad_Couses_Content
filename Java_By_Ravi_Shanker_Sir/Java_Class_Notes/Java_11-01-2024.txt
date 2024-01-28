@@ -1,0 +1,133 @@
+11-01-2024
+----------
+HEAP and STACK Diagram 
+----------------------
+
+HEAP and STACK Diagram for CustomerDemo.java
+---------------------------------------------
+class Customer
+{
+	private String name;
+	private int id;
+
+	public Customer(String name , int id) //constructor
+	{
+		this.name=name;
+		this.id=id;
+	}
+
+	public void setId(int id)  //setter  
+	{
+		this.id=id;
+	}
+
+	public int getId() //getter
+	{
+		return id;
+	}
+}
+
+public class CustomerDemo
+{
+	public static void main(String[] args) 
+	{
+		int val=100;
+
+		Customer c = new Customer("Ravi",2);
+
+        m1(c);
+		
+		//GC [1 object i.e 3000x is eligible for GC]
+
+		System.out.println(c.getId());
+	}
+
+	public static void m1(Customer cust)
+	{
+		cust.setId(5);
+
+	    cust = new Customer("Rahul",7);
+
+		cust.setId(9);
+		System.out.println(cust.getId());
+	}
+}  
+
+// 9 5
+
+Note :- String objects are not eligible for GC.
+------------------------------------------------------------------------
+HEAP and STACK diagram for Sample.java
+---------------------------------------
+public class Sample
+{	
+	private Integer i1 = 900;
+
+	public static void main(String[] args) 
+	{
+		Sample s1 = new Sample();
+		
+		Sample s2 = new Sample();       
+
+	    Sample s3 = modify(s2);   
+
+		s1 = null;
+
+        //GC [4 objects are eligible 1000x, 2000x, 5000x and 6000x]
+
+		System.out.println(s2.i1);		
+	}
+    public static Sample modify(Sample s)
+	{
+		s.i1=9;
+		s = new Sample();
+		s.i1= 20;  
+        System.out.println(s.i1);
+		s=null;
+		return s;
+	}
+}
+
+// 20 9
+------------------------------------------------------------------------
+//HEAP and STACK Diagram for Test.java
+--------------------------------------
+public class Test 
+{
+	Test t;
+	int val;
+
+	public Test(int val)  
+	{
+		this.val = val;
+	}
+
+	public Test(int val, Test t)
+	{
+		this.val = val;
+		this.t = t;
+	}
+
+	public static void main(String[] args) 
+	{
+		Test t1 = new Test(100);
+		
+		Test t2 = new Test(200,t1);
+
+		Test t3 = new Test(300,t1);
+
+		Test t4 = new Test(400,t2);
+
+		t2.t = t3; //3000x
+		t3.t = t4; //4000X
+		t1.t = t2.t; //3000x
+		t2.t = t4.t; //2000x
+
+	System.out.println(t1.t.val);
+	System.out.println(t2.t.val);
+	System.out.println(t3.t.val);
+	System.out.println(t4.t.val);
+	}
+	
+}  
+------------------------------------------------------------------------

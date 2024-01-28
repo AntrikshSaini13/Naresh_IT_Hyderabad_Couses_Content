@@ -1,0 +1,467 @@
+------------------------------------------------------------------------
+23-01-2024
+----------
+Program on single level inheritance :
+-------------------------------------
+package com.ravi.single_level;
+
+class Shape
+{
+	protected int x;
+	
+	public Shape(int x)
+	{
+		this.x = x;
+	}
+}
+class Square extends Shape
+{
+	public Square(int side)
+	{
+		super(side);
+	}
+	
+	public void getAreaOfSquare()
+	{
+		double area = x * x;
+		System.out.println("Area of Square is :"+area);
+	}
+	
+}
+
+public class SingleLevelInheritance 
+{
+	public static void main(String[] args) 
+	{
+		Square ss = new Square(10);
+		ss.getAreaOfSquare();
+	}
+
+}
+-------------------------------------------------------------------------
+Program on Hierarchical Inheritance by using super keyword
+
+package com.ravi.hierarchical_inheritance;
+
+import java.util.Scanner;
+
+class Shape
+{
+	protected int x;
+	
+	public Shape(int x)
+	{
+		this.x = x;
+	}
+}
+class Square extends Shape
+{
+	public Square(int side)
+	{
+		super(side);
+	}
+	
+	public void getAreaOfSquare()
+	{
+		double area = x * x;
+		System.out.println("Area of Square is :"+area);
+	}
+	
+}
+
+class Circle extends Shape
+{	
+	public Circle(int radius)
+	{
+		super(radius);
+	}
+	
+	public void getAreaOfCircle()
+	{
+		final double PI = 3.14;
+		double area = PI * x * x;
+		System.out.println("Area of Circle is :"+area);
+	}
+	
+}
+
+class Rectangle extends Shape
+{
+	protected int breadth;
+   public Rectangle(int length, int breadth)
+   {
+	  super(length); 
+	  this.breadth = breadth;
+   }
+   
+   public void getAreaOfRectangle()
+   {
+	   double area = x * breadth;
+	   System.out.println("Area of Rectangle is :"+area);
+   }
+   
+}
+
+public class HierarchicalInheritance {
+
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Enter the side of the Square :");
+		int side = sc.nextInt();
+		Square ss = new Square(side);
+		ss.getAreaOfSquare();
+		
+		System.out.print("Enter the radius of the Circle :");
+		int radius = sc.nextInt();
+		Circle cc = new Circle(radius);
+		cc.getAreaOfCircle();
+		
+		System.out.print("Enter the length and breadth of the Rectangle :");
+		int length = sc.nextInt();
+		int breadth = sc.nextInt();
+		Rectangle rr = new Rectangle(length, breadth);
+		rr.getAreaOfRectangle();
+	}
+
+}
+-------------------------------------------------------------------------
+HOW MANY WAYS WE CAN INITIALIZE THE OBJECT PROPERTIES ?
+-------------------------------------------------------
+
+The following are the ways to initialize the object properties :
+----------------------------------------------------------------
+public class Test
+{
+   int x,y;
+}
+
+
+1) At the time of declaration :
+
+   Example :
+   
+  public class Test
+   {
+      int x = 10;
+      int y = 20;
+   }
+
+   Test t1 = new Test();   [x = 10  y = 20]
+   Test t2 = new Test();   [x = 10  y = 20]
+
+Here the drawback is all objects will be initialized with same value.
+-----------------------------------------------------------------------
+
+2) By using Object Reference :
+
+   public class Test
+   {
+      int x,y;
+   }
+   
+   Test t1 = new Test();   t1.x=10;   t1.y=20;
+   Test t2 = new Test();   t2.x=30;   t2.y=40;
+
+   Here we are getting different values with respect to object but here
+   the program becomes more complex.
+-----------------------------------------------------------------------
+3) By using methods :
+
+   A) First Approach (Method without Parameter)
+   ----------------------------------------------
+   public class Test
+   {
+      int x,y;
+
+      public void setData()  //All the objects will be initialized with
+      {                         same value
+         x = 100;  y = 200;
+      }
+   }
+
+    Test t1 = new Test();  t1.setData();  [x = 100   y = 200]
+    Test t2 = new Test();  t2.setData();  [x = 100   y = 200]
+    
+
+    B) Second Approach (Method with Parameter)
+    -------------------------------------------
+     public class Test
+     {
+      int x,y;
+
+      public void setData(int x, int y)  
+      {                        
+         this.x = x;
+	 this.y = y;
+      }
+   }
+
+    Test t1 = new Test();  t1.setData(12,78);  [x = 12   y = 78]
+    Test t2 = new Test();  t2.setData(15,29);  [x = 15   y = 29]
+
+    Here the Drawback is initialization and re-initialization both are done in two different lines so Constructor introduced.
+----------------------------------------------------------------------
+4) By using Constructor 
+
+   A) First Approach (No Argument Constructor)
+   --------------------------------------------
+   public class Test
+   {
+      int x,y;
+
+      public Test()  //All the objects will be initialized with
+      {                                             same value
+         x = 100;  y = 200;
+      }
+   }
+
+    Test t1 = new Test();    [x = 100   y = 200]
+    Test t2 = new Test();    [x = 100   y = 200]
+    
+
+    B) Second Approach (Parameterized Constructor)
+    -----------------------------------------------
+     public class Test
+     {
+      int x,y;
+
+      public Test(int x, int y)  
+      {                        
+         this.x = x;
+	 this.y = y;
+      }
+   }
+
+    Test t1 = new Test(12,78);    [x = 12   y = 78]
+    Test t2 = new Test(15,29);    [x = 15   y = 29]
+
+    This is the best way to initialize our instance variable because variable initialization and variable re-initialization 
+    both will be done in the same line as well as all the objects will be initialized with different values. 
+
+    C) Third Approach (Copy Constructor)
+    --------------------------------------
+
+       public class Manager
+       {
+          private int managerId;
+	  private String managerName;
+          
+	  public Manager(Employee emp)
+	  {
+	    this.managerId = emp.getEmployeeId();
+	    this.managerName = emp.getEmployeeName();
+          }
+       }
+
+	Here with the help of Object reference (Employee class) we are 
+	initializing the properties of Manager class. (Copy Constructor)
+
+    D) By using instance block (Instance Initializer)
+	-------------------------------------------------
+	
+	public class Test
+	{
+	   int x,y;
+
+           public Test()
+	   {
+	      System.out.println(x); //100
+	      System.out.println(y); //200
+	   }
+
+           //Instance block
+	   {
+	       x = 100; 
+	       y = 200;
+	   }
+
+-----------------------------------------------------------------------
+5) By using super keyword :
+
+   class Super
+   {
+     int x,y;
+
+     public Super(int x , int y)
+     {
+        this.x = x;
+	this.y = y;
+     }
+   }
+   class Sub extends Super
+   {
+      Sub()
+      {
+         super(100,200); //Initializing the properties of super class
+      }
+   }
+
+   new Sub();
+-----------------------------------------------------------------------
+Program on Hierarchical inheritance :
+-----------------------------------
+package com.ravi.hierarchical_inheritance;
+
+class Employee
+{
+	protected double salary;
+	
+	public Employee(double salary)
+	{
+		this.salary = salary;
+	}
+	
+}
+class Developer extends Employee
+{
+	public Developer(double developerSalary)
+	{
+		super(developerSalary);
+	}
+
+	@Override
+	public String toString() {
+		return "Developer [salary=" + salary + "]";
+	}
+}
+class Designer extends Employee
+{
+	public Designer(double designerSalary) 
+	{
+		super(designerSalary);		
+	}
+
+	@Override
+	public String toString() {
+		return "Designer [salary=" + salary + "]";
+	}
+}
+public class HierarchicalDemo 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println(new Developer(50000));
+		System.out.println(new Designer(20000));
+	}
+}
+------------------------------------------------------------------------
+Program on multiplevel Inheritance :
+------------------------------------
+package com.ravi.multilevel;
+
+class GrandFather
+{
+	public void land()
+	{
+		System.out.println("2 acres land");
+	}
+}
+class Father extends GrandFather
+{
+	public void home()
+	{
+		System.out.println("3 BHK home");
+	}
+}
+class Son extends Father
+{
+	public void bike()
+	{
+		System.out.println("KTM Bike");
+	}
+}
+
+public class MultiLevel 
+{
+	public static void main(String[] args)
+	{
+		Son ss = new Son();
+		ss.land();  ss.home();  ss.bike();
+	}
+
+}
+-------------------------------------------------------------------------
+Program on Multilevel Inheritance :
+-----------------------------------
+package com.ravi.multilevel;
+
+class Student
+{
+	protected int studentId;
+	protected String studentName;
+	protected String studentAddress;
+	
+	public Student(int studentId, String studentName, String studentAddress) {
+		super();
+		this.studentId = studentId;
+		this.studentName = studentName;
+		this.studentAddress = studentAddress;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [studentId=" + studentId + ", studentName=" + studentName + ", studentAddress=" + studentAddress
+				+ "]";
+	}
+	
+	
+}
+class Science extends Student
+{
+	protected int physics;
+	protected int chemistry;
+	public Science(int studentId, String studentName, String studentAddress, int physics, int chemistry) 
+	{
+		super(studentId, studentName, studentAddress);
+		this.physics = physics;
+		this.chemistry = chemistry;
+	}
+	@Override
+	public String toString() 
+	{
+		return super.toString()+ "Science [physics=" + physics + ", chemistry=" + chemistry + "]";
+	}	
+	
+	
+	
+}
+class PCM extends Science
+{
+	protected int math;
+
+	public PCM(int studentId, String studentName, String studentAddress, int physics, int chemistry, int math)
+	{
+		super(studentId, studentName, studentAddress, physics, chemistry);
+		this.math = math;
+	}
+
+	@Override
+	public String toString() 
+	{
+		return super.toString()+ "PCM [math=" + math + "]";
+	}
+}
+
+public class MultilevelInheritance 
+{
+	public static void main(String[] args) 
+	{
+      	     PCM p = new PCM(1,"A","Koti",78,89,90);
+             System.out.println(p);
+	}
+
+}
+-------------------------------------------------------------------------
+IQ
+--
+Why Java does not support multiple Inheritance ?
+------------------------------------------------
+Java does not support multiple inheritance using classes, because if a sub class inherits two or more than two super 
+classes then the default constructor added by the compiler will generate ambiguity issue to call the super class constructor.
+
+It is a also known as Diamond Problem in java.
+
+We can achieve multiple Inheritance by using interface concept.
+----------------------------------------------------------------------

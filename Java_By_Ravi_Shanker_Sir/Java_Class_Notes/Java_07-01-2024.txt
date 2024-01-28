@@ -1,0 +1,401 @@
+07-01-2024
+----------
+Passing an Object reference to the constructor :
+-------------------------------------------------
+According to our application requirement we can pass object reference 
+to the constructor. The main purpose of passing an object reference to the constructor TO "COPY THE CONTENT OF ONE OBJECT TO ANOTHER OBJECT".
+
+Syntax:
+-------
+
+class Student
+{
+  int x,y;
+  
+  public Student()
+  {
+  }
+  public Student(int x, int y)
+  {
+  }
+  public Student(Student st)  //PASSING AN OBJECT REFERENCE it is called Copy constructor
+  {
+  }
+
+}
+----------------------------------------------------------------------
+Program which describes how to copy the Employee data into Manager data 
+(Passing an object reference to the constructor)
+
+3 Files :
+---------
+Employee.java
+-------------
+package com.ravi.copy_constructor;
+
+public class Employee 
+{
+   private int employeeId;
+   private String employeeName;
+   
+	public Employee(int employeeId, String employeeName) 
+	{
+		super();
+		this.employeeId = employeeId;
+		this.employeeName = employeeName;
+	}
+
+	public int getEmployeeId() {
+		return employeeId;
+	}
+
+	public String getEmployeeName() {
+		return employeeName;
+	}
+	
+}
+
+Manager.java
+-------------
+package com.ravi.copy_constructor;
+
+public class Manager 
+{
+  private int managerId;
+  private String managerName;
+  
+  public Manager(Employee emp)  //emp = e1 parameter passing here coppy contructor
+  {
+	 managerId = emp.getEmployeeId();
+	 managerName = emp.getEmployeeName();
+  }
+
+	@Override
+	public String toString() {
+		return "Manager [managerId=" + managerId + ", managerName=" + managerName + "]";
+	}
+  
+}
+
+CopyConstructor.java
+--------------------
+
+package com.ravi.copy_constructor;
+
+public class CopyConstructor 
+{
+	public static void main(String[] args) 
+	{
+		Employee e1 = new Employee(111, "Scott");
+		
+		Manager m1 = new Manager(e1);
+		System.out.println(m1);
+	}
+
+}
+------------------------------------------------------------------------
+This program describes how to copy the same object content to another 
+(Same Player object to another Player object)
+
+Player.java
+-----------
+package com.ravi.copy_constructor;
+
+public class Player 
+{
+  private String name1, name2;
+  
+  public Player(String name1, String name2)
+  {
+	  this.name1 = name1;
+	  this.name2 = name2;
+  }
+  
+  public Player(Player p)  // p = p1
+  {
+	  this.name1 = p.name2;
+	  this.name2 = p.name1;
+  }
+
+@Override
+public String toString() {
+	return "Player [name1=" + name1 + ", name2=" + name2 + "]";
+}
+  
+  
+  
+}
+
+Main.java
+---------
+package com.ravi.copy_constructor;
+
+public class Main 
+{
+	public static void main(String[] args) 
+	{
+		Player p1 = new Player("Rohit","Virat");
+		System.out.println(p1);
+		
+		Player p2 = new Player(p1);
+		System.out.println(p2);
+	}
+}
+---------------------------------------------------------------------
+Lab Program :
+-------------
+The payroll system of an organization involves calculating the gross salary of each type of employee and the tax applicable to each. 
+
+Note : Take parameterized constructor to initialize all fields. 
+
+Create the following BLC classes as described below.
+
+Class Employee
+Fields: employeeId: int, employeeName : String, basicSalary : double, HRAPer : double, DAPer : double
+
+Public Method: calculateGrossSalary() - returns a double
+Calculate the gross salary as : basicSalary +HRAPer +DAPer
+
+Class Manager
+Fields: managerId: int, managerName : String, basicSalary : double, HRAPer : double,DAPer : double, projectAllowance: double
+
+public Method: calculateGrossSalary() - returns a double
+Calculate the gross salary as : basicSalary +HRAPer +DAPer + projectAllowance
+
+Class Trainer
+Fields: trainerId: int, trainerName : String, basicSalary : double, HRAPer : double,DAPer : double, batchCount: int, perkPerBatch: double
+
+public Method: calculateGrossSalary() - returns a double
+Calculate the gross salary as : basicSalary +HRAPer +DAPer +(batchCount * perkPerBatch)
+
+Class Sourcing
+Fields: sourceId: int, sourcaName : String, basicSalary : double, HRAPer : double,DAPer : double, enrollmentTarget: int, enrollmentReached: int, perkPerEnrollment: double
+Public Method: calculateGrossSalary() - returns a double
+
+Calculate the gross salary as : basicSalary +HRAPer +DAPer +(((enrollmentReached/enrollmentTarget)*100)*perkPerEnrollment)
+
+
+Class TaxUtil
+Fields: None
+Public Methods:
+calculateTax(Employee e) - returns a double
+calculateTax(Manager m) - returns a double
+calculateTax(Trainer t) - returns a double
+calculateTax(Sourcing s) - returns a double
+
+Tax Calculation Logic: If gross salary is greater than 50000 tax is 20% else, tax is 5%.
+
+An ELC class TaxCalculation is given to you with the main Method. Use this class to test your solution.
+
+6 files :
+---------
+Employee.java
+--------------
+package com.nit.lab;
+
+public class Employee 
+{
+  private int employeeId;
+  private String employeeName;
+  private double basicSalary;
+  private double HRAPer;
+  private double DAPer;
+  
+  public Employee(int employeeId, String employeeName, double basicSalary, double hRAPer, double dAPer) {
+	super();
+	this.employeeId = employeeId;
+	this.employeeName = employeeName;
+	this.basicSalary = basicSalary;
+	HRAPer = hRAPer;
+	DAPer = dAPer;
+}
+
+
+
+public double calculateGrossSalary()
+  {
+	  return basicSalary +HRAPer +DAPer;
+  }
+}
+
+
+Manager.java
+-------------
+package com.nit.lab;
+
+public class Manager 
+{
+  private int managerId;
+  private String managerName;
+  private double basicSalary;
+  private double HRAPer;
+  private double DAPer;
+  private double  projectAllowance;
+  
+  
+  
+  public Manager(int managerId, String managerName, double basicSalary, double hRAPer, double dAPer,
+		double projectAllowance) {
+	super();
+	this.managerId = managerId;
+	this.managerName = managerName;
+	this.basicSalary = basicSalary;
+	HRAPer = hRAPer;
+	DAPer = dAPer;
+	this.projectAllowance = projectAllowance;
+}
+
+public double calculateGrossSalary()
+  {
+	  return basicSalary +HRAPer +DAPer + projectAllowance;
+  }
+
+}
+
+
+Trainer.java
+-------------
+package com.nit.lab;
+
+public class Trainer 
+{
+	  private int trainerId;
+	  private String trainerName;
+	  private double basicSalary;
+	  private double HRAPer;
+	  private double DAPer;
+	  private int batchCount;
+	  private double perkPerBatch;
+	public Trainer(int trainerId, String trainerName, double basicSalary, double hRAPer, double dAPer, int batchCount,
+			double perkPerBatch) {
+		super();
+		this.trainerId = trainerId;
+		this.trainerName = trainerName;
+		this.basicSalary = basicSalary;
+		HRAPer = hRAPer;
+		DAPer = dAPer;
+		this.batchCount = batchCount;
+		this.perkPerBatch = perkPerBatch;
+	}
+	 
+	public double calculateGrossSalary()
+	  {
+		  return basicSalary +HRAPer +DAPer +(batchCount * perkPerBatch);
+	  }
+	  
+	  
+}
+
+Sourcing.java
+--------------
+package com.nit.lab;
+
+public class Sourcing 
+{
+	private int employeeId;
+	  private String employeeName;
+	  private double basicSalary;
+	  private double HRAPer;
+	  private double DAPer;
+	  private int enrollmentTarget;
+	  private int enrollmentReached;
+	  private double perkPerEnrollment;
+	  
+	  
+	  
+	  public Sourcing(int employeeId, String employeeName, double basicSalary, double hRAPer, double dAPer,
+			int enrollmentTarget, int enrollmentReached, double perkPerEnrollment) {
+		super();
+		this.employeeId = employeeId;
+		this.employeeName = employeeName;
+		this.basicSalary = basicSalary;
+		HRAPer = hRAPer;
+		DAPer = dAPer;
+		this.enrollmentTarget = enrollmentTarget;
+		this.enrollmentReached = enrollmentReached;
+		this.perkPerEnrollment = perkPerEnrollment;
+	}
+
+
+
+	public double calculateGrossSalary()
+	  {
+		 return basicSalary +HRAPer +DAPer +(((enrollmentReached/enrollmentTarget)*100)*perkPerEnrollment);
+
+	  }
+}
+
+TaxUtil.java
+------------
+package com.nit.lab;
+
+public class TaxUtil 
+{
+  public static double calculateTax(Employee e)
+  {
+	  if(e.calculateGrossSalary() > 50000)
+	  {
+		  return e.calculateGrossSalary()*0.20;
+	  }
+	  else
+	  {
+		  return e.calculateGrossSalary()*0.05;
+	  }
+  }
+  public static double calculateTax(Manager m)
+  {
+	  if(m.calculateGrossSalary() > 50000)
+	  {
+		  return m.calculateGrossSalary()*0.20;
+	  }
+	  else
+	  {
+		  return m.calculateGrossSalary()*0.05;
+	  }
+  }
+  public static double calculateTax(Trainer t)
+  {
+	  
+	  if(t.calculateGrossSalary() > 50000)
+	  {
+		  return t.calculateGrossSalary()*0.20;
+	  }
+	  else
+	  {
+		  return t.calculateGrossSalary()*0.05;
+	  }
+  }
+  public static double calculateTax(Sourcing s)
+  {
+	  if(s.calculateGrossSalary() > 50000)
+	  {
+		  return s.calculateGrossSalary()*0.20;
+	  }
+	  else
+	  {
+		  return s.calculateGrossSalary()*0.05;
+	  }
+  }	
+
+}
+
+
+TaxCalculation.java
+-------------------
+package com.nit.lab;
+
+public class TaxCalculation {
+
+	public static void main(String[] args) 
+	{
+		Employee e1 = new Employee(1, "John", 50000, 1000, 550);		
+		double tax = TaxUtil.calculateTax(e1);
+		System.out.println(tax);
+		
+		Manager m1 = new Manager(2, "John", 40000, 2200, 1200, 1500);
+		tax = TaxUtil.calculateTax(m1);
+		System.out.println(tax);
+	}
+
+}
+--------------------------------------------------------------------

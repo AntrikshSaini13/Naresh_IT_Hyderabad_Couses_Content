@@ -1,0 +1,177 @@
+02-01-2024
+-----------
+How to provide userdefined values for our instance variable :
+--------------------------------------------------------------
+The default constructor added by the compiler will provide the default values for the instance variable, 
+but these default values are not useful for the user so, user will take a separate method setEmployeeData() 
+to re-initialize the instance variable according to his/her choice as shown in the program.
+
+Employee.java
+--------------
+package com.ravi.oop;
+
+public class Employee 
+{
+	int eid;
+	String ename;
+	
+	//To perform re-initialization for instance variable
+	public void setEmployeeData()
+	{
+		eid = 111;
+		ename = "Ravi";
+	}
+	
+	//To print the value of instance variable
+	public void getEmployeeData()
+	{
+		System.out.println("Employee id is :"+eid);
+		System.out.println("Employee Name is :"+ename);
+	}
+	
+	
+	public static void main(String[] args) 
+	{
+		Employee ravi = new Employee();
+		ravi.getEmployeeData();  // 0 and null
+		
+		ravi.setEmployeeData();
+                ravi.getEmployeeData(); //111 and Ravi
+	}
+
+}
+-----------------------------------------------------------------------
+Instance variable :
+-------------------
+If a non static variable declaread outside of a method and inside the class then it is called Instance variable.
+
+As far as its scope is concerned, it is accessible directly anywhere withing the class as well as depends upon the accessibility level.
+
+THE LIFE OF INSTANCE VARIABLE STARTS AT THE TIME OF CREATING THE OBJECT, IT IS THE PART OF THE OBJECT. WE CANNOT THINK ABOUT INSTANCE
+ VARIABLE WITHOUT OBJECT.
+
+
+public class Main
+{
+  int x = 100;
+
+  public static void main(String [] args) 
+  {
+	 System.out.println(x);  //error [cannot use instance variable 
+	                                   without object]
+  }
+}
+
+public class Main2 {
+   static int x = 100;
+
+  public static void main(String [] args) 
+  {
+	 System.out.println(x);  //100                         
+  }
+}
+
+-----------------------------------------------------------------------
+Local variable :
+----------------
+If a variable is declared inside the method body (not as a method parameter) then it is called Local/Stack/Automatic/Temporary variable.
+
+As far as its scope is concerned, it is accessible within the same method body only. (Not outside of the method)
+
+A local variable must be initialized before use.
+
+We cannot apply any kind of access modifier except final.
+
+//Program on instance variable :
+package com.ravi.oop;
+
+import java.util.Scanner;
+
+public class Player 
+{
+    int playerId;
+    String playerName;
+    double basePrice;
+    
+    public void setPlayerData()
+    {
+       Scanner sc = new Scanner(System.in);
+       System.out.print("Enter Player id :");
+       playerId = sc.nextInt();
+       System.out.print("Enter Player name :");
+       playerName = sc.nextLine();
+       playerName = sc.nextLine();
+       System.out.print("Enter Player price :");
+       basePrice = sc.nextDouble();
+       sc.close();
+      
+    }
+    
+    public void getPlayerData()
+    {
+    	System.out.println("Player id is :"+playerId);
+    	System.out.println("Player name is :"+playerName);
+    	System.out.println("Player Base price is :"+basePrice);
+    }
+        
+	public static void main(String[] args) 
+	{
+	   Player p1 = new Player();
+	   p1.setPlayerData();
+	   p1.getPlayerData();
+
+	}
+
+}
+-----------------------------------------------------------------------
+Lab Program :
+-------------
+package com.ravi.oop;
+
+public class Employee 
+{
+	int employeeId;
+	String employeeName;
+	double employeeSalary;
+	char employeeGrade;
+	
+	public void setEmployeeData(int eid, String name, double sal)
+	{
+		employeeId = eid;
+		employeeName = name;
+		employeeSalary = sal;
+	}
+	
+	public void calculateEmployeeGrade()
+	{
+		if(employeeSalary >= 100000)
+		{
+			employeeGrade = 'A';
+		}
+		else
+		{
+			employeeGrade = 'B';
+		}
+	}
+	
+	
+	
+	
+	public void getEmployeeData()
+	{
+		System.out.println("Employee id is :"+employeeId);
+		System.out.println("Employee name is :"+employeeName);
+		System.out.println("Employee salary is :"+employeeSalary);
+		System.out.println("Employee grade is :"+employeeGrade);
+	}
+		
+	public static void main(String[] args) 
+	{
+		Employee e1 = new Employee();
+		e1.setEmployeeData(1, "Raj", 1000000);
+		e1.calculateEmployeeGrade();
+		e1.getEmployeeData();
+	}
+
+}
+------------------------------------------------------------------------

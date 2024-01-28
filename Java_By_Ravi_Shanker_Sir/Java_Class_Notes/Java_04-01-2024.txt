@@ -1,0 +1,190 @@
+04-01-2024
+----------
+How to print object properties by using toString() method :
+-----------------------------------------------------------
+If we want to print our object properties then we should generate(override) toString() method in our class from Object class.
+
+Now with the help of toString() method we need not write any display kind of method to print the object properties i.e instance variable.
+
+In order to generate the toString() method we need to follow the steps
+Right click on the program -> source -> generate toString()
+
+In order to call this toString() method, we need to print the corresponding object reference by using System.out.println() statement.
+
+Manager m = new Manager();
+System.out.println(m); //Calling toString() method of Manager class
+
+Employee e = new Employee();
+System.out.println(e); //Calling toString() method of Employee class
+-----------------------------------------------------------------------
+2 Files :
+---------
+Customer.java
+--------------
+package com.ravi.printing_object_properties;
+
+//BLC
+public class Customer 
+{
+  int customerId;
+  String customerName;
+  double customerBill;
+
+  public void setCustomerData(int customerId, String customerName, double customerBill)
+  {
+	  this.customerId = customerId;
+	  this.customerName = customerName;
+	  this.customerBill = customerBill;
+  }
+
+	@Override
+	public String toString() 
+	{
+		return "Customer [customerId=" + customerId + ", customerName=" + customerName + ", customerBill=" + customerBill
+				+ "]";
+	}
+  
+}
+
+CustomerDemo.java
+------------------
+package com.ravi.printing_object_properties;
+
+//ELC
+public class CustomerDemo 
+{
+	public static void main(String[] args) 
+	{
+		Customer c1 = new Customer();
+		c1.setCustomerData(1, "John", 12000.78);
+		System.out.println(c1); //toString() method of Customer
+	}                           //class
+
+}
+------------------------------------------------------------------------
+Data Hiding :
+-------------
+Data hiding is nothing but declaring our data members with private access modifier so our data will not be accessible from outer
+world that means no one can access our data directly outside of the class.
+
+*We should provide the accessibility of our data through methods so we can perform VALIDATION ON DATA which are coming from outer world.
+
+2 Files :
+---------
+Customer.java
+--------------
+package com.ravi.data_hiding;
+
+public class Customer 
+{
+   private double balance = 1000;  //data hiding
+   
+   public void deposit(int amount)
+   {
+	  //Validation of data
+	 if(amount<=0)
+	 {
+		 System.out.println("Amount cannot be deposited");
+	 }
+	 else
+	 {
+		 balance = balance + amount;
+		 System.out.println("Balance after Deposit :"+balance);
+	 }
+   }
+   public void withdraw(int amount)
+   {
+	   balance = balance - amount;
+	   System.out.println("Balance after withdraw :"+balance);
+   }
+}
+
+
+Bank.java
+----------
+package com.ravi.data_hiding;
+
+public class Bank 
+{
+	public static void main(String[] args) 
+	{
+		Customer raj = new Customer();
+		raj.deposit(1000);
+		raj.withdraw(1000);
+	}
+
+}
+-----------------------------------------------------------------------
+Abstraction :
+-------------
+Showing the essential details without showing the background details is called abstraction. 
+
+In our real world a user always interacts with functionality of the product but not the data so as a developer 
+we should hide the data from end user by declaring them private.
+
+On the other hand the function must be declared as public so our end user witll interact with the function/method.
+
+In Java we can achieve abstraction by using two ways :
+
+1) Abstract class and abstract methods :- By using abstract class and 
+   abstract method we can achieve abstraction 0 to 100%
+
+2) By using interface :- By using interface we can achieve 100% 
+   abstraction.
+
+Example :
+----------
+
+public abstract class Lift 
+{
+   abstract void keyOne();
+   abstract void keyTwo();
+   abstract void keyThree();
+   abstract void keyFour();
+   abstract void keyFive();   
+}
+
+class SteelLift extends Lift
+{
+
+	@Override
+	void keyOne() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	void keyTwo() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	void keyThree() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	void keyFour() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	void keyFive() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}
+------------------------------------------------------------------------
+What is Constructor ?
+---------------------
+What is the advantage of writing constructor in our class ?
+------------------------------------------------------------
+If we don't write a constructor in our program then variable initialization and variable re-initialization both are done in two different lines.
+
+If we write constructor in our program then variable initialization and variable re-initialization both are done in the same line i.e at the time of Object creation.
+
+[Diagram 04-jan-24]

@@ -1,0 +1,26 @@
+public class Customer 
+{
+	//Instance variable
+	int customerId;
+	String customerName;
+	
+    //Initializing the object properties(instance variable )through method
+	public void setCustomerData()
+	{
+		customerId = 111;
+		customerName = "Rohit";
+	}
+	
+	public void getCustomerData()
+	{
+		System.out.println("Customer Id is :"+customerId);
+		System.out.println("Customer Name is :"+customerName);
+	}
+	
+	public static void main(String[] args) 
+	{
+		Customer c1 = new Customer();
+		c1.setCustomerData();
+		c1.getCustomerData();
+	}
+}

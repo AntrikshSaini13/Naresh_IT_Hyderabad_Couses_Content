@@ -1,0 +1,265 @@
+----------------------------------------------------------------------
+06-01-2024
+----------
+Program that describes the use of Setter and Getter to define the type of Employee.
+
+2 Files :
+---------
+Employee.java
+--------------
+package com.nit.stter_getter;
+
+public class Employee 
+{
+  private double empSalary;
+
+  //getter
+  public double getEmpSalary() 
+  {
+		return empSalary;
+  }
+	
+   //setter
+   public void setEmpSalary(double empSalary) 
+   {
+		this.empSalary = empSalary;
+   }  
+}
+
+
+TypeOfEmployee.java
+--------------------
+package com.nit.stter_getter;
+
+import java.util.Scanner;
+
+//ELC
+public class TypeOfEmployee 
+{
+	public static void main(String[] args)
+	{
+		Employee e1 = new Employee();
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter the Employee Salary :");
+		double sal = sc.nextDouble();
+		
+		e1.setEmpSalary(sal);
+		
+		double empSalary =  e1.getEmpSalary();
+		
+		if(empSalary >=40000)
+		{
+			System.out.println("You are a developer...");
+		}
+		else if(empSalary >=25000)
+		{
+			System.out.println("You are a Designer...");
+		}
+		else
+		{
+			System.out.println("You are a Tester...");
+		}
+	}
+}
+-------------------------------------------------------------------------
+* Encapsulation :
+---------------
+Binding the data member with its associated function/method in a single unit is called encapsulation.
+
+In other words we can say "Grouping the related things together is called Encapsulation". [Laptop]
+
+In encapsulation data must be tightly coupled with associated function.
+
+It provides us security because we can't access the data directly, data must be accessible via methods only.
+
+We can achieve encapsulation in our program by using following
+
+a) Declare all the data members as private (Tightly encapsulated class)
+b) Define getters and setters for each instance variable to perform read and write operation.
+
+Note :
+-----
+If we declare all the instance variables with private access modifier then it is called tightly encapsulated class.
+
+On the other hand if some variables are declared with private access modifier and other variables are not declared with private access modifier then it is called loosely encapsulated class.
+-------------------------------------------------------------------------
+HAS-A Relation :
+----------------
+If we take the class name as a proprty to another class then it is called 
+HAS-A relation.
+
+Example 1 :
+------------
+class PanCard
+{
+}
+
+class BankCustomer
+{
+  private PanCard panCard;
+}
+
+Example 2 :
+------------
+class Account
+{
+
+}
+class Customer
+{
+   private Account account;
+}
+-------------------------------------------------------------------------
+3 files :
+---------
+Student.java
+------------
+package com.ravi.has_relation;
+//BLC
+public class Student 
+{
+   private int studentId;
+   private String studentName;
+   private double studentFees;
+   
+  
+   
+	public Student(int studentId, String studentName, double studentFees) {
+		super();
+		this.studentId = studentId;
+		this.studentName = studentName;
+		this.studentFees = studentFees;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [studentId=" + studentId + ", studentName=" + studentName + ", studentFees=" + studentFees
+				+ "]";
+	}
+   
+	
+	
+	
+	
+   
+}
+
+College.java
+------------
+package com.ravi.has_relation;
+
+public class College 
+{
+  private String collegeName;
+  private String collegeLocation;
+  private Student student;   //HAS-A Relation
+  
+	public College(String collegeName, String collegeLocation, Student student) //student = s1
+	{	    	
+		super();
+		this.collegeName = collegeName;
+		this.collegeLocation = collegeLocation;
+		this.student = student;	
+	}
+
+	@Override
+	public String toString() {
+		return "College [collegeName=" + collegeName + ", collegeLocation=" + collegeLocation + ", student=" + student
+				+ "]";
+	}
+  
+    
+}
+
+
+Main.java
+---------
+package com.ravi.has_relation;
+
+public class Main 
+{
+	public static void main(String[] args) 
+	{
+		Student s1 = new Student(111,"Raj",23890);	
+		
+		College c1 = new College("NIT", "Hyderabad", s1);
+		System.out.println(c1);
+	}
+
+}
+-------------------------------------------------------------------------
+Another program on HAS-A relation :
+------------------------------------
+Company.java
+-------------
+package com.ravi.has_relation;
+
+public class Company 
+{
+  private String companyName;
+  private String companyLocation;
+  
+	public Company(String companyName, String companyLocation) {
+		super();
+		this.companyName = companyName;
+		this.companyLocation = companyLocation;
+	}
+
+	@Override
+	public String toString() {
+		return "Company [companyName=" + companyName + ", companyLocation=" + companyLocation + "]";
+	}
+
+	
+  
+  
+}
+
+Employee.java
+--------------
+package com.ravi.has_relation;
+
+public class Employee 
+{
+  private int employeeId;
+  private String employeeName;
+  private double employeeSalary;
+  private Company company;  //HAS-A Relation
+  
+	public Employee(int employeeId, String employeeName, double employeeSalary, Company company) //company = comp
+	{
+		super();
+		this.employeeId = employeeId;
+		this.employeeName = employeeName;
+		this.employeeSalary = employeeSalary;
+		this.company = company;	
+		
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [employeeId=" + employeeId + ", employeeName=" + employeeName + ", employeeSalary="
+				+ employeeSalary + ", company=" + company + "]";
+	}  
+  
+}
+
+ELC.java
+---------
+package com.ravi.has_relation;
+
+public class ELC {
+
+	public static void main(String[] args) 
+	{
+		Company comp = new Company("TCS", "Hydearabad");	
+		
+		Employee e1 = new Employee(1, "Scott", 40000, comp);
+		System.out.println(e1);
+
+		Employee e2 = new Employee(2, "John", 40000, comp);
+		System.out.println(e2);
+	}
+}
+-----------------------------------------------------------------------
+07-01-2024

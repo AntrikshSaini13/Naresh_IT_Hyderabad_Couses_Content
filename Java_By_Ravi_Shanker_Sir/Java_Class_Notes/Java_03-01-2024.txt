@@ -1,0 +1,242 @@
+3-01-2024
+-----------
+How to write BLC and ELC class using OOP :
+------------------------------------------
+If we write everything (logic + main method) in a single class then it is not an object oriented approach even we are creating the object and accessing the member. 
+We should always separate our BLC class with ELC class so, the reusability of BLC class is possible.
+
+In the below program we are reusing Player class which is BLC class.
+
+3 files :
+----------
+Player.java
+------------
+package com.ravi.blc_elc;
+
+//BLC
+public class Player 
+{
+   int playerId;
+   String playerName;
+   
+   public void setPlayerData(int id, String name)
+   {
+	   playerId = id;
+	   playerName = name;
+   }
+   
+   public void getPlayerData()
+   {
+	System.out.println("Player id is :"+playerId);
+	System.out.println("Player Name is :"+playerName);
+   }  
+   
+}
+
+
+PlayerDemo.java
+---------------
+package com.ravi.blc_elc;
+//ELC
+public class PlayerDemo 
+{
+	public static void main(String[] args) 
+	{
+		Player p1 = new Player();
+		p1.setPlayerData(111, "Virat");
+		p1.getPlayerData();
+	}
+
+}
+
+
+Rohit.java
+-----------
+package com.ravi.blc_elc;
+
+//ELC
+public class Rohit 
+{
+	public static void main(String[] args) 
+	{
+		Player rohit = new Player();
+		rohit.setPlayerData(45, "Rohit Shrama");
+		rohit.getPlayerData();
+
+	}
+
+}
+-----------------------------------------------------------------------
+What is variable shadowing ?
+-----------------------------
+If the name of instance variable and local variable both are same then inside the method the local variable will hide 
+instance variable that is known as Variable Shadow as shown in the program below.
+
+2 files :
+----------
+Student.java
+------------
+package com.ravi.variable_shadow;
+
+public class Student 
+{
+  //Instance variables
+  int roll = 111;
+  String name = "Raj";
+  
+  public void accept()
+  {
+	  //Local Variables
+	  int roll = 222;
+	  String name = "Rahul";
+	  
+	  System.out.println(roll); //222
+	  System.out.println(name); //Rahul
+	  System.out.println(this.roll);///111
+	  System.out.println(this.name);//Raj
+  }
+}
+
+VariableShadow.java
+--------------------
+package com.ravi.variable_shadow;
+
+//ELC 
+public class VariableShadow 
+{
+	public static void main(String[] args) 
+	{
+		Student s1 = new Student();
+		s1.accept();
+
+	}
+}
+
+------------------------------------------------------------------------
+this keyword in java :
+----------------------
+Whenever instance variable name and parameter variable name both are same then at the time of variable initialization 
+our runtime environment gets confused that which one is instance variable and which one is parameter variable (Due to variable shadow)
+
+To avoid the above said problem, Java software people introduced "this"
+keyword.
+
+this keyword always refers to the current object and instance variables are the part of the object so by using this keyword
+ we can refer to instance variable.
+
+We cannot use this keyword from static area (Static context).
+
+2 Files :
+---------
+Manager.java
+------------
+package com.ravi.this_keyword;
+//BLC
+public class Manager 
+{
+  int managerId;
+  String managerName;
+  
+  public void setManagerData(int managerId, String managerName)
+  {
+	  this.managerId = managerId;
+	  this.managerName = managerName;	 
+  }
+  
+  public void getManagerData()
+  {
+	  System.out.println("Manager Id is :"+managerId);
+	  System.out.println("Manager Name is :"+managerName);
+  } 
+  
+}
+
+ManagerDemo.java
+----------------
+package com.ravi.this_keyword;
+
+public class ManagerDemo 
+{
+	public static void main(String[] args) 
+	{
+		Manager m1 = new Manager();
+		m1.setManagerData(999, "Scott");
+		m1.getManagerData();
+	}
+
+}
+-----------------------------------------------------------------------
+Role of instance variable while creating the Object :
+-----------------------------------------------------
+In Java whenever we create the object, a separate copy of all the instance variables will be created with each and every object.
+
+package com.ravi.instance_var;
+
+public class Test 
+{
+    int x = 10;
+    
+	public static void main(String[] args) 
+	{
+		Test t1 = new Test();
+		Test t2 = new Test();
+		
+		++t1.x;    --t2.x;
+		
+		System.out.println(t1.x); //11
+		System.out.println(t2.x); //9
+	}
+
+}
+-----------------------------------------------------------------------
+Role of static variable while creating the object.
+--------------------------------------------------
+Whenever we create an object, a single copy of static variable will be created and it is shared by all the objects at the same time so, 
+if any modification is done by any of the object reference then it will be applicable to ALL THE OBJECTS.
+
+package com.ravi.instance_var;
+
+public class Demo 
+{
+    static int x = 10;
+    
+	public static void main(String[] args) 
+	{
+		Demo d1 = new Demo();
+		Demo d2 = new Demo();
+		
+		++d1.x;  --d2.x;
+		
+		System.out.println(d1.x);
+		System.out.println(d2.x);
+		
+	}
+
+}
+
+Note :- Static variables are used to save the memory.
+
+instance Veriable = Multiple Copies
+static variable = Single copy with all the Objects
+----------------------------------------------------------------------
+When we should declare a variable as an instance variable and when we should declare a variable as a static variable ?
+
+Instance Variable :
+-------------------
+If the value of the variable is different with respect to object then we should use instance variable.
+
+Static Variable :
+-----------------
+If the value of the variable is common with respect to all the objects then we should use static variable.
+
+Example :
+
+class Student
+{
+   int roll;
+   String name;
+   String address;
+   static String collegeName = "NIT";
+   static String courseName = "Java";
+}
+------------------------------------------------------------------------

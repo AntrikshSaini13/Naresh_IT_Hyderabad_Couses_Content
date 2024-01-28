@@ -1,0 +1,266 @@
+22-01-2024
+----------
+super keyword in java :
+-----------------------
+It is used to access the member of super class.
+
+We can use super keyword in 3 different ways :
+
+a) To call the super class variable.
+b) To call the super class method.
+c) To call the super class constructor.
+
+a) To call the super class variable.
+-------------------------------------
+If the super class variable name and sub class variable name both are same then it is called variable shadow, 
+Here sub class variable will hide super class variable.
+
+If we create an object for sub class then by default it will access sub class variable, if we want to access 
+super class variable then we should use super keyword.
+
+super keyword always refers to its immediate super class.
+
+Just like this keyword we cannot use super keyword from static context.
+
+Program that describes how to call super class variable :
+---------------------------------------------------------
+SuperVarDemo.java
+-----------------
+package com.ravi.super_demo;
+
+class Father
+{
+  protected double balance = 50000;	
+}
+class Son extends Father
+{
+	protected double balance = 18000;	
+	
+	public void showBalance()
+	{
+		System.out.println("Son balance is :"+balance);
+		System.out.println("Father balance is :"+super.balance); 
+	}
+}
+
+public class SuperVarDemo 
+{
+	public static void main(String[] args)
+	{
+		Son s = new Son();
+		s.showBalance();
+	}
+
+}
+------------------------------------------------------------------------
+b) To call the super class method :
+------------------------------------
+Whenever super class method name and sub class method name both are same and if we create an object for sub class then by defulat it will access sub class method.
+
+If we want to access super class method then we should use super keyword.
+
+Program to call super class method :
+-------------------------------------
+3 Files :
+----------
+Super.java
+-----------
+package com.ravi.super_demo;
+
+public class Super 
+{
+  public void show()
+  {
+	  System.out.println("Super class show method");
+  }
+}
+
+Sub.java
+---------
+package com.ravi.super_demo;
+
+public class Sub extends Super
+{
+  public void show()
+  {
+    super.show();
+    System.out.println("Sub class show method");
+    this.subClassMethod();
+  }
+  
+  public void subClassMethod()
+  {
+	  System.out.println("Another method of sub class");
+  }
+
+}
+
+SuperMethod.java
+----------------
+package com.ravi.super_demo;
+
+public class SuperMethodDemo {
+
+	public static void main(String[] args) 
+	{
+		Sub s = new Sub();
+		s.show();
+	}
+
+}
+
+
+Note :- From the above program it is clear that super keyword is calling super class method where as this keyword is calling current class method.
+
+super keyword :- used to refer super class member
+this keyword :- Used to refer current class member.
+-----------------------------------------------------------------------
+
+**To call the super class constructor : (Constructor Chaining)
+-----------------------------------------------------------------
+Whenever we write a class in java and we don't write any kind of constructor to the class then the java compiler will automatically add one default constructor to the class.
+
+THE FIRST LINE OF ANY CONSTRUCTOR IS RESERVERD EITHER FOR super() or this() keyword.
+
+In the first line of any constructor if we don't specify either super() or this() then the compiler will automatically add super() to the first line of constructor.
+
+Now the purpose of this super() [added by java compiler], to call the default constructor or No-Argument constructor of the super class.
+
+In order to call the constructor of super class as well as same class, we have total 4 cases.
+
+
+We have 4 cases :
+-----------------
+case 1 :
+--------
+super() :- Automatically added by compiler and it is used to access 
+           default or no argument constructor of super class.
+
+package com.ravi.super_demo;
+
+class Parent
+{
+	public Parent()
+	{
+		System.out.println("Parent class constructor");
+	}
+}
+class Child extends Parent
+{
+	public Child()
+	{
+		System.out.println("Child class constructor");
+	}
+}
+public class SuperConstructor 
+{
+	public static void main(String[] args) 
+	{
+		Child c = new Child();
+	}
+
+}
+------------------------------------------------------------------------
+Case 2 :
+--------
+super(String name) :- Used to call parameterized constructor of super 
+                      class.
+
+package com.ravi.super_demo;
+
+class A
+{
+	public A(String name)
+	{		
+		System.out.println("My name is :"+name);
+	}
+}
+class B extends A
+{
+	public B()
+	{
+		super("Scott");
+		System.out.println("No Argument constructor of B class");
+	}
+}
+
+public class SuperConstructor 
+{
+	public static void main(String[] args) 
+	{
+		new B();
+	}
+}
+-----------------------------------------------------------------------
+Case 3 :
+--------
+this() :- Used to call no argument constructor of current class.
+
+ThisConstructor.java
+---------------------
+package com.ravi.super_demo;
+
+class A
+{	
+	public A()
+	{	
+		System.out.println("No Argument constructor of A class");
+	}
+	
+	public A(String name)
+	{	
+		this();
+		System.out.println("My name is :"+name);
+	}
+}
+class B extends A
+{
+	public B(String name)
+	{
+		super(name);
+		System.out.println("No Argument constructor of B class");
+	}
+}
+public class ThisConstructor 
+{
+	public static void main(String[] args) 
+	{
+		new B("Scott");
+	}
+
+}
+----------------------------------------------------------------------
+case 4 :
+--------
+this(int x) :- Calling the parameterized constructor of current class
+
+ThisDemo.java
+-------------
+package com.ravi.super_demo;
+
+class Base
+{
+	public Base()
+	{
+		this(15);
+		System.out.println("Base class No Argumenet");
+	}
+	public Base(int x)
+	{
+		System.out.println("Base class Parametrized :"+x);
+	}	
+}
+class Derived extends Base
+{
+	
+}
+
+
+public class ThisDemo
+{
+	public static void main(String[] args) 
+	{
+		new Derived();
+	}
+}
+------------------------------------------------------------------------

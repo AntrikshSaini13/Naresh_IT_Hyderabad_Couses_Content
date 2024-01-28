@@ -1,0 +1,237 @@
+08-01-2024
+----------
+Program on Setter :
+--------------------
+2 Files:
+
+Course.java
+------------
+package com.ravi.setter;
+
+public class Course 
+{
+  private String subjectName;
+  private String facultyName;
+  private int courseDuration;
+  
+	public Course(String subjectName, String facultyName, int courseDuration) {
+		super();
+		this.subjectName = subjectName;
+		this.facultyName = facultyName;
+		this.courseDuration = courseDuration;
+	}
+
+	@Override
+	public String toString() {
+		return "Course [subjectName=" + subjectName + ", facultyName=" + facultyName + ", courseDuration="
+				+ courseDuration + "]";
+	}
+
+	public void setSubjectName(String subjectName) {
+		this.subjectName = subjectName;
+	}
+
+	public void setFacultyName(String facultyName) {
+		this.facultyName = facultyName;
+	}
+
+	public void setCourseDuration(int courseDuration) {
+		this.courseDuration = courseDuration;
+	}
+
+	public String getSubjectName() {
+		return subjectName;
+	}
+  
+}
+
+
+SetterExample.java
+------------------
+package com.ravi.setter;
+
+public class SetterExample {
+
+	public static void main(String[] args) 
+	{
+		Course javaPlacement = new Course("C", "Kishore Sir", 45);
+		System.out.println(javaPlacement);
+		
+		if(javaPlacement.getSubjectName().equals("C"))
+		{
+			System.out.println("Ready for Core Java");
+		}
+		
+		javaPlacement.setSubjectName("Core Java");
+		javaPlacement.setFacultyName("Ravi");
+		javaPlacement.setCourseDuration(90);
+		System.out.println(javaPlacement);
+		
+		if(javaPlacement.getSubjectName().equals("Core Java"))
+		{
+			System.out.println("Be ready for Adv Java");
+		}
+		
+
+	}
+
+}
+-----------------------------------------------------------------------
+Method return as class name :
+-----------------------------
+We can take following return types for a method in Java :
+
+1) void 
+
+2) we can take all the primitive data types like byte, short and so on
+
+3) we can take class name as return type of the method
+
+   public class Test
+   {
+      int x;
+      public Test(int x)
+      {
+         this.x = x;
+      }
+      
+      public Test input()
+      {
+         return new Test(12);
+      }
+   }
+
+4) We can also take interface as a method return type.
+-----------------------------------------------------------------------
+//Program that describes how to return an object (instance variables) from a method 
+
+Employee.java
+--------------
+package com.ravi.class_as_method_return_type;
+
+import java.util.Scanner;
+
+public class Employee 
+{
+  private int employeeId;  //1
+  private String employeeName; //scott
+  private double employeeSalary; //12000
+  
+  public Employee(int employeeId, String employeeName, double employeeSalary) 
+	{
+		super();
+		this.employeeId = employeeId;
+		this.employeeName = employeeName;
+		this.employeeSalary = employeeSalary;
+	} 
+  
+	
+  public static Employee getEmployeeObject()
+  {
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Enter Id :");
+    int id = sc.nextInt();
+    System.out.print("Enter Name :");
+    String name = sc.nextLine();
+    name = sc.nextLine();
+    
+    System.out.print("Enter Salary :");
+    double sal = sc.nextDouble();
+         
+    Employee e1 = new Employee(id, name, sal);
+    //return new Employee(id, name, sal);
+    return e1;	
+  }
+
+
+	@Override
+	public String toString() {
+		return "Employee [employeeId=" + employeeId + ", employeeName=" + employeeName + ", employeeSalary="
+				+ employeeSalary + "]";
+	} 
+}
+
+
+EmployeeDemo.java
+------------------
+package com.ravi.class_as_method_return_type;
+
+import java.util.Scanner;
+
+public class EmployeeDemo 
+{
+	public static void main(String[] args) 
+	{
+	   Scanner sc = new Scanner(System.in);
+	   
+	   System.out.print("How many objects you want ?");	   
+	   int numberOfObject = sc.nextInt();
+	   
+	   for(int i=1; i<=numberOfObject; i++)
+	   {
+		 Employee emp = Employee.getEmployeeObject();
+		 System.out.println(emp);
+	   }
+	}
+
+}
+----------------------------------------------------------------------
+//Program that describes how to return an object (instance variables) from a method 
+
+Book.java
+---------
+package com.ravi.class_as_method_return_type;
+
+import java.util.Scanner;
+
+public class Book 
+{
+  private String bookName;
+  private String authorName;
+  
+	public Book(String bookName, String authorName) 
+	{
+		super();
+		this.bookName = bookName;
+		this.authorName = authorName;
+	}
+	
+	public static Book getBookObject()
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter Book Name :");
+		String bName = sc.nextLine();
+		System.out.print("Enter Author Name :");
+		String author = sc.nextLine();
+		return new Book(bName,author);
+		
+	}
+
+	@Override
+	public String toString() {
+		return "Book [bookName=" + bookName + ", authorName=" + authorName + "]";
+	}
+  
+	
+  
+  
+}
+
+
+BookDemo.java
+--------------
+package com.ravi.class_as_method_return_type;
+
+import java.util.Scanner;
+
+public class BookDemo {
+
+	public static void main(String[] args) 
+	{		
+		  Book b =  Book.getBookObject();
+		  System.out.println(b);
+		
+	}
+}
+-----------------------------------------------------------------------
+
