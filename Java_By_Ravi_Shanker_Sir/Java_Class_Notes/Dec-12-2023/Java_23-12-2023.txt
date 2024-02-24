@@ -221,7 +221,8 @@ public class Demo
 	}
 }
 ------------------------------------------------------------------------
-While working with Arithmetic Operator and Unary minus operator the minimum data type required is int OR in other words after the expression the result is promoted to int type.
+While working with Arithmetic Operator and Unary minus operator the minimum data type required is int 
+OR in other words after the expression the result is promoted to int type.
 
 public class Demo 
 {

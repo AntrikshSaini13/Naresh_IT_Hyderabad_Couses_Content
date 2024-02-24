@@ -1,0 +1,219 @@
+17-02-2024
+----------
+The following program explains that default methods are having low priority than normal 
+methods (Concrete Method). class is having more power than interface.
+
+MethodPriority.java
+--------------------
+package com.ravi.interface_default;
+
+class A
+{
+	public void m1()
+	{
+		System.out.println("M1 method of class A");
+	}
+}
+
+interface B
+{
+	default void m1()
+	{
+		System.out.println("M1 method of interface B");
+	}
+}
+
+class C extends A implements B
+{
+	
+}
+
+public class MethodPriority 
+{
+	public static void main(String[] args) 
+	{
+		C c1 = new C();
+		c1.m1();
+	}
+
+}
+---------------------------------------------------------------
+Can we override Object class method using default method?
+---------------------------------------------------------
+No, we cannot override object class method as a default method inside an interface.
+
+interface Alpha
+{
+	public default String toString()
+	{
+		return "NIT";
+	}
+	
+}
+
+Here we will get compilation error because a default method cannot override method 
+of Object class.
+---------------------------------------------------------------
+Multiple inheritance is possible in java by using default method inside an interface, 
+here we need to use super keyword to differenciate the super interface methods.
+
+
+MultipleInheritanceUsingDefault.java
+-------------------------------------
+package com.ravi.interface_default;
+
+interface Alpha
+{
+	default void m1()
+	{
+		System.out.println("M1 method of Alpha interface");
+	}
+}
+
+interface Beta
+{
+	default void m1()
+	{
+		System.out.println("M1 method of Beta interface");
+	}
+}
+
+class Implementer implements Alpha, Beta
+{
+	@Override
+	public void m1() 
+	{
+		System.out.println("M1 method implemented");	
+		Alpha.super.m1();
+		Beta.super.m1();
+	}	
+}
+
+public class MultipleInheritanceUsingDefault 
+{
+	public static void main(String[] args) 
+	{
+		new Implementer().m1();
+
+	}
+}
+----------------------------------------------------------------
+What is static method inside an interface?
+------------------------------------------
+We can define static method inside an interface from java 1.8 onwards.
+
+static method is only available inside the interface where it is defined that means 
+we cannot invoke static method from the implementer classes.
+
+It is used to provide common functionality which we can apply/invoke from any ELC class.
+
+By default static method of an inetrafce contains public  access
+modifier.
+---------------------------------------------------------------
+Calling static method of an interface using interface
+
+package com.ravi.static_demo;
+
+interface Calculator
+{
+	static double doSum(int x, int y)
+	{
+		return (x+y);
+	}
+	
+	
+	static double doSub(int x, int y)
+	{
+		return (x - y);
+	}
+}
+
+
+public class InterfaceStaticMethod 
+{
+	public static void main(String[] args) 
+	{
+		double sum = Calculator.doSum(12, 12);
+		System.out.println("Sum is :"+sum);
+		
+	   double sub = Calculator.doSub(100, 50);
+	   System.out.println("Sub is :"+sub);
+		
+	}
+
+}
+---------------------------------------------------------------
+Program that describes static method of an interface is available to interface only.
+
+package com.ravi.interface_demo;
+
+interface Callable
+{
+	public static void call()
+	{
+		System.out.println("call static method");
+	}
+}
+
+public class StaticDemoInClass implements Callable
+{
+	public static void main(String[] args) 
+	{
+		Callable.call();
+		//call(); error
+		
+		StaticDemoInClass s = new StaticDemoInClass();
+		//s.call();//error
+		
+	}
+
+}
+
+---------------------------------------------------------------
+The following program explains we can execute main method inside an interface without 
+writing a class
+
+package com.ravi.loose_coupling;
+
+public interface Printable 
+{
+	public static void main(String[] args) 
+	{
+	  System.out.println("Printing main method");	
+	}
+
+}
+----------------------------------------------------------------
+Interface Static Method:
+------------------------
+   a) Accessible using the interface name.
+   b) Cannot be overridden by implementing classes.
+   c) Can be called using the interface name only.
+
+Class Static Method:
+--------------------
+   a) Accessible using the class name.
+   b) Can be hidden (not overridden) in subclasses by redeclaring a static method with 
+      the same signature.
+   c) Can be called using the super class, sub class name as well as sub class object 
+      also as shown in the program below.
+
+class A
+{
+	public static void m1()
+	{
+		System.out.println("Static method A");
+	}
+}
+class B extends A
+{
+	
+}
+public class Demo
+{
+	public static void main(String [] args)
+	{
+           B.m1();  //valid
+	   new B().m1(); //valid
+	}
+}

@@ -63,7 +63,7 @@ int isplindrome(char str[100]){
     //printf("last no %d\n", i);
     for(j=0;i>0;j++){
         str1[j]=str[--i];
-        //printf("%d %d\n",j,i);
+        printf("%d %d\n",j,i);
     }
     str1[j]='\0';
     for(j=0;str[j];j++){

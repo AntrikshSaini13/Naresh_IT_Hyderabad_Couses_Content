@@ -1,0 +1,89 @@
+Program: 1
+----------
+Write a Program to find the following entities
+1. Area of Geometric shape
+2. Area of rectangle
+3. Volume for cube
+We have four classes named as GeometricShape, Rectangle, Cuboid and Test
+
+For GeometricShape class
+Instance Variables:
+shapeType : String default 
+area : double default
+
+No Argument constructor with initialize shapeType and area with default values.  
+
+Methods: 
+public double computeArea(double value1, double value2)  : Return default area .
+public void show() : print all the details of GeometricShape
+
+
+For Rectangle class is a sub class of GeometricShape
+Instance Variables:
+width : double private 
+length : double private
+
+No Argument constructor with initialize width and length as 10.
+
+Methods : set and get methods for width and length
+
+@Override
+computeArea(double width, double length): It initialize the instance variable height, width, area and also return the area. 
+
+@Override
+show() : print length, width and area of Rectangle
+
+For Cuboid class is a sub class of Rectangle
+Instance Variables:
+height : double private
+Methods: set and get method for height and computeArea(double ,double ,double)
+
+No Argument constructor with initialize height as 15
+public double computeArea(double width, double length, double height) : Invoke the computeArea() method of the parent class using super to calculate the base area and Set the height and compute the total area by multiplying the base area with the height and return the area.
+
+@Override
+show() : print width, length, height and area of cuboid.
+
+Create a Test class ans create  instances of Rectangle and Cuboid, computes their areas, and displays the details using the show() method. 
+
+
+
+Program 2
+-----------
+Create a BLC class Named as Shape and it have three sub classes named as Circle, Triangle and Square for each class have two methods called as draw() and erase()
+
+Main class named as ShapeDemo
+
+For Shape class
+Methods: 
+public static Shape randshape()
+No Argument constructor
+
+randshape(): Using switch ((int)Math.randome()*3) 
+case 0: create an object for Circle Object using return
+case 1: create an object for Square Object using return
+case 2: create an object for Triangle Object using return
+default: Print as default message
+finally return an object for Shape class
+
+Use this class to test your solution's class and methods in main method
+For Shape class
+
+Methods: In draw():void and erase():void and No argument constructor
+draw(): print "shape draw" 
+erase(): print "Shape erase"
+
+For Circle class sub class of Shape class
+Methods: In draw():void and erase():void and No argument constructor
+Override:
+draw() method print "Circle draw" and erase() method print "Circle erase"
+
+For Triangle class sub class of Shape class
+Methods: In draw():void and erase():void and No argument constructor
+Override:
+draw() method print "Triangle draw" and erase() method print "Triangle erase"
+
+For Square class sub class of Shape class
+Methods: In draw():void and erase():void and No argument constructor
+Override:
+draw() method print "Square draw" and erase() method print "Square erase"

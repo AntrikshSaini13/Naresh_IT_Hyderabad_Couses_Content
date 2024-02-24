@@ -1,0 +1,1112 @@
+Question: 1
+What will be the output of the following program?
+
+class One {
+
+public One(int x) {
+    System.out.print("int constructor");
+}
+
+public One(long l) {
+    System.out.print("long constructor");
+}
+}
+
+public class Test {
+
+public static void main(String[] args) {
+    long l = 20L;
+    One one = new One(l);
+}
+}
+
+
+
+a) int constructor
+
+
+b) long constructor
+
+
+c) CompileTimeError
+
+
+d) Run-time error
+
+Question: 2
+What will be the output of the following program?
+
+class A { }
+
+class B extends A { }
+
+class C extends B { }
+
+public class MainClass {
+void overloadedMethod(A a) {
+System.out.println(“ONE”);
+}
+
+void overloadedMethod(B b) {
+    System.out.println("TWO");
+}
+
+void overloadedMethod(Object obj) {
+    System.out.println("THREE");
+}
+
+public static void main(String[] args) {
+    C c = new C();
+    MainClass m = new MainClass();
+    m.overloadedMethod(c);
+}
+}
+
+
+
+a) ONE
+
+
+b) TWO
+
+
+c) THREE
+
+
+d) Non of above
+
+Question: 3
+public class Main {
+public void test(int… i) {
+System.out.println(“int var arg”);
+}
+public void test(int arr[]) {
+System.out.println(“int array arg”);
+}
+public static void main(String[] args) {
+int i = 3;
+new Main().test(i, i);
+}
+}
+
+
+
+a) int var arg
+
+
+b) int array arg
+
+
+c) CompileTime Error
+
+
+d) Prints Nothing
+
+Question: 4
+What will be the output of the following program?
+
+class Parent{
+public void className(){
+System.out.println(“Parent”);
+}
+}
+class Child extends Parent{
+void className(){
+System.out.println(“Child”);
+}
+}
+
+public class Test{
+
+public static void main(String[] args){
+    Parent parent = new Child();
+    parent.className();
+}
+}
+
+
+
+a) Parent
+
+
+b) Child
+
+
+c) Compile-time error
+
+
+d) Run-time error
+
+Question: 5
+What will be the output of the following Java code?
+
+class Test {
+    int a;
+    int b;
+    Test (int i, int j){
+        a = i;
+        b = j;
+    }
+    void meth(test o){
+        o.a *= 2;
+        O.b /= 2;
+    }          
+}    
+public class Output {
+    public static void main(String args[]) {
+        Test obj = new Test (10 , 20);
+        obj.meth(obj);
+        System.out.println(obj.a + " " + obj.b);        
+    } 
+}
+
+
+a) 10 20
+
+
+b) 20 10
+
+
+c) 20 40
+
+
+d) 40 20
+
+Question: 6
+Which of the following is not a valid example of method overloading in Java?
+class overloading
+{
+public void print(int x)
+{
+/ / A
+}
+public void print(double x)
+{
+/ / B
+}
+public int print(int x, int y)
+{
+/ / C
+}
+public void print(String s)
+{
+/ / D
+}
+}
+
+
+
+A)A
+
+
+b)B
+
+
+c)C
+
+
+d)D
+
+Question: 7
+public class Main {
+public static void main(String[] argv) {
+System.out.println(calc(10,20));
+}
+public static int calc(int a, int b) {
+System.out.println(“int”);
+return a + b;
+}
+public static float calc(Integer a, int b) {
+System.out.println(“float”);
+return (float) a + b;
+}
+}
+
+
+
+a) int
+30
+
+
+b) float
+30.0
+
+
+c) Compile Time Error
+
+
+d) Prints Nothing
+
+Question: 8
+Java Varargs are applicable only for _.
+
+
+
+a) Constructors
+
+
+b) Methods
+
+
+c) Both Constructors and Methods
+
+
+d) None
+
+Question: 9
+What will be the output of the following Java code?
+
+class Overload {
+int x;
+
+void add(int a) {
+    x = a + 1;
+}
+
+void add(int a, int b) {
+    x = a + 2;
+}
+}
+
+public class Overload_methods {
+public static void main(String args[]) {
+Overload obj = new Overload();
+obj.add(6);
+System.out.println(obj.x);
+}
+}
+
+
+
+a) 5
+
+
+b) 6
+
+
+c) 7
+
+
+d) 8
+
+Question: 10
+class Doo
+{
+public void meth(int … x)
+{
+System.out.println(“int … x”);
+}
+public void meth(byte … x)
+{
+System.out.println(“byte … x”);
+}
+}
+public class Foo extends Doo
+{
+public void meth(short … x)
+{
+System.out.println(“short … x”);
+}
+public static void main(String[] args) {
+new Foo().meth();
+}
+}
+
+
+
+a) short … x
+
+
+b) byte … x
+
+
+c) int … x
+
+
+d) Prints Nothing
+
+Question: 11
+Que 27) What will be the outcome of the below program?
+
+public class MainClass{
+
+double overloadedMethod(double d){
+    return d *= d;
+}
+
+int overloadedMethod(int i){
+    return overloadedMethod(i *= i);
+}
+
+float overloadedMethod(float f){
+    return overloadedMethod(f *= f);
+}
+
+public static void main(String[] args){
+    MainClass main = new MainClass();
+
+    System.out.println(main.overloadedMethod(100));
+}
+}
+
+
+
+a) 10000
+
+
+b) CompileTimeError
+
+
+c) StackOverflowError
+
+
+d) 10000.00
+
+Question: 12
+Which of these can be overloaded?
+
+
+
+a) Methods
+
+
+b) Constructors
+
+
+c) All of the mentioned
+
+
+d) None of the mentioned
+
+Question: 13
+To successfully overload a method in Java, the return types must be _.
+
+
+
+a) Same
+
+
+b) Different
+
+
+c) Same but using superclass or subclass types also work
+
+
+d) None
+
+Question: 14
+public class Main {
+public static void main(String[] argv) {
+System.out.println(calc(10,20));
+}
+public static int calc(int a, int b) {
+System.out.println(“int”);
+return a + b;
+}
+public static float calc(int a, int b) {
+System.out.println(“float”);
+return (float) a + b;
+}
+}
+
+
+
+a) int
+30
+
+
+b) float
+30.0
+
+
+c) int
+30.0
+
+
+d) Compile Time Error
+
+Question: 15
+public class Main {
+public static void main(String[] args) {
+int i = 3;
+m(i, i);
+}
+static void m(float f1, float f2) {
+System.out.println(“float f1, float f2”);
+}
+static void m(int… i) {
+System.out.println(“int…i”);
+}
+}
+
+
+
+a) int…i
+
+
+b) float f1, float f2
+
+
+c) Ambiguity Error
+
+
+d) float 3.0, float 3.0
+
+Question: 16
+What will be the output of the following program?
+
+class Demo{
+void Demo(){
+System.out.println(“Demo”);
+}
+
+}
+
+public class Test{
+
+public static void main(String[] args){
+    Demo demo = new Demo();
+}
+}
+
+
+
+a) Demo
+
+
+b) No Output
+
+
+c) Compile-time error
+
+
+d) Run-time error
+
+Question: 17
+What is the output of the below Java program with Varargs?
+
+public class Varargs2 {
+Varargs2(int… dates) {
+System.out.println(“Inside Varargs(int…)”);
+}
+
+Varargs2(boolean... yesno) {
+    System.out.println("Inside Varargs(float...)");
+}
+
+public static void main(String[] args) {
+    new Varargs2();
+}
+}
+
+
+
+a) Inside Varargs(int…)
+
+
+b) Inside Varargs(boolean…)
+
+
+c) Inside Varargs(int…)
+Inside Varargs(boolean…)
+
+
+d) Compiler error
+
+Question: 18
+What is the output of the below Java program with Varargs?
+
+public class Varargs2 {
+Varargs2(int… carnums) {
+System.out.println(“Inside Varargs(int…)”);
+}
+
+Varargs2(float... prices) {
+    System.out.println("Inside Varargs(float...)");
+}
+
+public static void main(String[] args) {
+    new Varargs2();
+}
+}
+
+
+
+a) Inside Varargs(int…)
+
+
+b) Inside Varargs(int…)
+Inside Varargs(float…)
+
+
+c) No output
+
+
+d) Compiler error
+
+Question: 19
+What will be the output of the following Java code?
+
+public class San {
+public void m1(int i, float f) {
+System.out.println(” int float method”);
+}
+
+public void m1(float f, int i) {
+    System.out.println("float int method");
+}
+
+public static void main(String[] args) {
+    San s = new San();
+    s.m1(20, 20);
+}
+}
+
+
+
+a) int float method
+
+
+b) float int method
+
+
+c) compile time error
+
+
+d) run time error
+
+Question: 20
+Which of these can be overloaded?
+
+
+
+a) Methods
+
+
+b) Constructors
+
+
+c) Method and Constructors
+
+
+d) None of the mentioned
+
+Question: 21
+public class Main
+{
+public void aMethod(int i, float s) {
+System.out.println(“I and S are Printed”);
+}
+public void aMethod(float … s, int i) {
+System.out.println(“S and I are Printed”);
+}
+public static void main(String[] args) {
+Main main = new Main();
+main.aMethod(1f,2);
+}
+}
+
+
+
+a) S and I are Printed
+
+
+b) I and S are Printed
+
+
+c) Compile Time Error
+
+
+d) Prints Nothing
+
+Question: 22
+public class Main {
+static void m(Integer i1, Integer i2) {
+System.out.println(“Integer i1, Integer i2”);
+}
+static void m(Integer…i) {
+System.out.println(“int…i”);
+}
+public static void main(String[] args) {
+int i = 3;
+m(i, i);
+}
+}
+
+
+
+a) int…i
+
+
+b) Integer i1, Integer i2
+
+
+c) Ambiguity Error
+
+
+d) Prints Nothing
+
+Question: 23
+What will be the output of the following program?
+
+public class MainClass {
+void method(int… a) {
+System.out.println(1);
+}
+
+void method(int[] a) {
+    System.out.println(2);
+}
+
+public static void main(String[] args) {
+    MainClass m = new MainClass();
+    m.method(10);
+}
+}
+
+
+
+a) 1
+
+
+b) 2
+
+
+c) CompileTimeError(Ambiguity issue)
+
+
+d) CompileTimeError(Duplicate method method)
+
+Question: 24
+What will be the output of the following Java code?
+
+class Overload {
+int x;
+double y;
+
+void add(int a, int b) {
+    x = a + b;
+}
+
+void add(double c, double d) {
+    y = c + d;
+}
+
+Overload() {
+    this.x = 0;
+    this.y = 0;
+}
+}
+
+public class Overload_methods {
+public static void main(String args[]) {
+Overload obj = new Overload();
+int a = 2;
+double b = 3.2;
+obj.add(a, a);
+obj.add(b, b);
+System.out.println(obj.x + ” ” + obj.y);
+}
+}
+
+
+
+a) 6 6
+
+
+b) 6.4 6.4
+
+
+c) 6.4 6
+
+
+d) 4 6.4
+
+Question: 25
+What will be the output of the following Java code?
+
+public class MethodOverloading2 {
+int info() {
+System.out.println(“PLANE”);
+return 0;
+}
+
+void info() {
+    System.out.println("AIRPORT");
+}
+
+public static void main(String[] args) {
+    MethodOverloading2 m = new MethodOverloading2();
+    int a = m.info();
+}
+}
+
+
+
+a) PLANE
+
+
+b) AIRPORT
+
+
+c) Compiler error
+
+
+d) None
+
+Question: 26
+What will be the output of the following program?
+
+class Demo{
+public Demo(int i){
+System.out.println(“int”);
+}
+
+public void Demo(short s){
+    System.out.println("short");
+}
+}
+
+public class Test{
+
+public static void main(String[] args){
+    short s = 10;
+    Demo demo = new Demo(s);
+}
+}
+
+
+
+a) int
+
+
+b) short
+
+
+c) Compile-time error
+
+
+d) Run-time error
+
+Question: 27
+What will be the outcome of the below program?
+
+class A
+{
+public A(int i)
+{
+System.out.print(1+” “);
+}
+
+public A()
+{
+    this(10);
+
+    System.out.print(2+" ");
+}
+
+void A()
+{
+    A(10);
+
+    System.out.print(3+" ");
+}
+
+void A(int i)
+{
+    System.out.print(4+" ");
+}
+}
+
+public class MainClass
+{
+public static void main(String[] args)
+{
+new A().A();
+}
+}
+
+
+
+a) 1 3
+
+
+b) 1 2 3 4
+
+
+c) CompileTimeError
+
+
+d) None of the above
+
+Question: 28
+What is the output of the below Java program trying to overload a method “jump”?
+
+class Rabbit{ }
+class WildRabbit extends Rabbit{ }
+
+public class MethodOverloading4{
+
+Rabbit jump(){
+System.out.println(“Rabbit Jump”);
+return new Rabbit();
+}
+
+WildRabbit jump(){
+System.out.println(“Wild Rabbit Jump”);
+return new WildRabbit();
+}
+
+public static void main(String[] args){
+MethodOverloading4 obj = new MethodOverloading4();
+obj.jump();
+}
+}
+
+
+
+a) Rabbit Jump
+
+
+b) Wild Rabbit Jump
+
+
+c) Compiler error
+
+
+d) None
+
+Question: 29
+public class Main {
+public static void main(String[] argv) {
+MySubclass my = new MySubclass();
+my.calc(1);
+}
+}
+class MyClass {
+public void calc(int i) {
+System.out.println(“public void calc(int i)”);
+}
+}
+class MySubclass extends MyClass {
+public void calc(int f) {
+System.out.println(“public void calc(int f)”);
+}
+}
+
+
+
+a) public void calc(int i)
+
+
+b) public void calc(int f)
+
+
+c) Ambiguity Issue
+
+
+d) Prints Nothing
+
+Question: 30
+Java method overloading implements the OOPS concept _.
+
+
+
+A) Inheritance
+
+
+B) Polymorphism
+
+
+C) Encapsulation
+
+
+D) None
+
+You are designing an Employee class in Java to manage employee information, including salary calculations. The class should have a method named calculateSalary that can accommodate different parameters such as base salary, bonuses, and deductions. Utilize method overloading to enhance the flexibility of calculating an employee's total salary.
+
+
+
+Base Salary Calculation:
+
+
+
+Implement a method calculateSalary that takes only the base salary as a parameter and returns the total salary. This method represents the scenario where an employee's total salary is determined solely by the base salary.
+
+Salary with Bonuses:
+
+
+
+Overload the calculateSalary method to handle scenarios where an employee receives additional bonuses. This version should take two parameters - base salary and bonuses - and return the total salary considering both.
+
+Deductions Consideration:
+
+
+
+Further overload the calculateSalary method to incorporate deductions. This version should take three parameters - base salary, bonuses, and deductions - and return the net salary after deducting the specified amount.
+
+
+
+
+
+Explain how method overloading in the Employee class provides flexibility when calculating an employee's total salary. Discuss the advantages of using method overloading in this context, including code readability, ease of use, and adaptability to different salary calculation scenarios.
+
+q2
+You are working on an online shopping cart system, and your task is to implement an addToCart method using method overloading. The goal is to create a flexible and extensible solution that can handle various product types, such as electronics, clothing, and groceries, each with different attributes.
+
+
+
+Explanation:
+
+
+
+Electronics:
+
+
+
+Create a version of the addToCart method specifically for electronic products. This version should accept parameters relevant to electronics, such as the product name, brand, model, price, and possibly technical specifications.
+
+This overloaded method focuses on the unique characteristics of electronic products.
+
+Clothing:
+
+
+
+Implement another version of the addToCart method dedicated to clothing items. This version may accept parameters like the product name, brand, size, color, and price.
+
+The method is overloaded to handle the specifics of adding clothing items to the shopping cart.
+
+Groceries:
+
+
+
+Extend the addToCart method for groceries, taking into account attributes such as product name, brand (if applicable), quantity, weight, and price.
+
+This version of the method caters to the distinct characteristics of grocery items.
+
+In summary, method overloading in the addToCart method provides a tailored and specialized approach for handling different product types. Each overloaded version is designed to manage the specific attributes relevant to its associated product type. This modular design ensures clarity and maintainability when dealing with diverse items in the online shopping cart system.
+
+
+
+set c
+You are developing a Shape class in Java to handle various geometric shapes, including rectangles, circles, and triangles. The class should include a method named calculateArea that is overloaded to compute the area for each shape.
+
+
+
+Rectangle Area Calculation:
+
+
+
+Implement the calculateArea method to handle rectangles. This version should take two parameters - length and width - and return the area of the rectangle.
+
+Circle Area Calculation:
+
+
+
+Overload the calculateArea method to handle circles. This version should take one parameter - the radius - and return the area of the circle.
+
+Triangle Area Calculation:
+
+
+You are developing a multimedia player, and your task is to implement a playMedia method. The goal is to utilize method overloading to support playing different types of media, including audio files, video files, and streaming services. Each type of media may have varying parameters.
+
+
+
+Explanation:
+
+
+
+Audio Files:
+
+
+
+For playing audio files, create a version of the playMedia method that accepts parameters such as the file path, volume level, and possibly equalizer settings.
+
+This version of the method focuses on the specific needs related to audio playback, allowing users to customize aspects like volume and audio enhancements.
+
+Video Files:
+
+
+
+To handle video files, another version of the playMedia method can be created. This version might take parameters such as the video file path, playback speed, screen size, and audio settings.
+
+Video playback often requires additional configurations compared to audio, such as screen-related settings and video-specific controls like playback speed.
+
+Streaming Services:
+
+
+
+For streaming services, method overloading can be used to create a version of playMedia that accepts parameters related to the streaming source, quality settings, and potentially authentication details.
+
+Streaming services may involve additional considerations such as network connectivity, buffering, and security, which can be encapsulated in this version of the method.
+
+In summary, by utilizing method overloading, the playMedia method is structured to handle different types of media with varying parameters. Each version caters to the specific requirements of its media type, promoting a modular and organized approach to multimedia playback in the player.
+
+
+
+
+
+Batch 28 [ 02 - 01 - 24 ]
+–
+
+set a
+You are tasked with implementing a Calculator class in Java to perform basic arithmetic operations. The class should have a method named calculate that can handle addition, subtraction, multiplication, and division. However, to add a level of flexibility, you need to implement method overloading.
+
+
+
+Addition:
+
+
+
+Create a method calculate that takes two double parameters and returns the result of their addition.
+
+Subtraction:
+
+
+
+Overload the calculate method to perform subtraction. This version should take two integer parameters and return the result of their subtraction.
+
+Multiplication:
+
+
+
+Overload the calculate method again to handle multiplication. This version should take two double parameters and return the result of their multiplication.
+
+Division:
+
+
+
+Further overload the calculate method to handle division. This version should take two integer parameters and return the result of their division.
+
+
+
+
+
+Explain how method overloading is employed in the Calculator class to provide a seamless and intuitive interface for users. Discuss the choice of parameter types for each operation and how this enhances the flexibility and readability of the code.
+-------
+You are tasked with creating a ShoppingCart class in Java to represent a customer's shopping cart. The class should feature a method named calculateTotal that is overloaded to handle different types of discounts, such as percentage discounts and fixed amount discounts.
+
+
+
+Calculate Total without Discounts:
+
+
+
+Implement the calculateTotal method to handle scenarios where there are no discounts. This version should take no parameters and return the total cost without any discounts applied.
+
+Percentage Discount Calculation:
+
+
+
+Overload the calculateTotal method to handle percentage discounts. This version should take the total cost and a percentage discount value, and return the discounted total cost.
+
+Fixed Amount Discount Calculation:
+
+
+
+Further overload the calculateTotal method to accommodate fixed amount discounts. This version should take the total cost and a fixed discount amount, returning the discounted total cost.
+
+Explain how method overloading in the ShoppingCart class makes it easy to apply various discount strategies. Discuss the advantages of using method overloading in this context, including code readability, ease of use, and the ability to seamlessly handle different types of discounts without the need for multiple method names.
+
+
+

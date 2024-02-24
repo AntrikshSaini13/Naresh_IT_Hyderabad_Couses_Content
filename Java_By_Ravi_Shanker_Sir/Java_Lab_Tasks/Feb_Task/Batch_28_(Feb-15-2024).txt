@@ -1,0 +1,1078 @@
+Que 1) What will be the output of below program?
+
+final class Test
+{
+	private int data = 100;
+
+	public void setData(int data)
+	{
+		this.data = data;
+		System.out.println("Data value is :"+data);
+	}
+}
+public class FinalClassEx1 
+{
+	public static void main(String[] args) 
+	{
+		Test t1 = new Test();
+		t1.setData(200);
+	}
+}
+
+A) Data value is : 100
+B) Data value is : 200
+C) CompileTimeError
+D) Non of above
+
+ANS : B
+--------------------------------------------------------------------------
+
+Que 2) What will be the output of below program?
+
+final class A
+{
+	private int x = 100;
+	public void setData()
+	{
+		x = 120;
+                this.x=x+30;
+		System.out.println(x);
+	}
+}
+class B extends A 
+{   
+}
+public class FinalClassEx
+{
+	public static void main(String[] args)
+	{
+		B b1 = new B();
+		b1.setData();		
+	}
+}
+
+
+A) 100
+B) 120
+C) 150
+D) CompileTimeError
+
+ANS : D 
+--------------------------------------------------------------------------
+
+Que 3) What will be the output of below program?
+
+
+sealed class A permits B {
+	public void m1() {
+		System.out.println("Class A");
+	}
+}
+
+class B extends A {
+	@Override
+	public void m1() {
+		System.out.println("Class B");
+	}
+}
+
+public class Test {
+	public static void main(String[] args) {
+		A a = new B();
+		a.m1();
+	}
+}
+
+A) Class A
+B) Class B
+C) CompileTimeError
+D) Non of above
+
+ANS : C
+--------------------------------------------------------------------------
+Que 4) What will be the output of below program?
+
+sealed class Human permits Manish, Vartika, Anjali {
+	public void printName() {
+		System.out.println("Default");
+	}
+}
+
+non-sealed class Manish extends Human {
+	public void printName() {
+		System.out.println("Manish Sharma");
+	}
+}
+
+sealed class Vartika extends Human {
+	public void printName() {
+		System.out.println("Vartika Dadheech");
+	}
+}
+
+final class Anjali extends Human {
+	public void printName() {
+		System.out.println("Anjali Sharma");
+	}
+}
+
+public class Test {
+	public static void main(String[] args) {
+		Human h1 = new Anjali();
+		Human h2 = new Vartika();
+		Human h3 = new Manish();
+
+		h1.printName();
+		h2.printName();
+		h3.printName();
+	}
+}
+
+
+A) Anjali Sharma
+   Vartika Dadheech
+   Manish Sharma
+
+B) Default
+   Default
+   Default
+
+C) CompileTimeError
+
+D) Non of above
+
+ANS : C
+
+--------------------------------------------------------------------------
+
+Que 5) What will be the output of below program?
+
+class A {
+	private final void m1() {
+		System.out.println("Good Morning");
+	}
+}
+
+class B extends A {
+	public void m1() {
+		System.out.println("Good Aftrnoon");
+	}
+}
+
+public class Test {
+	public static void main(String[] args) {
+		B b = new B();
+		b.m1();
+	}
+}
+
+A) Good Morning
+B) Good Aftrnoon
+C) CompileTimeError
+D) Non of above
+
+ANS : B
+
+--------------------------------------------------------------------------
+
+Que 6) What will be the output of below program?
+
+class A {
+	private final void m1() {
+		System.out.println("Good Morning");
+	}
+}
+
+class B extends A {
+	public void m1() {
+		System.out.println("Good Aftrnoon");
+	}
+}
+
+public class Test {
+	public static void main(String[] args) {
+		new A().m1();
+	}
+}
+
+A) Good Morning
+B) Good Aftrnoon
+C) CompileTimeError
+D) Non of above
+
+ANS : C
+
+--------------------------------------------------------------------------
+
+Que 7) What will be the output of below program?
+
+class A {
+	final int a = 10;
+
+	public A() {
+		this.a = 20;
+	}
+
+	public void m1() {
+		System.out.println((a + a));
+	}
+}
+
+public class Test {
+	public static void main(String[] args) {
+		A a1 = new A();
+		a1.m1();
+	}
+}
+
+A) 40
+B) 20
+C) 30
+D) CompileTimeError
+
+Ans : D
+
+--------------------------------------------------------------------------
+
+Que 8) What will be the output of below program?
+
+public class Test {
+    final int a = 10;
+    static final int b = 20;
+    
+	public static void main(String[] args) {
+		final Test t=new Test();
+		int x=t.b;
+		int y=t.a;
+		System.out.println(x+" "+y);	
+	}
+}
+
+A) 10 20
+B) 20 10
+C) CompileTimeError
+D) Non of above
+
+--------------------------------------------------------------------------
+
+Que 9) What will be the output of below program?
+
+public class Test {
+	final int a;
+	int b = 20;
+
+	void m1() {
+		this.a = 10;
+		m2();
+	}
+	
+	void m2() {
+		this.a = 50;
+	}
+
+	public static void main(String[] args) {
+		Test t = new Test();
+		t.m1();
+		System.out.println(t.a + t.b);
+	}
+}
+
+A) 30
+B) 20
+C) 70
+D) CompileTimeError
+
+ANS : D
+
+--------------------------------------------------------------------------
+
+Que 10) What will be the output of below program?
+
+abstract class Keyboard {
+	abstract final public void type();
+}
+
+class Laptop extends Keyboard {
+
+	@Override
+	public final void type() {
+		System.out.println("typing practice");
+	}
+
+	public void call() {
+		type();
+	}
+
+}
+
+public class Test {
+
+	public static void main(String[] args) {
+		Laptop l = new Laptop();
+		l.call();
+	}
+}
+
+
+A. Typing practice
+B. Compilation Error
+C. Typing practice followed by null
+D. Runtime Exception
+
+Ans :B
+
+--------------------------------------------------------------------------
+
+Que 11) What will be the output of below program?
+
+abstract class Home{
+	
+	public  abstract void stay();
+	public static abstract void rent();
+	
+}
+class Room extends Home{
+
+	@Override
+	public void stay() {
+
+		System.out.println("Staying");
+	}
+
+	public static void rent() {
+
+		System.out.println("Room on Rent");
+	}
+	
+}
+public class Test {
+public static void main(String[] args) {
+	Room r=new Room();
+	r.stay();
+	Room.rent();
+}
+}
+
+A. Staying
+B. Room on Rent
+C. Compilation Error
+D. Staying followed by Room on Rent
+
+Ans :C
+
+--------------------------------------------------------------------------
+
+Que 12) What will be the output of below program?
+
+abstract class Fitness{
+	private int time=30;
+	
+	public int getTime() {
+		return time;
+	}
+
+	private abstract void workout(); 
+	
+}
+class Gym extends Fitness{
+	public void workout() {
+		System.out.println("workout time :"+getTime()+" min");
+	}
+}
+public class Test {
+public static void main(String[] args) {
+	Gym g = new Gym();
+	g.workout();
+}
+}
+
+
+A. Workout time: 30 min
+B. Compilation Error
+C. 0
+D. Workout time: 0 min
+
+Ans:B
+--------------------------------------------------------------------------
+
+13) What will be the output of below program?
+
+abstract class Alphabates {
+	public abstract Alphabates checkupper(char c);
+}
+
+class A extends Alphabates {
+
+	@Override
+	public Alphabates checkupper(char c) {
+		if (c >= 'A' && c <= 'Z')
+			System.out.println("Upper_case");
+		else
+			System.out.println("Lower_case");
+		return new Alphabates();
+	}
+}
+
+class B extends Alphabates {
+
+	@Override
+	public Alphabates checkupper(char c) {
+		if (c >= 'A' && c <= 'Z')
+			System.out.println("Upper_case");
+		else
+			System.out.println("Lower_case");
+		return new B();
+	}
+}
+
+public class Test {
+	public static void main(String[] args) {
+		A a = new A();
+		B b = new B();
+		a.checkupper('A');
+		b.checkupper('B');
+	}
+}
+
+
+A. Upper_case
+B. Lower_case
+C. Compilation Error
+D. Upper_case followed by Lower_case
+
+Ans:C
+
+--------------------------------------------------------------------------
+
+Que 14) What will be the output of below program?
+
+abstract class Poly {
+	abstract void m1(Integer... i);
+}
+
+class Overload extends Poly {
+
+	@Override
+	void m1(Integer[] i) {
+		System.out.println("Integer[]");
+	}
+
+	void m1(Number... i) {
+		System.out.println("Number...");
+	}
+
+	void m1(Object... i) {
+		System.out.println("Object...");
+	}
+
+}
+
+public class Test {
+	public static void main(String[] args) {
+		Overload o = new Overload();
+		int b1 = 10;
+		o.m1(b1, 20);
+	}
+}
+
+
+A. Integer[]
+B. Number...
+C. Object...
+D. Compilation Error
+
+Ans:B
+
+--------------------------------------------------------------------------
+
+Que 15) What will be the output of below program?
+
+abstract class Food {
+	{
+		System.out.println("Food");
+	}
+}
+
+abstract class Launch extends Food {
+	{
+		System.out.println("Launch");
+	}
+}
+
+class Biriyani extends Launch {
+	{
+		System.out.println("Biriyani");
+	}
+}
+
+public class Test {
+	public static void main(String[] args) {
+		Biriyani b = new Biriyani();
+	}
+}
+
+A) Compilation error
+B) Biriyani
+C) No Output
+D) Food
+   Launch
+   Biriyani
+
+Ans:D
+
+
+--------------------------------------------------------------------------
+
+Que 16) What will be the output of below program?
+
+abstract class Base {
+	int x = 9, y = 8;
+
+	void show() {
+		System.out.println("x");
+		System.out.println("y");
+	}
+
+	abstract void display();
+}
+
+public class child extends Base {
+	void set(int x, int y) {
+		this.x = x;
+		super.y = y;
+		System.out.println("x " + x);
+		System.out.println("y " + y);
+
+	}
+
+	void display() {
+		System.out.println("display");
+
+	}
+
+	public static void main(String args[]) {
+		child c1 = new child();
+		c1.set(10, 20);
+		c1.show();
+		c1.display();
+	}
+}
+
+
+A) x 10
+   y 8
+   display
+
+B) x
+   y
+   display
+
+C) x 10
+   y 20
+   x
+   y
+   display
+
+D) Comipation Error
+
+Ans: C
+
+--------------------------------------------------------------------------
+
+Que 17) Which of the following statements about a class that contains an abstract method is (are) true?
+
+I. You can't have any constructors in this class.
+II.  This class must be declared as abstract.
+III.  You can't declare any fields in this class.
+IV. class contains atleast one  abstract method
+
+A) I and II only
+B) II only and IV
+C) I, II and III
+D) I only
+E) II only
+
+Ans:E
+
+--------------------------------------------------------------------------
+
+Que 18) What will be the output of below program?
+
+class Car {
+	private int fuel;
+
+	public Car() {
+		fuel = 0;
+	}
+
+	public Car(int g) {
+		fuel = g;
+	}
+
+	public void addFuel() {
+		fuel++;
+	}
+
+	public void display() {
+		System.out.print(fuel + " ");
+	}
+}
+
+public class RaceCar extends Car {
+	public RaceCar(int g) {
+		super(2 * g);
+	}
+
+	public static void main(String[] args) {
+		Car car = new Car(5);
+		Car fastCar = new RaceCar(5);
+		car.display();
+		car.addFuel();
+		car.display();
+		fastCar.display();
+		fastCar.addFuel();
+		fastCar.display();
+	}
+}
+
+
+A. The code compiles and runs with no errors, the output is 5 6 5 6
+B. The code compiles and runs with no errors, the output is: 5 6 10 11
+C. The code compiles and runs with no errors, the output is 10 11 10 11
+D. The code won't compile.
+E. You get a runtime error ClassCastException, when fastCar.addFuel() is executed.
+
+Ans:B
+
+
+--------------------------------------------------------------------------
+
+Que 19) Choose correct one.
+
+1 abstract public class Employee {
+2. protected abstract double getSalesAmount();
+3. public double getCommision() {
+4. return getSalesAmount() * 0.15;
+5. }
+6. }
+7. class Sales extends Employee {
+8. // insert method her
+9. }
+Which two methods, inserted independently at line 8, correctly complete the Sales
+class? (Choose two.)
+
+
+A. double getSalesAmount() { return 1230.45; }
+B. public double getSalesAmount() { return 1230.45; }
+C. private double getSalesAmount() { return 1230.45; }
+D. protected double getSalesAmount() { return 1230.45; }
+
+i. A and C
+ii. B and D
+iii. B and C
+iv. A and D
+
+Ans:ii
+
+--------------------------------------------------------------------------
+
+Que 20) Choose correct one. 
+
+1. public abstract Status {
+
+2. /* insert code here */ int MY_VALUE = 10;
+
+3. }
+
+Which three are valid on line 2? (Choose three.)
+A. final
+B. static
+C. native
+D. public
+E. private
+F. abstract
+
+
+i. A, B, D and E
+ii. B, D, and F
+iii. B, D, and c
+iv. A, D, and F
+
+Ans: i
+
+--------------------------------------------------------------------------
+
+Que 21) What will be the output of below code. 
+
+abstract class C1 {
+	public C1() {
+		System.out.print(1);
+	}
+}
+
+class C2 extends C1 {
+	public C2() {
+		System.out.print(2);
+	}
+}
+
+class C3 extends C2 {
+	public C3() {
+		System.out.println(3);
+	}
+}
+
+public class Test {
+
+	public final static void main(String[] a) {
+		new C3();
+	}
+
+}
+
+
+A.123
+B.compilation error
+C.compiled fine,runtime error for final keyword
+in main method
+D.3
+
+Ans:A
+
+--------------------------------------------------------------------------
+
+Que 22) Choose correct one
+
+Suppose A class is an abstract class and Sub class B is a concrete class and
+both have no parameterized constructor.Which of the following is correct ?
+
+A) A a = new B();
+B) B b = new A();
+C) A a = new A();
+D) B b = new A();
+
+Answet = A
+--------------------------------------------------------------------------
+
+Que 23) What will be the output of below program?
+
+abstract class Shape {
+    abstract void draw();
+}
+
+class Circle extends Shape {
+    void draw() {
+        System.out.println("Drawing a Circle");
+    }
+
+    void calculateArea() {
+        System.out.println("Calculating Circle Area");
+    }
+}
+
+class Square extends Shape {
+    void draw() {
+        System.out.println("Drawing a Square");
+    }
+
+    void calculateArea() {
+        System.out.println("Calculating Square Area");
+    }
+}
+
+public class Test{
+public static void main(String [] args){
+Shape shape1 = new Circle();
+Shape shape2 = new Square();
+
+((Circle) shape1).calculateArea();
+((Square) shape2).calculateArea();
+
+}
+}
+
+A. Drawing a Circle
+B. Drawing a Square
+C. Calculating Circle Area
+D. Calculating Square Area
+E. Compilation Error
+
+Choose the correct option:
+
+i.A and B
+ii.C and D
+iii.A and D
+iv.B and C
+
+Ans:ii
+
+--------------------------------------------------------------------------
+
+Que 24) What will be the output of below program?
+
+class MyClass {
+    private String name;
+    private int id;
+
+    public MyClass(String name, int id) {
+        this.name = name;
+        this.id = id;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+        MyClass myClass = (MyClass) obj;
+        return id == myClass.id && name.equals(myClass.name);
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        MyClass obj1 = new MyClass("John", 1);
+        MyClass obj2 = new MyClass("John", 1);
+        MyClass obj3 = new MyClass("Alice", 2);
+
+        System.out.println("obj1 equals obj2: " + obj1.equals(obj2)); 
+        System.out.println("obj1 equals obj3: " + obj1.equals(obj3)); 
+    }
+}
+
+
+A) obj1 equals obj2: true
+   obj1 equals obj3: false
+
+B) obj1 equals obj2: true
+   obj1 equals obj3: true
+
+C) obj1 equals obj2: false
+   obj1 equals obj3: true
+
+D) obj1 equals obj2: false
+   obj1 equals obj3: false
+
+E) Non of above
+
+Ans : A
+
+--------------------------------------------------------------------------
+
+Que 25) What will be the output of below program?
+
+class A {
+
+}
+
+public class Test1 {
+	public static void main(String[] args) {
+		A t1 = new A();
+		A t2 = t1;
+		System.out.println(t1.hashCode() == t2.hashCode());
+
+		A t3 = new A();
+		A t4 = new A();
+		System.out.println(t3.hashCode() == t4.hashCode());
+	}
+}
+
+A) true
+   true
+
+B) true
+   false
+
+C) false
+   true
+
+D) false
+   false
+
+
+Ans : B
+
+--------------------------------------------------------------------------
+
+Que 26) What will be the output of below program?
+
+public class Student {
+	private String name;
+	private int rollNo;
+
+	public Student(String name, int rollNo) {
+		super();
+		this.name = name;
+		this.rollNo = rollNo;
+	}
+
+	@Override
+	public int toString() {
+		this.rollNo++;
+		return rollNo;
+	}
+
+	public static void main(String[] args) {
+		Student s = new Student("Rahul", 101);
+		System.out.println(s);
+
+	}
+}
+
+A) Compilation Error
+B) 101
+C) 102
+D) com.nit.demo2.Student@75a1cd57
+
+Ans : A
+
+--------------------------------------------------------------------------
+
+Que 27) What will be the output of below program?
+
+class A {
+}
+
+public class Test extends A {
+	public static void main(String[] args) {
+
+		String s = "java";
+		Test t = new Test();
+		A a = new Test();
+
+		if (s instanceof String)
+			System.out.println("Yes");
+		else
+			System.out.println("No");
+
+		if (t instanceof Test)
+			System.out.println("Yes");
+		else
+			System.out.println("No");
+
+		if (a instanceof Test)
+			System.out.println("Yes");
+		else
+			System.out.println("No");
+
+		if (a instanceof A)
+			System.out.println("Yes");
+		else
+			System.out.println("No");
+	}
+}
+
+A) Yes
+   Yes
+   Yes
+   Yes
+
+A) Yes
+   Yes
+   Yes
+   No
+
+C) Yes
+   No
+   Yes
+   No
+
+D) Yes
+   Yes
+   No
+   Yes
+
+E) Compilation Error
+
+Ans : A
+
+--------------------------------------------------------------------------
+
+Que 28) What will be the output of below program?
+
+public record Person() {
+	String name;
+	public static void main(String[] args) {
+		Person p=new Person();
+		System.out.println(p);
+	}
+}
+
+A) null
+B) hash code
+C) compilation error
+D) Person [name = raj]
+
+Ans : C
+
+--------------------------------------------------------------------------
+
+Que 29)  What will be the output of below program?
+
+
+public class RecordConstructorChainingExample {
+	public static void main(String[] args) {
+
+		Person person1 = new Person("Raj", 30);
+		Person person2 = new Person("Abhi");
+		Person person3 = new Person(1);
+
+		System.out.println(person1);
+		System.out.println(person2);
+		System.out.println(person3);
+
+	}
+
+	record Person(String name, int age) {
+
+		Person(String name) {
+			this(name, 0);
+		}
+
+		Person(int age) {
+			this("suraj", age);
+		}
+	}
+}
+
+A) Compilation Error
+
+B) Person[name=Raj, age=30]
+   Person[name=Abhi, age=0]
+   Person[name=suraj, age=1]
+
+C) Person[name=Raj, age=30]
+   Person[name=Raj, age=30]
+   Person[name=Raj, age=30]
+
+D) Non of above
+
+Ans : B
+
+--------------------------------------------------------------------------
+
+Que 30)  What will be the output of below program?
+
+record Person(String name, int age) {
+
+	public void displayInfo() {
+		System.out.println(" Age: " + age+ ", Name: " + name );
+	}
+}
+
+public class RecordAsChildClassExample extends Person {
+	public static void main(String[] args) {
+		Person p = new Person("Amit", 29);
+		p.displayInfo();
+
+	}
+}
+
+
+A) Name: Amit, Age: 29
+B) Compilation Error
+C) Name: Amit, Age: 29
+D) Non of above
+
+Ans : B

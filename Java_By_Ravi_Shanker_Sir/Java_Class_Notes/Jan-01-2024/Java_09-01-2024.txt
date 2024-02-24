@@ -1,0 +1,334 @@
+09-01-2024
+-----------
+Lab Program :(Method return type as a class + Passing Object ref)
+------------------------------------------------------------------
+A class called Customer is given to you. 
+
+The task is to find the Applicable Credit card Type and create CardType object based on the Credit Points of a customer.
+
+Define the following for the class.
+
+Attributes : 
+	customerName : String,private
+	creditPoints: int, private
+
+Constructor :
+	parameterizedConstructor: for both cusotmerName & creditPoints in that order.
+
+Methods :
+	Name of the method : getCreditPoints
+	Return Type : int
+	Modifier   : public 
+	Task : This method must return creditPoints
+	
+	Name of the method : toString, Override it, 
+	Return type : String 
+	Task :  return only customerName from this.
+
+Create another class called CardType. Define the following for the class
+
+Attributes :
+	customer : Customer, private
+	cardType : String, private
+Constructor :
+	parameterizedConstructor: for customer and cardType attributes in that order
+
+Methods :
+	Name of the method : toString  Override this.  
+	Return type : String
+	Modifier : public
+	Task :  Return the string in the following format.
+		The Customer 'Rajeev' Is Eligible For 'Gold' Card.
+
+
+Create One more class by name CardsOnOffer and define the following for the class.
+
+Method : 
+	Name Of the method : getOfferedCard 
+	Return type : CardType
+	Modifiers: public,static
+	Arguments: Customer object
+
+	Task : 	Create and return a CardType object after logically finding cardType from creditPoints as per the below rules.
+		creditPoints	    cardType
+		100  - 500	-   Silver
+		501  - 1000	-   Gold
+		1000 >		-   Platinum
+		< 100		-   EMI
+		
+Create  an ELC class which contains Main method to test the working of the above.
+
+Customer.java
+--------------
+package com.ravi.lab;
+
+public class Customer 
+{
+  private String customerName;
+  private int creditPoints;
+
+  public Customer(String customerName, int creditPoints) 
+  {
+		super();
+		this.customerName = customerName;
+		this.creditPoints = creditPoints;
+  }
+  
+  public int getCreditPoints()
+  {
+	  return this.creditPoints;
+  }
+
+   @Override
+   public String toString() 
+   {
+	return this.customerName;
+   }  
+}
+
+CardType.java
+-------------
+package com.ravi.lab;
+
+public class CardType 
+{
+   private Customer customer; //HAS-A Relation
+   private String cardType;
+   
+	public CardType(Customer customer, String cardType) 
+	{
+		super();
+		this.customer = customer;
+		this.cardType = cardType;
+	}
+
+	@Override
+	public String toString() 
+	{
+		//The Customer 'Rajeev' Is Eligible For 'Gold' Card.
+		
+		return "The Customer '"+this.customer+"' Is Eligible for '"+this.cardType+"' Card";
+	}
+	
+   
+}
+
+CardsOnOffer.java
+-----------------
+package com.ravi.lab;
+
+public class CardsOnOffer 
+{
+	public static CardType getOfferedCard(Customer obj)
+	{
+		//System.out.print(obj);
+
+		int creditPoint = obj.getCreditPoints();
+		
+		if(creditPoint >=100 && creditPoint <=500)
+		{
+			return new CardType(obj, "Silver");
+		}
+		else if(creditPoint > 500 && creditPoint <=1000)
+		{
+				return new CardType(obj, "Gold");
+		}
+		else if(creditPoint > 1000)
+		{
+				return new CardType(obj, "Platinum");
+		}
+		else
+		{
+			return new CardType(obj, "EMI");
+		}
+	}
+	
+
+}
+
+
+
+
+CreditCard.java
+----------------
+package com.ravi.lab;
+
+import java.util.Scanner;
+
+public class CreditCard {
+
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter Customer Name :");
+		String name = sc.nextLine();
+		
+		System.out.print("Enter Customer Credit Points :");
+		int cp = sc.nextInt();
+		
+		Customer cust = new Customer(name, cp);
+		System.out.print(cust);
+		
+		CardType card = CardsOnOffer.getOfferedCard(cust);
+		System.out.println(card);
+
+	}
+}
+----------------------------------------------------------------------
+private constructor in java :
+------------------------------
+According to our requirement we can apply all private, default, protected and public access modifier on constructor.
+
+If we declare a constructor with private access modifier then we can create single object for that class as shown in the program.
+
+Test.java
+---------
+class Test
+{
+	private Test()
+	{
+		System.out.println("Private Constructor");
+	}
+
+	public static void main(String [] args)
+	{
+        new Test(); //Anonymous OR Nameless object
+	}
+}
+
+We should declare a constructor with private access modifier due to the 
+following two reasons :
+
+1) If we want to create single object for that class (Singleton class)
+2) If we want to declare all the methods as a static method inside the 
+   class.
+
+Assignment :
+------------
+Create a class Calculate which contains all static methods with private constructor.
+Execute all the static methods with the help of class name.
+
+Note :- A constructor cannot be declared with static and final modifier.
+-----------------------------------------------------------------------
+
+What is Instance OR non-static block in Java ?
+----------------------------------------------
+//Instance Block OR Non-static block
+
+{
+
+}
+
+It is a special block in java which is executed automatically whenever an object is created. [Depends upon object creation]
+
+It will be automatically placed in the 2nd line of the constructor.
+
+The main purpose of instance block to initialize the instance variable of the class before constructor body execution so, it is also known as 
+instance initializer.
+
+Always the instance block will be executed before the constructor body execution.
+
+If we have n number of instance block available in the class then it would be executed according to the order.
+
+-----------------------------------------------------------------------
+Program to show instance blocks are executed before the constructor body
+
+InstanceBlockDemo1.java
+-------------------------
+
+package com.ravi;
+
+class Test
+{
+	public Test()
+	{
+		System.out.println("No Argument constructor!!!");
+	}
+	
+	{
+		System.out.println("Instance block");
+	}	
+}
+
+public class InstanceBlockDemo1 
+{
+	public static void main(String[] args) 
+	{
+		new Test();
+		System.out.println("...............");
+		new Test();
+
+	}
+
+}
+------------------------------------------------------------------------
+Program to show instance blocks are executed according to the order.
+
+package com.ravi;
+
+class Demo
+{
+	int x;
+	public Demo()
+	{
+		System.out.println("x value is :"+x);
+	}
+	
+	{
+		x = 100;
+		System.out.println(x);
+	}
+	
+	{
+		x = 200;
+		System.out.println(x);
+	}
+	
+	{
+		x = 300;
+		System.out.println(x);
+	}
+	
+}
+
+
+public class InstanceBlockDemo2 
+{
+	public static void main(String[] args) 
+	{
+		new Demo();
+
+	}
+
+}
+------------------------------------------------------------------------
+Program to show, if a user has defined instance block inside the constructor body then it will be executed as it is (Compiler will not perform any action)
+
+package com.ravi;
+
+class Foo
+{
+	Foo()
+	{
+		
+		System.out.println("Constructor");
+		
+		{
+			System.out.println("Instance block");
+		}
+	}
+}
+
+
+public class InstanceBlock3 {
+
+	public static void main(String[] args) 
+	{
+		new Foo();
+
+	}
+
+}
+------------------------------------------------------------------------
+Garbage Collector :
+-------------------

@@ -1,0 +1,207 @@
+21-02-2024
+----------
+package com.ravi.predefined_functional_interface;
+
+import java.util.Scanner;
+import java.util.function.Predicate;
+
+public class PredicateDemo3 
+{
+	public static void main(String[] args) 
+	{
+	  //Verify whether the name starts with R or not
+	  Predicate<String> p1 =  str -> str.startsWith("R");
+	  
+	  Scanner sc = new Scanner(System.in);
+	  System.out.println("Enter your Name :");
+	  String name = sc.next();
+	  System.out.println("Your name starts with 'R' :"+p1.test(name));
+	  
+	}
+
+}
+----------------------------------------------------------------
+Assignment :
+------------
+By using Predicate verify whether a year is leap year or not?
+----------------------------------------------------------------
+Consumer<T> functional interface :
+-----------------------------------------
+It is a predefined functional interface available in java.util.function sub package.
+
+It contains an abstract method accept() and returns nothing. It is used to accept the 
+parameter value or consume the value.
+
+@FunctionalInterface
+public interface Consumer<T>
+{
+    void accept(T x);
+}
+-----------------------------------------------------------------
+ConsumerDemo1.java
+-------------------
+package com.ravi.predefined_functional_interface;
+
+import java.util.function.Consumer;
+
+record Product(int pid , String pname)
+{
+	
+}
+
+
+public class ConsumerDemo1 
+{
+	public static void main(String[] args) 
+	{
+	  Consumer<Integer> c1 =  x -> System.out.println("Integer :"+x);
+	  c1.accept(12);
+	  
+	  Consumer<String> c2 = x -> System.out.println("String :"+x);
+	  c2.accept("NIT");
+	  
+	  Consumer<Double> c3 = x -> System.out.println("Double :"+x);
+	  c3.accept(12.90);
+	  
+	 Consumer<Product> c4 = x -> System.out.println(x);
+	 c4.accept(new Product(111, "Laptop")); 
+	  
+	}
+}
+-----------------------------------------------------------------
+Function<T,R> functional interface :
+-----------------------------------------
+Type Parameters:
+T - the type of the input to the function.
+R - the type of the result of the function.
+
+It is a predefined functional interface available in java.util.function sub package.
+
+It provides an abstract method apply that accepts one argument(T) and produces a result(R).
+
+Note :- The type of T(input) and the type of R(Result) both will be decided by the user.
+
+@FunctionalInterface
+public interface Function<T,R>
+{
+   R apply(T x);        
+}
+-----------------------------------------------------------------
+package com.ravi.predefined_functional_interface;
+
+import java.util.Scanner;
+import java.util.function.Function;
+
+public class FunctionDemo 
+{
+	public static void main(String[] args) 
+	{
+	   //cube of a number
+		Function<Integer,Integer> fn1 = num -> num*num*num;		
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a number :");
+		int num = sc.nextInt();
+		System.out.println("Cube of "+num+" is :"+fn1.apply(num));
+		sc.close();
+	}
+
+}
+-----------------------------------------------------------------
+package com.ravi.predefined_functional_interface;
+
+import java.util.Scanner;
+import java.util.function.Function;
+
+public class FunctionDemo2 
+{
+	public static void main(String[] args) 
+	{
+	 //finding the length of the String
+	  Function<String,Integer> fn1 = str -> str.length();
+	  
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter your Name :");
+		String name = sc.nextLine();
+		System.out.println("Length of "+name+" is :"+fn1.apply(name));
+		sc.close();
+	}
+
+}
+----------------------------------------------------------------
+Assignment :
+-----------
+Program by using Function<T,R> functional interface to verify whether the name starts 
+with R or not?
+-----------------------------------------------------------------
+Supplier<T> prdefined functional interface :
+--------------------------------------------
+It is a predefined functional interface available in java.util.function sub package. It 
+provides an abstract method get() which does not take any argument but produces/supply a 
+value of type T.
+
+@FunctionalInterface
+public interface Supplier<T>
+{
+   T get();
+}
+
+----------------------------------------------------------------
+package com.ravi.predefined_functional_interface;
+
+import java.util.function.Supplier;
+
+record Employee(int eid, String ename)
+{
+	public String getStudentInfo()
+	{
+	  return eid+" : " +ename;
+	}
+}
+
+public class SupplierDemo1 
+{
+	public static void main(String[] args)
+	{
+		Supplier<Employee> s1 =() -> new Employee(111, "Scott");
+		Employee emp = s1.get();
+		System.out.println(emp.getStudentInfo());
+
+	}
+
+}
+-----------------------------------------------------------------
+package com.ravi.predefined_functional_interface;
+
+import java.util.Scanner;
+import java.util.function.Supplier;
+
+record Player(int pid, String pname)
+{
+	
+}
+
+public class SupplierDemo2 
+{
+	public static void main(String[] args) 
+	{
+		Supplier<Player> p1 = ()->
+		{
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Enter Player Name :");
+			String pname = sc.nextLine();
+			System.out.println("Enter Player Id :");
+			int pid = sc.nextInt();
+			
+			Player player = new Player(pid, pname);
+			
+			return player;
+		};
+		
+		System.out.println(p1.get());
+
+	}
+
+}
+-----------------------------------------------------------------
+

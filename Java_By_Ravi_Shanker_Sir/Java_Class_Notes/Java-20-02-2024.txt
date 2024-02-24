@@ -1,0 +1,195 @@
+20-02-2024
+-----------
+@FunctionalInterface
+interface Moveable
+{
+	void move();  //SAM (Single Abstract Method)
+}
+
+public class Lambda1 
+{
+	public static void main(String[] args) 
+	{
+		Moveable car = ()-> System.out.println("Car is moving ");
+
+		Moveable bike = ()-> System.out.println("Bike is moving ");
+
+		Moveable bus = ()-> System.out.println("Bus is moving ");	
+		
+		car.move();  bike.move();  bus.move();
+	}
+}
+----------------------------------------------------------------
+@FunctionalInterface
+interface Calculate
+{
+	 void add(int a, int b, double c);  	
+}
+public class Lambda2 
+{
+	public static void main(String[] args) 
+	{
+	   Calculate calc = (p, q, r) -> System.out.println("Sum is :"+(p+q+r));
+	   
+	   calc.add(12,89,67.90);
+	}
+}
+----------------------------------------------------------------
+import java.util.Scanner; 
+
+@FunctionalInterface
+interface Length
+{
+	 int getLength(String str);	
+}
+
+public class Lambda3 
+{
+	public static void main(String[] args)     
+	{
+		Length l = str -> str.length();		
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter your Name :");
+		String name = sc.next();
+		System.out.println("Your Name length is :"+l.getLength(name));
+	}
+}
+---------------------------------------------------------------
+Working with predefined Functional interface :
+----------------------------------------------
+What is type parameter?
+---------------------------
+It is a technique through which we can make our application indepenedent of data type. 
+It is represented by <T>
+
+In java we can pass Wrapper classes as well as User-defined class to this type parameter.
+
+We cannot pass any primitive type to this type parameter. 
+
+Program on Type Parameter :
+---------------------------
+
+TypeParameter.java
+------------------
+
+package com.ravi.type_parameter;
+
+class Accept<T>
+{
+	private T var; 
+	
+	public Accept(T x)  // Student x -> new Student(1,"A");
+	{
+		var = x;
+	}
+	
+	public T getVar()
+	{
+		return this.var;
+	}
+}
+
+public class TypeParameter 
+{
+	public static void main(String[] args)
+	{
+	  Accept<Integer> intType = new Accept<>(15);
+	  System.out.println(intType.getVar());
+	  
+	  Accept<Float> floatType = new Accept<>(3.4f);
+	  System.out.println(floatType.getVar());
+	  
+	  Accept<Character> charType = new Accept<>('A');
+	  System.out.println(charType.getVar());
+	  
+	  Accept<Student> stdType = new Accept<>(new Student(1, "A"));
+	  System.out.println(stdType.getVar());
+	  
+	}
+
+}
+
+record Student(int id, String name)
+{
+	
+}
+----------------------------------------------------------------
+Working with predefined functional interfaces :
+------------------------------------------------------
+In order to help the java programmer to write concise  java code in day to day programming 
+java software people has provided the following predefined functional interfaces
+
+1) Predicate<T>
+2) Consumer<T> 
+3) Function<T,R>
+4) Supplier<T>
+5) BiPredicate<T,U>
+6) BiConsumer<T, U>
+7) BiFunction<T,U,R>
+
+Note :-
+-------
+All these predefined functional interfaces are provided as a part of java.util.function sub 
+package.
+
+Predicate<T> functional interface  :
+-------------------------------------------
+It is a predefined functional interface available in java.util.function sub package.
+
+It contains an abstract method test() which takes type parameter <T> and returns boolean value. 
+The main purpose of this interface to test one argument boolean expression.
+
+@FunctionalInterface
+public interface Predicate<T>   
+{
+  boolean test(T x);
+}
+
+
+Note :- Here T is a "type parameter" and it can accept any type of User defined class as well as  
+Wrapper class like Integer, Float, Double and so on.
+
+We can't pass primitive type.
+----------------------------------------------------------------
+package com.ravi.predefined_functional_interface;
+
+import java.util.Scanner;
+import java.util.function.Predicate;//this is predicate functional interface
+
+public class PredicateDemo1 
+{
+	public static void main(String[] args) 
+	{
+	  //Verify whether a number is even or odd		
+	  Predicate<Integer> isEven = x -> x%2==0;//Lambda Expression
+	  Scanner sc = new Scanner(System.in);
+	  System.out.println("Enter a number :");
+	  int num = sc.nextInt();
+	  System.out.println(num +" is even ?"+isEven.test(num));// predicte functional interface contain test() method
+	  sc.close();	  
+	 
+	}
+
+}
+---------------------------------------------------------------
+package com.ravi.predefined_functional_interface;
+
+import java.util.Scanner;
+import java.util.function.Predicate;
+
+public class PredicateDemo2 
+{
+	public static void main(String[] args)
+	{
+		//Verify whether my name is Ravi or not ?
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter your Name :");
+		String name = sc.nextLine();
+		
+		Predicate<String> p1 =  str -> str.equals("Ravi");
+		System.out.println("Are u ravi ?"+p1.test(name));
+	}
+}
+----------------------------------------------------------------

@@ -1,0 +1,314 @@
+16-02-2024
+----------
+Program to achieve loose coupling using interface :
+---------------------------------------------------
+Program on loose coupling :
+----------------------------
+Loose Coupling :- If the degree of dependency from one class object to another 
+class is very low then it is called loose coupling.
+
+Tightly coupled :- If the degree of dependency of one class to another class is 
+very high then it is called Tightly coupled.
+
+According to IT industry standard we should always prefer loose coupling so 
+the maintenance of the project will become easy.
+
+7 Files :
+----------
+HotDrink.java(I)
+-----------------
+package com.ravi.loose_coupling;
+
+public interface HotDrink 
+{
+  public abstract void prepare();
+}
+
+Tea.java(C)
+-----------
+package com.ravi.loose_coupling;
+
+public class Tea implements HotDrink 
+{
+	@Override
+	public void prepare() 
+	{
+		System.out.println("Preparing Tea");		
+	}
+
+}
+
+Coffee.java(C)
+--------------
+package com.ravi.loose_coupling;
+
+public class Coffee implements HotDrink {
+
+	@Override
+	public void prepare() 
+	{
+		System.out.println("Preparing Coffee");		
+	}
+
+}
+
+Boost.java(C)
+--------------
+package com.ravi.loose_coupling;
+
+public class Boost implements HotDrink 
+{
+	@Override
+	public void prepare() 
+	{
+		System.out.println("Preparing Boost");		
+	}
+}
+
+Horlicks.java(C)
+-----------------
+package com.ravi.loose_coupling;
+
+public class Horlicks implements HotDrink 
+{
+	@Override
+	public void prepare() 
+	{
+		System.out.println("Preparing Horlicks");		
+	}
+}
+
+Restaurant.java(C)
+-------------------
+package com.ravi.loose_coupling;
+
+public class Restaurant 
+{                                 //reference of tea 
+   public static void acceptObject(HotDrink hd)
+   {
+	  hd.prepare(); 
+   }
+}
+
+Main.java(C)
+------------
+package com.ravi.loose_coupling;
+
+public class Main {
+
+	public static void main(String[] args) 
+	{
+		Restaurant.acceptObject(new Tea());//HotDrink hd = new Tea()
+		Restaurant.acceptObject(new Coffee());
+		Restaurant.acceptObject(new Boost());
+        	Restaurant.acceptObject(new Horlicks());
+	}
+
+}
+
+It is always better to take method return type as interface so we can return any 
+implementer class object as shown in the example below
+
+public HotDrink  accept()
+{
+
+   return new Tea() OR new Coffee() OR new Horlicks() OR any future
+   implementer class object...........................
+}
+-------------------------------------------------------------------
+Multiple Inheritance using interface :
+---------------------------------------
+Upto java 7, interface does not contain any method body that means all the 
+methods are abstract method so we can achieve multiple inheritance by providing the 
+logic in the implementer class as shown in the below program (Diagram 16-FEB-24)
+
+In a class we have a constructor so, it is providing ambiguity issue but inside an 
+interface we don't have constructor so multiple inheritance is possible using interface.
+
+package com.ravi.mi;
+
+interface A
+{
+	void m1();
+}
+
+interface B
+{
+	void m1();
+}
+
+class Implementer implements A,B
+{
+	@Override
+	public void m1() 
+	{
+		System.out.println("Multiple Inheritance is possible");		
+	}
+}
+public class MultipleInheritance 
+{
+	public static void main(String[] args) 
+	{
+	   Implementer i = new Implementer();
+	   i.m1();
+	}
+}
+-------------------------------------------------------------------
+Extending interface :
+---------------------
+One interface can extends another interface, it cannot implement because interface 
+cannot provide implementation for the abstract method.
+
+package com.ravi.mi;
+
+interface Alpha
+{
+	void m1();
+}
+interface Beta extends Alpha
+{
+	void m2();
+}
+
+class C implements Beta
+{
+	@Override
+	public void m1() 
+	{
+		System.out.println("m1 method implemented");		
+	}
+
+	@Override
+	public void m2() 
+	{
+		System.out.println("m2 method implemented");			
+	}	
+}
+
+public class ExtendingInterface 
+{
+	public static void main(String[] args) 
+	{
+      		C c1 = new C();
+      		c1.m1();  c1.m2();
+	}
+
+}
+-------------------------------------------------------------------
+New Features of Java (interface from java 1.8 onwards)
+------------------------------------------------------
+Limitation of abstract method :
+           OR
+Maintenance problem with interface in an Industry upto JDK 1.7
+--------------------------------------------------------------
+The major maintenance problem with interface is, if we add any new abstract method 
+at the later stage of development inside an existing interface then all the implementer 
+classes have to override that abstract method otherwise the  implementer class will 
+become as an abstract class so it is one kind of boundation.
+
+We need to provide implementation for all the abstract method available inside an 
+interface whether it is required or not?
+
+To avoid this maintenance problem java software people introduced default method 
+inside an interface.
+-----------------------------------------------------------------------
+What is default Method inside an interface?
+------------------------------------------------
+default method is just like concrete method which contains method body and we can 
+write inside an interface from java 8 onwards.
+
+default method is used to  provide  specific implementation for the implementer 
+classes which are implmenting from interface because we can override default method 
+inside the sub classes to provide our own specific implementation.
+
+*By using default method there is no boundation to override the default method in the 
+sub class, if we really required it then we can override to provide my own implementation.
+
+by default, default method access modifier is public so at the time of overriding we 
+should use public access modifier.
+
+4 Files :
+-----------
+Vehicle.java(I)
+---------------
+package com.ravi.java8;
+
+public interface Vehicle 
+{
+  public abstract void run();
+  public abstract void horn();
+  
+  default void digitalMeter() //java 1.8
+  {
+	  System.out.println("Digital meter");
+  }
+}
+
+
+Bike.java(C)
+-------------
+package com.ravi.java8;
+
+public class Bike implements Vehicle 
+{
+	@Override
+	public void run() 
+	{
+		System.out.println("Bike is running");		
+	}
+
+	@Override
+	public void horn() 
+	{
+		System.out.println("PEEP PEEP");		
+	}
+
+}
+
+
+Car.java(C)
+------------
+package com.ravi.java8;
+
+public class Car implements Vehicle 
+{
+	@Override
+	public void run() 
+	{
+		System.out.println("Car is running");		
+	}
+	
+	@Override
+	public void horn() 
+	{
+		System.out.println("POP POP");		
+	}
+   
+	 @Override
+	 public void digitalMeter() //java 1.8
+	  {
+		  System.out.println("Car is having digital Meter");
+	  }
+	
+	
+	
+}
+
+
+Main.java(C)
+------------
+package com.ravi.java8;
+
+public class Main {
+
+	public static void main(String[] args) 
+	{
+		Vehicle v;
+		
+		v = new Bike(); v.run(); v.horn();
+		
+		v = new Car(); v.run(); v.horn(); v.digitalMeter();
+	}
+
+}
+--------------

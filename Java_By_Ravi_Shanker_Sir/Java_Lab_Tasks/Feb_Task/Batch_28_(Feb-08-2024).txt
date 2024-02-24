@@ -1,0 +1,56 @@
+Program 01 :
+------------
+Create an application to compare two objects based on the content by overriding the equals(Object obj) 
+method of Object class.
+
+Create a BLC class called Product
+
+Instance variables :
+private int productId
+private String productName
+
+Create a parameterized constructor to initialize all properties.
+
+Override equals(Object obj) method from Object class to compare the content of Product object, 
+Make sure that if end user try to compare the content of two different objects (Product and Employee) 
+then program should provide proper message.
+
+Create an ELC class ProductEquality to test your application by creating two objects of Product class to 
+compare the content by calling Product class overridden equals(Object obj) method.
+
+Program 02 :
+------------
+Create one BLC class Sports
+
+Methods: 
+getName(String): String, 
+getNumberOfTeamMembers() :String
+getName method returns a String value as "Sports".
+getNumberOfTeamMembers method returns a String value as "Each team has n 
+players in Sports".
+
+Create sub class of Sports called Soccer.
+Define the Soccer class with following specifications :-
+Soccer:
+Methods: override getName(String) from parent class.
+This method returns a String value as any sports name.
+override getNumberOfTeamMembers from parent class.
+This method returns a String value as "In sports(given via getName()),each team has 11 
+players".
+Sample Output
+=============
+4
+In Soccer,
+each team has 11 players.
+Note:
+===== 
+A class Testing is given to you with a main method. 
+Use this class to test your solution's classes and methods
+
+------------------------------------------------------------------------
+
+
+
+
+
+

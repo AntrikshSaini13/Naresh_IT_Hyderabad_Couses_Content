@@ -1,0 +1,953 @@
+Constructor full Details
+========================
+
+What is Constrcutor? (Introduction Only)
+----------------------------------------
+If the name of the class and name of the method both are exactly same and it does not contain any return type then it is called Constructor.
+
+Example :
+---------
+public class Employee
+{
+   public Employee() //Constructor 
+   {
+   }
+}
+
+Class name and Method name same in the following but it is not constructor :
+-----------------------------------------------------------
+public class Student
+{
+  public void Student()  //It is a method, not a constructor
+   {
+   }
+}
+------------------------------------------------------------------------
+Default constructor added by the compiler :
+-------------------------------------------
+In Java, whenever we write a class and if don't write any type of constructor in that class then 
+automatically one default constructor will be added by compiler.
+
+*Every java class must contain at-least one constructor either explicitly written by user or 
+implicitly added by compiler.
+
+The access modifier of defualt constructor depends upon class access 
+modifier.
+
+Example :
+-----------
+class Student
+{
+}
+
+javac Student.java (Compilation) 
+javap Student.class(To see the default constructor)
+
+class Student
+{
+   Student() //default constructor added by the compiler
+   {
+   }
+}
+
+Why compiler is adding default constructor to our class :
+---------------------------------------------------------
+We have 2 reasons that why compiler is adding default constructor :
+
+1) Without default constructor, Object creation is not possible in java.
+2) default constructor will initialize all the instance variables with
+   default values.
+  
+   Data type - Default value
+   byte  - 0
+   short - 0
+   int   - 0
+   long  - 0
+   float - 0.0
+   double - 0.0
+   char - (space)
+   boolean - false
+   String - null
+   Object - null (For any class i.e reference variable the default value
+                   is null)
+-------------------------------------------------------------------------
+//Program that describes default values will be provided by the default 
+  constrauctor.
+
+package com.ravi.oop_method;
+
+public class Student 
+{
+    int studentId;
+    String studentName;
+    
+    public void showStudentData()
+    {
+        System.out.println(studentId);
+        System.out.println(studentName);
+    }    
+    
+	public static void main(String[] args) 
+	{
+		Student raj = new Student();
+		raj.showStudentData();
+	}
+
+}
+
+
+
+How to provide userdefined values for our instance variable :
+--------------------------------------------------------------
+The default constructor added by the compiler will provide the default values for the instance variable, 
+but these default values are not useful for the user so, user will take a separate method setEmployeeData() 
+to re-initialize the instance variable according to his/her choice as shown in the program.
+
+Employee.java
+--------------
+package com.ravi.oop;
+
+public class Employee 
+{
+	int eid;
+	String ename;
+	
+	//To perform re-initialization for instance variable
+	public void setEmployeeData()
+	{
+		eid = 111;
+		ename = "Ravi";
+	}
+	
+	//To print the value of instance variable
+	public void getEmployeeData()
+	{
+		System.out.println("Employee id is :"+eid);
+		System.out.println("Employee Name is :"+ename);
+	}
+	
+	
+	public static void main(String[] args) 
+	{
+		Employee ravi = new Employee();
+		ravi.getEmployeeData();  // 0 and null
+		
+		ravi.setEmployeeData();
+                ravi.getEmployeeData(); //111 and Ravi
+	}
+
+}
+
+
+What is Constructor ?
+---------------------
+What is the advantage of writing constructor in our class ?
+------------------------------------------------------------
+If we don't write a constructor in our program then variable initialization and variable re-initialization both are done in two different lines.
+
+If we write constructor in our program then variable initialization and variable re-initialization both are done in the same line i.e at the time of Object creation.
+
+Constructor :
+-------------
+If the name of the class and name of the method both are exactly same and, It should not contain any return type then it is called Constructor.
+
+*The main purpose of constructor to initialize the instance variable of the class. (Initializing the object)
+
+Every class must contain at least one constructor either added by compiler (default constructor) or written by user.
+
+The access modifier of default constructor depends upon the access modifier of the class.
+
+Explicitly, a constructor never containing any return type including void also but implicitly it returns current class object (this keyword)
+as shown in the program 
+
+package com.nit.interface_demo;
+
+public class Test 
+{
+	public Test()
+	{		
+	}
+	
+	public String accept()
+	{
+		System.out.println("Accept");
+		return "india";
+	}
+
+	public static void main(String[] args) 
+	{
+	   String x =  new Test().accept();	
+	   System.out.println(x);
+	}
+
+}
+
+A constructor may contain return keyword but not return keyword with value.
+
+public class Test 
+{
+	public Test()
+	{
+	  return ;   //valid	
+	}
+
+	public static void main(String[] args) 
+	{
+		 Test t1 = new Test();
+	}
+}
+
+A constructor is automatically called and executed at the time of creating the object.
+
+public class Demo
+{
+   public Demo()
+    {
+    }
+}
+
+Demo d1 = new Demo(); //Here only Constructor will only
+     d1.Demo(); //Not required
+   
+A constructor is called once per object that means if we create two objects then constructor will be called 2 times.
+-----------------------------------------------------------------------
+Types Of Constructor :
+-----------------------
+Constructors are of 3 types :
+
+1) Default Constructor.
+2) No Argument OR Parameter less OR Non Parameterized OR Zero Argument
+   Constrcutor.
+3) Parameterized Constructor.
+
+
+1) Default Constructor :
+------------------------
+The constructor added by compiler to help java programmer to craete the object is called Default constructor.
+
+Student.java
+-------------
+public class Student
+{
+}
+
+javac Student.java (Compilation)
+
+Student.class
+-------------
+public class Student
+{
+   public Student() //default Constructor added by compiler
+   {
+   }
+}
+-----------------------------------------------------------------------
+2) No Argument Constructor :
+----------------------------
+A constructor written by user without parameter is called as No Argument constructor.
+Default constructor and no argument constructor looks like same but default menas added by compiler and no argument written by user.
+
+public class Employee
+{
+   private int employeeNumber;
+   Employee() //No Argument Constructor
+   {
+     employeeNumber = 123;
+   }
+}
+
+In this no argument approach, all the objects will be initialized with same value so it is not a recommended way because all objects must contain different value.
+
+Person.java
+------------
+package com.ravi.constructor;
+
+public class Person 
+{
+  private int personId;
+  private String personName;
+  
+  public Person() //No Argument Constructor
+  {
+	  super();
+	  personId = 111;
+	  personName = "Scott";
+  }
+
+	@Override
+	public String toString() {
+		return "Person [personId=" + personId + ", personName=" + personName + "]";
+	}  
+  
+}
+
+
+NoArgumentConstructor.java
+--------------------------
+package com.ravi.constructor;
+
+public class NoArgumentConstructor {
+
+	public static void main(String[] args) 
+	{
+		Person scott = new Person();
+		System.out.println(scott);
+		
+		Person smith = new Person();
+		System.out.println(smith);
+
+	}
+
+}
+
+In the above program we have two objects scott and smith but both the objects are initialized 
+with scott data which is not recommended so we 
+
+introduced parameterized constructor.
+-----------------------------------------------------------------------
+
+3) Parameterized Constructor :
+---------------------------
+If we pass one or more argument to the constructor then it is called parameterized constructor. 
+By using parameterized constructor we can initialize all our objects with different value.
+
+public class Customer
+{
+   int cid;
+   String cname;
+
+   public Customer(int cid, String cname) //Parameterized Constructor
+   {
+    this.cid = cid;
+    this.cname = cname;
+   }
+}
+
+2 Files :
+-----------
+Dog.java
+--------
+package com.ravi.parameterized_constructor;
+
+public class Dog 
+{
+  private String dogName;
+  private double dogHeight;
+  private int dogAge;
+  private String dogColor;
+  
+	public Dog(String dogName, double dogHeight, int dogAge, String dogColor) {
+		super();
+		this.dogName = dogName;
+		this.dogHeight = dogHeight;
+		this.dogAge = dogAge;
+		this.dogColor = dogColor;
+	}
+
+	@Override
+	public String toString() {
+		return "Dog [dogName=" + dogName + ", dogHeight=" + dogHeight + ", dogAge=" + dogAge + ", dogColor=" + dogColor
+				+ "]";
+	} 
+  
+}
+
+ParameterizedConstructor.java
+------------------------------
+package com.ravi.parameterized_constructor;
+
+public class ParameterizedConstructor {
+
+	public static void main(String[] args) 
+	{
+	  Dog tiger = new Dog("Tiger", 3.4, 5, "Grey");
+	  System.out.println(tiger);
+	  
+	  Dog tommy = new Dog("Tommy", 2.4, 3, "Black");
+	  System.out.println(tommy);
+
+	}
+
+}
+
+Passing an Object reference to the constructor(Copy Constructor) :
+-------------------------------------------------
+According to our application requirement we can pass object reference 
+to the constructor. The main purpose of passing an object reference to the constructor 
+TO "COPY THE CONTENT OF ONE OBJECT TO ANOTHER OBJECT".
+
+Syntax:
+-------
+
+class Student
+{
+  int x,y;
+  
+  public Student()
+  {
+  }
+  public Student(int x, int y)
+  {
+  }
+  public Student(Student st)  //PASSING AN OBJECT REFERENCE it is called Copy constructor
+  {
+  }
+
+}
+----------------------------------------------------------------------
+Program which describes how to copy the Employee data into Manager data 
+(Passing an object reference to the constructor)
+
+3 Files :
+---------
+Employee.java
+-------------
+package com.ravi.copy_constructor;
+
+public class Employee 
+{
+   private int employeeId;
+   private String employeeName;
+   
+	public Employee(int employeeId, String employeeName) 
+	{
+		super();
+		this.employeeId = employeeId;
+		this.employeeName = employeeName;
+	}
+
+	public int getEmployeeId() {
+		return employeeId;
+	}
+
+	public String getEmployeeName() {
+		return employeeName;
+	}
+	
+}
+
+Manager.java
+-------------
+package com.ravi.copy_constructor;
+
+public class Manager 
+{
+  private int managerId;
+  private String managerName;
+  
+  public Manager(Employee emp)  //emp = e1 parameter passing here coppy contructor
+  {
+	 managerId = emp.getEmployeeId();
+	 managerName = emp.getEmployeeName();
+  }
+
+	@Override
+	public String toString() {
+		return "Manager [managerId=" + managerId + ", managerName=" + managerName + "]";
+	}
+  
+}
+
+CopyConstructor.java
+--------------------
+
+package com.ravi.copy_constructor;
+
+public class CopyConstructor 
+{
+	public static void main(String[] args) 
+	{
+		Employee e1 = new Employee(111, "Scott");
+		
+		Manager m1 = new Manager(e1);
+		System.out.println(m1);
+	}
+
+}
+------------------------------------------------------------------------
+This program describes how to copy the same object content to another 
+(Same Player object to another Player object)
+
+Player.java
+-----------
+package com.ravi.copy_constructor;
+
+public class Player 
+{
+  private String name1, name2;
+  
+  public Player(String name1, String name2)
+  {
+	  this.name1 = name1;
+	  this.name2 = name2;
+  }
+  
+  public Player(Player p)  // p = p1
+  {
+	  this.name1 = p.name2;
+	  this.name2 = p.name1;
+  }
+
+@Override
+public String toString() {
+	return "Player [name1=" + name1 + ", name2=" + name2 + "]";
+}
+  
+  
+  
+}
+
+Main.java
+---------
+package com.ravi.copy_constructor;
+
+public class Main 
+{
+	public static void main(String[] args) 
+	{
+		Player p1 = new Player("Rohit","Virat");
+		System.out.println(p1);
+		
+		Player p2 = new Player(p1);
+		System.out.println(p2);
+	}
+}
+
+
+Private Constructor in java :
+------------------------------
+According to our requirement we can apply all private, default, protected and public access modifier on constructor.
+
+If we declare a constructor with private access modifier then we can create single object for that class as shown in the program.
+
+Test.java
+---------
+class Test
+{
+	private Test()
+	{
+		System.out.println("Private Constructor");
+	}
+
+	public static void main(String [] args)
+	{
+        new Test(); //Anonymous OR Nameless object
+	}
+}
+
+We should declare a constructor with private access modifier due to the 
+following two reasons :
+
+1) If we want to create single object for that class (Singleton class)
+2) If we want to declare all the methods as a static method inside the 
+   class.
+
+
+Concept OF Inheritance
+-----------------------
+ConstructorTest.java [Single File Approach]
+----------------------------------------------
+package com.ravi.single_level_inheritance;
+
+class Super
+{
+   public Super()
+   {
+	 System.out.println("Super class Constructor");
+   }
+}
+class Sub extends Super
+{
+   public Sub()
+   {
+	   System.out.println("Sub class Constructor");
+   }
+}
+
+public class ConstructorTest 
+{
+	public static void main(String[] args) 
+	{
+		Sub s1 = new Sub();
+		
+	}
+}
+
+Output : - Super class Constructor
+	   Sub class Constructor
+------------------------------------------------------------------------
+SingleLevelDemo.java [Single File Approach]
+------------------------------------------
+package com.ravi.single_level;
+
+class Super
+{
+   int x, y;
+
+
+	public Super(int x, int y) 
+	{
+		super();
+		this.x = x;
+		this.y = y;
+	}  
+}
+class Sub extends Super
+{
+  public Sub()
+  {
+	  super(100,200);
+  }
+
+
+	@Override
+    public String toString() 
+	{
+	return "Super [x=" + x + ", y=" + y + "]";
+    }  
+}
+
+public class SingleLevelDemo 
+{
+  public static void main(String[] args) 
+  {
+	Sub s = new Sub();
+	System.out.println(s);
+  }
+}
+------------------------------------------------------------------------
+SingleLevelInheritance.java
+----------------------------
+package com.ravi.single_level;
+
+class Alpha
+{
+	private int x,y;
+	
+	public Alpha(int x, int y)
+	{
+		this.setX(x);
+		this.setY(y);
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+}
+class Beta extends Alpha
+{
+	public Beta(int c, int d)
+	{
+		super(c,d);
+	}
+	
+	public void show()
+	{
+		System.out.println("x value is :"+getX());
+		System.out.println("y value is :"+getY());
+	}
+	
+}
+
+public class SingleLevelInheritance
+{
+	public static void main(String[] args)
+	{
+		new Beta(100,200).show();
+
+	}
+
+}
+------------------------------------------------------------------------
+Note :- While working with inheritance, private data member will not be available
+ directly to the sub class, here we need to take the help of getter (Encapsulation).
+
+If we want to make the data available to sub class then we should use
+protected access modifier which is less restrictive than private.
+
+
+
+
+c) **To call the super class constructor : (Constructor Chaining)
+-----------------------------------------------------------------
+Whenever we write a class in java and we don't write any kind of constructor to the class 
+then the java compiler will automatically add one default constructor to the class.
+
+THE FIRST LINE OF ANY CONSTRUCTOR IS RESERVERD EITHER FOR super() or this() keyword.
+
+In the first line of any constructor if we don't specify either super() or this() then 
+the compiler will automatically add super() to the first line of constructor.
+
+Now the purpose of this super() [added by java compiler], to call the default constructor 
+or No-Argument constructor of the super class.
+
+In order to call the constructor of super class as well as same class, we have total 4 cases.
+
+
+We have 4 cases :
+-----------------
+case 1 :
+--------
+super() :- Automatically added by compiler and it is used to access 
+           default or no argument constructor of super class.
+
+package com.ravi.super_demo;
+
+class Parent
+{
+	public Parent()
+	{
+		System.out.println("Parent class constructor");
+	}
+}
+class Child extends Parent
+{
+	public Child()
+	{
+		System.out.println("Child class constructor");
+	}
+}
+public class SuperConstructor 
+{
+	public static void main(String[] args) 
+	{
+		Child c = new Child();
+	}
+
+}
+------------------------------------------------------------------------
+Case 2 :
+--------
+super(String name) :- Used to call parameterized constructor of super 
+                      class.
+
+package com.ravi.super_demo;
+
+class A
+{
+	public A(String name)
+	{		
+		System.out.println("My name is :"+name);
+	}
+}
+class B extends A
+{
+	public B()
+	{
+		super("Scott");
+		System.out.println("No Argument constructor of B class");
+	}
+}
+
+public class SuperConstructor 
+{
+	public static void main(String[] args) 
+	{
+		new B();
+	}
+}
+
+
+-----------------------------------------------------------------------
+Case 3 :
+--------
+this() :- Used to call no argument constructor of current class.
+
+ThisConstructor.java
+---------------------
+package com.ravi.super_demo;
+
+class A
+{	
+	public A()
+	{	
+		System.out.println("No Argument constructor of A class");
+	}
+	
+	public A(String name)
+	{	
+		this();
+		System.out.println("My name is :"+name);
+	}
+}
+class B extends A
+{
+	public B(String name)
+	{
+		super(name);
+		System.out.println("No Argument constructor of B class");
+	}
+}
+public class ThisConstructor 
+{
+	public static void main(String[] args) 
+	{
+		new B("Scott");
+	}
+
+}
+----------------------------------------------------------------------
+case 4 :
+--------
+this(int x) :- Calling the parameterized constructor of current class
+
+ThisDemo.java
+-------------
+package com.ravi.super_demo;
+
+class Base
+{
+	public Base()
+	{
+		this(15);
+		System.out.println("Base class No Argumenet");
+	}
+	public Base(int x)
+	{
+		System.out.println("Base class Parametrized :"+x);
+	}	
+}
+class Derived extends Base
+{
+	
+}
+
+
+public class ThisDemo
+{
+	public static void main(String[] args) 
+	{
+		new Derived();
+	}
+}
+-------------------------------------------------
+
+HOW MANY WAYS WE CAN INITIALIZE THE OBJECT PROPERTIES ?
+
+4) By using Constructor 
+
+   A) First Approach (No Argument Constructor)
+   --------------------------------------------
+   public class Test
+   {
+      int x,y;
+
+      public Test()  //All the objects will be initialized with
+      {                                             same value
+         x = 100;  y = 200;
+      }
+   }
+
+    Test t1 = new Test();    [x = 100   y = 200]
+    Test t2 = new Test();    [x = 100   y = 200]
+    
+
+    B) Second Approach (Parameterized Constructor)
+    -----------------------------------------------
+     public class Test
+     {
+      int x,y;
+
+      public Test(int x, int y)  
+      {                        
+         this.x = x;
+	 this.y = y;
+      }
+   }
+
+    Test t1 = new Test(12,78);    [x = 12   y = 78]
+    Test t2 = new Test(15,29);    [x = 15   y = 29]
+
+    This is the best way to initialize our instance variable because variable initialization and variable re-initialization 
+    both will be done in the same line as well as all the objects will be initialized with different values. 
+
+    C) Third Approach (Copy Constructor)
+    --------------------------------------
+
+       public class Manager
+       {
+          private int managerId;
+	  private String managerName;
+          
+	  public Manager(Employee emp)
+	  {
+	    this.managerId = emp.getEmployeeId();
+	    this.managerName = emp.getEmployeeName();
+          }
+       }
+
+	Here with the help of Object reference (Employee class) we are 
+	initializing the properties of Manager class. (Copy Constructor)
+
+    D) By using instance block (Instance Initializer)
+	-------------------------------------------------
+	
+	public class Test
+	{
+	   int x,y;
+
+           public Test()
+	   {
+	      System.out.println(x); //100
+	      System.out.println(y); //200
+	   }
+
+           //Instance block
+	   {
+	       x = 100; 
+	       y = 200;
+	   }
+
+#PolyMorphisum
+Program on Constructor Overloading :
+------------------------------------
+Addition.java
+-------------
+package com.ravi.constructor_overloading;
+
+public class Addition 
+{
+   public Addition(int x, int y)
+   {	  
+	   System.out.println("Sum of two integer is :"+(x+y));
+   }
+   
+   public Addition(int x, int y, int z)
+   {  
+	   System.out.println("Sum of three integer is :"+(x+y+z));
+   }
+   
+   public Addition(float x, float y)
+   {	  
+	   System.out.println("Sum of two float is :"+(x+y));
+   }
+}
+
+Main.java
+---------
+package com.ravi.constructor_overloading;
+
+public class Main 
+{
+	public static void main(String []  args) 
+	{
+		new Addition(2.3f, 7.8F);		
+		new Addition(10, 20, 30);
+		new Addition(12,90);
+	}
+
+}
+
+-----------------------------------------------------------------------

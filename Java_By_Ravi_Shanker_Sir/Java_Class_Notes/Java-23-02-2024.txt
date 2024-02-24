@@ -1,0 +1,260 @@
+23-02-2024
+-----------
+Method reference using static method :
+--------------------------------------
+3 files :
+----------
+Callable.java(I)
+----------------
+package com.ravi.static_method_reference;
+
+public interface Callable 
+{
+   void call(String name);
+}
+
+
+StaticMethod.java(C)
+--------------------
+package com.ravi.static_method_reference;
+
+public class StaticMethod 
+{
+  public static void getName(String name)
+  {
+	  System.out.println(name+" is calling..");
+  }
+}
+
+
+StaticMethodReference.java(C)
+-----------------------------
+
+package com.ravi.static_method_reference;
+
+public class StaticMethodReference {
+
+	public static void main(String[] args) 
+	{
+		//By using Lambda
+		Callable c1 =  str -> StaticMethod.getName(str);
+		c1.call("Ravi");
+		
+		//By using Method reference
+		Callable c2 = StaticMethod::getName;
+		c2.call("Scott");
+		
+		
+	}
+
+}
+-----------------------------------------------------------------
+Method Reference by using instance Method :
+-------------------------------------------
+Trainer.java(I)
+---------------
+3 files :
+---------
+package com.ravi.instance_method_reference;
+
+public interface Trainer 
+{
+  void getTraining(String name, int experience);
+}
+
+
+InstanceMethod.java
+--------------------
+package com.ravi.instance_method_reference;
+
+public class InstanceMethod 
+{
+   public void getTraining(String name, int experience)
+   {
+	   System.out.println("Trainer name is :"+name+" having "+experience+" years of experience.");
+   }
+}
+
+InstanceMethodReferenceDemo.java
+----------------------------------
+package com.ravi.instance_method_reference;
+
+public class InstanceMethodReferenceDemo 
+{
+    public static void main(String[] args) 
+    {
+    	//Using Lambda Expression
+    	Trainer t1 = (name,  exp)-> System.out.println("Trainer name is :"+name+" and total experience is :"+exp);
+    	t1.getTraining("ABC", 5);
+    	
+    	
+    	//By using Method reference 
+    	Trainer t2 = new InstanceMethod()::getTraining;
+    	t2.getTraining("Ravi", 10);   	
+    	
+    }
+}
+----------------------------------------------------------------
+By using Constructor (ClassName::new)
+--------------------------------------
+package com.ravi.constructor_reference;
+
+@FunctionalInterface
+interface A 
+{
+    Test createObject();
+}
+
+class Test 
+{
+    public Test() 
+    {
+        System.out.println("Test class Constructor invoked");
+    }
+}
+public class ConstructorReferenceDemo1
+{
+    public static void main(String[] args) 
+    {
+        //By using Lambda
+        A a1 = ()-> new Test();
+        
+        a1.createObject(); 
+        
+        System.out.println("...................");        
+        
+        //By Using Method Reference
+        A a2 = Test::new;   //calling Test class constructor 
+        a2.createObject(); 
+    }
+}
+------------------------------------------------------------------
+Interface from java 9v version
+-------------------------------
+Yes, From java 9 onwards we can also write private static and private non-static 
+methods inside an interface.
+
+These private methods will improve code re-usability inside interfaces.
+
+For example, if two default methods needed to share common and confidential code, 
+a private method would allow them to do so, but without exposing that private method 
+to it’s implementing classes.
+
+Using private methods in interfaces have four rules :
+
+1) private interface method cannot be abstract.
+2) private method can be used only inside interface.
+3) private static method can be used inside other static and non-static interface methods.
+4) private non-static methods cannot be used inside private static methods.
+------------------------------------------------------------------
+//Program that describes how many methods we can write inside interface upto java 9
+
+package com.ravi.method_reference;
+
+public interface Moveable 
+{
+   //abstract method
+   public abstract void m1();
+   
+   //default method [1.8]  //by default public
+   public default void m2()
+   {
+	   System.out.println("It is a default method");
+	   m4();
+	   m5();
+   }
+  
+   //static method [1.8]  //by default public
+   public static void m3()
+   {
+	   System.out.println("It is a Static method");
+	   m4();
+	   
+   }
+   
+   //private static method [Java 9]
+   private static void m4()
+   {
+	   System.out.println("Private static method");
+   }
+   
+   //private non static method [Java 9]
+   private void m5()
+   {
+	   System.out.println("Private  non static method");
+   }
+   
+}
+-----------------------------------------------------------------
+Program on private method inside an interface :
+------------------------------------------------
+3 files :
+---------
+Moveable.java(I)
+----------------
+package com.ravi.java9;
+
+public interface Moveable 
+{
+	void move();
+	
+	default void m1()
+	{
+		System.out.println("It is a default method");
+		m3();
+		m4();
+	}
+	
+	static void m2()
+	{
+		System.out.println("It is a static method");
+		m4();
+	}
+
+	private void m3()
+	{
+		System.out.println("Private non static method");
+	}
+	
+	private static void m4()
+	{
+		System.out.println("Private  static method");
+	}
+}
+
+
+Move.java(C)
+-------------
+package com.ravi.java9;
+
+public class Move implements Moveable
+{
+	@Override
+	public void move() 
+	{
+		System.out.println("Moving with my Vehicle");		
+	}
+
+}
+
+
+Main.java
+---------
+package com.ravi.java9;
+
+public class Main {
+
+	public static void main(String[] args)
+	{
+		Moveable m = new Move();
+		m.move();
+		m.m1();
+		
+		Moveable.m2();
+
+	}
+
+}
+------------------------------------------------------------------
+
+

@@ -1,0 +1,220 @@
+--------------------------------------------------------------------------
+29-01-2024
+----------
+Program on Method Overloading by changing the return type.
+----------------------------------------------------------
+2 files :
+----------
+Sum.java
+---------
+package com.ravi.method_overload;
+
+public class Sum
+{
+  public int add(int x, int y)
+  {
+	  int z = x+y;
+	  return z;	  
+  }
+  
+  public String add(String x, String y) //data base
+  {
+	  String z = x+y;
+	  return z;
+  }
+
+  public double add(double x, double y)
+  {
+	  double z = x+y;
+	  return z;
+  }
+}
+ 
+Main.java
+---------
+package com.ravi.method_overload;
+
+public class Main 
+{
+	public static void main(String[] args) 
+	{
+		Sum s1 = new Sum();
+		String add = s1.add("Data", "base");
+		
+		int x = s1.add(12, 12);
+		
+		double y = s1.add(12.89, 12.90);
+		
+		
+		System.out.println(add+" : "+x+" : "+y);
+
+	}
+}
+
+Note :- From the above program it is clear that we can change the return type of the method while overloading a method.
+--------------------------------------------------------------------------
+Var-Args :
+------------
+It was introduced from JDK 1.5 onwards.
+
+It stands for variable argument. It is an array variable which can hold 0 to n number of parameters of same type or different type by using Object class.
+
+It is represented by exactly 3 dots (...) so it can accept any number of argument (0 to nth) that means now we need not to define method body again and 
+again, if there is change in method parameter value.
+
+var-args must be only one and last argument.
+
+We can use var-args as a method parameter only.
+--------------------------------------------------------------------------
+Program that describes var args can hold 0 to n number of parameters :
+----------------------------------------------------------------------
+2 files :
+---------
+Test.java
+----------
+package com.ravi.var_args;
+
+public class Test 
+{
+  public void input(int... x)  //Array
+  {
+	  System.out.println("Var args executed");
+  }
+}
+
+Main.java
+----------
+package com.ravi.var_args;
+
+public class Main {
+
+	public static void main(String ...x)
+	{ 			
+		Test t1 = new Test();
+		t1.input();
+		t1.input(12);
+		t1.input(15,19);
+		t1.input(10,20,30);
+		t1.input(10,20,30,40);
+		t1.input(10,20,30,40,50);
+								
+	}
+}
+--------------------------------------------------------------------------
+Program that describes how to add patameter values using var args :
+-------------------------------------------------------------------
+2 Files :
+---------
+Test.java
+---------
+//add the parameter values using variable argument
+package com.ravi.var_args1;
+
+public class Test 
+{
+   public void acceptData(int ...values)
+   {
+	   int sum = 0;
+	   for(int value : values)
+	   {
+		   sum = sum + value;
+	   }
+	   System.out.println("Sum of parametrs :"+sum);
+   }
+}
+
+Main.java
+----------
+package com.ravi.var_args1;
+
+public class Main 
+{
+	public static void main(String[] args) 
+	{
+		Test t1 = new Test();
+		t1.acceptData();
+		t1.acceptData(10,20);
+		t1.acceptData(10,20,30);
+		t1.acceptData(100,100,100,100);
+
+	}
+}
+--------------------------------------------------------------------------
+Program that describes var args must be only one and last argument.
+
+Test.java
+---------
+package com.ravi.var_args2;
+
+public class Test 
+{
+      //All commented codes are invalid
+	/*
+	  public void accept(float ...x, int ...y) { }
+	  
+	  public void accept(int ...x, int y)  { }
+	  
+	  public void accept(int...x, int ...y) {} */
+	 
+	 
+	 
+
+	public void accept(int x, int... y) // valid
+	{
+		System.out.println("x value is :"+x);
+		for (int z : y) 
+		{
+			System.out.println(z);
+		}
+	}
+}
+
+
+Main.java
+---------
+package com.ravi.var_args2;
+
+public class Main {
+
+	public static void main(String[] args) 
+	{
+		Test t1 = new Test();
+		t1.accept(100, 200,300,400,500);
+	}
+}
+-------------------------------------------------------------------------
+Program that describes var-args may also accept Hetrogeneous types of
+Elements.
+2 Files :
+---------
+Test.java
+----------
+package com.ravi.var_args3;
+
+public class Test 
+{
+   public void acceptHetro(Object ...obj)
+   {
+	   for(Object o : obj)
+	   {
+		   System.out.println(o);
+	   }
+   }
+}
+
+Main.java
+---------
+package com.ravi.var_args3;
+
+public class Main {
+
+	public static void main(String[] args) 
+	{
+	  Test t1 = new Test();
+	
+	  t1.acceptHetro(true,45.90,12,'A', new String("Ravi"));		 
+	}
+}
+--------------------------------------------------------------------------
+Wrapper clases in java :
+------------------------

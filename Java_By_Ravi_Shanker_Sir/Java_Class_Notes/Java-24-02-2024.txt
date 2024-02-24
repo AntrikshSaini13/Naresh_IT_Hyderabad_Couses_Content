@@ -1,0 +1,96 @@
+24-02-2024
+-----------
+*What is marker interface in java ?
+-----------------------------------
+What is marker interface ?
+-------------------------------
+An interface which does not contain any method and field is called marker interface. In other words, an empty interface is known as marker interface or tag interface.
+
+*It describes run-time type information about objects, so the JVM have additional information about the object. [like object is clonable OR object is serializable OR Object is RandomAccess]
+
+Example :
+----------
+public interface Drawable  //Marker interface
+{
+}
+
+Note :-In java we have Clonable and Serializable, RandomAccess are predefined marker interface.
+----------------------------------------------------------------
+Does An Interface extends Object Class In Java.?
+-------------------------------------------------
+No Interface does not inherits Object class,but it provide accessibility to all methods of Object class.
+
+This is because, for every public method in Object class, there is an implicit abstract and public method declared in every interface which does not have direct super interfaces. (Java language Specification 9.2 about interface members)
+
+package com.ravi.interface_object_method;
+
+interface A 
+{
+  	
+}
+
+public class InterfaceWithObjectMethod 
+{
+   public static void main(String[] args) 
+   {
+	  A a = null;
+	  a.equals(null);
+	  a.hashCode();
+	  a.toString();
+	  a.getClass();
+  }
+}
+----------------------------------------------------------------
+package com.ravi.interface_object_method;
+
+public interface I 
+{
+  @Override
+  public String toString();
+  
+  @Override
+  public int hashCode();
+  
+  @Override
+  public boolean equals(Object obj);
+}
+----------------------------------------------------------------
+Can a functional interface contains the method of Object class?
+---------------------------------------------------------------
+Yes, Functional interface contains the method of Object class. 
+
+package com.ravi.functional_interface;
+
+@FunctionalInterface
+public interface Callable 
+{
+   public abstract void call();
+   
+   public String toString();
+   
+   public int hashCode();
+   
+   public boolean equals(Object obj);
+   
+}
+
+From the avove interface, It is clear that inside a Functional interface we can re-declare the method of Object class.
+---------------------------------------------------------------
+****What is difference between abstract class and interface ?
+----------------------------------------------------------------
+
+The following are the differences between abstract class and interface.
+
+1) An abstract class can contain instance variables but interface variables are by default public , static and final.
+
+2) An abstract class can have state (properties) of an object but interface can't have state of an object.
+
+3) An abstract class can contain constructor but inside an interface we can't define constructor.
+
+4) An abstract class can contain instance and static blocks but inside an interface we can't define any blocks.
+
+5) Abstract class can't refer Lambda expression but using Functional interface we can refer Lambda Expression.	
+
+6) We can write concrete method inside an abstract class but inside an interface we can't write concrete public method, only abstract , default, static and private methods are allowed.
+
+--------------------OOPs ENDED---------------------------------

@@ -1,0 +1,225 @@
+07-02-2024
+----------
+Different kinds of final variable :
+------------------------------------
+package com.ravi.composition_using_final;
+
+public class FinalVarTest 
+{
+    final int A = 12;
+    static final int B = 24;
+    
+    public void accept(final int C)
+    {
+    	System.out.println("A value is :"+A);
+    	System.out.println("B value is :"+FinalVarTest.B);
+    	System.out.println("C value is :"+C);
+    }
+    
+	public static void main(String[] args) 
+	{
+		final FinalVarTest v = new FinalVarTest();
+		v.accept(36);
+			
+	}
+}
+-----------------------------------------------------------------
+//Composition with final keyword so another Engine Object will not be created
+
+package com.ravi.composition_using_final;
+
+class Engine
+{
+	private int horsePower;
+	private String engineType;
+	
+	public Engine(int horsePower, String engineType) 
+	{
+		super();
+		this.horsePower = horsePower;
+		this.engineType = engineType;
+	}
+
+	@Override
+	public String toString() {
+		return "Engine [horsePower=" + horsePower + ", engineType=" + engineType + "]";
+	}
+}
+class Car 
+{
+	private String carName;
+	private int carModel;
+	private final Engine engine; //HAS-A Relation
+	
+	public Car(String carName, int carModel)
+	{
+		this.carName = carName;
+		this.carModel = carModel;
+		this.engine = new Engine(1200, "Battery"); //Composition
+	}
+
+	@Override
+	public String toString() {
+		return "Car [carName=" + carName + ", carModel=" + carModel + ", 
+                 engine=" + engine + "]";
+	}
+}
+
+public class CompositionDemo {
+
+	public static void main(String[] args) 
+	{
+		Car c = new Car("Ford", 2024);
+		System.out.println(c);
+	}
+
+}
+---------------------------------------------------------------
+Blank final variable :
+-----------------------
+If a final variable is declared without initialization then it is called blank 
+final variable.
+
+Example : final int A; //Blank final variable
+
+The default constructor cannot initialized blank final variable because final 
+variable initialization is possible only one time.
+
+The final variable must be initialized either at the time of declaration or through 
+constructor/instance block only.[Not through Methods]
+
+If we have a blank final variable in the class then it must be initialized through 
+all the constructors available in the class.
+
+---------------------------------------------------------------
+public class BlankFinalVar 
+{
+	final int A; 
+	
+	public static void main(String[] args) 
+	{
+		BlankFinalVar fv = new BlankFinalVar();
+		System.out.println(fv.A);
+	}
+}
+
+Note :- default constructor cannot provide default value for the blank final variable.
+----------------------------------------------------------------
+class Demo
+{	
+	final int A; // blank final variable
+	
+	public Demo()  //No Argument constructor
+	{		
+		A = 15;
+		System.out.println(A);
+	}
+
+	public Demo(int x)  //parameterized constructor
+	{		
+		A = x;
+		System.out.println(x);
+	}   
+
+}	
+public class  BlankFinalVariable
+{
+	public static void main(String[] args) 
+		{		
+	         Demo d1 = new Demo(); //d1 -> A = 15 
+
+		 Demo d2 = new Demo(8); //d2 -> A = 8	 
+	    }
+}
+
+Note :- For blank final variable, user is resonsible to initialize at the time of declaration OR through instance block/Constructor only.
+----------------------------------------------------------------
+How to create an immutable(un-modifiable) class :
+-------------------------------------------------
+//Program to create an immutable(unchanged) class 
+
+final class Citizen  
+{    
+	final String aadharNumber;    //Blank final variable
+	public Citizen(final String aadharNumber)
+	{
+		if(aadharNumber.length() == 12)
+		{
+		this.aadharNumber = aadharNumber;
+		}
+		else
+		{
+		   this.aadharNumber = aadharNumber;
+		  System.err.println("Invalid Aadhar Number");
+		}
+	}
+
+	public String getAadharNumber()
+	{    
+		return aadharNumber;    
+	}    
+}    
+public class ImmutableClass  
+{  
+	public static void main(String ar[])  
+		{  
+			final Citizen ravi = new Citizen("987667897868");
+			System.out.println("Ravi Aadhar Number is :"+ravi.getAadharNumber());	
+			  
+		}  
+} 
+
+Note :- we can make a class as immutable class by using following
+
+  a) declare the class as a final
+  b) declare the variable as a final
+  c) declare the object reference as a final
+----------------------------------------------------------------
+Object class in java :
+----------------------
+
+Working with Object class and its methods :
+--------------------------------------------------
+There is a predefined class called Object available in java.lang package, this Object class is by 
+default the super class of all the classes we have in java.
+
+class Test 
+{
+
+}
+
+Note :- Object is the super class for this Test class. by default this Object class is super class so 
+explicitly we need not to mention.
+
+Since, Object is the super class of all the classes in java that means we can override the method of 
+Object class (Except final methods) as well as we can use the methods of Object class anywhere in java 
+because every class is sub class of Object class.
+
+The Object class provides some common behavior to each sub class Object like we can compare two objects , 
+we can create clone (duplicate) objects, we can print object properties(instance variable), providing a 
+unique number to each and every object(hashCode()) and so on.
+
+---------------------------------------------------------------
+What is method chaining ?
+--------------------------
+By using this concept we can call n number of method in a single statement.
+
+The next method call always depends upon current method return type.
+
+The final return type of the method will depend upon last method call.
+--------------------------------------------------------------
+public class MethodChainingDemo {
+
+	public static void main(String[] args) 
+	{
+		String str = "india";
+	    int len =	str.concat(" is great").toUpperCase().length();
+	    System.out.println(len);
+	    
+	    String str1 = "india";
+	    char ch = str1.concat(" is great").toUpperCase().charAt(1);
+	    System.out.println(ch);
+	}
+
+}
+----------------------------------------------------------------

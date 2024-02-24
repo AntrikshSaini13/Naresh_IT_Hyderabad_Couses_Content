@@ -1,0 +1,207 @@
+------------------------------------------------------------------------
+05-02-2024
+----------
+Variable Shadow :
+-----------------
+If the super class variable name and sub class variable name both are same then it is 
+known as variable shadow.
+With the reference variable, whenever we call variable then always it will take the 
+preference of class type so, in the below example b is a reference variable of type 
+Bird so Bird class variable will be invoked.
+------------------------------------------------------------------------
+package com.ravi.stream_intermediate;
+
+class Bird
+{
+	String name = "General Bird";
+	
+	public String roam()
+	{
+		return "Generic Bird is roaming";
+	}
+}
+class Parrot extends Bird
+{
+	String name = "Parrot Bird";  //Variable Shadow
+	
+	@Override
+	public String roam()
+	{
+		return "Parrot Bird is roaming";
+	}
+}
+public class MethodOverridingVariableShadow 
+{
+	public static void main(String[] args) 
+	{
+		Bird b = new Parrot();
+		
+		System.out.println(b.name + ": "+b.roam());
+
+	}
+
+}
+-----------------------------------------------------------------------
+* Can we override static method ?
+              OR
+* Can we override main method?
+              OR
+* What is Method Hiding in java?
+
+
+Point 1)
+--------
+We cannot override static method but static methods can be inherited as shown in 
+the program below.
+
+class Alpha
+{
+	static void m1()
+	{
+		System.out.println("Alpha class method");
+	}
+}
+class Beta extends Alpha
+{
+	
+}
+
+public class StaticMethodPresence {
+
+	public static void main(String[] args) 
+	{
+		Beta.m1();  //calling with sub class name
+		Beta b = new Beta(); //calling with sub class object ref
+		b.m1();
+
+	}
+
+}
+---------------------------------------------------------------------
+Point 2) 
+
+We cannot override any static method with non-static method otherwise 
+we will get compilation error i.e. Overridden method is static.
+
+class Alpha
+{
+	public static void m1()
+	{
+		System.out.println("m1 static method");
+	}
+}
+class Beta extends Alpha
+{
+	public void m1()
+	{
+		System.out.println("m1 non-static method");
+	}
+}
+
+public class StaticMethodOvderridingWithNonStaticMethod 
+{
+	public static void main(String[] args) 
+	{
+		
+	}
+
+}
+----------------------------------------------------------------------
+Point 3)
+We cannot override any non-static method with static method otherwise we will get error 
+Overriding method is static.
+
+class Alpha
+{
+	public  void m1()
+	{
+		System.out.println("m1 non static method");
+	}
+}
+class Beta extends Alpha
+{
+	public static void m1()
+	{
+		System.out.println("m1 static method");
+	}
+}
+public class OverridingNonStaticWithStatic 
+{
+	public static void main(String[] args) 
+	{
+	
+	}
+}
+
+
+
+So, the conclusion is we cannot overide static with non static method as well as non-static 
+with static method because static method belongs to class and non-static method belongs to 
+object.
+-----------------------------------------------------------------------
+Point 4)
+--------
+If we write static methods in the super and sub class with same signature and same or return 
+type then it looks like static method is overridden but actually it is METHOD HIDING. The sub 
+class static method is hidden from super class static method as shown in the program.
+----------------------------------------------------------------------
+class Super
+{
+	public static void m1()
+	{
+		System.out.println("Static method of Super class");
+	}
+}
+class Sub extends Super
+{
+	//Method Hiding
+	public static void m1()
+	{
+		System.out.println("Static method of Sub  class");
+	}
+}
+public class Test
+{
+	public static void main(String[] args) 
+	{
+		Super s1 = new Sub();
+		s1.m1();
+		
+	}
+}
+
+Here we will get the output :- static method of super class
+
+Note :- We cannot apply @Override annoatation on static methods.
+------------------------------------------------------------------------
+Program that shows whenever we write static method in the sub class 
+then it is method hiding.
+
+class Super
+{
+	public static void m1()
+	{
+	}
+}
+class Sub extends Super
+{
+	public static int m1()
+	{
+		return 0;
+	}
+}
+public class Test
+{
+	public static void main(String[] args) 
+	{
+		Super s1 = new Sub();
+		s1.m1();
+		
+	}
+}
+------------------------------------------------------------------------
+private method of static, class is not available to sub class but static method of super 
+class, is available to sub class so we can hide the static method.
+
+NOte :- main method can be overloaded but main method cannot be overridden (Method Hiding).
+------------------------------------------------------------------------

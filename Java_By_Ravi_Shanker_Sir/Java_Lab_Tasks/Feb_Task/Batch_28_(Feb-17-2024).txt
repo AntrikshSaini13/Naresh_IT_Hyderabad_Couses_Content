@@ -1,0 +1,128 @@
+Program : 03
+-------------
+Question: Banking System with Loosely Coupled Architecture
+___________________________________________________________
+
+In this exercise, we'll develop a banking system to demonstrate the concept of loosely 
+coupled architecture using interfaces and classes. The system will feature three banks—SBI, 
+HDFC, and ICICI—each with their respective implementation details, while customers can 
+interact with these banks through a unified interface.
+
+Components:
+-------------
+
+Bank Interface: An interface that outlines the essential methods for banking operations 
+such as depositing, withdrawing, and checking account balance.
+
+Bank Implementations: Three classes—SBI, HDFC, and ICICI—that implement the Bank interface. 
+Each class will define the specific logic for handling transactions and account management.
+
+Customer Class: A Customer class with attributes like name and accountBalance. This class 
+will interact with the banks using the methods provided by the Bank interface.
+
+Tasks:
+
+Define the Bank interface with methods:
+-----------------------------------------
+
+deposit(amount: double): void
+withdraw(amount: double): void
+checkBalance(): double
+Implement the bank classes:
+
+SBI, HDFC, and ICICI implementing the Bank interface. Each class should maintain an 
+accountBalance attribute and provide appropriate implementations for the methods.
+
+Create the Customer class:
+------------------------------
+
+Attributes: name (String), accountBalance (double)
+Methods: deposit(Bank bank, double amount), withdraw(Bank bank, double amount), 
+checkBalance(Bank bank)
+Demonstrate the loosely coupled architecture:
+
+Create instances of SBI, HDFC, and ICICI bank classes.
+Create a Customer instance.
+Allow the customer to interact with each bank:
+
+
+Note: Feel free to provide constructors and any additional methods required for the 
+classes. You can adapt the question based on your preferences and the level of 
+understanding you want to assess.
+
+Program 04 :
+------------
+Question: Hospital System with Patient Address and Billing
+
+You are tasked with designing a hospital system that demonstrates the concept of loosely 
+coupled architecture using interfaces and classes. This system should allow patients to 
+interact with different disease treatment departments, store patient addresses, and manage 
+billing with flexibility and modularity.
+
+Components:
+
+HospitalInterface: An interface defining methods for admitting patients, providing treatment, 
+and generating bills.
+
+Disease Classes: Implement the HospitalInterface in these classes to represent different disease 
+treatment departments (e.g., Cardiology, Orthopedics, Pediatrics). Each class should have methods 
+specific to treating the disease.
+
+Patient Class: This class represents a patient. It interacts with the hospital departments 
+using methods from the HospitalInterface. Each patient also has an Address object to store 
+their address.
+
+Address Class: A class that stores the patient's address details.
+
+Tasks:
+
+Implement the HospitalInterface with methods:
+
+void admitPatient(String patientName, Address address)
+void provideTreatment(String patientName)
+void generateBill(String patientName, double amount)
+Implement the disease classes (e.g., Cardiology, Orthopedics, Pediatrics) that implement 
+the HospitalInterface. Each class should have methods specific to treating the disease.
+In this implementation, when the generateBill method is called, it calculates the total 
+bill based on the treatment cost.
+Cost for Cardiology treatment = 10000.0
+Cost for Orthopedics treatment = 30000.0
+Cost for Pediatrics treatment = 60000.0
+
+ Then, it checks the paid amount against the total bill and prints a message based on the 
+conditions you described:
+
+If the paid amount is less than the total bill, it informs the patient to pay the remaining amount.
+If the paid amount is more than the total bill, it informs the patient to collect the extra amount.
+If the paid amount is equal to the total bill, it confirms that the bill is clear.
+
+
+Create the Address class with attributes like street, city, state, and zipCode.
+
+Modify the Patient class to include an Address object. Implement methods to admit the patient, 
+receive treatment, and generate a bill based on specific treatment costs.
+
+Demonstrate the loosely coupled architecture:
+
+Create instances of disease departments (e.g., Cardiology, Orthopedics, Pediatrics).
+Create a Patient instance with a specific disease and address.
+Admit the patient to an appropriate department.
+Provide treatment to the patient using methods from the department.
+Generate a bill for the patient's treatment and consider the paid amount.
+Discuss the benefits of using interfaces (HospitalInterface) to promote loose coupling and
+ modularity:
+
+Explain how interfaces provide a common contract for hospital departments.
+Describe how patients can interact with various departments without knowing specific 
+implementations.
+Emphasize how this architecture allows easy addition of new disease departments or 
+modifications without affecting existing code.
+Note: Provide constructors and additional methods as needed for the class implementations.
+
+Hints:
+
+Encourage students to design methods in disease classes based on specific treatment requirements.
+Highlight how the Address class adds another layer of encapsulation to the system.
+Emphasize how interface-based interactions allow patients to receive treatment and generate 
+bills without knowing department-specific details.
+You can adjust the wording and level of detail in the question to match the desired educational level.

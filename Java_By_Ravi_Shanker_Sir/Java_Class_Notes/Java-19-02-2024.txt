@@ -1,0 +1,230 @@
+19-02-2024
+----------
+Working with Anonymous class :
+------------------------------
+Case 1:
+------
+Anonymous inner class with Concrete class :
+-------------------------------------------
+
+package com.ravi.anonymous;
+
+class Super
+{
+	public void show()
+	{
+		System.out.println("Show method of Super class");
+	}
+}
+
+public class AnonymousConcreteClass 
+{
+	public static void main(String[] args)
+	{
+		//Anonymous inner class
+		Super sub = new Super()
+		{
+		   @Override
+		   public void show()
+		   {
+			   System.out.println("Show method of sub class");
+		   }	   
+		  
+		};  // semicolumn is compulsarory			
+	
+		sub.show();  
+	}
+
+}
+----------------------------------------------------------------
+Case 2 :
+
+Anonymous inner class with abstract class :
+-------------------------------------------
+package com.ravi.anonymous;
+
+abstract class Demo
+{
+	public abstract void show();
+}
+
+public class AnonymousWithAbstract 
+{
+	public static void main(String[] args)
+	{
+		Demo d1 = new Demo()
+		{
+			@Override
+			public void show() 
+			{
+				System.out.println("Show method implemented");				
+			}			
+		};
+		d1.show();
+	}
+
+}
+----------------------------------------------------------------
+Case 3:
+-------
+Anonymous inner class with interface concept :
+---------------------------------------------
+package com.ravi.anonymous;
+
+interface Vehicle
+{
+	void run();
+}
+
+public class AnonymousWithInterface
+{
+	public static void main(String[] args) 
+	{
+		//Anonymous inner class
+		Vehicle bike = new Vehicle()
+		{
+			@Override
+			public void run() 
+			{
+				System.out.println("Bike is running");				
+			}			
+		};
+		bike.run();
+	}
+
+}
+---------------------------------------------------------------
+What is a Functional Interface in java ?
+----------------------------------------
+A functional interafce is an interface which contains exactly one abstract method.
+
+It may contain 'n' number of default and static method but it 
+must contain only one abstract method. (SAM => Single abstract Method)
+
+It can be represented by @FunctionalInterface annotation.
+
+FunctionalInterfaceDemo.java
+----------------------------
+package com.ravi.anonymous;
+
+@FunctionalInterface
+interface Exam
+{
+	void writeExam();  //SAM	
+}
+
+public class FunctionalInterfaceDemo 
+{
+	public static void main(String[] args) 
+	{
+		Exam java = new Exam()
+		{
+			@Override
+			public void writeExam() 
+			{
+				System.out.println("Java students are writing exam");			
+			}
+			
+		};
+		
+		Exam python = new Exam()
+		{
+			@Override
+			public void writeExam() 
+			{
+				System.out.println("Python students are writing exam");			
+			}
+			
+		};
+		
+		java.writeExam();   
+		python.writeExam();
+	}
+
+}
+----------------------------------------------------------------
+Lambda Expression :
+----------------------
+It is a new feature introduced in java from JDK 1.8 onwards.
+It is an anonymous function i.e function without any name.
+In java it is used to enable functional programming.
+It is used to concise our code as well as we can remove boilerplate code.
+It can be used with functional interface only.
+If the body of the Lambda Expression contains only one statement then curly braces are 
+optional.
+We can also remove the variables type while defining the Lambda Expression parameter.
+If the lambda expression method contains only one parameter then we can remove () symbol 
+also.
+
+In lambda expression return keyword is optional but if we use return keyword then {} are 
+compulsory.
+
+Independently Lamda Expression is not a statement.
+
+It requires a target variable i.e functional interface reference only.
+
+Lamda target can't be class or abstract class, it will work with "functional interface only".
+----------------------------------------------------------------
+package com.ravi.lambda;
+
+@FunctionalInterface
+interface Drawable
+{
+	void draw(); //abstract method is here  
+}
+public class Lambda1 
+{
+	public static void main(String[] args)
+	{
+	   Drawable rect = ()-> System.out.println("Drawing Rectangle");
+	   rect.draw();
+	   
+	   Drawable circle = ()-> System.out.println("Drawing Circle");
+	   circle.draw();
+	   
+	   Drawable square = ()-> System.out.println("Drawing Square");
+	   square.draw();
+	}
+
+}
+----------------------------------------------------------------
+package com.ravi.lambda;
+
+@FunctionalInterface
+interface Calculator
+{
+	public void doSum(int x, int y);
+}
+
+public class Lambda2 
+{
+  public static void main(String[] args) 
+  {
+	Calculator calc = (c,d)-> System.out.println(c+d);
+	calc.doSum(12, 24);
+  }
+}
+--------------------------------------------------------------
+package com.ravi.lambda;
+
+@FunctionalInterface
+interface Length
+{
+	int getLength(String str);
+}
+
+public class Lambda3 
+{
+	public static void main(String[] args) 
+	{
+		Length l =   (str) -> 
+		{
+		   return  str.length();
+		};
+		
+		System.out.println(l.getLength("Hyderabad"));
+
+	}
+
+}
+----------------------------------------------------------------

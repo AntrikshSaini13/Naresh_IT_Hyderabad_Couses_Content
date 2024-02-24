@@ -1,0 +1,36 @@
+1)What is this keyword and what is the use of this keyword ?
+
+   final parameter ref variable of current obj class type
+   non-static reference variable of current class type
+
+2)what is current object , how can we access current object members inside a non static method or constructor or NSB ?
+3)How should we access NSV/NSM inside other non - static members to develop 
+logic common to all objects , and to executes this logic specific to one object ?
+4)What are the different use of this keyword ?
+5)Prove that :
+   1)this is a referenced type parameter variable of cons and NSM
+   2)this is final variable
+   3)this variable type is current class Type?
+   4)this variable contains current object reference ?
+6)What are the rules on this keywords ?
+   1)can we access it in static members ?
+   2)Can we explicitly initialize it with either numm or with object references ?
+   3)can we access it in non-static members ?
+   4)can we access it at class level in invoking var or method ?
+   5)can we print this keyword ?
+   6)can we pass it as arg can we return it from method ?
+
+
+  first case : 
+ NV  ---> NB  ---> Constructor   -----> Method(called)  ---> o/p
+
+second case : 
+  NB  ---> NV ---> COnstructor -----> Method(called)    --->o/p
+
+
+
+
+
+
+
+  

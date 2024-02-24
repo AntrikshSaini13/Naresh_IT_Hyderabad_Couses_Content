@@ -1,0 +1,115 @@
+12-02-2024
+----------
+Abstract class and abstract methods :
+-------------------------------------------
+A class that does not provide complete implementation (partial implementation) is defined 
+as an abstract class.
+
+An abstract method is a common method which is used to provide easiness to the programmer 
+because the programmer faces complexcity to remember the method name.
+
+An abstract method observation is very simple because every abstract method contains abstract 
+keyword, abstract method does not contain any method body and at the end there must be a terminator 
+i.e ; (semicolon)
+
+In java whenever action is common but implementations are different then we should use abstract 
+method, Generally we declare abstract method in the super class and its implementation must be 
+provided in the sub classes.
+
+if a class contains at least one method as an abstract method then we should compulsory declare 
+that class as an abstract class.
+
+Once a class is declared as an abstract class we can't create an object for that class.
+
+*All the abstract methods declared in the super class must be overridden in the sub classes otherwise 
+the sub class will become as an abstract class hence object can't be created for the sub class as well.
+
+In an abstract class we can write all abstract method or all concrete method or combination of both 
+the method. 
+
+It is used to acheive partial abstraction that means by using abstract classes we can acheive partial 
+abstraction(0-100%).
+
+*An abstract class may or may not have abstract method but an abstract method must have abstract class.
+
+Note :- We can't declare an abstract method as final, private and static (illegal combination of modifiers)
+-----------------------------------------------------------------
+BirdDemo.java
+--------------
+abstract class Bird
+{
+	public abstract void fly();	
+}
+class Parrot extends Bird
+{
+	@Override
+	public void fly()
+	{
+		System.out.println("Parrot can fly");
+	}
+}
+class Sparrow extends Bird
+{
+	@Override
+	public void fly()
+	{
+		System.out.println("Sparrow can fly");
+	}
+}
+
+public class BirdDemo 
+{
+	public static void main(String[] args) 
+	{
+		Bird b;
+
+		b = new Parrot(); 
+		b.fly();
+
+		b = new Sparrow(); 
+		b.fly();
+	}
+}
+---------------------------------------------------------------
+abstract class Car
+{
+	protected int speed = 80;
+
+	public Car()
+	{
+		System.out.println("Car class Constructor!!");
+	}
+
+	public void getDetails()
+	{
+		System.out.println("It has 4 wheels and one Engine");
+	}
+
+	public abstract void run();
+}
+
+class Honda extends Car
+{
+	@Override
+	public void run()
+	{
+		System.out.println("Honda Car is Running");
+	}
+}
+
+public class InterviewQuestion 
+{
+	public static void main(String[] args) 
+	{
+		Car c = new Honda();
+		System.out.println("Speed is :"+c.speed);
+		c.getDetails();
+		c.run();
+	}
+}
+
+****Note :- In an abstract class if we have any constructor then it will be executed by sub 
+class object using super keyword.
+-----------------------------------------------------------------
+What is the advantage of writing constructor in abstract class?
+----------------------------------------------------------------

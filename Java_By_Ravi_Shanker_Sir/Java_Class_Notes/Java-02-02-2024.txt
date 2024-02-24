@@ -1,0 +1,246 @@
+-----------------------------------------------------------------------
+02-02-2024
+
+@Override Annotation :
+--------------------------
+In Java we have a concept called Annotation, introduced from JDK 1.5 onwards. All the annotations 
+must be start with @ symbol.
+
+@Override annotation is optional but it is always a good practice to write @Override annotation 
+before the Overridden method so compiler as well as user will get the confirmation that the method 
+is overridden method and it is available in the super class.
+
+If we use @Override annotation before the name of the overridden method in the sub class and if the 
+method is not available in the super class then it will generate a compilation error so it is different 
+from comment because comment will not generate any kind of compilation error if method is not an overridden 
+method, so this is how it is different from comment.
+-------------------------------------------------------------------------
+package com.ravi.method_overriding;
+
+class RBI
+{
+	public void loan()
+	{
+		System.out.println("Bank should provide loan..");
+	}
+}
+class SBI extends RBI
+{
+	@Override
+	public void loan()
+	{
+		System.out.println("SBI provides loan @ 9.2 %");
+	}
+}
+class BOB extends RBI
+{
+	@Override
+	public void loan()
+	{
+		System.out.println("BOB provides loan @ 10.4 %");
+	}
+}
+public class OverrideAnnotation 
+{
+	public static void main(String[] args) 
+	{
+		RBI r1;
+		
+		r1 = new SBI(); r1.loan();
+		
+		r1 = new BOB(); r1.loan();
+		
+	}
+
+}
+-------------------------------------------------------------------------
+
+Program that describes we cannot override private method:
+---------------------------------------------------------
+private methods are available within the same class only, it is not visible to the child class so
+ we cannot override.
+
+class Super
+{
+	private void show()
+	{
+		System.out.println("Show method of super class!!!!");
+	}
+}
+class Sub extends Super
+{
+	@Override //error We cannot override private method
+	public void show() 
+	{
+		System.out.println("Show method of sub class!!!!");
+	}
+}
+public class VisibilityMode 
+{
+	public static void main(String[] args) 
+	{
+		Super s = new Sub();
+		//s.show(); //error we can't access private method
+	}
+}
+------------------------------------------------------------------------
+Role of access modifier while overriding a method :
+---------------------------------------------------
+While overriding the method from super class, the access modifier of sub class method must be greater 
+or equal in comparison to access modifier of super class method otherwise we will get compilation error.
+
+public is greater than protected, protected is greater than default (public > protected > default)
+[default < protected < public]
+
+So the conclusion is we can't reduce the visibility while overriding a method.
+
+Note :- private access modifier is not availble (visible) in sub class so it is not the part of method 
+overriding.
+-------------------------------------------------------------------------
+package com.ravi.method_overriding;
+
+class Shape
+{
+	public void draw()
+	{
+		System.out.println("Generic Draw");
+	}
+}
+class Rectangle extends Shape
+{
+	@Override
+	protected void draw()  //error only public is applicable
+	{
+		System.out.println("Drawing Rectangle");
+	}
+}
+class Square extends Shape
+{
+	@Override
+	protected void draw()
+	{
+		System.out.println("Drawing Square");
+	}
+}
+public class ShapeDemo 
+{
+	public static void main(String[] args) 
+	{
+		Shape s = null;
+		
+		s = new Rectangle(); s.draw();
+		s = new Square(); s.draw();
+	}
+
+}
+-------------------------------------------------------------------------
+* Co-variant :
+------------
+Co-variant concept in method overriding :
+------------------------------------------------
+In general we cann't change the return type of method while overriding a method. if we try to 
+change it will generate compilation error as shown in the program below.
+
+package com.ravi.covariant;
+
+class Super
+{
+	public void show()
+	{
+		System.out.println("Super class show method");
+	}
+}
+class Sub extends Super
+{
+	@Override
+	public int show()  //error []
+	{
+		System.out.println("Sub class show method");
+		return 0;
+	}
+}
+
+public class IncompatibleReturnType {
+
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+
+	}
+
+}
+------------------------------------------------------------------------
+Note :- return type int is not compatible void.
+-----------------------------------------------------------------------
+But from JDK 1.5 onwards we can change the return type of the method in only one case that the 
+return type of both the METHODS(SUPER AND SUB CLASS METHODS) MUST BE IN INHERITANCE RELATIONSHIP 
+(IS-A relation ship so it is compatible) called Co-Variant as shown in the program below.
+
+Note :- Co-variant will not work with primitive data type, it will work only with classes
+-----------------------------------------------------------------------
+package com.ravi.covariant;
+
+class Alpha
+{}
+class Beta extends Alpha
+{}
+
+class Super
+{
+	public Alpha show()
+	{
+		System.out.println("Super class show method");
+		return new Alpha();
+	}
+}
+class Sub extends Super
+{
+	@Override
+	public Beta show() 
+	{
+		System.out.println("Sub class show method");
+		return new Beta();
+	}
+}
+
+public class IncompatibleReturnType {
+
+	public static void main(String[] args) 
+	{
+		Super s = new Sub();
+		s.show();
+
+	}
+
+}
+------------------------------------------------------------------------
+package com.ravi.covariant;
+
+class Student
+{
+	public Object course()
+	{
+		System.out.println("Generic Course");
+		return null;
+	}
+}
+class JavaStudent extends Student
+{
+	public Integer course()
+	{
+		System.out.println("Java Student");
+		return null;
+	}
+}
+
+public class CoVariant 
+{
+	public static void main(String[] args) 
+	{
+		Student s = new JavaStudent();  
+		s.course();
+
+	}
+
+}
+------------------------------------------------------------------------

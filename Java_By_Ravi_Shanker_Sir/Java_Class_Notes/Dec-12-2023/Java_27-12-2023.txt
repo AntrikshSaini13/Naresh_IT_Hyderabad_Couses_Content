@@ -10,10 +10,12 @@ ELC : It stands for Executable Logic class, here we need to define the
       main method and the execution of the program will always starts from ELC class only.
 
 -----------------------------------------------------------------------
-Note :- FOR NON STATIC MEMBERS LIKE (NON STATIC VARIABLE AND NON STATIC METHOD) OBJECT IS REQUIRED ON THE OTHER HAND FOR STATIC MEMBER (STATIC METHOD AND STATIC VARIABLE) 
+Note :- FOR NON STATIC MEMBERS LIKE (NON STATIC VARIABLE AND NON STATIC METHOD) OBJECT IS 
+REQUIRED ON THE OTHER HAND FOR STATIC MEMBER (STATIC METHOD AND STATIC VARIABLE) 
 OBJECT IS NOT REQUIRED.
 -----------------------------------------------------------------------
-If a static method available in the same class then we can call the static method directly from another static method of the same class without object as shown in the program.
+If a static method available in the same class then we can call the static method directly 
+from another static method of the same class without object as shown in the program.
 
 //A static method can be directly call within the same class
 package com.ravi.pack1;

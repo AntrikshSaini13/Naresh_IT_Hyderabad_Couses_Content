@@ -1,0 +1,311 @@
+13-02-2024
+----------
+abstract class Car
+{
+	protected int speed = 80;
+
+	public Car()
+	{
+		System.out.println("Car class Constructor!!");
+	}
+
+	public void getDetails()
+	{
+		System.out.println("It has 4 wheels and one Engine");
+	}
+
+	public abstract void run();
+}
+
+class Honda extends Car
+{
+	@Override
+	public void run()
+	{
+		System.out.println("Honda Car is Running");
+	}
+}
+
+public class InterviewQuestion 
+{
+	public static void main(String[] args) 
+	{
+		Car c = new Honda();
+		System.out.println("Speed is :"+c.speed);
+		c.getDetails();
+		c.run();
+	}
+}
+
+****Note :- In an abstract class if we have any constructor then it will be executed by sub class 
+object using super keyword.
+-----------------------------------------------------------------
+What is the advantage of writing constructor in abstract class?
+----------------------------------------------------------------
+If my abstract class contains any properties (state OR Data) then we can initialize those properties 
+of abstract class with the help of sub class object by using super keyword as shown in the program below.
+
+ShapeDemo.java
+---------------
+
+package com.ravi.abstract_demo;
+
+abstract class Shape
+{
+	protected String shapeType;
+	
+	public Shape(String shapeType)
+	{
+		this.shapeType = shapeType;
+	}
+	
+	public abstract String getTypeOfShape();	
+}
+
+class Rectangle extends Shape
+{
+	public Rectangle(String type)
+	{
+		super(type);
+	}
+	
+	@Override
+	public String getTypeOfShape() 
+	{
+		return shapeType;
+	}
+}
+
+class Circle extends Shape
+{
+	public Circle(String type)
+	{
+		super(type);
+	}
+	
+	@Override
+	public String getTypeOfShape() 
+	{
+		return shapeType;
+	}
+}
+
+public class ShapeDemo 
+{
+	public static void main(String[] args) 
+	{
+		Shape s = new Rectangle("Rectangle");
+		System.out.println(s.getTypeOfShape());
+		
+		Shape s1 = new Circle("Circle");
+		System.out.println(s1.getTypeOfShape());
+	}
+}
+----------------------------------------------------------------
+Program that describes if we don't override abstract methods then sub class will also become 
+as abstract class
+
+package com.ravi.abstract_demo;
+
+abstract class Alpha
+{
+	public abstract void show();
+	public abstract void demo();	
+}
+
+abstract class Beta extends Alpha
+{
+	@Override
+	public void show() 
+	{
+	 System.out.println("Show method implemented in Alpha class");		
+	}		
+}
+class Gamma extends Beta
+{
+	@Override
+	public void demo() 
+	{
+	  System.out.println("Demo method implemented in Beta class");		
+	}
+}
+
+public class AbstractDemo 
+{
+	public static void main(String[] args)
+	{
+		Gamma g = new Gamma(); g.show(); g.demo();
+	}
+
+}
+-----------------------------------------------------------------
+Program on abstract class and method, abstract method which is common for all.
+
+5 files :
+--------
+Shape.java
+----------
+package com.ravi.abstract_demo_ex;
+
+public abstract class Shape 
+{
+  protected int x;
+  
+  public Shape(int x)
+  {
+	  this.x = x;
+  }
+	
+  public abstract void area();
+}
+
+
+Rectangle.java
+---------------
+package com.ravi.abstract_demo_ex;
+
+public class Rectangle extends Shape
+{
+	protected int breadth;
+	public Rectangle(int l, int b)
+	{
+		super(l);
+		breadth = b;
+	}
+
+	@Override
+	public void area() 
+	{
+		double area = x * breadth;
+		System.out.println("Area of Rectangle is :"+area);
+		
+	}
+}
+
+Square.java
+------------
+package com.ravi.abstract_demo_ex;
+
+public class Square extends Shape
+{
+	public Square(int side) 
+	{
+		super(side);		
+	}
+	
+	@Override
+	public void area() 
+	{
+		double area = x * x;
+		System.out.println("Area of Square is :"+area);
+		
+	}
+
+}
+
+
+
+Circle.java
+------------
+package com.ravi.abstract_demo_ex;
+
+public class Circle extends Shape
+{
+    final double  PI = 3.14;
+	public Circle(int radius)
+	{
+		super(radius);
+	}
+	
+	@Override
+	public void area() 
+	{
+		double area = PI * x*x;
+		System.out.println("Area of Circle is :"+area);
+		
+	}
+}
+
+ShapeDemo.java
+--------------
+package com.ravi.abstract_demo_ex;
+
+public class ShapeDemo 
+{
+   public static void main(String[] args) 
+   {
+	  Shape s = null;
+	  
+	  s = new Rectangle(5, 9); s.area();
+	  
+	  s = new Square(40); s.area();
+	  
+	  s = new Circle(9); s.area();
+   }
+}
+-----------------------------------------------------------------
+Abstract class with array concept
+----------------------------------
+package com.ravi.abstract_array;
+
+abstract class Animal
+{
+	public abstract void checkup();
+}
+
+class Bird extends Animal
+{
+	@Override
+	public void checkup()
+	{
+		System.out.println("Bird Check up");		
+	}	
+}
+
+class Lion extends Animal
+{
+	@Override
+	public void checkup()
+	{
+		System.out.println("Lion Check up");		
+	}
+	
+}
+
+class Dog extends Animal
+{
+	@Override
+	public void checkup()
+	{
+		System.out.println("Dog Check up");		
+	}
+	
+}
+
+class CheckUp
+{
+	public static void AnimalCheckUp(Animal animals[])
+	{
+		for(Animal animal : animals)
+		{
+			animal.checkup();
+		}
+	}
+}
+
+public class AbstractDemo 
+{
+	public static void main(String[] args) 
+	{
+		Bird []birds = {new Bird(), new Bird(), new Bird()};
+		Lion []lions = {new Lion(), new Lion()};
+		Dog [] dogs = {new Dog(), new Dog(), new Dog()};
+		
+		CheckUp.AnimalCheckUp(birds);
+		CheckUp.AnimalCheckUp(lions);
+		CheckUp.AnimalCheckUp(dogs);
+
+	}
+
+}
+-----------------------------------------------------------------

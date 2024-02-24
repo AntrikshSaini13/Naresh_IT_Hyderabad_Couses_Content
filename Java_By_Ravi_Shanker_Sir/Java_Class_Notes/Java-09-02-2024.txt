@@ -1,0 +1,201 @@
+09-02-2024
+----------
+3) public String toString() :
+----------------------------
+It is a predefined method of Object class.
+
+it returns a string representation of the object. In general, the toString method returns 
+a string that "textually represents" this object. The result should be a concise but informative 
+representation that is easy for a person to read
+
+toString() method of Object class conatins following logic.
+
+public String toString()
+{
+	return getClass().getName()+" @ "+Integer.toHexString(hashCode());   
+}
+
+Please note internally the toString() method is calling the hashCode() and getClass() 
+method of Object class.
+
+In java whenever we print any Object reference by using System.out.println() then internally 
+it will invoke the toString() method of Object class as shown in the following program.
+-----------------------------------------------------------------
+package com.ravi.object_class;
+
+class Customer
+{
+	
+}
+
+public class ToSTringMethodDemo1 
+{
+	public static void main(String[] args) 
+	{
+		Customer c1 = new Customer();
+		System.out.println(c1);
+	}
+
+}
+-----------------------------------------------------------------
+//Program on Overridden toString() method :
+-------------------------------------------
+package com.ravi.object_class;
+
+class Student
+{
+   @Override
+   public String toString()
+   {
+	   return "Student class object in String representation";
+   }   
+}
+
+public class ToSTringMethodDemo2 
+{
+	public static void main(String[] args) 
+	{
+		Student s1 = new Student();
+		System.out.println(s1);
+	}
+
+}
+----------------------------------------------------------------
+4) public boolean equals(Object obj) :
+---------------------------------------
+It is predefined method of Object class.
+
+It is mainly used to compare two objects besed on the memory address just like == 
+opeartor because internally, It uses == opeartor only.
+
+The following program explains how to use equals(Object obj) method for Customer 
+comparison.
+
+package com.ravi.object_class;
+
+class Manager {
+	private int managerId;
+	private String managerName;
+
+	public Manager(int managerId, String managerName) {
+		super();
+		this.managerId = managerId;
+		this.managerName = managerName;
+	}
+
+}
+
+public class EqulasDemo1 {
+	public static void main(String[] args) 
+	{
+	  Manager m1 = new Manager(111,"Scott");
+	  Manager m2 = new Manager(222,"Smith");
+	  Manager m3 = new Manager(111,"Scott");
+	  
+	  System.out.println(m1.equals(m2));
+	  System.out.println(m1.equals(m3));
+
+	}
+
+}
+-----------------------------------------------------------------
+In the above program m1 and m3 is having same content but due to memory address comparison 
+it is providing false.
+
+If we want to compare these two objects based the content but not based on the memory address 
+then we should override equals(Object obj) method of Object class.
+
+Overriding equals(Object obj) for content comparison :
+------------------------------------------------------
+package com.ravi.equals;
+
+class Customer
+{
+	private int customerId;
+	private String customerName;
+	
+	public Customer(int customerId, String customerName) {
+		super();
+		this.customerId = customerId;
+		this.customerName = customerName;
+	}
+	
+	//Overriding equals() method for content comparison
+	@Override            (type   reference)
+	public boolean equals(Object obj) //obj = c2 (2000x)
+	{
+		//First Object content
+		int id1 = this.customerId;
+		String name1 = this.customerName;
+		
+		//2nd object data
+		Customer c2 = (Customer) obj;//Large Data put inside the small Container
+		int id2 = c2.customerId;
+		String name2 = c2.customerName;
+		
+		if(id1==id2  && name1.equals(name2))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+		
+	}		
+}
+public class EqualsMethodDemo2 
+{
+	public static void main(String[] args) 
+	{
+		Customer c1 = new Customer(1,"Scott"); //1000x
+		Customer c2 = new Customer(1,"Scott"); //2000x
+		System.out.println(c1.equals(c2));
+
+	}
+
+}
+-----------------------------------------------------------------
+One more program for Overriding the equals() method :
+-----------------------------------------------------
+package com.ravi.equals;
+
+class Student
+{
+	private int studentId;
+	private String studentName;
+	
+	public Student(int studentId, String studentName) {
+		super();
+		this.studentId = studentId;
+		this.studentName = studentName;
+	}
+	
+	@Override
+	public boolean equals(Object obj)
+	{
+		Student s2 = (Student) obj;
+		
+		if(this.studentId == s2.studentId && this.studentName.equals(s2.studentName))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+}
+
+public class EqualsDemo3 
+{
+	public static void main(String[] args) 
+	{
+		Student s1 = new Student(1,"Rohan");
+		Student s2 = new Student(1,"Rohan");
+		
+		System.out.println(s1.equals(s2));
+	}
+
+}
+-----------------------------------------------------------------

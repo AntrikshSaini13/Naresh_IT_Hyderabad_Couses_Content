@@ -1,0 +1,586 @@
+----------------------------------------------------------------------
+31-01-2024
+----------
+Unboxing :
+----------------
+Converting wrapper object to corresponding primitive type is called Unboxing.
+
+Wrapper                Primitive
+Object                 type               
+----------             --------
+Byte		-	byte
+
+Short		-	short
+
+Integer		-	int
+
+Long		-	long
+
+Float		-	float
+
+Double		-	double
+
+Chracter	-	char
+
+Boolean		-	boolean
+----------------------------------------------------------------------
+We have total 8 Wrapper classes.
+
+Among all these 8, 6 Wrapper classes are the sub class of Number class
+so all the following six wrapper classes (Which are sub class of Number class) 
+are providing the following common methods.
+
+1) public byte byteValue()
+
+2) public short shortValue()
+
+3) public int intValue()
+
+4) public long longValue()
+
+5) public float floatValue()
+
+6) public double doubleValue()
+--------------------------------------------------------------------
+//Converting Wrapper object into primitive
+public class AutoUnboxing1
+{  
+   public static void main(String args[])
+	   {  
+                        Integer obj = 15;   //Upto 1.4
+			int x = obj.intValue();
+			System.out.println(x);
+		}   
+}  
+---------------------------------------------------------------------- 
+public class AutoUnboxing2
+{
+	public static void main(String[] args) 
+	{	
+			Integer x = 25; 
+			int y = x;         //JDK 1.5 onwards  
+			System.out.println(y);  
+	}
+}
+-----------------------------------------------------------------------
+public class AutoUnboxing3
+{
+	public static void main(String[] args) 
+	{	
+			Integer i = 15;
+			System.out.println(i.byteValue());
+			System.out.println(i.shortValue());
+			System.out.println(i.intValue());
+			System.out.println(i.longValue());
+			System.out.println(i.floatValue());
+			System.out.println(i.doubleValue());			
+	}
+}
+-----------------------------------------------------------------------
+public class AutoUnboxing4
+{
+	public static void main(String[] args) 
+	{
+		Character c1 = 'A';
+		char ch = c1.charValue();
+		System.out.println(ch);
+	}
+}
+----------------------------------------------------------------------
+public class AutoUnboxing5
+{
+	public static void main(String[] args) 
+	{
+		Boolean b1 = true;
+		boolean b = b1.booleanValue();
+		System.out.println(b);
+	}
+}
+----------------------------------------------------------------------
+class BufferTest 
+{
+	public static void main(String[] args) 
+	{		
+		Integer i1 = 127;
+		Integer i2 = 127;
+		System.out.println(i1==i2); //true
+
+		Integer i3 = 128;
+		Integer i4 = 128;
+		System.out.println(i3==i4); //false
+
+		Integer i5 = 128;
+		Integer i6 = 128;
+		System.out.println(i5.equals(i6)); //true
+	}
+}
+
+Note :- Whenver we will compare Integer wrapper object then we should use equals(Object obj) method.
+-----------------------------------------------------------------------
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		long l = 12; //Widening
+		System.out.println(l);
+
+		//Long L = 12;//error
+
+		Long L = 12L; //Now 12 is of Long type
+		System.out.println(L);
+
+        
+		double d = 12;
+		System.out.println(d);
+
+                Double D = 12.0;
+		System.out.println(D);
+	}
+}
+
+Note :- While with wrapper classes we need to provide appropriate type
+        of value otherwise program will not compile
+
+	Long l = 12; //Invalid
+	Long l = 12L; //valid
+
+	Double d = 123; //Invalid
+	Double d = 123.90; //Valid
+----------------------------------------------------------------------
+Ambiguity issues while overloading a method :
+---------------------------------------------
+Whenever we work with method overloading and if we have ambiguity while 
+calling the method then compiler has provided 2 rules to work with
+Method overloading.
+
+Rule 1:
+-------
+Most specific type (Specific type will get more priority)
+
+double > float
+float > long
+long > int 
+int > short
+int > char 
+short > byte
+
+Rule 2 :
+-------
+While overloading a method, if we have an ambiguity issue then compiler provides the priority in the following order :
+
+WAV [Widening -> Autoboxing -> Var args]
+
+-----------------------------------------------------------------------
+Programs :
+-----------
+package com.ravi.ambiguity;
+
+class Test
+{
+	public void accept(byte b)
+	{
+		System.out.println("byte");
+	}
+	public void accept(short b)
+	{
+		System.out.println("short");
+	}
+}
+
+
+public class AmbiguityDemo {
+
+	public static void main(String[] args) 
+	{
+		Test t1 = new Test();
+		t1.accept(15); //Error
+
+	}
+
+}
+
+Note :- 15 which is by default of type int, we cannot assign to byte or short directly.
+-----------------------------------------------------------------------
+package com.ravi.ambiguity;
+
+class Test
+{
+	public void accept(byte b)
+	{
+		System.out.println("byte");
+	}
+	public void accept(short b)
+	{
+		System.out.println("short");
+	}
+}
+
+
+public class AmbiguityDemo {
+
+	public static void main(String[] args) 
+	{
+		Test t1 = new Test();
+		t1.accept((byte)15);
+		t1.accept((short)19);
+
+	}
+
+}
+-----------------------------------------------------------------------
+package com.ravi.ambiguity;
+
+class Test
+{
+	public void accept(int b)
+	{
+		System.out.println("int");
+	}
+	public void accept(long b)
+	{
+		System.out.println("long");
+	}
+}
+
+
+public class AmbiguityDemo {
+
+	public static void main(String[] args) 
+	{
+		Test t1 = new Test();
+		t1.accept(15);
+
+	}
+
+}
+
+Note :- Here int will be executed because int is the most specific type
+-----------------------------------------------------------------------
+package com.ravi.ambiguity;
+
+class Test
+{
+	public void accept(String b)
+	{
+		System.out.println("String");
+	}
+	public void accept(Object b)
+	{
+		System.out.println("object");
+	}
+}
+
+
+public class AmbiguityDemo {
+
+	public static void main(String[] args) 
+	{
+		Test t1 = new Test();
+		t1.accept("India");  
+		t1.accept(null);
+
+	}
+
+}
+
+Here in both the cases String will be executed.
+-------------------------------------------------------------------
+package com.ravi.ambiguity;
+
+class Test
+{
+	public void accept(String b)
+	{
+		System.out.println("String");
+	}
+	
+	public void accept(Integer b)
+	{
+		System.out.println("Integer");
+	}
+	
+	public void accept(Object b)
+	{
+		System.out.println("object");
+	}
+}
+
+
+public class AmbiguityDemo {
+
+	public static void main(String[] args) 
+	{
+		Test t1 = new Test();  
+		t1.accept(null); //error
+		
+
+	}
+
+}
+
+Note :- In between Integer and String, compiler is unable to find most specific type.
+----------------------------------------------------------------------
+package com.ravi.ambiguity;
+
+class Test
+{
+	public void accept(int ...x)
+	{
+		System.out.println("int");
+	}
+	
+	public void accept(float ...x)
+	{
+		System.out.println("float");
+	}	
+}
+
+
+public class AmbiguityDemo {
+
+	public static void main(String[] args) 
+	{
+		Test t1 = new Test();  
+		t1.accept();
+
+		
+
+	}
+
+}
+
+Note :- int will be executed becoz int is more specific type
+---------------------------------------------------------------------
+
+package com.ravi.ambiguity;
+
+class Test
+{
+	public void accept(double ...x)
+	{
+		System.out.println("double");
+	}
+	
+	public void accept(float ...x)
+	{
+		System.out.println("float");
+	}	
+}
+
+
+public class AmbiguityDemo {
+
+	public static void main(String[] args) 
+	{
+		Test t1 = new Test();  
+		t1.accept();
+
+		
+
+	}
+
+}
+
+Note :- float will be executed becoz float is more specific type
+---------------------------------------------------------------------
+package com.ravi.ambiguity;
+
+class Test
+{
+	public void accept(int ...x)
+	{
+		System.out.println("int");
+	}
+	
+	public void accept(boolean ...x)
+	{
+		System.out.println("boolean");
+	}	
+}
+
+
+public class AmbiguityDemo {
+
+	public static void main(String[] args) 
+	{
+		Test t1 = new Test();  
+		t1.accept();
+		
+
+	}
+
+}
+
+Note :- We will get compilation error because in between int and boolean we don't have any relation
+-----------------------------------------------------------------------
+package com.ravi.ambiguity;
+
+class Test
+{
+	public void accept(int ...x)
+	{
+		System.out.println("int");
+	}
+	
+	public void accept(char ...x)
+	{
+		System.out.println("char");
+	}	
+}
+
+
+public class AmbiguityDemo {
+
+	public static void main(String[] args) 
+	{
+		Test t1 = new Test();  
+		t1.accept();
+		
+
+	}
+
+}
+Note :- char will be executed becoz char is more specific type
+----------------------------------------------------------------------
+package com.ravi.ambiguity;
+
+class Test
+{
+	public void accept(short ...x)
+	{
+		System.out.println("short");
+	}
+	
+	public void accept(char ...x)
+	{
+		System.out.println("char");
+	}	
+}
+
+
+public class AmbiguityDemo {
+
+	public static void main(String[] args) 
+	{
+		Test t1 = new Test();  
+		t1.accept(); //error
+		
+
+	}
+
+}
+
+Note :- No relation between char and short && char And byte
+----------------------------------------------------------------------
+package com.ravi.ambiguity;
+
+class Test
+{
+	public void accept(float a,  int b)
+	{
+		System.out.println("float - int");
+	}
+	
+	public void accept(int a, float b)
+	{
+		System.out.println("int - float");
+	}	
+}
+
+
+public class AmbiguityDemo {
+
+	public static void main(String[] args) 
+	{
+		Test t1 = new Test();  
+		t1.accept(20, 30); //error	
+	}
+
+}
+----------------------------------------------------------------------
+package com.ravi.ambiguity;
+
+class Test
+{
+	public void accept(long l)
+	{
+		System.out.println("long [Widening]");
+	}
+	
+	public void accept(Integer i)
+	{
+		System.out.println("Integer [Autoboxing]");
+	}	
+}
+
+
+public class AmbiguityDemo {
+
+	public static void main(String[] args) 
+	{
+		Test t1 = new Test();  
+		t1.accept(20);
+		
+
+	}
+
+}
+
+Note :- Here Widening is having more priority than Autoboxing
+----------------------------------------------------------------------
+package com.ravi.ambiguity;
+
+class Test
+{
+	public void accept(long l)
+	{
+		System.out.println("long [Widening]");
+	}
+	
+	public void accept(int ...x)
+	{
+		System.out.println("int [var args]");
+	}	
+}
+
+
+public class AmbiguityDemo {
+
+	public static void main(String[] args) 
+	{
+		Test t1 = new Test();  
+		t1.accept(20);
+		
+
+	}
+
+}
+
+Note :- Here Widening is having more priority than var args
+-----------------------------------------------------------------------
+package com.ravi.ambiguity;
+
+class Test
+{
+	public void accept(Integer i)
+	{
+		System.out.println("int [Autoboxing]");
+	}
+	
+	public void accept(int ...x)
+	{
+		System.out.println("int [var args]");
+	}	
+}
+
+
+public class AmbiguityDemo {
+
+	public static void main(String[] args) 
+	{
+		Test t1 = new Test();  
+		t1.accept(20);
+	}
+
+}
+-----------------------------------------------------------------------

@@ -1,0 +1,154 @@
+10-01-2024
+-----------
+4 files :
+---------
+Student.java
+------------
+package com.ravi.object_ref_method;
+
+public class Student 
+{
+  private String name;
+  private int marks;
+  
+  public Student(String name, int marks) 
+  {
+		super();
+		this.name = name;
+		this.marks = marks;
+  }
+
+	@Override
+	public String toString() 
+	{
+		return this.name;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public int getMarks() {
+		return marks;
+	} 
+	
+	
+  
+}
+
+StudentGrade.java
+------------------
+package com.ravi.object_ref_method;
+
+public class StudentGrade 
+{
+  private Student student; //HAS-A 
+  private char studentGrade;
+  
+	public StudentGrade(Student student, char studentGrade) 
+	{
+		super();
+		this.student = student;
+		this.studentGrade = studentGrade;
+	}
+
+	@Override
+	public String toString() 
+	{
+	return "Student '"+this.student+"' has '"+this.studentGrade+"' Grade!";
+	} 
+  
+}
+
+CalculateStudentGrade.java
+--------------------------
+package com.ravi.object_ref_method;
+
+public class CalculateStudentGrade 
+{
+   public static StudentGrade calculateGrade(Student s1)
+   {
+	   int marks = s1.getMarks();
+	   
+	   if(marks > 90)
+	   {
+		   return new StudentGrade(s1, 'A');
+	   }
+	   else if(marks > 75)
+	   {
+		   return new StudentGrade(s1, 'B');
+	   }
+	   else if(marks > 60)
+	   {
+		   return new StudentGrade(s1, 'C');
+	   }
+	   else
+	   {
+		   return new StudentGrade(s1, 'D');
+	   }
+   }
+}
+
+
+Main.java
+---------
+package com.ravi.object_ref_method;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter Student Name :");
+		String name = sc.nextLine();
+		System.out.print("Enter Student Marks :");
+		int marks = sc.nextInt();
+		
+		Student s1 = new Student(name, marks);
+		
+		StudentGrade grade = CalculateStudentGrade.calculateGrade(s1);
+		System.out.println(grade);
+
+	}
+
+}
+------------------------------------------------------------------------
+What is Garbage Collector in Java ?
+------------------------------------
+In Java the programmer is only responsible to allocate the memory by using constructor, memory de-allocation is not 
+the responsibility of the programmer. 
+It is automatically done by garbage collector.
+
+As we know all the objects are created inside the HEAP Memory where as all our methods are executed inside stack memory.
+
+The main purpose of GC(Garbage Collector) to scan the heap memory, identify which objects are eligible for GC and which 
+objects are not eligible. (An object is eligible for GC if that object does not contain any references)
+
+
+How many ways we can make an object eligible for GC :
+-----------------------------------------------------
+There are 3 ways we can make an object eligible for GC.
+
+1) Assigning null literal to reference variable :
+   Employee e1 = new Employee(111,"Ravi");
+            e1 = null;
+
+2) Creating an Object inside a method :
+
+   public void createObject()
+   {
+      Employee e2 = new Employee();
+   }
+Here we are creating Employee object inside the method so, once the method execution is over then e2 will be deleted 
+from the Stack Frame and the employee object will become eligible for GC.
+
+3) Assigning new Object to the old existing reference variable:
+   
+   Employee e3 = new Employee();
+   e3 = new Employee();
+
+Earlier e3 variable was poting to Employee object after that a new Employee Object is created which is pointing to 
+another memory location so the first object is eligible for GC.
+------------------------------------------------------------------------

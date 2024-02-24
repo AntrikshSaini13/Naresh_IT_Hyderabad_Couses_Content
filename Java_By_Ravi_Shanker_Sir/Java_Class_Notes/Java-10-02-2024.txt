@@ -1,0 +1,247 @@
+10-02-2024
+-----------
+instanceof Operator :
+----------------------
+It is a keyword as well as an operator.
+
+It is used to verify whether a reference variable refers to a particular type of object
+ or not?
+
+It will return boolean value.
+
+While working with instanceof operator there must be a IS-A 
+relationship between reference variable and the class/interface type otherwise we 
+will get compilation error. 
+
+public class Test
+{
+	public static void main(String[] args) 
+	{
+		String str = "India";
+
+        if(str instanceof String)
+		{
+			System.out.println("str is pointing to String object");
+		}
+        System.out.println("...........");
+
+        String s1 = "Hyderabad";
+
+		if(s1 instanceof Object)
+		{
+			System.out.println("s1 is pointing to String object");
+		}
+		else
+		{
+			System.out.println("s1 is pointing to StringBuffer object");
+		}
+		System.out.println("...........");
+
+		Integer i = 90;
+		if(i instanceof Number)
+		{
+			System.out.println(" i is pointing to Integer object");
+		}
+
+	}
+}
+----------------------------------------------------------------
+WAP in java where we want to compare two objects of two different types 
+
+package com.ravi.equlas_demo;
+
+class Employee
+{
+	private Integer studentId;
+	private String studentName;
+	public Employee(Integer studentId, String studentName) {
+		super();
+		this.studentId = studentId;
+		this.studentName = studentName;
+	}
+}
+
+class Student
+{
+   private Integer studentId;
+   private String studentName;
+	public Student(Integer studentId, String studentName) {
+		super();
+		this.studentId = studentId;
+		this.studentName = studentName;
+	}   
+	
+	@Override
+	public boolean equals(Object obj)
+	{
+		if(obj instanceof Student)
+		{
+			Student s2 = (Student)obj;
+			if(this.studentId == s2.studentId && this.studentName.equals(s2.studentName))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+			
+			
+			
+		}
+		else
+		{
+			System.err.println("Comparison is not possible");
+			return false;
+		}
+	}	
+}
+
+public class EqualsComparison 
+{
+	public static void main(String[] args) 
+	{
+		Student s1 = new Student(1, "Scott");
+		Student s2 = new Student(1, "Scott");		
+		Employee e1 = new Employee(1,"Scott");
+		
+		System.out.println(s1.equals(s2));
+		System.out.println(s1.equals(e1));
+		System.out.println(s1.equals(null));
+	}
+}
+
+Note :
+
+1) If we compare two different objects then compiler will generate warning as well 
+as by using instanceof operator we can avoid this comparison.
+
+2) null with instanceof operator will always return false.
+-----------------------------------------------------------------
+Record class in java :
+-----------------------
+public abstract class Record extends Object.
+
+It is a new feature introduced from java 17.(In java 14 preview version)
+
+As we know only objects are moving in the network from one place to another place so 
+we need to write BLC class with nessacery requirements to make BLC class as a Data 
+carrier class.
+
+Records are immutable data carrier so, now with the help of record we can send our 
+immutable data from one application to another application.
+
+It is also known as DTO (Data transfer object) OR POJO classes.
+
+It is mainly used to concise our code as well as remove the boiler plate code.
+
+In record, automatically constructor will be generated which is known as canonical 
+constructor and the variables which are known as components are by default final.
+
+In order to validate the outer world data, we can write our own constructor which is 
+known as compact constructor.
+
+Record will automatically generate the implemenation of toString(), equals(Object obj) 
+and hashCode() method.
+
+We can define static and non static method as well as static variable inside the record. 
+We cannot define instance variable inside the record.
+
+We cann't extend or inherit records because by default every record is implicilty final. 
+It is extending from java.lang.Reocrd class
+
+We can implement an interface by using record.
+
+We don't have setter facility in record because by default variables are final.
+
+3 files :
+---------
+EmployeeClass.java(C)
+-----------------------
+package com.ravi.record;
+
+import java.util.Objects;
+
+public class EmployeeClass {
+	private int employeeId;
+	private String employeeName;
+
+	public EmployeeClass(int employeeId, String employeeName) {
+		super();
+		this.employeeId = employeeId;
+		this.employeeName = employeeName;
+	}
+
+	public int getEmployeeId() {
+		return employeeId;
+	}
+
+	public String getEmployeeName() {
+		return employeeName;
+	}
+
+	@Override
+	public String toString() {
+		return "EmployeeClass [employeeId=" + employeeId + ", employeeName=" + employeeName + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(employeeId, employeeName);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		EmployeeClass other = (EmployeeClass) obj;
+		return employeeId == other.employeeId && Objects.equals(employeeName, other.employeeName);
+	}
+}
+
+EmployeeRecord.java(R)
+-----------------------
+
+package com.ravi.record;
+
+              //Canonical Constructor
+public record EmployeeRecord(int empId, String empName) 
+{
+	//Compact Constructor
+	public EmployeeRecord
+	{
+		if(empId < 0)
+		{
+			System.err.println("Invalid ID");
+		}
+	}
+}
+
+RecordDemo.java(C)
+------------------
+package com.ravi.record;
+
+public class RecordDemo 
+{
+	public static void main(String[] args) 
+	{
+		EmployeeClass e1 = new EmployeeClass(1, "Scott");
+		EmployeeClass e2 = new EmployeeClass(1, "Scott");
+		System.out.println(e1.equals(e2));
+		System.out.println(e2);
+		System.out.println(e1.getEmployeeName());
+		
+		
+		System.out.println(".........................");
+		EmployeeRecord r1 = new EmployeeRecord(2, "Smith");
+		EmployeeRecord r2 = new EmployeeRecord(2, "Smith");
+		System.out.println(r1.equals(r2));
+		System.out.println(r2);
+		System.out.println(r2.empName());
+	}
+
+}

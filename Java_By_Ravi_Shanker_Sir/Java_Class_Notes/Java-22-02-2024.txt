@@ -1,0 +1,214 @@
+22-02-2024
+----------
+BiPredicate<T,U> functional interface :
+-----------------------------------
+It is a predefined functional interface available in java.util.function sub package.
+
+It is a functional interface in Java that represents a predicate (a boolean-
+valued function) OF TWO ARGUMENTS.
+
+The BiPredicate interface has method named test, which takes two parameters and 
+returns a boolean value, basically this BiPredicate is same with the Predicate, 
+instead, it takes 2 arguments for the test.
+
+@FunctionalInterface
+public interface BiPredicate<T, U> 
+{
+    boolean test(T t, U u);
+}
+
+Type Parameters:
+
+T - the type of the first argument to the predicate
+U - the type of the second argument the predicate
+-----------------------------------------------------------------
+import java.util.function.*;
+public class Lambda11 
+{
+	public static void main(String[] args){
+        BiPredicate<String, Integer> filter = (x, y) -> {
+            return x.length() == y;  
+        };
+
+        boolean result = filter.test("Ravi", 4);
+        System.out.println(result);  
+
+        result = filter.test("Hyderabad", 10);
+        System.out.println(result);
+	}
+}
+------------------------------------------------------------------
+import java.util.function.BiPredicate;
+
+public class Lambda12
+{
+  public static void main(String[] args) 
+  {
+    //  BiPredicate to check if the sum of two integers is even
+
+        BiPredicate<Integer, Integer> isSumEven = (a, b) -> (a + b) % 2 == 0;
+
+        System.out.println(isSumEven.test(2, 3));    
+        System.out.println(isSumEven.test(5, 7));   
+    }
+}
+----------------------------------------------------------------
+BiConsumer<T, U> functional interface :
+---------------------------------------
+It is a predefined functional interface available in java.util.function sub 
+package.
+
+It is a functional interface in Java that represents an operation that accepts 
+two input arguments and returns no result.
+
+It takes a method named "accept()", which takes two parameters and performs an 
+action without returning any result.
+
+@FunctionalInterface
+public interface BiConsumer<T, U> 
+{
+    void accept(T t, U u);
+}
+-----------------------------------------------------------------
+import java.util.function.BiConsumer;
+
+public class Lambda13
+{
+   public static void main(String[] args) 
+   {
+     BiConsumer<Integer, String> updateVariables = (num, str) -> 
+		 {
+            num = num * 2;
+            str = str.toUpperCase();
+            System.out.println("Updated values: " + num + ", " + str);
+        };
+
+        
+        int number = 15;
+        String text = "nit";
+
+        updateVariables.accept(number, text);
+
+        // Values after the update (note that the original values are unchanged)
+        System.out.println("Original values: " + number + ", " + text);
+    }
+}
+------------------------------------------------------------------
+BiFunction<T, U, R> Functional interface :
+---------------------------------
+It is a predefined functional interface available in java.util.function sub package.
+
+It is a functional interface in Java that represents a function that accepts two 
+arguments and produces a result.
+
+The BiFunction interface has a method named apply that takes two arguments and returns a result.
+
+@FunctionalInterface
+public interface BiFunction<T, U, R> 
+{
+    R apply(T t, U u);
+}
+------------------------------------------------------------------
+import java.util.function.BiFunction;
+
+public class Lambda14
+{
+  public static void main(String[] args) 
+  {
+        // BiFunction to concatenate two strings
+    BiFunction<String, String, String> concatenateStrings = (str1, str2) -> str1 + str2;
+
+        String result = concatenateStrings.apply("Hello", " Java");
+        System.out.println(result);  
+
+
+      // BiFunction to find the length two strings
+    BiFunction<String, String, Integer> concatenateLength = (str1, str2) -> 
+str1.length() + str2.length();
+
+        Integer result1 = concatenateLength.apply("Hello", "Java");
+        System.out.println(result1);  
+
+  }
+}
+-----------------------------------------------------------------
+Method Reference :
+------------------
+It is a new feature introduced from java 8 version.
+
+It is used to concise our code.
+
+We can use this technique in the body of Lambda expression just to refer an existing 
+method (already available method) to pass as an implementation of Functional interface.
+
+The entire method body will be automatically placed into Lambda Expression.
+
+It will enhance Code Reusability.
+
+It uses ::(Double colon operator) to refer.
+
+There are 3 types of Method Reference :
+----------------------------------------
+1) Static method reference (ClassName::staticMethodName)
+2) Instance method reference (instance::instanceMethodName)
+3) Constructor Reference  (ClassName::new)
+
+
+How Lambda will be converted into Method Reference :
+-----------------------------------------------------
+Lambda Expression                      Method Reference
+
+s -> s.toLowerCase();                  String::toLowerCase
+
+s -> s.length();                       String::length
+
+(s1,s2) -> s1.compareTo(s2);           String.compareTo
+
+
+Basic Example of Method reference by comparing Lambda :
+-------------------------------------------------------
+3 files :
+--------
+Worker.java(I)
+--------------
+package com.ravi.method_ref;
+
+@FunctionalInterface
+public interface Worker 
+{
+  void work(double salary);
+}
+
+
+Employee.java(C)
+----------------
+package com.ravi.method_ref;
+
+public class Employee 
+{
+  public void work(double salary)
+  {
+	  System.out.println("Employee Salary is :"+salary);
+  }
+}
+
+
+MethodReference.java
+---------------------
+package com.ravi.method_ref;
+
+public class MethodReference 
+{
+	public static void main(String[] args)
+	{
+	  //By using Lambda
+	  Worker w1 = sal -> System.out.println("Worker salary is :"+sal);
+	  w1.work(40000);
+	  
+	  //By using Method Reference
+	  Worker w2 = new Employee()::work;
+	  w2.work(50000);
+	}
+
+}
+----------------------------------------------------------------

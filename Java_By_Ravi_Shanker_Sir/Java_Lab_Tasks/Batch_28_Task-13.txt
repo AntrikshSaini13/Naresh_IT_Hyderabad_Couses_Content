@@ -1,43 +1,42 @@
-CREATE BOTH THE PROGRAMS WITH DIAGRAM :(HAS-A)
-----------------------------------------
-Program: 1
------------
-Create a class Address (Business Logic Class)
-Instance Variables: 
-   private String cityName;
-   private String districtName;
-   private String stateName;
-Create a parameterized constructor initialize the instance variable of the class.
 
-Override toString() from Object class to print Address class properties.
+Note-Implement toString() in all the BLC classes to print the data of the corresponding objects.
+								
+Ques-1)
+-------
+Create a Java (BLC)class named Employee with following attributes:
+private String name 
+private int age 
+private double salary and 
+private String department
 
-Create a class Employee (Business Logic Class)
-Instance Variables: 
-   private int empId;
-   private String empName;
-   private Address address; //HAS-A relation
-Create a parameterized constructor initialize the instance variable of the class.
+Implement a parameterised constructor to initialize all the instance variable of Employee.
+Implement a copy constructor for the Employee class that takes a Employee object and initialize the new Employee object with the same attributes.
 
-Override toString() from Object class to print Employee class properties.
+Take a pair of setter and getter method for all the instance variables.
+In the Employee class, create a method named raiseSalary(double percentage) that increases the salary of the employee by the specified percentage.
 
-Create a class Main (Executable Logic Class) which contains main method to print Employee class properties using toString() method.
+Create a ELC class and create Employee object and sets its attributes. 
+Then, use the raiseSalary method to increase the employee's salary by 10%. Create a copy of the Employee object using the copy constructor and print the attributes of both the original and the copy of the Employee objects to confirm that the copy constructor works correctly and that the raiseSalary method did not affect the attributes of the copy of the Employee object.
 
-Program: 2
-Create a class Order (Business Logic Class)
-Instance Variables: 
-   private int orderId;
-   private String itemName;
-   private double itemPrice;
-Create a parameterized constructor initialize the instance variable of the class.
-Override toString() from Object class to print Order class properties.
+---------------------------------------------------------------------------------------------------------------------------------------------------------												
+Ques-2
+-------
+Create a Java BLC class named Car with following attributes:
+ private String brand
+ private String model
+ private int year and
+ private Driver driver
 
-Create a class Customer (Business Logic Class)
-Instance Variables: 
-   private int customerId;
-   private String customerName;
-   private String customerAddress;
-   private Order order; //HAS-A relation
-Create a parameterized constructor initialize the instance variable of the class.
-Override toString() from Object class to print Customer class properties.
+Implement a parameterised constructor to initialise all the instance variable of Car.
+Implement one copy constructor for the Car class that takes a Car object and  initialize the new Car object with the same attributes.
+Take a pair of setter and getter method for all the instance variables.
+In the Car class, create a method named changeDriver(Driver newDriver) that changes the driver of the car to the specified driver.
 
-Create a class Zomato (Executable Logic Class) which contains main method to print Customer class properties using toString() method.
+Create a Driver class and the class should have following attributes:
+ private String name and
+ private int age 
+Implement a parameterised constructor to initialise all the instance variable of Driver.
+Take a pair of setter and getter method for all the instance variables.
+
+Create a Main class that creates a Car object and sets its attributes and the attributes of its driver. Then, create a copy of the Car object using the copy constructor and print the attributes of both the original and the copy of the Car objects to confirm that the copy constructor works correctly.
+Finally, use the changeDriver() method to change the driver of the original Car object, and print the attributes of both the original and the copy of the Car objects again to confirm that the copy constructor created a deep copy of the Driver object and that the changeDriver method did not affect the driver of the copy of the Car object.

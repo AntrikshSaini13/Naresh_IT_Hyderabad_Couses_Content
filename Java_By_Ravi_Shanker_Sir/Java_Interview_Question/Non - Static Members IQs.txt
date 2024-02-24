@@ -1,0 +1,31 @@
+1)  What are the Non-static members available in a class ?
+    ->NSV
+    ->NSM
+    ->Constructor
+    ->NSB
+2)  When do all these members get memory location and by whom ?
+Ans :
+3)  What is an Object ?
+4)  Will JVM executes non-static variable automatically ?
+5)  When, where, how and by whom non-static variables get memory location ?
+6)  Can we access static variable or static methods using refrence variable ?
+7)  Can we access non-static variable or non-static method with null reference variable ?
+8)  Can we access static variable or static method with null refrence variable ?
+9)  How can we call non-static members from other non-static members?
+10) How it is possible to call non-static memebrs directly without object?
+11) Then why we cannot call non-static memebers from static members directly?
+12) Will non-static variable get separate memory for each object?
+13) Will non-static method get separate memory for each object?
+14) What is a current object?
+15) Since method logic is shared by all objects, how can JVM retrieve object specific non-static members?
+16) What is this keyword?
+17) Who will place this keyword in calling non-static memebrs from other non-static members?
+18) Who does fill this keyword with current object reference?
+19) When we will use this keyword explicitly?
+    -> If there is any local variable or parameter defined in the current method with the same non-static variable name then compiler does not place this keyword. In this case developer must use this keyword explicitly to access non-static variable.
+
+20) Rules on this keyword :
+    1) We cannot use this keyword in static memebrs. Since it is non-static variable.
+    2) We cannot explicitly initialize it with either null(or) with object with object reference since final variable.
+21) What is the type of this keyword ?
+22) How many cases we can use this keyword ?
