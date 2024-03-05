@@ -1,0 +1,560 @@
+Flow of Execution
+______________________________
+static flow of execution
+___________________________________________________
+The Static Control Flow mechanism performs the following 3 steps in the exact chronological order: 
+
+  When class is loaded then:-
+
+* Identification of static members from top to bottom. All the static variables, methods, 
+  and  blocks are identified during this step.
+* Execution of static variable assignments and static blocks from top to bottom.
+* Finally, the static main method is executed in the last step of the static control flow.
+
+Static flow of execution in Inheritance concept
+____________________________________________________
+identification of static members from parent to child class. 
+Execution of static blocks and assignment of static variables from parent to the child class. 
+Execution of main method which is only inside the child class. 
+
+Que-1>
+____________
+What is static in Java?
+---------------------------------------------------------
+Que-2>
+____________
+How many static memebers are there in java ?
+---------------------------------------------------------
+Que-3>
+_____________
+Can we access static members if no instance of the class is constructed ?
+
+--------------------------------------------------------
+Que-4>
+______________
+What is the main use of static keyword in java?
+-------------------------------------------------------
+Que-5>
+______________
+Can we mark a local variable as static?
+-------------------------------------------------------
+Que-6>
+_____________
+public class A
+{
+   private int x = 10;
+   static int m1() {
+       int y = x;
+       return y;
+    }
+public static void main(String[] args) {
+     m1();
+   }
+}
+---------------------------------------------------------------------------
+Que- 7 >
+________________________
+public class Demo04 {
+	static int a = 10;
+	static {
+		System.out.println("1st static block executed");
+		System.out.println(a);
+	}
+	static int b = m1();
+
+	public static void main(String[] args) {
+		System.out.println("Main method started");
+		System.out.println(a);
+		System.out.println(b);
+		System.out.println(c);
+	}
+
+	static int m1() {
+		return 20;
+	}
+
+	static {
+		System.out.println("2nd static block");
+		System.out.println(a);
+		System.out.println(b);
+	}
+	static int c = 30;
+
+}
+-----------------------------------------------------------------------------
+Que-8>
+____________________
+public class Demo04 {
+	static int a = m1();
+	static {
+		System.out.println("1st static block executed");
+		System.out.println(a);
+	}
+	static int b = 20;
+
+	public static void main(String[] args) {
+		System.out.println("Main method started");
+		System.out.println(a);
+		System.out.println(b);
+		System.out.println(c);
+	}
+
+	static int m1() {
+		return 10;
+	}
+
+	static {
+		System.out.println("2nd static block");
+		System.out.println(a);
+		System.out.println(b);
+                System.out.println(c);
+	}
+	static int c = 30;
+
+}
+-----------------------------------------------------------------------
+Que-9>
+__________________
+public class Demo04 {
+	static int a = 10;
+	static {
+		System.out.println("1st static block executed");
+		System.out.println(a);
+	}
+	static int b = 20;
+
+	public static void main(String[] args) {
+		System.out.println("Main method started");
+		System.out.println(a);
+		System.out.println(b);
+		System.out.println(c);
+                m1();
+	}
+
+	static int m1() {
+		return 30;
+	}
+
+	static {
+		System.out.println("2nd static block");
+		System.out.println(a);
+		System.out.println(b);
+	}
+	static int c = m1();
+
+}
+--------------------------------------------------------------------------
+Que-10>
+___________________
+public class Demo04 {
+	static int a = 10;
+	static {
+		System.out.println("1st static block executed");
+		System.out.println(a);
+	}
+	static int b = 20;
+
+	public static void main(String[] args) {
+		System.out.println("Main method started");
+		System.out.println(a);
+		System.out.println(b);
+		System.out.println(c);
+	}
+
+	static void m1() {
+		System.out.println(a);
+		System.out.println(b);
+		System.out.println(c);
+	}
+
+	static {
+		System.out.println("2nd static block");
+		m1();
+	}
+	static int c = 30;
+
+}
+------------------------------------------------------------------------
+Que-11>
+_________________
+public class Demo04 {
+	static int a = 10;
+	static {
+		System.out.println("1st static block executed");
+		System.out.println(a);
+		
+	}
+	static int b = 20;
+
+	public static void main(String[] args) {
+		System.out.println("Main method started");
+		System.out.println(a);
+		System.out.println(b);
+		System.out.println(c);
+	}
+
+	static int m1() {
+		return 10;
+	}
+
+	static {
+		System.out.println("2nd static block");
+		System.out.println(a);
+		b=m1();
+	}
+	static int c = 30;
+
+}
+--------------------------------------------------------------------
+Que-12>
+______________________
+public class Demo04 {
+	static {
+		 m1();
+	}
+	public static void main(String[] args) {
+		System.out.println(a);
+	}
+	static int a=10;
+}
+-------------------------------------------------------------------
+Que-13>
+______________
+What will be the output of the following program?
+
+public class Myclass 
+{
+   static int a = 20;
+   static int b = 30;
+   static int c = 40;
+   Myclass() 
+  {
+      a = 200;
+   }
+static void m1() {
+      b = 300;
+}
+static {
+      c = 400;
+}
+public static void main(String[] args) {
+     System.out.println(a);
+     System.out.println(b);
+     System.out.println(c);
+   }
+}
+
+----------------------------------------------------------------------------
+Que-14>
+_______________
+What will be the output of the following code?
+
+public class Myclass {
+     static int a = 20;
+Myclass() {
+     a = 200;
+}
+public static void main(String[] args) {
+    new Myclass();
+    System.out.println(a);
+  }
+}
+-----------------------------------------------------------------------------
+Que-15>
+________________
+public class Myclass {
+  static int a = 20;
+ Myclass() {
+       a++;
+  }
+ void m1()  {
+       a++;
+       System.out.println(a);
+  }
+public static void main(String[] args) 
+{
+    Myclass obj = new Myclass();
+    Myclass obj2 = new Myclass();
+    Myclass obj3 = new Myclass();
+       obj3.m1();
+   }
+}
+
+---------------------------------------------------------------------------
+Que-16>
+_____________________
+What is the output of the following program code?
+
+public class Myclass {
+  static int a = 20;
+  static void m2() {
+        a++;
+   }
+public static void main(String[] args) {
+    System.out.println(a);
+  }
+}
+--------------------------------------------------------------------------
+Que-17>
+_____________________
+What is the use of static block in java?
+--------------------------------------------------------------------------
+Que-18>
+____________________
+Can we declare a static block inside a method?
+public class Demo04 {
+	
+	public static void main(String[] args) {
+		System.out.println(a);
+		static {
+		    System.out.println("hi");	 
+		}
+	}
+	static int a=10;
+}
+
+--------------------------------------------------------------------------
+Que-19>
+______________________
+public class StaticBlockExample {
+    // static block    
+    static
+    {
+        // static data member
+        int num = 10; 
+        System.out.println(num);
+    }
+
+    public static void main(String args[]) {
+        System.out.println("Alive is Awesome");
+    }
+}
+--------------------------------------------------------------------------
+Que-20>
+______________________
+class Demo04{
+	    static int a=10;
+	  static {
+		   System.out.println("Hello");
+		   main("\"From user define main method\"");
+	  }
+	 public static void main(String[] args) {
+		System.out.println("From pre define main method");
+		
+	}
+	  public static void main(String value) {
+		   System.out.println(value);
+	  }
+}
+------------------------------------------------------------------------
+Que-21>
+_______________________
+class Demo04{
+	    static int a=10;
+	  static {
+		   System.out.println("Hello");
+		   
+	  }
+	 public static void main(String[] value) {
+		System.out.println("From pre define main method");
+		String [] arr= {"sachin","mahi","chiku","Hitman"};
+		main(arr);
+		
+	}
+	  public static void main(String[] value1) {
+		   for(String champions: value1) {
+			    System.out.print(champions+" ");
+		   }
+	  }
+}
+-----------------------------------------------------------------------
+Que-22>
+_______________________
+class Demo05 {
+	static int a = 10;// -----------------1    a= 10
+	static { // ------------------------------------2
+		m1();
+		System.out.println("Parent class static block");// 2nd ans
+		System.out.println("from parent static block " + a);
+		System.out.println();
+	}
+
+	public static void main(String[] args) {// ----------------------3
+		m1();
+		System.out.println("Parent class main method");
+		System.out.println("---------------------");
+		System.out.println(a);
+		System.out.println(b);
+		System.out.println("---------------------");
+	}
+
+	public static void m1() {// --------------------------------------4
+		System.out.println("start from parent m1 method");// 1ans
+		System.out.println(a);// 10
+		System.out.println(b);// 0
+		System.out.println("end from the parent m1 method");
+		System.out.println();
+	}
+
+	static int b = 20;// ------------------------------------5  b=20
+}
+
+class Demo04 extends Demo05 {
+	static int c = 30;// -------------------------------6   c=30
+	static {//------------------------------------------------------------7
+		m2();
+		System.out.println("child class static block");
+		System.out.println("From the child class static block :" + c);
+		System.out.println();
+	}
+
+	public static void main(String[] args) {//-----------------------------------8
+		System.out.println("child class main method ");
+		m2();
+		System.out.println("______________________");
+		System.out.println(c);
+		System.out.println(d);
+		System.out.println("______________________");
+
+	}
+
+	public static void m2() {//---------------------------------------9
+		System.out.println("start from child m2 method");
+		System.out.println(c);
+		System.out.println(d);
+		System.out.println("end from child m2 method");
+		System.out.println();
+	}
+
+	static int d = 40;// ----------------------10    d=40
+}
+---------------------------------------------------------------------------
+Que-23>
+______________
+In the below program which one is valid and invalid 
+public class Sample02 {
+	private final static int a=10;
+	private static final int b=20;
+	final private static int c=30;
+	static final private int d=40;
+	static private final int e=50;
+	private static int final f=60;
+	
+	   a=30;
+	  static {
+		  System.out.println(a);
+		   a=20;
+		   a=70;
+	  }
+	  
+public static int getA() {
+		return a;
+	}
+
+	public static void setA(int a) {
+		Sample02.a = a;
+	}
+
+	public int getB() {
+		return b;
+	}
+
+	public void setB(int b) {
+		this.b = b;
+	}
+
+public static void main(String[] args) {
+	a=50;
+	a=60;
+	System.out.println(a);
+}
+}
+--------------------------------------------------------------------
+Que-24>
+______________
+public class Sample01 {
+	public static void m1(int a) {// a=0
+		 if(a==0)
+		 {
+			  return ;
+		 }
+		 System.out.println(a+1);
+		 m1(a-1);// m1(4)
+		 System.out.println(a+1);
+	}
+	public static void main(String[] args) {
+		Sample01.m1(5);
+	}
+}
+-------------------------------------------------------------------
+Que-24>
+___________________
+What is a static method in Java?
+
+Ans: When a method is declared with the keyword ‘static’, it is called static method in java.
+
+Que-25>
+____________________
+Why is a static method also called a class method?
+
+Ans: A static method is also called a class method because it ties to a class rather than an individual instance of a class. Therefore, we need not to create an object of the class to call and execute static method.
+
+Que-26>
+____________________
+Can we access static members (such as static variables and static methods) from an instance method?
+
+Ans: Yes, we can access static members from an instance method in java.
+
+Que-27
+____________________ 
+Is it possible to access instance members from a static method?
+
+Ans: No, it is not possible to access instance members like instance variable and instance method from a static method.
+
+Que-28>
+_____________________
+Can we have a static method in an interface?
+
+Ans: Yes, from Java 8 and onwards, the interface allows to define a static method with body.
+
+Que-29 
+_____________________
+Can we use this or super keyword in static method in Java?
+
+Ans: No, In the entire core java, this and super keywords are not allowed inside the static region.
+
+Que-30>
+_____________________
+Is it possible to overload static methods in a class?
+
+Ans: Yes, we can overload static methods but override them. This is because they are bound with class, not instance.
+
+Que-31>
+_____________________
+Is it possible to override static methods of a class?
+
+Ans: No, we cannot override static methods because static methods belong to a class, not individual objects, and are resolved at compile time by java compiler.
+
+Que-32>
+_____________________
+Can we override an instance method as static?
+
+Ans: No.
+
+Que-33>
+_____________________
+Why static block is executed before the main method in java?
+
+Que-34>
+_____________________
+Why static block is executed before the main method in java?
+
+Que-35>
+_____________________
+What is the use of static block in java?
+
+Ans: A static block can be used when
+
+we want to write that logic inside static block that is executed during the class loading.
+we want to change the default value of static variables.
+we want to initialize static variable of the class.

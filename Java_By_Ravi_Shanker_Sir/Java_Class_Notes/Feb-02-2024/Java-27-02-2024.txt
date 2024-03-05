@@ -1,0 +1,160 @@
+27-02-2024
+----------
+Bootstrap/Primordial class Loader :-
+------------------------------------
+It is responsible to load the required .class file from java API that means all the 
+predfined classes (provided by java software people) .class file will be loaded by 
+Bootstrap class loader.
+
+It is the super class of Extension class loader as well as It has the highest 
+priority among all the class loader.
+
+It will load the .class file from the following Path
+C-> Program files -> java -> jdk -> lib -> jrt-fs.jar
+
+Extension/Platform  class  Loader :-
+------------------------------------
+It is responsible to load the required .class files from ext (extension) folder. 
+Inside the extension folder we have  jar file(Java level zip file) given by some 
+third party or user defined jar file.
+
+It is the super class of Application class loader as well as It has more priority 
+than Application class loader.
+
+
+Note :- Command to create the jar file 
+
+        jar cf NIT.jar  FileName.class
+
+Here FileName.class will be placed inside the jar file.
+
+Application/System class Loader :-
+----------------------------------
+It is responsible to load the required .class file from class path level i.e Environment 
+variable. It has lowest priority as well as It is the sub class of Extension/Platform 
+class loader.
+
+
+How Delegation Hierarchy algorithm works :-
+-------------------------------------------
+Whenever JVM makes a request to class loader sub system to load the required .class file 
+into JVM memory, first of all, class loader sub system makes a request to Application class 
+loader, Application class loader will delegate(by pass) the request to the Extension class 
+loader, Extension class loader will also delegate the request to Bootstrap class loader.
+
+Bootstrap class loader will load the .class file from lib folder(jrt.jar) and then by pass 
+the request to extension class loader, Extension class loader will load the .class file 
+from ext folder(*.jar) and by pass the request to Application class loader, It will load 
+the .class file from environment variable into JVM memory. 
+
+Note :- 
+------
+If all the class loaders are failed to load the .class file into JVM memory then we will 
+get a Runtime exception i.e "java.lang.ClassNotFoundException".
+-----------------------------------------------------------------------------------------
+The following program explains that java.lang.Class can hold any .class file.
+
+package com.ravi.jvm_arch;
+
+
+class Player{}
+
+class Employee{}
+
+class Student{}
+
+public class DotClassHolder 
+{
+	public static void main(String[] args) 
+	{
+		Class cls = null;
+
+		cls = Player.class;
+		System.out.println(cls.getName());
+		
+		cls = Employee.class;
+		System.out.println(cls.getName());
+		
+		cls = Student.class;
+		System.out.println(cls.getName());
+		
+	}
+
+}
+-------------------------------------------------------------------------------------
+WAP in java that describes our user defined .class file is loaded by Applicatin class 
+loader.
+
+package com.ravi.jvm_arch;
+
+public class Demo 
+{
+	public static void main(String[] args) 
+	{
+		ClassLoader loader = Demo.class.getClassLoader();
+		System.out.println("Demo .class is loaded by :"+loader);
+	}
+}
+
+getClassLoader() is a predefined method of class called Class available in java.lang 
+package and it's return type is ClassLoader. 
+-------------------------------------------------------------------------------------
+WAP to show that Platform class loader is the super class for
+Application class loader.
+
+package com.ravi.jvm_arch;
+
+public class Demo 
+{
+	public static void main(String[] args) 
+	{
+		ClassLoader loader = Demo.class.getClassLoader();
+		System.out.println("Demo .class is loaded by :"+loader);      
+
+		//Application CL
+		
+		System.out.println("Super class for Application  CL is :"+loader.getParent()); //Platform CL
+		
+		System.out.println("Super class for Platform CL is :"+loader.getParent().getParent()); //null
+	}
+}
+
+Note :- For BootStrap CL, implementaion is not provided by java 
+        software people becuase it is for internal use.
+------------------------------------------------------------------------------------------------------------
+Linking :
+---------
+verify :-
+---------
+It ensures the correctness of the .class files, If any suspicious activity is there in the .
+class file then It will stop the execution immediately by throwing an exception i.e 
+java.lang.VerifyError.
+
+There is something called ByteCodeVerifier(Component of JVM), responsible to verify the 
+loaded .class file i.e byte code. Due to this verify module JAVA is highly secure language. 
+
+java.lang.VerifyError is the sub class of java.lang.linkageError
+--------------------------------------------------------------------------------------------------------------
+prepare: (static variable memory allocation + Initialization )
+--------
+It will allocate the memory for all the static data members, here all the static data 
+member will get the default values so if we have 
+static int x = 100;
+
+then for variable x  memory will be allocated and now it will initialize with default value i.e 0.
+---------------------------------------------------------------------------------------------------------------
+Resolve :-
+----------
+All the symbolic references will be converted to direct references or actual reference.
+
+javap -verbose  FileName.class
+
+Note :- By using above command we can read the internal details of .class file.
+----------------------------------------------------------------------------------------------------------------
+Initialization :-
+-----------------
+In Initialization, all the static data member will get their actual (Original) value as well as 
+if any static block is present in the class then the static block will start executing from here.
+
+
+

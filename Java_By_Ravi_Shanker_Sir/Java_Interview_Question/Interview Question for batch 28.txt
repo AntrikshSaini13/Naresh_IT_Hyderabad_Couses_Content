@@ -1,0 +1,102 @@
+Que- What are the modifiers ?
+     |- scopes of modifiers
+
+Que- how many data Type are there in java ?
+     |- Can you tell me the dataType in sequence.
+     |- Can you tell me that how many byte the each dataType will take.
+
+Que- What is static in java 
+     |- use of static 
+     |- advantange of static 
+     |- where we can write the static 
+     |- execution flow of static 
+     |- can we write static as local 
+     |- can we call static inside non static members 
+
+
+Que- What is non static in java 
+     |- use of non static 
+     |- advantange of non static 
+     |- where we can write the non static 
+     |- execution flow of non static 
+     |- can we write non static as local 
+     |- can we call non static inside non static members 
+
+Que- What is constructor 
+     |- How many type of constructor 
+     |- What is diff between default constructor and user define default constructor
+     |- can we write a empty class 
+        what will happen if we write the empty class 
+     |- if i provide any constructor in java does compiler provide any constructor 
+        by default 
+     |- how to check java lib through command prompt
+     |- how to compile the java through command prompt
+     |- how to run 
+     |- can we override the constructor
+     |- can we overload the constructor 
+     |- can we make the constructor as final 
+     |- can we make the constructor as static 
+
+Que- What is method overriding 
+     |- rules of method overriding while executing the program
+     |- can we override the method in same class 
+     |- can we override the method in different class 
+     |- Rules of modifiers while overriding 
+     |- can static method will override
+
+
+Que- What is method hiding 
+     |- rules of method hiding while executing the program
+     |- can we hide the method in same class 
+     |- can we hidde the method in different class 
+     |- Rules of modifiers while overriding 
+     |- can static method will override
+
+Que - What is overloading in java
+      |- rules of overloading 
+      |- how the method will execute while overloading
+      |- what is diff between list , type , order 
+      |- can we overload the method in same class 
+      |- can we overload the method in diff class 
+
+Que- What is polymorphism ?
+     
+Que- What is diffrence between this and super 
+
+Que- What is diffrence between this() and super()
+
+Que- can we write the multiple class in one file 
+     if we write what will be the  rule.
+
+Que- What is difference between equals() and == operator ?
+
+Que- What is diffrence between abstract class and interface ?
+
+Que- Can we write the constructor inside the abstract class?
+
+Que- What is diffrence between final ,finally , finalize ?
+
+Que- what are rules of the while creating the method ?
+
+Que- what are rules of the while creating the method ?
+
+Que- Write is class structure?
+
+Que- What is compilation unit?
+
+Que- What is diff between JRE ,JDK, JVM ?
+
+Que - What is classloader ? work of class loader
+       How many classloader ?
+      
+Que- What is class ?
+
+Que- What is Object ?
+
+Que -Drawback of new keyword ?
+ 
+
+
+
+
+

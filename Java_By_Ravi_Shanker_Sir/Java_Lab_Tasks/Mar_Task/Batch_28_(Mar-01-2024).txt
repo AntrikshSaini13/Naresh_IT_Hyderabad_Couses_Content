@@ -1,0 +1,437 @@
+Que 1) What will be the output of following program ?
+
+interface I1 {
+	default void m2() {
+		System.out.println("bye");
+	}
+
+	void m1();
+}
+
+@FunctionalInterface
+interface I2 extends I1 {
+	default void m2() {
+		System.out.println("hello");
+	}
+}
+
+public class Test{
+	public static void main(String[] args) {
+		I2 x = () -> System.out.println("hi");
+		x.m1();
+		x.m2();
+	}
+}
+
+
+A) hi 
+   bye
+
+B) Compilation Error
+
+C) hi
+   hello
+
+D) Runtime Error
+
+
+ANS : C 
+
+--------------------------------------------------------------------------------
+
+Que 2) What will the output of following code?
+
+11. public interface A111 {
+12. String s = "yo";
+13. public void method1();
+14. }
+17. interface B { }
+20. interface C extends A111, B {
+21. public void method1();
+22. public void method1(int x);
+23. } 
+
+What is the result?
+
+A) Compilation succeeds.
+B) Compilation fails due to multiple errors.
+C) Compilation fails due to an error only on line 20.
+D) Compilation fails due to an error only on line 21.
+E) Compilation fails due to an error only on line 22.
+
+ANS : A
+
+--------------------------------------------------------------------------------
+
+Que 3) What will the output of following program ?
+
+public class Test{
+public static void main(String[] args) {
+Predicate < Integer > grater = a -> a > 15;
+ Predicate < Integer > less = a -> a < 10;
+ boolean bool = grater.test(20);
+ boolean bool1 = less.test(5);
+ System.out.println(bool);
+ System.out.println(bool1); 
+}
+}
+
+A) no output
+
+B) true
+   true
+
+C) true
+   false
+
+D) true
+
+E) true
+   true
+
+ANS : E
+
+--------------------------------------------------------------------------------
+
+Que 4) : Is there any error in following code?
+
+@FunctionalInterface
+public interface NIT
+{
+String myInterface(String a);
+int hashCode();
+String toString();
+}
+
+A) The Code will compile
+B) The code will give Compilation error
+
+ANS : A
+
+--------------------------------------------------------------------------------
+
+Que 5) : What will the output of following program ?
+
+@FunctionalInterface
+interface NIT
+{
+String cal(String value);
+}
+public class FunctionalInterfaceExample
+{
+public static void main(String[] args) {
+NIT nit = (String value) -> 75+value;
+System.out.println(nit.cal("hi"+25));
+}
+}
+
+A) hi7525
+B) hi2527
+C) 75hi25
+D) hi100
+E) Non of above 
+
+ANS : C
+
+--------------------------------------------------------------------------------
+
+Que 6) : What will the output of following program ?
+
+@FunctionalInterface
+interface NIT
+{
+  public String nit(String name);
+}
+public class FunctionalInterfaceExample
+{
+public static void main(String[] args) {
+NIT nit = (String name) -> "Welcome to ";
+System.out.println(nit.nit("NARESHIT"));
+}
+}
+
+A) Welcome to NARESHIT
+B) NARESHIT Welcome to
+C) No output
+D) Compile time error
+E) Welcome to
+
+ANS : E
+
+--------------------------------------------------------------------------------
+
+Que 7) : What will the output of following program ?
+
+@FunctionalInterface
+interface Movie {
+String movieName();
+}
+public class TestMcq {
+public static void main(String[] args) {
+Movie m = () -> return "DDLJ";
+System.out.println(m.movieName());
+}
+}
+
+
+A. No output
+B. DDLJ
+C. ddlj
+D. Movie
+E. Compile time error
+
+
+ANS : E
+
+--------------------------------------------------------------------------------
+
+Que 8) : What will the output of following program ?
+
+@FunctionalInterface
+interface I
+{
+int myInterface(int a, int b);
+}
+public class TestMcq {
+public static void main(String[] args) {
+I i = (a, b) ->
+{
+int div = a/b;
+int addition = a+b;
+return addition;
+};
+i.myInterface(12, 3);
+}
+}
+
+A. 4
+B. 15
+C. 19
+D. No output
+E. Compile time error
+
+ANS : D
+
+--------------------------------------------------------------------------------
+
+Que 9) : What will the output of following program ?
+
+interface I1 {
+Object m1();
+}
+interface I2 {
+String m1( );
+}
+class A1 implements I1,I2 {
+@Override
+public Object m1() {
+System.out.println("m1");
+return new Object();
+}
+}
+public class TestMcq {
+public static void main(String[] args) {
+A1 a = new A1();
+a.m1();
+}
+}
+
+A. m1
+B. m1 A1@123a3e
+C. Compile time error
+D. Runtime Error
+
+ANS : C
+
+--------------------------------------------------------------------------------
+
+Que 10) : What will the output of following program ?
+
+class Example {
+int x;
+int y;
+public Example(int x, int y) {
+ this.x = x;
+ this.y = y;
+}
+}
+public class TestMcq {
+public static void main(String[] args) {
+Predicate < Example > p1 = (e)-> e.x < e.y;
+System.out.println(p1.test(new Example(1, 2)));
+Predicate < Example > p2 = (e)-> e.x > e.y;
+p2.test(new Example(1,2));
+}
+}
+
+A. true false
+B. true
+C. true true
+D. false
+E. No Output
+
+ANS : B
+-----------------------------------------------------------------
+Que 1) : Write a Java program to read a username and password from the user and check whether they are valid or not using lambda expression and functional interface.  
+         think and create your own interface,class and method required for this program.
+         NOTE : use equals() method to comapare username and password.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Que 2) : Write a java program to print N natural number using Consumer funtional interface.  
+         Example : input number = 7
+         Output : 1 2 3 4 5 6 7
+ 
+----------------------------------------------------------------------------------------------------------------------------------
+
+Que 3) : you are tasked with developing a simple calculator program in Java that allows users to perform basic arithmetic operations on two integers. 
+         However, you want to design the program in a way that promotes loose coupling and flexibility, allowing for easy extension with additional arithmetic operations in the future.
+
+         Creating the Operation Functional Interface:
+         You create a functional interface named Operation with an abstract method performOperation(int a, int b). 
+         This interface will serve as the blueprint for defining arithmetic operations.
+
+         Implementing the Calculator Class:
+         Next, you implement the Calculator class, which will perform arithmetic operations. 
+         It contains a method named operate that takes two integers and an Operation functional interface as arguments.
+         Inside this method, it invokes the performOperation method of the functional interface to execute the arithmetic operation.
+
+         Create Main Class(ELC):
+         In the Main class, you define the main method to serve as the entry point of the program. 
+         Here, you'll instantiate the Calculator class and perform arithmetic operations using different operations defined by lambda expressions.
+         Defining Arithmetic Operations using Lambda Expressions:
+         Using lambda expressions, you define different arithmetic operations (addition, subtraction, multiplication, division) as instances of the Operation functional interface.
+         Each lambda expression represents a specific arithmetic operation.
+         Perform Arithmetic Operations:
+         Use the operate method of the Calculator class to perform arithmetic operations by passing integers and the appropriate lambda expression representing the operation.
+         Output Results:
+         Print the results of each arithmetic operation performed by the Calculator class.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Que 4) : Create two user-defined functional interfaces:
+
+         Operation Interface:
+         A functional interface with the method perform(int a, int b) that returns an int.
+         The perform method should implement complex mathematical operations based on conditions.
+         Conditions:
+         If both a and b are greater than 0, return the sum of the squares of a and b.
+         If the above condition is not met, return the sum of a and b.
+
+         Greeting Interface:
+         A functional interface with the method greet(String name, int age) that returns void.
+         The greet method should implement intricate logic based on age and name length.
+         Conditions:
+         If the age is 18 or older, print a greeting indicating that the person is an adult.
+         If the length of the name is greater than 5 and the age is less than 18, print a greeting indicating that the person has a long name and is not an adult yet.
+         If none of the above conditions are met, print a suitable greeting.
+
+         In the main method:
+         Use an anonymous inner class to create an instance of the Operation interface with the implemented complex mathematical operations.
+         Use another anonymous inner class to create an instance of the Greeting interface with the implemented intricate logic based on age and name length.
+         Execute the complex mathematical operation with sample values (e.g., a = 4, b = 3) and print the result.
+         Execute the complex greeting logic with sample age and name values (e.g., age = 38, name = "Virat") and print the personalized message.
+
+      ------------------------------------------------------------
+      Que 1) : Write a Java program that uses the predefined BiFunction interface to return the concatination of two strings.
+         Example : String s1="java"
+                   String s2="programming"
+         Output : java programming
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Que 2) : Write a java program to check whether a given number is prime number or not, using Predicate functional interface.
+         Example : input number = 5
+         Output : true
+ 
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Que 3) : Define a user defined class, SensorData , with private attributes double temperature, double humidity. 
+         To initialize these develop one parameterised constructor and provide setters and getters.
+
+         Take main method in SensorData class and use Function(Predefined Functional interface) to analyse the temperature, 
+         which should take a SensorData instance as a parameter and use a functional interface to return the temperature and store and display the result. Double apply(SensorData Data).
+
+         Take one local variable double threshold with temperature 25.0.
+         Define a second lambda expression using Function<Double, Boolean> type, that takes a Double (temperature) as a parameter and returns true if the temperature is above a specified threshold (e.g., 25 degrees Celsius). 
+         Apply this function to check if the calculated temperature is above the given threshold and printf true or false as per return value.
+         Boolean apply(Double temperature);
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Que 4) : Create two user-defined functional interfaces:
+
+         BooleanOperation Interface:
+         A functional interface with the method evaluate(int a, int b) that returns a boolean.
+
+         logic to perform:
+         Return true if a is divisible by 3, b is divisible by 5, and the sum of a and b is an even number; otherwise, return false.
+
+         DoubleFunction Interface:
+         A functional interface with the method calculate(double x, double y) that returns a double.
+
+         logic to perform:
+         If x is positive, y is negative, and x is an even number, return x cubed divided by y (if y is not zero) or 1 (if y is zero).
+         If x is negative, y is positive, and y is an odd number, return the product of x, y, x, and y.
+         If none of the above scenarios are met, return the sum of x and y.
+
+         In the main method:
+         Use an anonymous inner class to create an instance of the BooleanOperation interface with the implemented  boolean logic.
+         Use another anonymous inner class to create an instance of the DoubleFunction interface with the implemented logic based on measurements.
+         Execute the boolean operation with sample values (e.g., a = 9, b = 15) and print the result.
+         Execute the double calculation with sample values (e.g., x = -6.0, y = 3.0) and print the calculated result.
+	 ---------------------------------------------------------
+	 Que 1) : Write a java program to print all factors of given number using Consumer functional interface.
+         Example : input number : 24 
+         Output : 1 2 3 4 6 8 12 24
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Que 2) : Write a Java program that uses the predefined BiFunction interface to return the sum of the lengths of two strings. 
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Que 3) : Create two user-defined functional interfaces:
+
+BooleanOperation Interface:
+A functional interface with the method evaluate(int a, int b) that returns a boolean.
+
+logic to perform:
+Return true if a is divisible by 3, b is divisible by 5, and the sum of a and b is an even number; otherwise, return false.
+
+DoubleFunction Interface:
+A functional interface with the method calculate(double x, double y) that returns a double.
+
+logic to perform:
+If x is positive, y is negative, and x is an even number, return x cubed divided by y (if y is not zero) or 1 (if y is zero).
+If x is negative, y is positive, and y is an odd number, return the product of x, y, x, and y.
+If none of the above scenarios are met, return the sum of x and y.
+
+In the main method:
+Use an anonymous inner class to create an instance of the BooleanOperation interface with the implemented  boolean logic.
+Use another anonymous inner class to create an instance of the DoubleFunction interface with the implemented logic based on measurements.
+Execute the boolean operation with sample values (e.g., a = 9, b = 15) and print the result.
+Execute the double calculation with sample values (e.g., x = -6.0, y = 3.0) and print the calculated result.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Que 4) : Create two new functional interfaces, NumberChecker and CharChecker.
+
+NumberChecker Interface:
+Functional Interface with a method checkNumber that takes an int parameter and returns a boolean.
+
+CharChecker Interface:
+Functional Interface with a method checkChar that takes a char parameter and returns void.
+
+Main class:
+Create an anonymous inner class to implement the checkNumber method in the NumberChecker interface. This method should determine whether a given integer is prime.
+
+Create another anonymous inner class to implement the checkChar method in the CharChecker interface. This method should check if the ASCII value of a given character is prime.
+
+Introduce a static method named isPrime in the Main class to handle the prime checking logic for both numbers and ASCII values. This method should take an int parameter and return a boolean.
+
+In the main method:
+Create an instance of the NumberChecker interface using an anonymous inner class and execute the checkNumber method with a sample integer value (e.g., 7). Print the result.
+Create an instance of the CharChecker interface using an anonymous inner class and execute the checkChar method with a sample character (e.g., 'A'). Print the result.
+

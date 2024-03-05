@@ -1,0 +1,108 @@
+* Que- What is method overloading ?
+ *     |- Redefining same method name with 
+ *        diff
+ *        > Type 
+ *        > list 
+ *        > order 
+ *        is known as method overloading.  
+ *            
+ * Que- What will  be the conditions of the user so that
+ *      they will use method overloading ?
+ *      
+ *      
+ * Que- Why should be overload method with
+ *      same name why should not with other name?     
+ *      
+ *  |- It give benefits to user programmer .The complexity 
+ *     in invoking methods will be removed,because the user 
+ *     programmer  no need to remember multiple method 
+ *     name and because of single name with multiple methods
+ *     user programmer will get a comfortable felling that he/she
+ *     call single.
+ *      
+ * Que- which overload method will execute in 
+ *      the term of execution process ?
+ * 
+ * QUe- advantage of overloading?
+ * 
+ * Que- Any real time Api / programming 
+ *      example of overloading ?
+ *      |- deposite()
+ *      |- deposite(cheque)
+ *      |- deposite(DD)
+ *      
+ *      |- loans(Home loans)
+ *      |- loans(Education loans)
+ *      |- loans ( Gold loans)
+ *     
+ *      
+ *      
+ *      Execution flow of Overloading method?
+ *      
+ *      |- Execution always depends on parameter 
+ *         |- If the parameter matched it will
+ *            execute from that placed.
+ *            |- If parameter not matched it will 
+ *               check 
+ *               1.Widening( if this is not there then )
+ *                           2.Autoboxing(if this is not there then)
+ *                              3. var args
+ *      |- If any thing will not matched then it will 
+ *         throw compile time error. 
+ *            
+ *      
+ *      
+ *      
+ *      
+ *      
+ * Que- Execution process?
+ * 
+ */
+
+class Flipkart{
+	public void Mobile(String iphone) {
+		 
+	}
+	
+	public void Mobile(int sumsung) {
+		 
+	}
+	
+	public void Mobile(float onePlus) {
+		 
+	}
+	
+	
+}
+
+class A005{
+	 void m1() {
+		  System.out.println("Zero param method");
+	 }
+	 void m1(int a) {
+		 System.out.println("Int param method"); 
+	 }
+	 void m1(float f) { 
+		 System.out.println("flaot param method");
+	 }
+	 
+	 void m1(int a,float f) {
+		 System.out.println("int and float");
+	 }
+	 void m1(float f,int a) {
+		  System.out.println("float and int");
+	 }
+}
+public class Program01 {
+	public static void main(String[] args) {
+	System.out.println("hello");
+	System.out.println(1.5f);
+	
+ A005 a=new  A005();
+ a.m1();
+ a.m1(1);
+ a.m1(3.5f);
+ 
+   
+}
+}

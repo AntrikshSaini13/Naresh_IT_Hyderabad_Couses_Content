@@ -1,0 +1,81 @@
+Program 01
+----------
+Create a class Person with instance variables name and age. Implement an instance block that prints "Person instance created".
+
+ Implement a parameterized constructor that sets the instance variables name and age. Implement an instance method introduce()
+
+ that prints "Hi, my name is {name} and I'm {age} years old". Create two Person objects and call the introduce() method on them.
+
+
+
+Expected Output:
+
+Person instance created
+
+Hi, my name is Naresh and I'm 23 years old
+
+Person instance created
+
+Hi, my name is Suresh and I'm 25 years old
+
+--------------------------------------------------------------------------
+Program 02 :
+------------
+Create a class Rectangle with instance variables width and height. Implement an instance block that initializes
+
+ the instance variables to 0. Implement a parameterized constructor that sets the instance variables width and height.
+
+ Implement an instance method getArea() that returns the area of the rectangle. Implement another instance method getPerimeter()
+
+ that returns the perimeter of the rectangle. Create a Rectangle object with width 5 and height 10 and call
+
+ the getArea() and getPerimeter() methods on it.
+
+
+
+Expected output:
+
+Area of a Rectangle = 50.0
+
+Perimeter of a Rectangle = 30.0
+--------------------------------------------------------------------------
+Program 03 :
+------------
+Create a class BankAccount with instance variables balance and interestRate. Implement an instance block that initializes
+
+ the instance variable interestRate to 0.01. Implement a parameterized constructor that sets the instance variable balance.
+
+ Implement an instance method deposit(amount) that adds amount to the balance. Implement another instance method withdraw(amount)
+
+ that subtracts amount from the balance. Implement an instance method calculateInterest() that returns
+
+ the interest earned on the balance based on the interestRate. Create a BankAccount object with a balance of 1000 and call the
+
+ deposit(), withdraw(), and calculateInterest() methods on it.
+
+Expected output:
+
+Balance amount after deposit of 2500.0 rupees in the bank account is = 3500.0
+
+Balance amount after withdraw of 387.0 rupees from the bank account is = 3113.0
+
+Interest earned on balance amount is = 31.13
+--------------------------------------------------------------------------
+Program 04 :
+------------
+Create a class Car with instance variables make, model, and year. Implement an instance block that initializes the instance variables to empty strings and 0 for year. Implement a parameterized constructor that sets the instance variables make, model,
+
+ and year. Implement an instance method getDescription() that returns a string with the format "{make} {model} ({year})".
+
+ Create a Car object with make "Kia", model "Seltos", and year 2024 and call the getDescription() method on it.
+
+ 
+
+Expected output:
+
+
+
+  Kia Seltos 2024
+
+ 
+ 

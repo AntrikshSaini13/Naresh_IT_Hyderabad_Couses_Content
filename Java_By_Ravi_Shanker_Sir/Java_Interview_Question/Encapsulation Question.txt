@@ -1,0 +1,197 @@
+1. What is Encapsulation in Java? Why is it called Data hiding?
+______________________________________________________________________________________________
+
+2. What are the important features of Encapsulation?
+ 
+|-Encapsulation means combining the data of our application and its manipulation in one place.
+  It allows the state of an object to be accessed and modified through behavior. 
+  It reduces the coupling of modules and increases the cohesion inside them.
+_____________________________________________________________________________________________
+
+3. What is the advantage of Encapsulation?
+_____________________________________________________________________________________________
+4. What are the main benefits of using encapsulation in Java?
+_____________________________________________________________________________________________
+5. How to achieve encapsulation in Java? Give an example.
+______________________________________________________________________________________________
+
+6. What is data hiding in Java?
+______________________________________________________________________________________________
+7. How to achieve Data hiding programmatically?
+______________________________________________________________________________________________
+
+8. What is a Tightly encapsulated class in Java?
+______________________________________________________________________________________________
+9. What is the difference between Abstraction and Encapsulation?
+______________________________________________________________________________________________
+10. Can we achieve abstraction without encapsulation in Java?
+_______________________________________________________________________________________________
+11. What are getter and setter methods in Java?
+    |- This method is known as mutator method.
+_______________________________________________________________________________________________
+12. Does reflection violates encapsulation in Java?
+_______________________________________________________________________________________________
+13. Explain design pattern based on encapsulation in java?
+    |- Factory design pattern 
+_______________________________________________________________________________________________
+14. How can the variable of the EncapsulationTest be accessed by 
+    using getter and setter methods?
+_______________________________________________________________________________________________
+15.What is a final class as it relates to encapsulation?
+_______________________________________________________________________________________________
+16.What is a tightly encapsulated class?
+_______________________________________________________________________________________________
+17.While doing the concept of ecapsulation have you faced any drawback?
+   if yes then what is the solution ?
+______________________________________________________________________________________________
+18. Encapsulation program with the proper validation ?
+
+->/* 
+ *  Combination of class members and methods
+ *  as one unit is known as encapsulation 
+ *  by writing the proper validation.
+ * 
+ */
+class Student{
+	 private int studentId;
+	 private String studentName;
+	 
+	public Student() {
+		super();
+	}
+
+	public Student(int studentId, String studentName) {
+		super();
+		this.studentId = studentId;
+		this.studentName = studentName;
+	}
+	
+	public int getStudentId() {
+		return studentId;
+	}
+
+	public void setStudentId(int studentId) {
+		if(studentId<=0) {
+			 System.err.println("Invalid Input");
+		}
+		else {
+		this.studentId = studentId;
+		}
+	}
+
+	public String getStudentName() {
+		return studentName;
+	}
+
+	public void setStudentName(String studentName) {
+		if(studentName.isEmpty()|| studentName.length()>=10) {
+			 System.err.println("Invalid Input");
+		}
+		else {
+		this.studentName = studentName;
+		}
+	}
+
+	@Override
+	public String toString() {
+		return "Student [studentId=" + studentId + ", studentName=" + studentName + "]";
+	}
+	 
+}
+public class Program03 {
+public static void main(String[] args) {
+	Student s=new Student();
+	s.setStudentId(1);
+	s.setStudentName("abcdefghijklmn");
+	System.out.println(s.getStudentId()+" "+s.getStudentName());
+	
+	
+}
+}
+_________________________________________________________________________________________
+Encapsulation Program with method chaining ?
+
+class Employee{
+	 private String name;
+	 private int id;
+	 private String address;
+	 private double salary;
+	 
+	public Employee() {
+		super();
+	}
+
+	public Employee(String name, int id, String address, double salary) {
+		super();
+		this.name = name;
+		this.id = id;
+		this.address = address;
+		this.salary = salary;
+	}
+
+	
+	public String getName() {
+		return name;
+	}
+
+	public Employee setName(String name) {
+		this.name = name;
+		return this;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public Employee setId(int id) {
+		this.id = id;
+		return this;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public Employee setAddress(String address) {
+		this.address = address;
+		return this;
+	}
+
+	public double getSalary() {
+		return salary;
+	}
+
+	public Employee setSalary(double salary) {
+		this.salary = salary;
+		return this;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [name=" + name + ", id=" + id + ", address=" + address + ", salary=" + salary + "]";
+	}
+	
+	public void displayDetails() {
+		 System.out.println("Employee [name=" + name + ", id=" + id + ", address=" 
+	     + address + ", salary=" + salary + "]");
+	}
+	 
+}
+public class Test01 {
+public static void main(String[] args) {
+	Employee e=new Employee();
+	/*e.setId(1);
+	e.setName("abc");
+	e.setAddress("hyd");
+	e.setSalary(50000);
+	e.displayDetails();*/
+	
+	e.setName("virat")
+	         .setId(2)
+	             .setAddress("hyd")
+	                   .setSalary(50000)
+	                           .displayDetails();
+		
+	
+}
+}

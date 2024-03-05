@@ -1,0 +1,264 @@
+28-02-2024
+-----------
+Static Block in Java :
+-----------------------
+It is a very special block which will be automatically executed at the time of loading 
+the .class file into JVM memory.
+
+Example :
+static
+{
+}
+
+Static blocks are executed only once because class loading is possible only once.
+
+The main purpose of static block to initialize the static data member of the class 
+so it is also known static initializer.
+
+A blank static final variable can also be initialized through static block only.
+
+If a class contains multiple static blocks then it will be executed according to 
+the order.
+
+Automatically static block will not be executed everytime, whenever class will be 
+loaded (user request) then only static block will be executed.
+
+static block will be executed before main method or any static method.
+
+The compiler will generate illegal forward reference, if a user try to access the 
+static variable value from static block without declaration.
+
+[Without declaration of static variable, we can initialize the static variable inside 
+static block (because memory is already allocated in the prepare phase) but accessing 
+of static variable is not possible]
+-----------------------------------------------------------------
+//static block
+class Foo
+{	
+	Foo()
+	{
+		System.out.println("No Argument constructor..");
+	}
+
+	{
+		System.out.println("Instance block..");
+	}
+
+	static
+	{
+		System.out.println("Static block...");
+	}
+}
+public class StaticBlockDemo   
+{
+	public static void main(String [] args)
+	{ 		
+		System.out.println("Main Method Executed ");				
+	}
+}
+
+Note :- In the above program static block will not be executed becuase Foo.class file 
+is not loaded into JVM Memory.
+----------------------------------------------------------------
+class Test
+{
+	static int x;
+
+	static
+	{
+		x = 100;
+		System.out.println("x value is :"+x);
+	}
+	
+	static
+	{
+		x = 200;
+		System.out.println("x value is :"+x);
+	}
+
+	static 
+	{
+		x = 300;
+		System.out.println("x value is :"+x);
+	}
+
+	
+}
+public class StaticBlockDemo1   
+{
+	public static void main(String[] args) 
+	{
+		System.out.println(Test.x);
+	}
+}
+
+Note :- static blocks are executed according to the order.
+-----------------------------------------------------------------
+class Foo
+{	
+	static int x;
+
+    	static
+	{		
+		System.out.println("x value is :"+x);
+	}	
+}
+
+public class StaticBlockDemo2 
+{
+	public static void main(String[] args) 
+	{
+		 new Foo();
+	}
+}
+
+Note :- static variables are also initialized with default value.
+-----------------------------------------------------------------
+class Demo
+{
+	
+	final static int a ;	//Blank final variable
+
+	static
+	{	
+		a = 100;
+		System.out.println(a); 
+	}
+}	
+public class  StaticBlockDemo3
+{
+	public static void main(String[] args) 
+		{		
+	         System.out.println("a value is :"+Demo.a);		
+	    }
+}
+
+Note :- blank final variable must be initialized through static 
+        block only.
+----------------------------------------------------------------
+Interview Quaestion :
+----------------------
+//AD  BC  EF
+class  A         
+{
+	static 
+	{
+		System.out.println("A");
+	}
+
+	 
+	{
+		System.out.println("B");
+	}
+
+	A() 
+	{		
+		System.out.println("C");
+	}
+}
+class B extends A
+{
+	static 
+	{
+		System.out.println("D");
+	}
+
+	 
+	{
+		System.out.println("E");
+	}
+
+	B() 
+	{		
+		System.out.println("F");
+	}
+
+}
+public class StaticBlockDemo4 
+{
+	public static void main(String[] args) 
+	{
+		new B();
+	}
+}
+-----------------------------------------------------------------
+//illegal forward reference
+
+class Demo 
+{	
+    static 
+	{   
+		i = 100;
+		
+	}
+
+    static int i;
+}
+
+public class StaticBlockDemo5
+{
+
+    public static void main(String[] args) 
+	{
+        System.out.println(Demo.i);
+	}
+}
+
+Note :- In the prepare phase, static variable memory is already 
+        allocated so initialization is possible.
+-----------------------------------------------------------------
+class Demo 
+{
+    static 
+	{   
+		i = 100; //Initialization is possible
+		System.out.println(i); //Invalid Illegal Forward Reference
+    }
+
+    static int i;
+}
+
+public class StaticBlockDemo6
+{
+
+    public static void main(String[] args) 
+	{
+		System.out.println(Demo.i);
+	}
+}
+
+Note :- Without declaration of static variable, it is not possible to perform any 
+kind of read/access operation otherwise 
+we will get Illegal forward reference.
+-----------------------------------------------------------------
+class StaticBlockDemo7 
+{
+	static 
+	{
+      System.out.println("Static Block");
+	}
+
+	public static void main(String[] args) 
+	{
+		System.out.println("Main Method");
+	}
+}
+-----------------------------------------------------------------
+Can we execute a Java program without main method ?
+---------------------------------------------------------------
+ We can't execute a java program without main method, Upto jdk 1.6 it was possible to execute 
+a java program without main method by writing the static block. 
+ 
+ From JDK 1.7 onwards now we can't execute java program without main method because JVM 
+verifies the presence of the main method before initializing the class.
+
+Eg:-
+class WithoutMain
+{
+        static
+	{
+	System.out.println("Hello world");
+	System.exit(0);
+	}
+}
+The above program was possible to execute upto JDK 1.6.

@@ -1,0 +1,83 @@
+Que-1) Write a program in java to print all unique elements in an array.
+Print all unique elements of an array: 
+------------------------------------------ 
+Input the number of elements to be stored in the array: 4 
+Input 4 elements in the array : 
+element - 0 : 3 
+element - 1 : 2 
+element - 2 : 2 
+element - 3 : 5 
+
+Expected Output : 
+The unique elements found in the array are: 
+3 5 
+______________________________________________________________________________________ 
+ 
+Que-2) Write a program in java to merge two arrays of same size sorted in decending order. 
+Test Data : 
+Input the number of elements to be stored in the first array :3 
+Input 3 elements in the array : 
+element - 0 : 1 
+element - 1 : 2 
+element - 2 : 3 
+Input the number of elements to be stored in the second array :3 
+Input 3 elements in the array : 
+element - 0 : 1 
+element - 1 : 2 
+element - 2 : 3 
+Expected Output : 
+The merged array in decending order is : 
+3 3 2 2 1 1 
+________________________________________________________________________________________ 
+Que-3) Write a program in java to count the frequency of each element of an array. 
+Test Data : 
+Input the number of elements to be stored in the array :3 
+Input 3 elements in the array : 
+element - 0 : 25 
+element - 1 : 12 
+element - 2 : 43 
+Expected Output : 
+The frequency of all elements of an array : 
+25 occurs 1 times 
+12 occurs 1 times 
+43 occurs 1 times 
+__________________________________________________________________________________________ 
+ 
+Que-4 Write a program in java to find the maximum and minimum element in an array. 
+Test Data : 
+Input the number of elements to be stored in the array :3 
+Input 3 elements in the array : 
+element - 0 : 45 
+element - 1 : 25 
+element - 2 : 21 
+Expected Output : 
+Maximum element is : 45 
+Minimum element is : 21 
+__________________________________________________________________________________________ 
+ 
+Que-5 Write a program in java to separate odd and even integers in separate arrays.
+Test Data : 
+Input the number of elements to be stored in the array :5 
+Input 5 elements in the array : 
+element - 0 : 25 
+element - 1 : 47 
+element - 2 : 42 
+element - 3 : 56 
+element - 4 : 32 
+Expected Output : 
+The Even elements are : 
+42 56 32 
+The Odd elements are : 
+25 47
+_________________________________________________________________________________________
+Que-6
+Write a program in java to find the nth min and nth max number from the unsorted array ?
+[ Write two seperate program for the finding nth min and nth max but the code should be of same type]
+
+Input as : [ 5,1,7,2,4,3]
+nth max=3
+nth min=4
+
+Output as :
+nth max number is 4
+nth min number is 4

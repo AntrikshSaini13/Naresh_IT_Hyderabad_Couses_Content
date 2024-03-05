@@ -10,6 +10,6 @@ public class Elc{
         System.out.println("Enter the Number");
         int num = sc.nextInt();
         
-        System.out.print("Sum of Natural number is :"+SumOfNaturalNum.getSumOfNaturalNum(num));;
+        System.out.print("Sum of Natural number is :");
     }
 }

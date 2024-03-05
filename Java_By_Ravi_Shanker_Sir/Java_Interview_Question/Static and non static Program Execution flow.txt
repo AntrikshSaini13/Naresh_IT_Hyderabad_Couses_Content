@@ -1,0 +1,557 @@
+FLOW 1:-
+----------------------------
+static flow of execution
+___________________________________________________
+The Static Control Flow mechanism performs the following 3 steps in the exact chronological order: 
+
+  When class is loaded then:-
+
+* Identification of static members from top to bottom. All the static variables, methods, 
+  and  blocks are identified during this step.
+* Execution of static variable assignments and static blocks from top to bottom.
+* Finally, the static main method is executed in the last step of the static control flow.
+
+FLOW 2:-
+---------------------------
+Instance flow of execution
+______________________________________________________
+
+The Instance Control Flow mechanism performs the following 3 steps in the exact chronological order: 
+  When Object is created then:-
+
+* Identification of non static members from top to bottom. All the non static variables, methods, 
+  and blocks and constructor are identified during this step.
+* Execution of non static variable assignments and non static blocks from top to bottom.
+* Finally, the cosntructor is executed in the last step of the non static control flow.
+
+
+If both static and Non static members are in same program then flow of execution is
+__________________________________________________________
+Above all the flow will take place in the order like 
+
+Flow 1 will take place 
+after that Flow 2 will take place
+
+
+If both static and Non static members are in same program and also inheritance concept is there then flow of execution is:-
+___________________________________________________________
+When class is loaded
+
+Identification of static members from parent to child class. 
+Execution of static blocks and assignment of static variables from parent to the child class. 
+Execution of statement that invoked the static control flow. 
+
+when Obect is created
+
+Identification of non static members from parent to child class. 
+Execution of non static blocks and assignment of non static variables from in parent class only. 
+Constructor executed from parent.
+Execution of non static blocks and assignment of non static variables from in child class only. 
+Constructor executed from child.
+
+
+* If both class having the main method then only child class main method is executed. 
+_________________________________________________________________________________________________________
+
+
+Programs of NSM
+________________________________________________
+1.what is the output of following code?
+class Test {
+	int a ; 
+	Test(){
+		System.out.println("Constructor");
+}
+
+{
+System.out.println("Non-static block");
+}
+
+ public static void main(String[] args) {
+		System.out.println("main method");
+		new Test(); 
+	}
+}
+--------------------------------------------------------------
+
+
+2.what is the output of following code?
+class Test {
+	public static void main(String[] args) {
+	Test t=new Test();
+		t.fun(); 
+	}
+void fun()
+	{
+System.out.println("User method...");
+	}
+}
+--------------------------------------------------------------.
+
+
+3.what is the output of following code?
+
+class Test {
+	public static void main(String[] args) {
+		new Test(); 
+	}
+	Test()
+	{
+		System.out.println("Constructor");
+	}
+}
+--------------------------------------------------------------
+
+
+4.what is the output of following code?
+
+class Test 
+{
+	Test()
+	{
+		System.out.println("Object initialization process....");
+	}
+ 
+	{
+		System.out.println("Object creation process....");
+	}
+ 
+	public static void main(String[] args) 
+	{
+		new Test(); 
+		new Test();
+		new Test();
+	}
+}
+--------------------------------------------------------------
+5.what is the output of following code?
+
+public class Test 
+{
+
+	static
+	{
+		System.out.println("static block is executed"); 
+	}
+ 
+	{
+		System.out.println(this); 
+		System.out.println(“Non-static block is executed”);
+	}
+	public static void main(String[] args) {
+		System.out.println(“main”);
+	}
+}
+--------------------------------------------------------------
+
+6.what is the output of following code?
+package com.nt.nsm;
+class Test 
+{
+	Test( ) 
+	{
+		System.out.println(this);
+		System.out.println(this.hashCode());
+	}
+	public static void main(String args[ ])
+	{
+		new Test( );
+	}
+}
+--------------------------------------------------------------
+
+
+7.what is the output of following code?
+
+class Test 
+{
+	int a ;
+	public static void main(String args[ ])
+	{
+		new Test();
+	}
+	{
+		System.out.println(this.a);
+		this.a = 100 ;
+	}
+	Test()
+	{
+		System.out.println(this.a);
+	}
+}
+--------------------------------------------------------------	
+
+8.what is the output of following code?
+package com.nt.nsm;
+class Test 
+{
+	Test( ) 
+	{
+		System.out.println("Object address inside constructor : "+this);
+	}
+	public static void main(String args[ ])
+	{
+		Test obj = new Test();
+		System.out.println("Object address inside main : "+obj);
+	}
+}
+--------------------------------------------------------------
+
+9.what is the output of following code?
+
+class Employee 
+{
+	int eno ;
+	String ename ;
+	float esal ;
+	public static void main(String[] args) 
+	{
+		Employee e = new Employee();
+		System.out.println("Eno : "+e.eno);
+		System.out.println("Ename : "+e.ename);
+		System.out.println("Esal : "+e.esal);
+	}
+}
+--------------------------------------------------------------
+
+10.what is the output of following code?
+
+class Test {
+	int a;
+		{
+		Test obj = new Test();  
+		System.out.println(a);
+	}
+	public static void main(String[] args) {
+		Test obj=new Test();
+		System.out.println(obj); 
+	}
+}
+--------------------------------------------------------------
+11.what is the output of following code?
+
+class Laptop
+{
+	void access()
+	{
+		System.out.println("Copy java soft copies....");
+	}
+}
+class Faculty
+{
+	static Laptop password = new Laptop();
+}
+class Student 
+{
+	public static void main(String[] args) 
+	{
+		Faculty.password.access();
+	}
+}
+--------------------------------------------------------------
+
+12.write a java program how many objects can be created for a class?
+
+class Example
+{
+	int x=10;
+	int y=20;
+	
+	public static void main(String[] args)
+	{
+		Example e1=new Example();
+		Example e2=new Example();
+		System.out.println(e1.x+"...."+e1.y);
+		System.out.println(e2.x+"...."+e2.y);
+	}
+}
+--------------------------------------------------------------
+
+13.write a java program creating multiple objects and modifying their values?
+
+
+class Example
+{
+	int a=10;
+	int b=20;
+	
+	public static void main(String[] args)
+	{
+		Example e1=new Example();
+		Example e2=new Example();
+		System.out.println(e1.a+"...."+e1.b);
+		System.out.println(e2.a+"...."+e2.b);
+		
+		e1.a=50;
+		e2.b=60;
+		System.out.println(e2.a+"...."+e2.b);
+		System.out.println(e2.a+"...."+e2.b);	
+	}
+}
+--------------------------------------------------------------
+
+14.write a java program to show overriding toString() method to print object data?
+
+class Example
+{
+	int eid;
+	String ename;
+	String company;
+	
+	public String toString(){
+	return "eid:"+eid+"\n"+"ename:"+ename+"\n"+"company:"+company+"\n";
+	}
+	public static void main(String[] args)
+	{
+		Example e1=new Example();
+		e1.eid=7279;
+		e1.ename="Sreenivas";
+		e1.company="Naresh IT";
+		System.out.println(e1);
+	}
+}
+--------------------------------------------------------------
+
+15.writw a java program shows creating class with static and non-static variables and their 
+  modifications?
+
+class Example
+{
+	static int a=10;
+	static int b=20;
+
+	int x=30;
+	int y=40;
+
+	public static void main(String[] args)
+	{
+		Example e1=new Example();
+		Example e2=new Example();
+
+		Example e3=null;
+
+		e1.a=50;
+		e1.b=60;
+
+		e1.x=70;
+		e1.y=80;
+	}
+}
+--------------------------------------------------------------
+
+16.write a java program can we create object without having non-static variable in the    
+class?
+
+class Test
+{
+	void m1(){
+	System.out.println("m1() method");
+	}
+
+	public static void main(String[] args)
+	{
+		System.out .println("main method");
+		Test t=new Test();
+		t.m1();
+	}
+
+}
+--------------------------------------------------------------
+
+
+17.write a java program to modifying current and argument objects in the single mathod?
+
+class Test
+{
+	int x;
+	int y;
+
+	void m1(Test t){
+	
+	x=x+1;
+	y=y+2;
+
+	t.x=t.x+3;
+	t.y=t.y+4;
+	}
+
+	public static void main(String[] args)
+	{
+		Test t1=new Test();
+		Test t2=new Test();
+
+		t1.m1(t2);
+		System.out.println(t1.x+"...."+t1.y);
+		System.out.println(t2.x+"...."+t2.y);
+
+		t2.m1(t1);
+		System.out.println(t1.x+"...."+t1.y);
+		System.out.println(t2.x+"...."+t2.y);
+
+		t1.m1(t1);
+		System.out.println(t1.x+"...."+t1.y);
+		System.out.println(t2.x+"...."+t2.y);
+
+		t2.m1(t2);
+		System.out.println(t1.x+"...."+t1.y);
+		System.out.println(t2.x+"...."+t2.y);
+	}
+}
+--------------------------------------------------------------
+
+
+18.write a java program to calling method by passing object reference?
+package com.nt.nsm;
+class Test
+{
+	int x;
+	int y;
+
+	void m1(Test t){
+	System.out.println("\t t:"+t);	
+	t=new Test();
+	System.out.println("\t t:"+t);	
+	
+	}
+
+	public static void main(String[] args)
+	{
+		Test t1=new Test();
+		Test t2=new Test();
+		
+		System.out.println("t2:"+t2);	
+		t1.m1(t2);
+		System.out.println("t2:"+t2);
+	}
+}
+--------------------------------------------------------------
+
+
+19.write a Java program to demonstrate non-static variables ?
+
+class Test 
+{ 
+  
+    int a = 10; 
+  
+    public static void main(String[] args) 
+    { 
+        
+        Test t = new Test(); 
+  
+        System.out.println("Non static variable"+ " accessed using instance"
+                           + " of a class"); 
+        System.out.println("Non Static variable "+ t.a); 
+    } 
+} 
+--------------------------------------------------------------
+
+20.write a java program to print return value of the method?
+
+class Test
+{
+	int m1()
+	{
+		System.out.println("m1 method");
+		return 10;
+	}
+
+	void m2()
+	{
+		System.out.println("m2 method");
+	}
+
+	public static void main(String[] args)
+	{
+		Test t=new Test();
+		int x=t.m1();
+		System.out.println("return value="+x);
+		System.out.println("return value="+t.m1());
+		t.m2();
+			}
+}
+--------------------------------------------------------------
+
+21.write a java program conversion of local variables to instance variables to improve the   
+ scope of the variable using without this keyword?
+
+class Test
+{
+	int val1;
+	int val2;
+	void values(int val1, int val2)
+	{
+		System.out.println(val1);
+		System.out.println(val2);
+		int a=val1;
+		int b=val2;
+	}
+	void add()
+	{
+		System.out.println(val1+val2);
+	}
+	void mul()
+	{
+		System.out.println(val1*val2);
+	}
+	
+	public static void main(String[] args)
+	{
+		Test t=new Test();
+		t.values(10,20);
+		t.add();
+		t.mul();
+	}
+}
+--------------------------------------------------------------
+
+
+22.what is the output of below program?
+public class ShadowTest 
+{
+    public int x = 0;
+    class FirstLevel {
+        public int x = 1;
+
+        void methodInFirstLevel(int x) {
+            System.out.println("x = " + x);
+            System.out.println("this.x = " + this.x);
+            System.out.println("ShadowTest.this.x = " + ShadowTest.this.x);
+        }
+    }
+    public static void main(String... args) 
+{
+        ShadowTest st = new ShadowTest();
+        ShadowTest.FirstLevel fl = st.new FirstLevel();
+        fl.methodInFirstLevel(23);
+    }
+}
+
+
+-----------------------------------------------------------------
+
+
+1)What is Non-static members?	
+2)What are the types of Non-static members?
+3)Can a static method use a non static member?
+4)How do you call a non static method?
+5)Can we use non static variable in static method?
+ 6.Will JVM executes non-static variables automatically?
+7.Dose JVM execute non-static method automatically when object is created?
+8.Can we create object without having  non static variable in the class?
+9.Where non static methods are stroed and executed?
+10.How can we call non static members  from other non static members?
+11.What is the object structure with non static method? Will non static method get separate memory for each object like variable?
+12.How many referenced variables can an object has pointing to it?
+13. Difference between Local and Instance Variable
+14)If we place return type in constructor prototype will leads to CE?
+15)How compiler and JVM can differentiate constructor and method  definitions if  both have same class name?
+16) How compiler and JVM can differentiate constructor and method  invocations if  both have same class name?
+17)Why constructor name same as class name?
+18)Can we declare constructor as private?
+19)Is constructor definition mandatory in class?
+20)When does compiler provide default constructor?
+21)if class have explicit constructor,does it has default constructor?
+22)What is constructor overloading?
+23)who does execute NSB when and where?
+24)what is the execution flow of all non-static members?

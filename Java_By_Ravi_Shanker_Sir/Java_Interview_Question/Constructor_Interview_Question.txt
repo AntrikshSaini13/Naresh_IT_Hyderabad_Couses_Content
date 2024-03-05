@@ -1,0 +1,250 @@
+1) Define Constructor?
+
+Java constructor is a unique method that initializes the objects, which is called when an instance of the class is created. 
+The memory for the object is allocated when we call the constructor.
+
+Basically, a constructor is a block of code. When we create an object of the class using the new() keyword, 
+at least one constructor is called, and it initializes the objects and allocates memory to them.
+If we do not specify any constructor, it will call the default constructor of the class. However, 
+it is not necessary to specify an explicit constructor because the Java compiler provides a default constructor for every Java class.
+____________________________________________________________________________________
+
+2) How many types of Constructors are in Java?
+
+There are three types of constructors in Java
+
+* Default Constructor
+* Non-parameterized Constructor
+* Parameterized Constructor
+
+The syntax for the default constructor is as follows:
+
+<class name>() {}  
+Example:
+
+Employee()  
+{  
+//some code  
+}  
+
+The syntax for the parameterized constructor is as follows:
+
+<class name>(arg1, arg2) {}  
+Example:
+
+Employee(int i, String n)  
+{      
+    id = i;    
+    name = n;    
+}  
+________________________________________________________________________
+3) Do we have a copy constructor in Java?
+
+The following are some methods to copy the values from one object to another:
+
+By constructor
+By assigning the values of one object to another
+By clone() method of Object class
+________________________________________________________________________
+4) Write a Java Program to Copy the values from one object to another Object ?
+
+ConstructorDemo.java:
+
+class ConstructorDemo{    
+    int id;    
+    String name;    
+    
+    ConstructorDemo(int i,String n){    
+    id = i;    
+    name = n;    
+    }    
+     
+    ConstructorDemo(ConstructorDemo c){    
+    id = c.id;    
+    name =c.name;    
+    }  
+  
+    void display(){
+    System.out.println(id+" : "+name);
+    System.out.println(name+" : "+name);
+    }    
+
+    public static void main(String args[]){    
+        ConstructorDemo c1 = new ConstructorDemo(100,"Joy");    
+        ConstructorDemo c2 = new ConstructorDemo(c1);    
+        c1.display();    
+        c2.display();    
+   }    
+}    
+______________________________________________________________________________
+5) Is there any method to call a sub-class constructor from a superclass constructor?
+
+The subclass constructor has its own private data members, so Java does not provide any way to access the sub-class constructor from a super class constructor. However, we can call a superclass constructor from a sub-class constructor by using the super keyword.
+_______________________________________________________________________________
+6) Can we have a constructor in the Interface?
+
+No, we cannot have constructors in the Java interface.
+_______________________________________________________________________________
+7) Explain Constructor Chaining?
+
+Constructor Chaining is a way to call one constructor from another constructor with respect to the current object. It can be achieved in the following two ways:
+
+From base class: We can use the super keyword to call a constructor from the base class.
+
+Within the same class: We can call a constructor within the same class by using this() keyword.
+
+Below is an example of constructor chaining:
+
+class TestSuper  
+{  
+    public TestSuper(int i)  
+    {  
+        System.out.println("Super Class Constructor");  
+    }  
+}  
+   
+class TestSub extends TestSuper  
+{  
+    public TestSub()  
+    {  
+        this(10);      //Calling same class constructor  
+    }  
+   
+    public TestSub(int i)  
+    {  
+        super(i);      //Calling super class constructor  
+    }  
+} 
+____________________________________________________________________________________ 
+8) What happens if we provide a return type to a constructor?
+
+If we provide a return type to a constructor, it will function as a general method. But, the compiler will display a warning message, "This method has a Constructor name".
+
+public class TestConstructor {  
+    int TestConstructor()  
+    {  
+        return 0;  
+    }  
+
+_________________________________________________________________________________
+9) What is a private constructor?
+
+Like methods, we can have the private constructors in Java. To make or create a constructor as private, use the private keyword while declaring it. It can only be accessed within that class.
+
+The following are some usage scenarios when we need a private constructor:
+
+Internal Constructor chaining
+Singleton class design pattern
+Below is an example of the private constructor:
+
+Example 1:
+-------------------------
+PrivateConstructor.java:
+e
+class SingletonDemo {  
+   private SingletonDemo() {  
+      System. out.println("In a private constructor");  
+   }  
+   public static SingletonDemo getObject() {  
+      // we can call this constructor  
+      if (ref == null)  
+         ref = new SingletonDemo();  
+      return ref;  
+   }  
+   private static SingletonDemo ref;  
+}  
+public class PrivateConstructor {  
+   public static void main(String args[]) {  
+      SingletonDemo sObj = SingletonDemo.getObject();  
+   }  
+}  
+
+Example 2:
+---------------------
+class A {
+	int a;// 8
+
+	A() {
+		this(12);
+	}
+
+	A(int a) {// a=12
+		this(8, 9);
+	}
+
+	A(int a, int b) {// a=8  b=9
+		
+		this.a = a;
+	}
+}
+
+class B extends A {
+	B() {
+		this(4);
+	}
+
+	B(int a) {// a=4
+		this(5, 6);
+	}
+
+	B(int a, int b) {// a=5  b=6
+		super();
+		 System.out.println("hello "+super.a);
+	}
+}
+
+public class Sample02 {
+	public static void main(String[] args) {
+		B b = new B();
+		System.out.println(b.a);
+	}
+}
+
+
+__________________________________________________________________________
+10) Why constructors in Java cannot be static?
+
+The constructors cannot be static in Java. When we declare a method as static, it means the method belongs to the class and not to a specific object. But the constructor is always invoked to the reference of objects. So, there is no sense in making a constructor static.
+__________________________________________________________________________
+11) Can we make a constructor final?
+
+No, we cannot make a constructor final. If we made a constructor final, it would throw a compile-time error "modifier final not allowed".
+__________________________________________________________________________
+12) Can we make a constructor abstract?
+
+a body, which really makes no sense. It is automatically called at the time of object creation. So, it cannot be a block without a body.
+__________________________________________________________________________
+13) what will happen when a constructor is declared as protected?
+
+Generally, when we declare a method as protected, other classes can access that method in a different package by using inheritance only. But, when we declare a constructor protected, it behaves slightly differently than a method. The protected constructor can only be accessed by using a super keyword according to Java language standards.
+__________________________________________________________________________
+14) Why constructor name is similar to the class name?
+
+When we create an object of a class using a new keyword, it should have information about that particular class. That is why the constructor's name must be similar to the class name.
+__________________________________________________________________________
+15) Why return type is not allowed for the constructor?
+
+The return type is not allowed in the constructor because if we provide a return type in the constructor, it will act as the normal method. So, to differentiate between constructor and method block, the return type is not allowed in constructors.
+__________________________________________________________________________
+16) Can we write this() and super() in same constructor ?
+___________________________________________________________________________
+17) Can we override the Constructor ?
+___________________________________________________________________________
+18) Can we overload the Constructor ?
+___________________________________________________________________________
+19) How many modifiers are allowed to the constructor ?
+___________________________________________________________________________
+20) Can we write a return type to the constrcuctor ?
+___________________________________________________________________________
+21) Can we write a empty class ?
+____________________________________________________________________________
+22) If we write any constructor by ourself in the class then 
+    compiler will add the constructor by itself  ?
+
+
+
+
+
+
+
+
