@@ -1,0 +1,187 @@
+16-03-2024
+-----------
+enum in java :
+--------------
+An enum is class in java that is used to represent group of universal constants. It is introduced 
+from JDK 1.5 onwards. 
+
+In order to craete an enum, we can use enum keyword and all the univarsal constants of the enum 
+must be separeted by comma. Semicolon is optional at the end.
+
+Example:-
+
+enum Color 
+{
+    RED, BLUE, BLACK, PINK     //public + static + final
+
+ }
+
+The enum constants are by default public, static and final.we can't apply the any acces modifier.
+
+An enum we can define inside the class, outside of the class and even inside of the method.
+
+If we define an enum inside the class then we can apply public, private, protected and static.
+
+Every enum in java extends java.lang.Enum class so an enum can implement many interfaces but 
+can't extends a class.
+
+By deafult every enum is implicitly final so we can't inherit an enum.
+
+In order to get the constant value of an enum we can use values() method which returns enum 
+array, but this method is provided as part of enum keyword that means this method is not 
+available inside the Enum class(java.lang.Enum)."By used to for loop".
+
+In order to get the order position of enum constants we can use ordinal() method which is 
+given inside the enum class and the return type of this method is int. The order position 
+of enum constant will start from 0."By used to for loop".
+
+As we know an enum is just like a class so we can define any method, constructor inside an 
+enum. Constructor must be either private or default.
+
+*All the enum constants are by default object of type enum.
+
+Enum constants must be decalred at the first line of enum otherwise we will get compilation
+ error.
+
+From java 1.5 onwards we can pass an enum in a switch statement.
+-----------------------------------------------------------------
+public class Test1
+{
+	public static void main(String[] args) 
+	{
+		enum Month
+		{
+			JANUARY, FEBRUARY,MARCH     //public + static + final
+		}
+
+		System.out.println(Month.MARCH);
+	}
+}
+---------------------------------------------------------------
+enum Month 
+{
+	JANUARY,FEBRUARY,MARCH 
+} 
+public class Test2
+{
+     enum Color { RED,BLUE,BLACK } //
+
+     public static void main(String[] args) 
+	{
+		enum Week {SUNDAY, MONDAY, TUESDAY }
+		
+		System.out.println(Month.FEBRUARY);
+		System.out.println(Color.RED);
+		System.out.println(Week.SUNDAY);
+	}
+}
+
+Note :- From the above Program it is clear that we can define an enum inside a class, outside 
+        of a class and inside a method as well.
+----------------------------------------------------------------
+//Comapring the constant of an enum
+public class Test3 
+{
+	enum Color { RED,BLUE } 
+
+     public static void main(String args[])
+     {
+          Color c1 = Color.RED; 
+          Color c2 = Color.RED;  
+		  
+          if(c1 == c2)
+          {
+                System.out.println("==");
+          }
+          if(c1.equals(c2))
+          {
+                 System.out.println("equals");
+          }
+     }	
+}
+
+Here == operator and equals(Object obj) method both will return true because equals(Object obj) 
+method internally uses == operator only.
+-----------------------------------------------------------------
+public class Test4 
+{
+	private enum Season   //private, public, protected, static
+	{
+	SPRING, SUMMER, WINTER, RAINY;
+	}
+
+	public static void main(String[] args) 
+	{
+		System.out.println(Season.RAINY);
+	}
+}
+----------------------------------------------------------------
+//Interview Question
+class Hello
+{
+	int x = 100;
+}
+
+enum Direction extends Hello
+{
+	EAST, WEST, NORTH, SOUTH
+}
+
+class Test5 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println(Direction.SOUTH);
+	}
+}
+----------------------------------------------------------------
+//All enums are by default final so can't inherit
+
+enum Color
+{
+	RED, BLUE, PINK;
+}
+class Test6 extends Color
+{
+	public static void main(String[] args) 
+	{
+		System.out.println(Color.RED);
+	}
+}
+----------------------------------------------------------------
+//values() to get all the values of enum
+
+class Test7 
+{
+	enum Season   
+	{
+	SPRING, SUMMER, WINTER, FALL, RAINY
+	}
+
+	public static void main(String[] args) 
+	{
+		Season x []=  Season.values();
+         
+		 for(Season y : x)
+		  System.out.println(y);
+	}
+}
+----------------------------------------------------------------
+//ordinal() to find out the order position
+class Test8
+{
+	static enum Season   
+	{
+	SPRING, SUMMER, WINTER, FALL, RAINY
+	}
+
+
+	public static void main(String[] args) 
+	{
+		Season s1[] = Season.values();
+
+		for(Season x : s1)
+			System.out.println(x+" order is :"+x.ordinal());
+	}
+}
+----------------------------------------------------------------

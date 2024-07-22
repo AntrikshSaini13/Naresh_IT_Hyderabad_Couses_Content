@@ -1,0 +1,14 @@
+Program: 1
+Write a Program to remove all the occurrence of a given character from the String.
+
+
+Program: 2
+Write a program to swap first and last character from the given String.
+
+
+Program: 3
+Write a program to count the consonants and vowels in the given String.
+
+
+Program: 4
+Write a program to check a String is palindrome or not.

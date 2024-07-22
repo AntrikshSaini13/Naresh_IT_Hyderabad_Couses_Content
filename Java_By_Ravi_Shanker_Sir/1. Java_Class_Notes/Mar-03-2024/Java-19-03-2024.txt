@@ -1,0 +1,147 @@
+19-03-2024
+----------
+File Handling :
+---------------
+What is the need of File Handling ?
+-----------------------------------
+ As we know variables are used to store some meaningful value in our program but once the 
+execution of the program is over, now we can't get those values so to hold those values 
+permanently in our memory we use files.
+
+Files are stored in the secondary storage devices so, we can use/read the data stored in 
+the file anytime according to our requirement. 
+
+In order to work with File system java software people has provided number of predefined classes 
+like File, FileInputStream, FileOutputStream and so on. All these classes are available in 
+java.io package. We can read and write the data in the form of Stream.
+---------------------------------------------------------------
+
+Streams in java :
+--------------------
+A Stream is nothing but flow of data or flow of characters to both the end.
+Stream is divided into two categories
+
+1) byte oriented Stream :- 
+    ------------------------
+It used to handle characters, images, audio and video file in binary format.  
+
+2) character oriented Stream :-
+--------------------------------
+It is used to handle the data in the form of characters or text.
+
+Now byte oriented or binary Stream can be categorized as "input stream" and "output stream". input 
+streams are used to read or receive the data where as output streams are used to write or send the data.
+
+Again Character oriented Stream is divided into Reader and Writer. Reader is used to read() the data 
+from the file where as Writer is used to write() the data to the file.
+
+All Streams are represented by classes in java.io package. 
+
+InputStream is the super class for all kind of input operation where as OutputStream is the super 
+class for all kind of output Operation for byte oriented stream.
+
+Where as Reader is the super class for all kind reading operation where as Writer is the super 
+class for all kind of writing operation in character oriented Stream.
+----------------------------------------------------------------
+File :-
+-----
+It is a predefined class in java.io package through which we can create file and directory. By using 
+this class we can verify whether the file is existing or not.
+
+File f = new File("abc.txt");
+
+The above statement will not create any file, It actually create the file object and perform one of 
+the following two task.
+   a) If abc.txt does not exist, It will not create it
+   b) if abc.txt does exist, the new file object will be refer to the referenec variable f
+
+Now if the file does not exist then to create the file and verify whether file is existing or not, 
+we should use the following two methods :
+
+1) public boolean exists() : Will verify whether file is existing or not?
+
+2) public boolean createNewFile() : Will Create a new file , if 
+   file is already available then return false.
+
+File class has also a predefined method called getName(), to get the name of the file.
+----------------------------------------------------------------
+import java.io.*;  
+public class File0 
+	{
+		public static void main(String[] args) 
+		{
+			try 
+				{
+					File f = new File("India.txt");
+
+                    			if(f.exists())
+					{
+						System.out.println("File is existing");
+					}
+					else
+					{
+						System.out.println("File is not existing");
+					}
+
+					if (f.createNewFile())
+					{
+						 System.out.println("File created: " + f.getName());
+                       			}
+					else  
+				 	{
+                             			System.out.println("File is already existing....");
+                         		}								  
+                  		}
+		         catch (IOException e)
+                                {
+					System.err.println(e);
+				} 
+		}
+          }
+
+Assignment :
+------------
+create a directory by using File class.
+---------------------------------------
+
+FileOutputStream :
+------------------
+It is a predefined class available in java.io package.
+
+It is used to create a new file every time and after creating the file we can write the data 
+to the file but the data must be available in binary format.
+-----------------------------------------------------------------
+String class has provided a predefined method getBytes() through which we can convert the 
+String data into byte array (Binary format) as shown below.
+var 
+       String str = "Hello Hyderabad";
+
+       byte [] arr = str.getBytes();
+
+       Here arr will print the UNICODE value of the character.
+-----------------------------------------------------------------
+//Creating and writing the data to the file
+
+import java.io.*;
+public class File1
+{
+     public static void main(String args[]) throws IOException
+     {
+	 	var fout = new FileOutputStream("C:\\new\\Hyderabad.txt");
+         	try(fout)
+         	{
+         	 String s = "Hyd is a popular IT City in India";
+
+		 byte b[] = s.getBytes();
+
+		 fout.write(b); // this is "write()" of character oriented Stream 
+
+		 System.out.println("Success....");
+		 }
+		 catch(Exception e)
+		 {
+			 e.printStackTrace();
+		 }
+     }
+}
+----------------------------------------------------------------

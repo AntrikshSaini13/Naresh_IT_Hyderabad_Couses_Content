@@ -1,0 +1,124 @@
+26-03-2024
+----------
+Program that describes that main is a Thread :
+-----------------------------------------------
+Whenever we define main method then JVM will create main thread internally, the 
+purpose of this main thread to execute the entire main method.
+
+In java there is a predefined class called Thread available in java.lang package, 
+this class contains a predefined static method currentThread() which will provide 
+currently executing Thread.
+
+Thread t = Thread.currentThread(); //Factory Method
+
+Thread class has provided predefined method getName() to get the name of the Thread.
+
+Program 
+-------
+public class Test 
+{	
+    public static void main(String[] args) 
+    {
+        Thread t = Thread.currentThread();
+	System.out.println(t.getName()); 
+                  //OR
+	String name = Thread.currentThread().getName();
+	System.out.println("Currently running Thread name is :"+name);
+    }
+}
+----------------------------------------------------------------
+How to create a userdefined Thread in java ?
+---------------------------------------------
+As we know whenever we define the main method then JVM internally creates a thread called 
+main thread.
+
+The purpose of main thread to execute the entire main method so at the time of execution 
+of main method a user can create our own userdefined thread.
+
+In order to create the userdefined Thread we can use one of the following two ways :-
+
+1) By extending java.lang.Thread class
+2) By implementing java.lang.Runnable interface
+
+Note :- Thread is a predefined class available in java.lang package where as Runnable is 
+a predefined interface available in java.lang Package.
+----------------------------------------------------------------
+Creating a user-defined Thread by extending Thread class :
+----------------------------------------------------------
+public synchronized void start() :
+-----------------------------------
+start() is a predefined method of Thread class and this method internally performs two tasks
+
+1) It makes a request to opearting system to assign a new thread to perform concurrent execution.
+
+2) It internally invokes the run() method as a part a separate Stack.
+
+Note :- For every individual thread, JVM creates a separate runtime stack.
+
+The following program explains how to create a userdefined Thread by extending Thread approach.
+-----------------------------------------------------------------
+package com.ravi.thread;
+
+class MyThread extends Thread
+{
+	@Override
+	public void run()
+	{
+		System.out.println("Child Thread is running!!!");
+	}
+}
+
+public class UserThread
+{
+	public static void main(String[] args) 
+	{
+	  System.out.println("Main thread started!!!");	
+	  MyThread mt = new MyThread();
+	  mt.start();
+	  System.out.println("Main Thread ended!!!");
+	}
+}
+
+In the above program main thread and Thread-0 threads are created both threads are 
+executing their own Stack Memory as shown in the diagram
+(26-MAR-24)
+----------------------------------------------------------------
+public boolean isAlive() :-
+-----------------------------
+It is a predefined method of Thread class through which we can find out whether a thread 
+has started or not ?
+
+As we know a new thread is created after calling start() method so if we use isAlive() 
+method before start() method, it will return false but if the same isAlive() method if we 
+invoke after the start() method, it will return true.
+
+We can't restart a thread in java if we try to restart then It will generate an exception 
+i.e java.lang.IllegalThreadStateException
+-----------------------------------------------------------------
+package com.ravi.basic;
+
+class Foo extends Thread
+{
+	@Override
+	public void run()
+	{
+		System.out.println("Child thread is running...");
+		System.out.println("It is running with separate stack");		
+	}	
+}
+public class IsAlive 
+{
+	public static void main(String[] args)
+	{
+		System.out.println("Main Thread is started..");			
+		Foo f = new Foo(); 		
+        	System.out.println("Thread has not started yet so :"+f.isAlive());	
+		
+		f.start(); //new Thread has created	
+		
+		System.out.println("Thread has started  so :"+f.isAlive());
+	    	f.start();   //java.lang.IllegalThreadStateException	
+	 
+    }
+}
+----------------------------------------------------------------

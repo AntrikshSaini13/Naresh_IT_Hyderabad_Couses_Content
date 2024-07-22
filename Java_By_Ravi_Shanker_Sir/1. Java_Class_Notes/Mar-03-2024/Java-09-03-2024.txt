@@ -1,0 +1,286 @@
+---------------------------------------------------------------
+09-03-2024
+-----------
+Limitation of finally block :
+-----------------------------
+The following are the limitations of finally block :
+
+1) User is responsible to close the resources manually.
+2) Due to finally block the length of the code will be increased.
+3) While using finally block we should declare all our resources 
+   outside of the try block otherwise the resourses will become 
+   block level variable.
+
+package com.ravi.finally_demo;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class FinallyLimitation 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		try
+		{			
+			System.out.print("Enter Roll Number :");
+			int roll = sc.nextInt();
+			System.out.println("Your Roll Number is :"+roll);
+			
+		}
+		catch(InputMismatchException e)
+		{
+			System.err.println("Input is Invalid");
+		}
+        finally
+        {
+        	System.out.println("Finally Block executed");
+        	sc.close();
+        }
+	}
+
+}
+
+
+try with resources :
+--------------------
+To avoid all the limitation of finally block, Java software people introduced a separate 
+concept i.e try with resources from java 1.7 onwards.
+
+Case 1:
+-------
+try(resource1 ; resource2)  //Only the resources will be handled
+{
+}
+
+Case 2 :
+----------
+//Resources and Exception both will be  handled
+try(resource1 ; resource2) 
+{                          
+}
+catch(Exception e)
+{
+}
+
+There is a predefined interface available in java.lang package called AutoCloseable which 
+contains predefined abstract method i.e close() which throws Exception.
+
+There is another predefined interface available in java.io package called Closeable, this 
+Closeable interface is the sub interface for Auto Closeable interface.
+
+public interface java.lang.AutoCloseable
+{
+   public abstract void close() throws Exception;
+}
+public interface java.io.Closeable extends java.lang.AutoCloseable
+{
+   void close() throws IOException;
+}
+
+Whenever we pass any resourse class as part of try with resources then that class must 
+implements either Closeable or AutoCloseable interface so, try with resourses will automatically 
+call the respective class
+close() method even an exception is encountered in the try block.
+
+try(ResourceClass rc = new ResourceClass())  
+{                                              
+}                                               
+catch(Exception e)                             
+{                                          
+
+}
+
+//This ResourceClass must implements either Closeable or AutoCloseable interface so, try 
+block will automatically call the close() method.
+
+The following program explains how try block is invoking the close() method available in 
+DatabaseResource class and FileResource class. 
+
+3 Files :
+----------
+DatabaseResource.java
+---------------------
+package com.ravi.try_resources;
+
+public class DatabaseResource implements AutoCloseable
+{
+	@Override
+	public void close() throws Exception 
+	{
+		System.out.println("Database Resource closed successfully");		
+	}
+
+}
+
+FileResource.java
+-----------------
+package com.ravi.try_resources;
+
+import java.io.Closeable;
+import java.io.IOException;
+
+public class FileResource implements Closeable
+{
+	@Override
+	public void close() throws IOException 
+	{
+		System.out.println("File Resource closed successfully");		
+	}
+
+}
+
+Main.java
+----------
+package com.ravi.try_resources;
+
+public class Main 
+{
+	public static void main(String[] args) throws Exception 
+	{
+		DatabaseResource dr = new DatabaseResource();
+		FileResource fr = new FileResource();
+		
+		try(dr ; fr)
+		{
+		System.out.println(10/0);	
+		}
+		catch(ArithmeticException e)
+		{
+			System.err.println("Divide by zero");
+		}
+	}
+
+}
+
+Note :- In the parameter of try, we have passed two resource classes references i.e 
+DatabaseResource and FileResource.
+
+Now try block is resposible to call the close() automatically even we have an exception 
+in the try block.
+---------------------------------------------------------------
+WAP to automatically close the resource by using Scanner class.
+
+package com.ravi.exception;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class TryWithResource {
+
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		try(sc)
+		{
+			System.out.println("Enter your Employee Id :");
+			int id = sc.nextInt();
+			System.out.println("Your Id is :"+id);
+		}
+		catch(InputMismatchException e)
+		{
+			System.err.println("Input is Invalid");
+		}
+	}
+
+}
+
+Note :- Scanner class internally implementing Closeable interface so it is providing 
+auto closing facility, as a user we need to pass the reference of Scanner class inside 
+try with resources try()
+----------------------------------------------------------------
+Nested try block :
+------------------
+If we write a try block inside another try block then it is called Nested try block.
+
+try  //Outer try             
+{
+  statement1;
+     try  //Inner try
+     {
+        statement2;
+     }
+     catch(Exception e) //Inner catch
+     {
+     }
+
+}
+catch(Exception e) //Outer Catch
+{
+}
+
+The execution of inner try block depends upon outer try block that means if we 
+have an exception in the Outer try block then inner try block will not be executed.
+----------------------------------------------------------------
+package com.ravi.basic;
+
+public class NestedTryBlock 
+{
+	public static void main(String[] args) 
+	{		
+	      try  //outer try
+	      {
+	    	    String x = "India";
+	    	    System.out.println("It's length is :"+x.length());
+	    	        
+		    	  try  //inner try
+		    	  {
+		    		 String y = "NIT"; 
+		    		 int z = Integer.parseInt(y);
+		    		 System.out.println("z value is :"+z);	    				    		  
+		    	  }
+		    	  catch(NumberFormatException e)
+		    	  {
+		    		System.err.println("Number is not in a proper format");  
+		    	  }
+	      }
+	      catch(NullPointerException e)
+	      {
+	    	  System.err.println("Null pointer Problem"); 	    	 
+	      }	      
+	}
+}
+----------------------------------------------------------------
+Writing try-catch inside catch block :
+---------------------------------------
+We can write try-catch inside catch block but this try-catch block will be exceuted 
+if the catch block will execute that means if we have an exception in the try block.
+
+package com.ravi.basic;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class TryWithCatchInsideCatch 
+{
+	
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		try(sc )
+		{			
+			System.out.print("Enter your Roll number :");
+			int roll = sc.nextInt();
+			System.out.println("Your Roll is :"+roll);			
+			
+		}	
+		catch(InputMismatchException e)
+		{
+			System.err.println("Provide Valid input!!");
+			
+			try
+			{
+				System.out.println(10/0);
+			}
+			catch(ArithmeticException e1)
+			{
+			  System.err.println("Divide by zero problem");	
+			}
+			
+		}
+	}
+
+}
+---------------------------------------------------------------

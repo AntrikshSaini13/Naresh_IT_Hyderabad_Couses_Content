@@ -1,0 +1,33 @@
+13-04-2024
+-----------
+Inner classes in java :
+------------------------
+In java it is possible to define a class (inner class) inside another 
+class (outer class) called nested class.
+
+In the same way it is also possible to define an interface OR enum OR 
+Annotation inside another interface OR enum OR Annotation is called inner 
+class or nested class.
+
+Inner classes in Java create a strong encapsulation and  HAS-A  
+relationship between the inner class and its outer class.
+
+An inner class, .class file will be represented by $ symbol.
+
+Advantages of inner class :
+--------------------------------
+1) It is a way of logically grouping classes that are only used in one place.
+
+2) It is used to achieve encapsulation.
+
+3) It enhance the readability and maintainability of the code.
+
+Types of Inner classes in java :
+--------------------------------
+There are 4 types of inner classes in java :
+
+1) Member Inner class OR Nested Inner class OR Regular class 
+2) Local inner class OR Method local inner class
+3) Nested inner class
+4) Anonymous inner class.
+

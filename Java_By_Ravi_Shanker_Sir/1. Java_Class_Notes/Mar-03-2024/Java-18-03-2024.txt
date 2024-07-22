@@ -1,0 +1,289 @@
+18-03-2024
+-----------
+//We can take main () inside an enum
+
+enum Test9 
+{
+	TEST1, TEST2, TEST3;  //Semicolon is compulsory 
+
+	public static void main(String[] args) 
+	{
+		System.out.println("Enum  main method");
+	}	
+}
+----------------------------------------------------------------
+//constant must be in first line of an enum
+
+enum Test10
+{ 
+
+	public static void main(String[] args) 
+	{
+		System.out.println("Enum  main method");
+	}
+
+    HR, SALESMAN, MANAGER;
+	
+}
+-----------------------------------------------------------------
+//Writing constructor in enum
+enum Season
+{
+	WINTER, SUMMER, SPRING, RAINY;   //All are object of type enum
+  
+	Season()
+	{
+		System.out.println("Constructor is executed....");
+	}	
+}
+class Test11 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println(Season.WINTER);
+		System.out.println(Season.SUMMER);
+		
+	}
+}
+----------------------------------------------------------------
+   //Writing constructor with message
+   enum Season   
+	{
+	   SPRING("Pleasant"), SUMMER("UnPleasent"), RAINY("Rain"), WINTER;
+
+        String msg;
+	  
+	    Season(String msg)
+		{
+		  this.msg = msg;
+		}
+
+		Season()
+		{
+			this.msg = "Cold";
+		}
+
+		public String getMessage()
+		{
+			return msg;
+		}
+	}
+class Test12
+{	
+	public static void main(String[] args) 
+	{
+		Season s1[] = Season.values();
+
+		for(Season x : s1)
+			System.out.println(x+"  is :"+x.getMessage());
+	}
+}
+----------------------------------------------------------------
+enum MyType 
+{
+ONE 
+{
+	@Override
+    public String toString() 
+	{
+        return "this is one";
+    }
+},
+ 
+TWO 
+{
+	@Override
+    public String toString() 
+	{
+        return "this is two";
+    }
+}
+}
+public class Test13
+{
+	public static void main(String[] args) 
+	{
+		System.out.println(MyType.ONE);
+		System.out.println(MyType.TWO);
+		
+	}
+}
+----------------------------------------------------------------
+public class Test14
+{  
+	enum Day
+		{ 
+		  SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY
+		}  
+  
+public static void main(String args[])
+{    
+	Day day=Day.SUNDAY;  
+	  
+	switch(day)
+	{  
+	 case SUNDAY:   
+	 System.out.println("Sunday");  
+	 break;  
+	 case MONDAY:   
+	 System.out.println("Monday");  
+	 break;  
+	 default:  
+	 System.out.println("other day");  
+    }  
+  
+  }
+}  
+----------------------------------------------------------------
+Input Output in java :
+-----------------------
+In order to work with input and output concept, java software people has
+ provided a separate package called java.io package.
+
+By using this java.io package we can read the data from the user, creating 
+file, reading/writing the data from the file and so on.
+
+How to take the input from the user using java.io package :
+------------------------------------------------------------
+Scanner class is available from java 1.5 onwards but before 1.5, In order to 
+read the data we were using the following two classes which are available in 
+java.io package.
+
+1) DataInputStream (Deprecated)
+2) BufferedReader
+
+How to create the object :
+--------------------------
+DataInputStream :
+-----------------
+DataInputStream d = new DataInputStream(System.in);
+
+BufferedRedaer :
+----------------
+It provides more faster technique because it internally stores the data in a buffer 
+and it is always recomended to read the data from the buffer.
+
+InputStreamReader isr = new InputStreamReader(System.in);
+BufferedReader br = new BufferedReader(isr);
+                       OR
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+Working with Methods :
+----------------------
+1) public int read() :- It is used to read a single character from the source and 
+return the UNICODE value of the character. If the data is not available from the 
+source then it will return -1.
+
+
+2) public String readLine() :- It is used to read multiple characters or complete 
+line from the source. The return type of this method is String.
+-----------------------------------------------------------------
+//Reading my name from the keyboard
+import java.io.*;
+public class ReadName
+{ 
+	public static void main(String[] args) throws IOException
+	{
+		DataInputStream d = new DataInputStream(System.in);	
+		System.out.println("Enter your Name :");
+		String name = d.readLine();
+		System.out.println("Your Name is :"+name);
+	}
+}
+----------------------------------------------------------------
+//WAP to read your age from the keyboard
+import java.io.*;
+public class ReadInteger 
+{
+	public static void main(String[] args) 
+	{
+		try
+		{
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+			System.out.print("Enter your Age :");
+			String ag = br.readLine();
+
+            		//Converting String to integer
+			int age = Integer.parseInt(ag);
+
+            		System.out.println("Your Age is :"+age);
+            		if(age > 18)
+			{
+				System.out.println("Go for a movie");
+			}
+			else
+			{
+				System.out.println("You are minor ..try after some year");
+			}
+			
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+			
+	}
+}
+----------------------------------------------------------------
+//WAP in java to read a float value(salary) from the keyboard
+import java.io.*;
+public class ReadSalary 
+{
+	public static void main(String[] args) throws IOException
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		System.out.print("Please enter your Salary :");
+		String sal = br.readLine();
+
+        	//Converting String to float value
+		float salary = Float.parseFloat(sal);
+
+		System.out.println("Your salary is :"+salary);
+
+	}
+}
+----------------------------------------------------------------
+//WAP in java to read a character i.e gender from the keyboard
+import java.io.*;
+public class ReadCharacter 
+{
+	public static void main(String[] args) throws IOException
+	{
+		
+		var br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.print("Enter your Gender [M/F]:");
+		char gen = (char) br.read();
+		System.out.println("Your Gender is :"+gen);
+		
+	}
+}
+----------------------------------------------------------------
+import java.io.*;
+public class ReadEmployeeData 
+{
+	public static void main(String[] args) throws IOException
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		System.out.print("Enter Employee Id :");
+		int id = Integer.parseInt(br.readLine());
+
+        	System.out.print("Enter Employee Name :");
+		String name = br.readLine();
+
+		System.out.print("Enter Employee Gender :");
+        	char gender = br.readLine().charAt(0); 		
+
+		System.out.print("Enter Employee Salary :");
+		double salary = Double.parseDouble(br.readLine());
+
+		System.out.println("Employee Id is :"+id);
+		System.out.println("Employee Name is :"+name);
+		System.out.println("Employee Gender is :"+gender);
+		System.out.println("Employee Salary is :"+salary);
+
+	}
+}
+---------------------------------------------------------------

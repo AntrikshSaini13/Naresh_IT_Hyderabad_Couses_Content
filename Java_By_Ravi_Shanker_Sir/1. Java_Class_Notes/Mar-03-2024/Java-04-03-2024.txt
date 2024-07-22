@@ -1,0 +1,155 @@
+04-03-2024
+----------
+HEAP Area :
+-----------
+In java whenever we create the Object, all object related data like instance variable and instance 
+methods are strored in HEAP Area.
+This is the 2nd layer architecture of JVM so from this area we can access the static memeber 
+of the class but vice versa is not possible.
+
+We have only one Heap Area per JVM.
+---------------------------------------------------------------------
+Stack Area :
+------------
+In java all the methods are executed as a part of Stack Area. Whenever we call a method then 
+it creates Stack Frame. Each Stack Frame contains 3 parts 
+              a) Local variable.
+	      b) Frame Data.
+	      c) Operand Stack.
+
+We have n number of stack area in one JVM.
+
+JVM creates a separate runtime stack for Each and every thread.
+----------------------------------------------------------------------
+Garbage Collector :-
+----------------------
+In older languages like C++, It is the responsibility of the programmer to allocate the memory 
+as well as to de-allocate the memory otherwise there may be chance of getting OutOfMemoryError.
+
+But in Java a user is not responsible to de-allocate the memory that means memory allocation is 
+the responsibility of user but  memory de-allocation is automatically done by Garbage Collector.
+
+Garbage collection is the process of looking at heap memory, identifying which objects are in use 
+and which are not, and deleting the unused objects (The object which does not contain any references).
+
+It is an automatic memory management in java. JVM internally contains a thread called Garbage 
+collector which is daemon thread, It is responsible to delete the unused objects or the objects 
+which are not containing any references in the heap memory.
+
+Note :- GC uses an algorithm mark and sweep to make an un-used objects eligible for Garbage 
+Collection.
+
+The garbage Collector thread is visiting our program at regular interval to delete the unused 
+objects but as a programmer we can call garbge collector explicitly to visit our program by using 
+the following code.
+
+System.gc(); //explicitly calling the garbage collector
+
+gc() is a predefined static method of System class.
+--------------------------------------------------------------
+There are 3 ways to make an Object eligible for Garbage Collector:
+----------------------------------------------------------------
+1) Assigning a null literal to reference variable
+
+    Employee e1 = new Employee();
+    e1 = null;
+
+ 2) Creating an object inside the method
+
+      public void createObject()
+      {
+          Employee e2 = new Employee();
+      }
+Note :- Once the method execution is over automatically Object is eligible for Garbage Collector
+
+3) Assigning new object to the Existing reference variable
+
+     Employee e3 = new Employee();
+
+     e3 = new Employee();
+----------------------------------------------------------------
+HEAP and Stack Diagram for Employee.java
+-----------------------------------------
+public class Employee
+{
+	int id = 100;
+	
+	public static void main(String[] args) 
+	{
+		int val = 200;
+
+		Employee e1 = new Employee();     
+
+		e1.id = val;
+
+		update(e1);	  
+		
+		System.out.println(e1.id);
+
+        Employee e2 = new Employee(); 
+
+		e2.id = 500;
+        
+		switchEmployees(e2,e1);	//3000x, 1000x
+
+		    //GC [2 objects 2000x and 4000x are eligible for GC]
+
+			System.out.println(e1.id);
+		    System.out.println(e2.id);
+	    } 
+		
+	 public static void update(Employee e)  
+	 {
+        e.id = 500;
+		e = new Employee();
+		e.id = 400;
+	 }
+
+	 public static void switchEmployees(Employee e1, Employee e2)
+	  {
+		 int temp = e1.id;
+		 e1.id = e2.id; 
+		 e2 = new Employee();
+		 e2.id = temp;
+	  }
+   }
+---------------------------------------------------------------
+HEAP and STACK diagram for Beta.java
+-------------------------------------
+class Alpha
+{
+	int val;
+	static int sval = 200;
+	static Beta b = new Beta();
+
+	public Alpha(int val)
+	{
+      this.val = val;
+	}
+}
+
+public class Beta      
+{
+	public static void main(String[] args) 
+	{
+		Alpha am1 = new Alpha(9);
+		Alpha am2 = new Alpha(2);
+
+		Alpha []ar = fill(am1, am2); 
+
+		ar[0] = am1; 
+        System.out.println(ar[0].val); 
+        System.out.println(ar[1].val);
+	}
+
+	public static Alpha[] fill(Alpha a1, Alpha a2)
+	{
+		a1.val = 15;
+
+        Alpha fa[] = new Alpha[]{a2, a1}; 
+
+		return fa;
+	}
+}
+---------------------------------------------------------------
+

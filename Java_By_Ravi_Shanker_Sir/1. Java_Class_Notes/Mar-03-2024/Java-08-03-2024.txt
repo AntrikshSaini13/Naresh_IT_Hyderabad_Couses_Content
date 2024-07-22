@@ -1,0 +1,178 @@
+08-03-2024
+----------
+Working with multiple try catch :
+---------------------------------
+According to our application requirement we can provide multiple try-catch in 
+my application to work with multiple execptions.
+
+package com.ravi.basic;
+public class MultipleTryCatch 
+{
+	public static void main(String[] args) 
+	{
+	  System.out.println("Main method started!!!!");
+	  
+	  try
+	  {
+		  int arr[] = {10,20,30};
+		  System.out.println(arr[3]);
+	  }
+	  catch(ArrayIndexOutOfBoundsException e)
+	  {
+		  System.err.println("Array is out of limit!!!");
+	  }
+	  
+	  try
+	  {
+		 String str = null;
+		 System.out.println(str.length());
+	  }
+	  catch(NullPointerException e)
+	  {
+		  System.err.println("ref variable is pointing to null");
+	  } 
+	  
+	  System.out.println("Main method ended!!!!");	
+	}
+}
+----------------------------------------------------------------0
+* Single try with multiple catch block :
+-----------------------------------------
+According to industry standard we should write try with multiple catch block so we can 
+provide proper information for each and every exception.
+
+While working with multiple catch block always the super class catch block must be last 
+catch block.
+
+From java 1.7 this multiple catch block we can also represent by using | symbol.
+
+If try block is having more than one exception then always try block will handle only 
+first exception because control will transfer to the nearest catch block.
+-----------------------------------------------------------------
+package com.ravi.basic;
+public class MultyCatch 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Main Started...");		
+		try
+		{
+			int c = 10/0;			
+			System.out.println("c value is :"+c);	
+			
+			int []x = {12,78,56};
+			System.out.println(x[5]);						
+		}
+			
+		catch(ArrayIndexOutOfBoundsException e1)
+		{
+			System.err.println("Array is out of limit...");
+		}
+		catch(ArithmeticException e1)
+		{
+			System.err.println("Divide By zero problem...");
+		}
+		catch(Exception e1)
+		{
+			System.out.println("General");
+		}					
+		System.out.println("Main Ended...");
+	}
+}
+----------------------------------------------------------------
+package com.ravi.basic;
+
+public class MultyCatch1 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Main method started!!!");
+		try
+		{
+		   String str1 = "India";
+		   System.out.println(str1.toUpperCase());
+		   
+		   String str2 = "Ravi";
+		   int x = Integer.parseInt(str2);
+		   System.out.println("Number is :"+x);
+		}
+		catch(NumberFormatException | NullPointerException  e)
+		{
+			e.printStackTrace();
+		}
+
+		System.out.println("Main method ended!!");
+	}
+
+}
+-----------------------------------------------------------------
+finally block :
+---------------
+finally is a block which is meant for Resource handling purposes.
+
+According to Software Engineering, the resources are memory creation, buffer creation, 
+opening of a database, working with files, working with network resourses and so on.
+
+Whenever the control will enter inside the try block always the finally block would be 
+executed.
+
+We should write all the closing statements inside the finally block because irrespective 
+of exception finally block will be executed every time.
+
+If we use the combination of try and finally then only the resources will be handled but 
+not the execption, on the other hand if we use try-catch and finally then execption and 
+resourses both will be handled.
+----------------------------------------------------------------
+package com.ravi.basic;
+
+public class FinallyBlock 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Main method started");
+		
+		try
+		{
+			System.out.println(10/0);
+		}
+		finally
+		{
+			System.out.println("Finally Block");
+		}
+		
+		System.out.println("Main method ended");
+	}
+
+}
+
+Note :- In the above program finally block will be executed, even
+        we have an exception in the try block.
+----------------------------------------------------------------
+package com.ravi.basic;
+
+public class FinallyWithCatch 
+{
+	public static void main(String[] args) 
+	{		
+		try
+		{
+		    int []x = new int[-2];	//We can't pass negative size of an array in negative
+		    x[0] = 12;
+		    x[1] = 15;
+		    System.out.println(x[0]+" : "+x[1]);
+		}
+		catch(NegativeArraySizeException e)
+		{		
+			System.err.println("Array Size is in negative value...");
+		}
+		finally
+		{
+		   System.out.println("Resources will be handled here!!");		   
+		}
+		System.out.println("Main method ended!!!");
+	}
+}
+
+Note :- In the try block if we write System.exit(0) and if this line is executed then 
+finally block will not be executed.
+---------------------------------------------------------------

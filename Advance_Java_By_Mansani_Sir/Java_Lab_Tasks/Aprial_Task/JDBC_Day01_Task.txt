@@ -1,0 +1,47 @@
+Que-1
+_____________
+Create a jdbc program to print the Cricket player data as 
+>Player name 
+>JersyNo
+
+Create the following requirement by using sql cmd prompt
+___________________________________________________________
+Create the Player table as Players
+Insert the data as Player Name and Jesry 
+
+Then create the jdbc program by using
+Connection 
+Statement 
+ResultSet
+Query as select Query and print the output as 
+
+PlayerName | JersyNo
+__________________________________________________________________________________
+Que-2
+__________________
+You are required to develop a Java program that retrieves employee details from an Oracle database based on their designation. Below are the specifications:
+
+Database Connection: The program should establish a connection to an Oracle database with the following details:
+
+URL: jdbc:oracle:thin:@localhost:1521:xe
+Username: system
+Password: manager
+Input: The program should prompt the user to enter two designations (desg1 and desg2) through the console.
+
+Query Execution: Using JDBC, execute a SQL query to retrieve employee details (employee number, employee name, job, and salary) from the Employee table where the job matches either desg1 or desg2.
+
+
+Create a table in Database name as Employees 
+|- create the rows as 
+   |- empid , empname , empjob , empSal 
+|- Insert few data by following the table columns
+
+
+|- Through jdbc program write the Query with the help of 
+   statement only and through result set get the data and 
+   print as the requiement .
+
+Query for the program is 
+
+"Select empno , empname , empjob ,empSal from Employee
+   where job in('Clerk','Manager')";

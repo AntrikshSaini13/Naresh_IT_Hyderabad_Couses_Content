@@ -1,0 +1,296 @@
+-----------------------------------------------------------------
+12-03-2024
+-----------
+Types of exception in java :
+-------------------------------
+Exception can be divided into two types :
+
+1) Predefined Exception OR Built-in Exception
+
+2) Userdefined Exception OR Custom Exception
+
+Predefined Exception :-
+-------------------------
+The Exceptions which are already defined by Java software people for some specific purposes are 
+called predefined Exception or Built-in exception.
+Ex :
+----
+IOException, ArithmeticException and so on
+
+Userdefined Exception :-
+---------------------------
+The exceptions which are defined by user according to their own use and requirement are 
+called User-defined Exception.
+
+Ex:-
+----
+InvalidAgeException, GreaterMarksException
+-----------------------------------------------------------------------
+Steps to create userdefined exception :
+------------------------------------------
+In order to create user defined exception we should follow the following steps.
+
+1) A userdefined exception class must extends either Exception(Checked Exception) Or 
+RuntimeException(Unchecked Exception) as a super class.
+
+    a) If our userdefined class extends RuntimeException that menas we are creating 
+UncheckedException.
+
+    b) If our userdefined class extends Exception that menas we are creating checkedException 
+and exception handling is compulsory here.
+
+2) The userdefined class must contain No argument constructor as well as parameterized construtor
+(in case we want to pass some userdefined error message).
+
+   We should take No argument constructor if we don't want to send any error message where as we 
+should take parameterized constructor with super keyword if we want to send the message to the 
+super class.
+
+3) We should use throw keyword to throw the Exception object explicitly.
+--------------------------------------------------------------------
+Program to create user-defined Checked Exception :
+--------------------------------------------------
+package com.ravi.exception;
+
+import java.util.Scanner;
+
+@SuppressWarnings("serial")
+class InvalidAgeException extends Exception
+{
+	public InvalidAgeException()
+	{		
+	}
+	
+	public InvalidAgeException(String errorMessage)
+	{
+		super(errorMessage);
+	}
+}
+
+public class UserdefinedCheckedException 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		try(sc)
+		{
+			System.out.print("Enter your Age :");
+			int age = sc.nextInt();
+			
+			if(age < 18)
+			{
+			   throw new InvalidAgeException("Invalid Age");
+			}
+			else
+			{
+				System.out.println("You are eligible for Vote");
+			}
+		} 
+		catch (InvalidAgeException e) 
+		{
+			e.printStackTrace();
+		}
+	}
+}
+--------------------------------------------------------------------
+Program to develop un-checked Exception :
+------------------------------------------
+package com.ravi.exception;
+
+import java.util.Scanner;
+
+@SuppressWarnings("serial")
+class GreaterMarksException extends RuntimeException
+{
+	public GreaterMarksException()
+	{
+		
+	}
+	
+	public GreaterMarksException(String errorMessage)
+	{
+	  super(errorMessage);	
+	}
+}
+
+public class UserdefinedUnchecked 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		try(sc)
+		{
+			System.out.print("Enter the marks :");
+			
+			int marks = sc.nextInt();
+			
+			if(marks > 100)
+			{
+				throw new GreaterMarksException("Invalid Marks");
+			}
+			else
+			{
+				System.out.println("Your Marks is :"+ marks);
+			}
+		}
+		catch(GreaterMarksException e)
+		{
+			System.err.println(e);
+		}
+        System.out.println("Main completed");
+	}
+
+}
+-------------------------------------------------------------------
+Some important points to remember :
+------------------------------------
+a) If the try block does not throw any checked exception then in the corresponding catch 
+block we can't handle checked exception.It will generate compilation error i.e "exception 
+never thrown from the corresponding try statement"
+
+Example :-
+
+try
+{
+  //try block is not throwing any checked Exception
+}
+catch(IOException e) //Error
+{
+
+}
+-------------------------------------------------------------------
+package com.ravi.method_related_rule;
+
+import java.io.IOException;
+
+public class CatchingCheckedWithoutThrow 
+{
+	public static void main(String[] args) 
+	{
+		try
+		{
+			//throw new IOException();
+		}
+		catch(IOException e) //error
+		{
+			System.err.println("Input Output Exception");
+		}
+
+	}
+
+}
+
+
+-------------------------------------------------------------------
+b) If the try block does not throw any exception then in the corresponding catch block we 
+can write Exception, Throwable because both are the super classes for all types of Exception 
+whether it is checked or unchecked.
+
+package com.ravi.method_related_rule;
+
+public class CatchingWithSuperClass 
+{
+	public static void main(String[] args) 
+	{
+		
+		try
+		{
+			//throw new IOException();
+		}
+		catch(Exception e)
+		{
+          		e.printStackTrace();			
+		}
+
+	}
+
+}
+-------------------------------------------------------------------
+c) At the time of method overriding if the super class method does 
+   not reporting or throwing checked exception then the overridden method of sub class not allowed 
+to throw checked exception. otherwise it will generate compilation error but overridden method can 
+throw Unchecked Exception.
+
+package com.ravi.method_related_rule;
+
+class Super
+{
+	public void show()  
+	{
+		System.out.println("Super class method not throwing checked Exception");
+	}
+}
+class Sub extends Super
+{
+	@Override
+	public void show() throws IOException  //error
+	{
+		System.out.println("Sub class method should not throw checked Exception");
+	}
+}
+
+public class MethodOverridingWithChecked {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
+------------------------------------------------------------------
+d) If the super class method declare with throws keyword to throw a checked exception, then at the 
+time of method overriding, sub class method may or may not use throws keyword.
+               If the Overridden method is also using throws
+ keyword to throw checked exception then it must be either same exception class or sub class, it 
+should not be super class as well as we can't add more exceptions in the overridden method.
+package com.ravi.method_related_rule;
+
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+class Base
+{
+	public void show() throws FileNotFoundException
+	{
+		System.out.println("Super class method ");
+	}
+}
+class Derived extends Base
+{
+	//throws is applicable but must be equal or sub class
+	public void show() //throws IOException
+	{
+		System.out.println("Sub class method ");
+	}
+}
+
+public class MethodOverridingWithThrows 
+{
+	public static void main(String[] args) 
+	{
+	  System.out.println("Overridden method may or may not throw checked exception but if 
+	   it is throwing then must be same or sub class");	
+	}
+
+}
+--------------------------------------------------------------------
+) Initializer must be complete normally (In static block abnormal termination is not possible)
+
+class Check
+{
+   static
+	  {
+	   throw new Exception(); 
+	  }
+}
+public class Test
+{
+  public static void main(String [] args)
+  {
+	 
+     
+  }
+}
+-------------------------------------------------------------------
+Exception Propagation :

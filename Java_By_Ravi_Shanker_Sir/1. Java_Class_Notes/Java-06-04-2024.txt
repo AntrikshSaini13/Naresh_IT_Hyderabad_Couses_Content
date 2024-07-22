@@ -1,0 +1,759 @@
+
+protected native Object clone() throws CloneNotSupportedException
+---------------------------------------------------------------
+Object cloning in Java is the process of creating an exact copy of the original object. 
+In other words, it is a way of creating a new object by copying all the data and attributes 
+from the original object. 
+
+The clone method of Object class creates an exact copy of an object.
+
+In order to use clone() method , a class must implements Clonable interface because we can 
+perform cloning operation on Cloneable objects only [JVM must have additional information].
+
+We can say an object is a Cloneable object if the corresponding class implements Cloneable 
+interface.
+
+It throws a checked Exception i.e CloneNotSupportedException
+
+Note :- clone() method is not the part of Clonable interface[marker interface], actually it 
+is the method of Object class.
+
+clone() method of Object class follow deep copy concept so hashcode will be different.
+---------------------------------------------------------------
+package com.ravi.clone_method;
+
+class Customer implements Cloneable
+{
+	int id;
+	String name;
+	
+		
+	@Override
+	protected Object clone() throws CloneNotSupportedException 
+	{
+		return super.clone();
+	}
+	
+	@Override
+	public String toString()
+	{
+		return "Customer [id=" + id + ", name=" + name + "]";
+	}	
+}
+
+public class CloneMethod 
+{
+	public static void main(String[] args) throws CloneNotSupportedException 
+    {
+		Customer c1 = new Customer();	
+		c1.id = 222;
+		c1.name = "Rahul";
+		
+		Customer c2 = (Customer) c1.clone(); //deep copy
+		c2.id = 333;
+		c2.name = "Rohit";
+		
+		System.out.println(c1);
+		System.out.println(c2);
+		
+		System.out.println(c1.hashCode());
+		System.out.println(c2.hashCode());
+		
+		
+	}
+
+}
+--------------------------------------------------------------
+protected void finalize() throws Throwable  :
+---------------------------------------------------
+It is a predefined method of Object class.
+
+Garbage Collector automatically call this method just before an object is eligible for 
+garbage collection to perform clean-up activity.
+
+Here clean-up activity means closing the resources associated with that object like file 
+connection, database connection, network connection and so on we can say resource de-allocation.
+
+Note :- JVM calls finalize method only one per object.
+
+Diagram (06-APR-24)
+---------------------------------------------------------------
+package com.ravi.finalize_method;
+
+public class Student 
+{
+    int id;
+    String name;
+    
+    public Student(int id, String name)
+    {
+    	this.id= id;
+    	this.name = name;
+    }    
+    
+	@Override
+	public String toString() 
+	{
+		return "Id is :"+id+"\nName is :"+name;
+	}
+
+	@Override
+	protected void finalize() 
+	{
+      		System.out.println("JVM call this finalize method...");		
+	}
+
+
+	public static void main(String[] args) throws InterruptedException 
+	{
+      		Student s1 = new Student(111,"Ravi");
+      		System.out.println(s1.hashCode());
+      		System.out.println(s1);
+      
+      		s1 = null;
+     		System.gc(); //Explicitly calling Garbage Collector
+      		Thread.sleep(3000);
+     		System.out.println(s1);
+	}
+
+}
+----------------------------------------------------------------
+*What is the difference between final, finally and finalize
+
+final :- It is a keyword which is used to provide some kind of restriction like class is 
+	 final, Method is final,variable is final.
+
+finally :- if we open any resource as a part of try block then 
+           that particular resource must be closed inside 
+	   finally block otherwise program will be terminated ab-normally and the 
+	   corresponding resource will not be closed (because the remaining lines 
+	   of try block will not be executed)
+
+finalize() :- It is a method which JVM is calling automatically               
+	      just before object  destruction so if any resource
+              (database, file and network) is associated with
+	      that particular object then it will be closed
+	      or de-allocated by JVM by calling finalize().
+
+---------------------------------------------------------------
+Problem Statement:
+
+You are tasked with creating an education institute course enrollment system using Java. 
+The system should provide courses and offers to students, allowing them to view available 
+courses, ongoing offers, and enroll in their preferred courses.
+
+
+
+Classes:
+Take one BLC class Course
+
+Attributes:
+
+-> courseId (int): Unique identifier for the course.
+
+-> courseName (String): Name of the course.
+
+-> corseFee (double): Fee for the course.
+
+
+
+Methods:
+
+-> Parameterized Constructor to initialize the instance variable.
+
+-> Generate getters for all field
+
+-> Override toString() method
+
+
+class Offer:
+
+Attributes:
+
+-> offerText (String): Description of the special offer provided by the education institute.
+
+
+
+Methods:
+
+-> Offer(String offerText): Constructor to initialize the offer description.
+
+-> getOfferText(): Returns the offer description.
+
+
+
+class EducationInstitute:
+
+Attributes:
+
+-> courses (Course[]): An array to store the available courses.
+
+-> offers (Offer[]): An array to store ongoing offers.
+
+
+
+Methods:
+
+-> EducationInstitute(): Constructor to initialize courses and offers.
+
+-> getCourses(): Returns the array of available courses.
+
+-> getOffers(): Returns the array of ongoing offers.
+
+-> enrollStudentInCourse(int courseId, String studentName): Simulates the enrollment process and prints a message when a student -> enrolls in a course.
+
+
+
+class Student:
+
+Attributes:
+
+-> name (String): Name of the student.
+
+-> institute (EducationInstitute): Reference to the education institute where the student interacts.
+
+
+
+Methods:
+
+-> Student(String name, EducationInstitute institute): Constructor to initialize the student with their name and the education institute reference.
+
+-> viewCoursesAndFees(): Displays the available courses and their fees.
+
+-> viewOffers(): Displays the ongoing offers.
+
+-> enrollInCourse(int courseId): Enrolls the student in the specified course 
+using the education institute’s enrollment process.
+
+
+
+class Main :
+
+
+
+The EducationInstituteApp class is the main program that simulates concurrent 
+student interactions using threads. 
+
+It creates an education institute, initializes students, and allows them to 
+view course details, ongoing offers, and enroll in courses concurrently without 
+disturbing the execution flow of each thread.
+
+
+
+Instructions for Students:
+
+-> Implement the above classes and their methods following the given specifications.
+
+-> Create an instance of EducationInstitute, and initialize courses and offers with 
+hardcoded data for simplicity.
+
+-> Create two students: Virat and Dhoni. Allow them to view available courses, check 
+ongoing offers, and enroll in their preferred courses concurrently using threads.
+
+-> Use the Thread class to simulate concurrent student interactions. Ensure that the 
+system provides a responsive user experience for multiple students.
+
+-> Test your program with multiple executions and verify that students can view course 
+details, offers, and enroll without conflicts.
+
+-> Feel free to enhance the program with additional features or error handling to 
+further improve its functionality.
+
+
+
+[Note : Include appropriate comments and use meaningful variable names to make your 
+code more readable and understandable.]
+
+
+
+Sample Output :
+
+
+
+Available Courses:
+
+1. Mathematics - Fee: Rs.1000.0
+
+2. Science - Fee: Rs.1200.0
+
+3. English - Fee: Rs.900.0
+
+Ongoing Offers:
+
+Special discount: Get 20% off on all courses!
+
+Limited time offer: Enroll in any two courses and get one course free!
+
+Virat has enrolled in the course: Mathematics
+
+
+
+Available Courses:
+
+1. Mathematics - Fee: Rs.1000.0
+
+2. Science - Fee: Rs.1200.0
+
+3. English - Fee: Rs.900.0
+
+Ongoing Offers:
+
+Special discount: Get 20% off on all courses!
+
+Limited time offer: Enroll in any two courses and get one course free!
+
+Dhoni has enrolled in the course: Science
+---------------------------------------------------------------
+5 files :
+---------
+Course.java
+------------
+package com.ravi.lab;
+
+public class Course {
+	private int courseId;
+	private String courseName;
+	private double courseFee;
+
+	public Course(int courseId, String courseName, double courseFee) {
+		super();
+		this.courseId = courseId;
+		this.courseName = courseName;
+		this.courseFee = courseFee;
+	}
+
+	public int getCourseId() {
+		return courseId;
+	}
+
+	public String getCourseName() {
+		return courseName;
+	}
+
+	public double getCourseFee() {
+		return courseFee;
+	}
+
+	@Override
+	public String toString() {
+		return "Course [courseId=" + courseId + ", courseName=" + courseName + ", courseFee=" + courseFee + "]";
+	}
+	
+	
+
+}
+
+Offer.java
+----------
+
+package com.ravi.lab;
+
+public class Offer {
+	private String offerText;
+
+	public Offer(String offerText) {
+		super();
+		this.offerText = offerText;
+	}
+
+	public String getOfferText() {
+		return offerText;
+	}
+
+}
+
+EducationInstitute.java
+-------------------------
+
+package com.ravi.lab;
+
+public class EducationInstitute {
+	private Course[] courses;
+	private Offer[] offers;
+
+	public EducationInstitute(Course[] courses, Offer[] offers) {
+		super();
+		this.courses = courses;
+		this.offers = offers;
+	}
+
+	public Course[] getCourses() {
+		return courses;
+	}
+
+	public Offer[] getOffers() {
+		return offers;
+	}
+	
+	public void enrollStudentInCourse(int courseId, String studentName)
+	{
+		for(int i=0; i<courses.length; i++)
+		{
+			if(courseId == courses[i].getCourseId())
+			{
+				System.out.println(studentName+" enrolled in :"+courses[i].getCourseName());
+			}
+		}
+		
+	}
+
+}
+
+Student.java
+------------
+package com.ravi.lab;
+
+public class Student {
+	private String studentName;
+	private EducationInstitute educationInstitute;
+
+	public Student(String studentName, EducationInstitute educationInstitute) {
+		super();
+		this.studentName = studentName;
+		this.educationInstitute = educationInstitute;
+	}
+
+	public void viewCoursesAndFees()
+	{
+		Course[] courses = educationInstitute.getCourses();
+		for(Course course : courses)
+		{
+			System.out.println(course.getCourseId()+" : "+course.getCourseName()+" : "+course.getCourseFee());
+		}
+	}
+	
+	public void viewOffers()
+	{
+		Offer[] offers = educationInstitute.getOffers();
+		
+		for(Offer offer : offers)
+		{
+			System.out.println(offer.getOfferText());
+		}
+		
+		
+	}
+	
+	public void enrollInCourse(int courseId)
+	{
+		educationInstitute.enrollStudentInCourse(courseId, studentName);
+	}	
+}
+
+Main.java
+---------
+
+package com.ravi.lab;
+
+public class Main {
+
+	public static void main(String[] args) throws InterruptedException 
+	{
+		Course [] courses = new Course[3];
+		courses[0] = new Course(1, "Java", 1000);
+		courses[1] = new Course(2, ".NET", 1200);
+		courses[2] = new Course(3, "Python", 900);
+		
+		Offer [] offers = new Offer[2];
+		offers[0]= new Offer("Special discount: Get 20% off on all courses!");
+		offers[1] = new Offer("Limited time offer: Enroll in any two courses and get one course free!");
+		
+		EducationInstitute ei = new EducationInstitute(courses, offers);
+		
+		Student virat = new Student("Virat", ei);
+		Student dhoni = new Student("Dhoni", ei);
+		Student sachin = new Student("Sachin", ei);
+		
+		Thread t1 = new Thread()
+		{
+		 @Override
+		 public void run()
+		 {
+			 System.out.println("Available courses and Fess :");
+			 virat.viewCoursesAndFees();
+			 virat.viewOffers();
+			 virat.enrollInCourse(1);
+		 }		
+			
+		};
+		
+		
+		Thread t2 = new Thread()
+		{
+		 @Override
+		 public void run()
+		 {
+			 System.out.println("Available courses and Fess :");
+			 dhoni.viewCoursesAndFees();
+			 dhoni.viewOffers();
+			 dhoni.enrollInCourse(2);
+		 }		
+			
+		};
+		
+		Thread t3 = new Thread()
+		{
+		 @Override
+		 public void run()
+		 {
+			 System.out.println("Available courses and Fess :");
+			 sachin.viewCoursesAndFees();
+			 sachin.viewOffers();
+			 sachin.enrollInCourse(3);
+		 }		
+			
+		};
+		
+        t1.start();		
+		t1.join();
+		System.out.println("------------------------------");
+		t2.start();
+		t2.join();
+		System.out.println("------------------------------");
+		t3.start();
+		
+	}
+
+}
+___________________________________________________________________
+End Of program Here
+----------------------------------------------------------------
+String Handling in java :
+-------------------------
+A string literal in Java is basically a sequence of characters. These characters can be 
+anything like alphabets, numbers or symbols which are enclosed with double quotes. So we 
+can say String is a collection of alpha-numeric character.
+
+How we can create String in Java :-
+-----------------------------------
+In java String can be created by using 3 ways :-
+
+1) By using String Literal 
+
+   String x = "Ravi";      
+
+2) By using new keyword 
+
+   String y = new String("Hyderabad");
+
+3) By using character array
+
+   char z[] = {'H','E','L','L','O'};
+--------------------------------------------------------------
+Immutability in String (Diagram 13-MAR-24)
+-------------------------------------------
+In java Strings Objects are immutable means unchanged so, whenever we create a String object 
+in java it can't be modifiable.
+
+Strings literals are created in a very special memory of HEAP called String Constant Pool(SCP) and 
+it is not eligible for garbage collection.
+
+String once created can't be modifiable.
+
+Note :- Whenever we create the String Object using literal then internally intern() method is invoked 
+to place the String
+object into String Constant Pool Area.
+--------------------------------------------------------------
+Facts about String and memory :-
+--------------------------------------
+In java Whenever we create a new String object by using String literal, first of all JVM will verify 
+whether the String we want to create is pre-existing (already available ) in the String constant pool 
+or not.
+
+If the String is pre-existing (already available) in the String Constant pool then JVM will not create 
+any new String object, the same old existing String object would be refer by new reference variable as 
+shown in the diagram(13-MAR)
+
+Note :- In SCP area we can't have duplicate String Object.
+----------------------------------------------------------------
+15-03-2024
+----------
+* Why String objects are immutable :
+-------------------------------------
+As we know a String object in the String constant pool can be refer by multiple reference variables, 
+if any of the reference variable will modify the String Object value then it would be very difficult 
+for the another reference variables pointing to same String object to get the original value, what 
+they have defined earlier as shown in the diagram.(15-MAR)
+That is the reason Strings are immutable in java.
+
+Note :- While working with Map interface we can hold String object as a Map key so that time also 
+it must be immutable.
+-----------------------------------------------------------------
+WAP in java to show String objects are not eligible for GC.
+------------------------------------------------------------
+
+public class StringGCEligibility 
+{
+	public static void main(String[] args) throws InterruptedException 
+	{
+		String str1 = "India";
+		System.out.println(str1.hashCode());
+		
+		str1 = null;
+		
+		System.gc();
+		
+		Thread.sleep(2000);
+		
+		String str2 = "India";
+		System.out.println(str2.hashCode());
+		
+		System.out.println("...........");
+		System.out.println(str1);
+		System.out.println(str2);
+	}
+}
+
+From the above program it is clear that Strings are not eligible for GC.
+----------------------------------------------------------------
+* What is the difference between the following two statements ?
+----------------------------------------------------------------
+
+String x = "Naresh";   [Creating String by Literal]
+
+String y = new String("Hyderabad"); [Creating String Object by new keyword]
+
+----------------------------------------------------------------------
+String x = "Naresh"; 
+
+It will create one String object and one reference variable and String object will be created 
+in the String constant pool.
+----------------------------------------------------------------------
+String y = new String("Hyderabad");
+
+It will create two String objects one is inside the heap memory(non SCP area) which will be 
+refered by y reference variable and the same String object will be placed in the String constant 
+pool area, if it is not available there.
+Hence two String Objects and one reference variable will be created.
+-----------------------------------------------------------------
+Program in java that describes whenever we create String object by using new keyword then two 
+String objects are created with same content with same hash code.
+
+package com.ravi.method_parameter_local;
+
+public class Test {
+
+	public static void main(String[] args) 
+	{
+        String str1 = new String("Hyderabad");
+		
+		String str2 = "Hyderabad";
+		
+		System.out.println(str1.hashCode());
+		System.out.println(str2.hashCode());
+		
+		System.out.println(str1 == str2);  //false
+	}
+}
+-----------------------------------------------------------------
+The String object created by using new keyword, how they are automatically placed inside SCP area.
+
+In Java whenever we create the String Object by using new keyword then one object will be created in 
+the non SCP area and same object will be placed inside SCP area, Actually Here JVM internally performs 
+intern process. By using this intern process, JVM is placing the String into SCP Area.
+
+The following program explains how to use intern() method explicitly (By user) to place the String 
+created by new keyword into SCP Area.
+----------------------------------------------------------------
+package com.ravi.string_ex;
+
+public class StringTest 
+{
+	public static void main(String[] args) 
+	{
+	   String str1 = "Java";	   
+	   String str2 = new String("Java");
+	   
+	   System.out.println(str1 == str2); //false
+	   str2 = str2.intern();
+	  
+	   System.out.println(str1 == str2); //true
+	}
+
+}
+
+[Diagram 15-MARCH]
+-----------------------------------------------------------------
+package com.ravi.string_ex;
+
+public class StringHashCode {
+
+	public static void main(String[] args) 
+	{
+		String str1 = "Ravi";
+		String str2 = "Ravi";
+		String str3 = new String("Ravi");
+		
+		System.out.println(str1.hashCode() +" : "+str2.hashCode()+" : "+str3.hashCode());
+		
+
+	}
+
+}
+----------------------------------------------------------------
+Working with methods of String :-
+--------------------------------------
+String class has provided number of predefined methods to work with String 
+which are as follows :-
+
+1) public char charAt(int indexPosition) :-
+--------------------------------------
+It is a predefined method available in the String class. The main purpose of 
+this method to extract or fetch or retrieve a single character from the given String. 
+
+We need to pass the index position as a parameter to the method and based on 
+the index position it will extract the character. The return type of this method is char.
+----------------------------------------------------------------
+//Program on charAt(int indexPosition)
+public class Test4 
+{
+	public static void main(String[] args) 
+	{
+	    String x = "Hello Hyderabad";
+
+        char ch1 =  x.charAt(6); 
+		System.out.println(ch1); //H
+
+		ch1 = x.charAt(4); 
+		System.out.println(ch1); //o
+
+		ch1 = x.charAt(9); 
+		System.out.println(ch1); //e
+	}
+}
+---------------------------------------------------------------
+public String concat(String str) :-
+--------------------------------------
+It is a predefined method available in the String class. The main purpose of this 
+method to concat or append two Strings. This can be also done by using concatenation 
+operator '+'. 
+
+This method takes String as a parameter and the return type of this method is String.
+--------------------------------------------------------------
+ //Program on concat(String str)
+public class Test5 
+{
+	public static void main(String[] args) 
+	{
+		String s1 = "Data";
+		String s2 = "base";
+		String s3 = s1.concat(s2);  
+		System.out.println("String after concatenation :"+s3);
+
+        String s4 = "Tata";
+		String s5 = "Nagar";
+		String s6 = s4+s5;
+		System.out.println("String after concatenation :"+s6);
+
+        String s7 = "Naresh";
+		System.out.println(s7.concat(" Technology"));		
+	}
+}
+----------------------------------------------------------------
+
+
+
+
+
+
+

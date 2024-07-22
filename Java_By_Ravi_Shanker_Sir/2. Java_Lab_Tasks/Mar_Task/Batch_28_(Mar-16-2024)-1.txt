@@ -1,0 +1,307 @@
+Create an abstract class Book class with following specifications:-
+
+Instance Variables: 
+
+title : String
+
+Methods: 
+
+setTitle(String): void : abstract , 
+
+getTitle() :String
+
+	
+
+Create a sub classes of Book called MyBook class with following specifications 
+
+Methods: 
+
+override setTitle from parent class.
+
+    This method takes the book title as parameter and assigns it into the instance variable of parent class.
+
+override getTitle from parent class.
+
+ This method returns the name of the book in the format mentioned below in Sample Output.
+
+Sample Input
+
+A tale of two cities
+
+Sample Output
+
+The title of my book is: A title of two cities
+
+A class Testing is given to you with a main method. Use this class to test your solution's classes and methods.
+
+---------------------------------------------------------------------------------------------------------------------------
+
+A class Employee is given to you. It contains the following:
+Employee:
+Instance Variables: 
+name:String private 
+employeeId: int private
+salary: double private
+
+Methods: set and get methods for all.
+
+Default constructor AND All-fields constructor
+
+An Enum called ManagerType is given to you. It defines the two types of managers, HR and Sales
+Create two sub classes of Employee called Manager and Clerk. 
+
+The details of each class is given below.
+
+
+
+For class manager:
+
+Instance Variables:
+
+type: enum ManagerType private
+
+
+
+
+
+Methods: set and get methods for type. 
+
+Default constructor AND All-fields conserk tructor
+
+
+
+Override :
+
+setSalary(): If the type is HR manager, add 10000 to the given salary. 
+
+and for a sales manager, add 5000 to the given salary.
+
+
+
+For class Clerk:
+
+Instance Variables: 
+
+speed: int
+
+accuracy:int
+
+
+
+Methods: set and get methods for speed and accuracy.
+
+Default constructor AND All-fields constructor.
+
+
+
+Override:
+
+setSalary(): If the clerk has a typing speed of greater than 70 AND accuracy 
+greater than 80 then add 1000 to the salary. Otherwise set the same salary. 
+
+Note that any change in speed and accuracy(using setSpeed() or setAccuracy() ) 
+should result in 
+
+recalculation of salary, as the Trainee may qualify for the extra amount. 
+
+HOWEVER, when once the extra 1000 is given for extra speed/ and accuracy it 
+should not be given again.
+
+For example, if a Clerk's speed is already 85 and accuracy is already 75, and 
+the speed is changed to 90, 
+
+then the extra amount should not be added again. This extra amount should be 
+credited to salary only the first time the Clerk qualifies for the amount.
+
+Provide proper constructors for all classes.
+
+-----------------------------------------------------------------------------------------------------------------------
+
+A class Employee is given to you. It contains the following:
+
+
+
+Employee:
+
+
+
+Instance Variables: 
+
+name:String private  
+
+employeeId: int private
+
+salary: double private
+
+
+
+
+
+Methods: set and get methods for all.
+
+Default constructor AND All-fields constructor
+
+
+
+An Enum called ManagerType is given to you. It defines the two types of managers, HR and Sales
+
+
+
+
+
+Create two sub classes of Employee called Manager and Clerk. 
+
+The details of each class is given below.
+
+
+
+For class manager:
+
+Instance Variables:
+
+type: enum ManagerType private
+
+
+
+
+
+Methods: set and get methods for type. 
+
+Default constructor AND All-fields constructor
+
+
+
+Override :
+
+setSalary(): If the type is HR manager, add 10000 to the given salary. 
+
+and for a sales manager, add 5000 to the given salary.
+
+
+
+For class Clerk:
+
+Instance Variables: 
+
+speed: int
+
+accuracy:int
+
+
+
+Methods: set and get methods for speed and accuracy.
+
+Default constructor AND All-fields constructor.
+
+
+
+Override:
+
+setSalary(): If the clerk has a typing speed of greater than 70 AND accuracy greater than 80 then add 1000 to the salary. Otherwise set the same salary. 
+
+Note that any change in speed and accuracy(using setSpeed() or setAccuracy() ) should result in 
+
+recalculation of salary, as the Trainee may qualify for the extra amount. 
+
+HOWEVER, when once the extra 1000 is given for extra speed/ and accuracy it should not be given again.
+
+For example, if a Clerk's speed is already 85 and accuracy is already 75, and the speed is changed to 90, 
+
+then the extra amount should not be added again. This extra amount should be credited to salary only the first time the Clerk qualifies for the amount.
+
+Provide proper constructors for all classes.
+---------------------------------------------------------------------------------------------------------------------------------
+
+Design a SmartHomeDevice class with attributes like type, status, and control methods.
+
+
+
+1.Create a class SmartHomeDevice
+
+Instance variable:-
+
+String type,private
+
+boolean status,private
+
+
+
+Create a parameterized constructor for type variable to initialize the variable
+
+// Device is initially turned off
+
+
+
+Generate Getters and setters for all Instance variable to get values and set values.
+
+
+
+Create an instance method turnOn() to turn on the device
+
+//if status is false then change status to true and print "is turned on." 
+
+//if status is true then print "is already turned on".
+
+
+
+
+
+Create an instance method turnOff() to turn off the device
+
+//if status is true then change status to false and print "is turned off."
+
+//if status is false then print "is already turned off".
+
+
+2. Create a Subclass LightDevice inheriting from SmartHomeDevice
+
+Create a parameterized constructor.
+
+//Use super keyword to initialize SmartHomeDevice class constructor attributes.
+
+
+
+Create an instance method dim() with parameter brightness type interger.
+
+//print "Light brightness is set to " + brightness + "%."
+
+
+
+
+
+3.Create another Subclass ThermostatDevice inheriting from SmartHomeDevice
+
+Create a parameterized constructor.
+
+//Use super keyword to initialize SmartHomeDevice class constructor attributes.
+
+
+
+Create an instance method setTemperature() with parameter temperature type integer.
+
+//print "Thermostat temperature is set to " + temperature + "°C."
+
+
+
+4.Create a class MainSmart which contains main method to demonstrate the usage.
+
+//Creating a LightDevice object to call the methods.
+
+//Creating a ThermostatDevice object to call the methods.
+
+
+
+Output:-
+
+Light is turned on.
+
+Light brightness is set to 50%.
+
+Thermostat is turned on.
+
+Thermostat temperature is set to 22°C.
+
+Light is turned off.
+
+Thermostat is turned off.
+

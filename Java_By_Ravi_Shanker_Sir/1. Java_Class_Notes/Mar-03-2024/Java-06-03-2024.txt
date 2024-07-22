@@ -1,0 +1,193 @@
+06-03-2024
+-----------
+Exception Criteria :
+---------------------
+1) java.lang.ArithmeticException
+   Whenever we divide a number by 0 (an int value) then we will 
+   get java.lang.ArithmeticException.
+
+   Example :   System.out.println(10/0);	
+
+2) java.lang.ArrayIndexOutOfBoundsException
+   Whenever we try to access the index of Array but if the index is
+   not available (out of bound) then we will get ArrayIndexOutOfBoundsException.
+
+   int arr[] = {10,20,30};
+   System.out.println(arr[3]);
+
+3) java.lang.NumberFormatException
+   Whenever we try to convert String value into corresponding 
+   integer but the String value is not in a proper format
+   then we will get java.lang.NumberFormatException
+
+   String str = "one";
+   int no = Integer.parseInt(str);
+
+4) java.lang.NullPointerException
+   If a reference variable is pointing to null and from that reference variable, if we 
+call any method then we will get
+   java.lang.NullPointerException
+
+   String str = null;
+   System.out.println(str.length());
+
+5) java.lang.NegativeArraySizeException
+   The size of the array must not be negative.
+
+   int []arr = new int[-9];
+
+6) java.util.InputMismatchException
+   If we take the input but the input is not in a proper format
+   then we will get java.util.InputMismatchException
+
+   Scanner sc = new Scanner(System.in);
+   System.out.println("Enter Your Age :");
+   int age = sc.nextInt();  //input is eleven
+   System.out.println("Age is :"+age);
+-----------------------------------------------------------------
+Exception is the super class of all the execptions whether it is a predefined 
+exception or user-defined exception in Java.
+
+package com.ravi.exception;
+
+public class ExceptionDemo 
+{
+	public static void main(String[] args) 
+	{
+		Exception e = new ArithmeticException();
+		System.out.println(e);
+		
+		Exception e1 = new ArrayIndexOutOfBoundsException();
+		System.out.println(e1);
+
+	}
+
+}
+------------------------------------------------------------------
+WAP that describes that whenever an exception encounter in the program then program 
+will be terminated in the middle.
+
+package com.ravi.exception;
+
+import java.util.Scanner;
+
+public class ExceptionTermination {
+
+	public static void main(String[] args)
+	{
+		System.out.println("Main method started..");
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Enter the value of x :");
+		int x = sc.nextInt();
+		
+		System.out.print("Enter the value of y :");
+		int y = sc.nextInt();
+		
+		int res = x/y; //[if y value is 0 then program will halt]
+		System.out.println("Result is :"+res);
+		
+		System.out.println("Main method ended..");
+		sc.close();
+	}
+
+}
+
+Note :- In the above program if the value of y will be 0 then our program will halt in the 
+middle, it is called abnormal termination so, JVM is having default exception handler, which 
+will terminate the program and provide the appropriate message.
+------------------------------------------------------------------
+OOPs has provided some mechanism to work with exception which are as follows :
+
+1) try block
+2) catch block
+3) finally (try with resources 1.7)
+4) throw
+5) throws
+
+try block :
+-----------
+Whenever our statement is error suspecting statement OR Risky statement then we should write 
+that statement inside the try block.
+
+try block must be followed either by catch block or finally block or both.
+
+*try block is responsible to trace our code line by line, if any execption encounter then TRY 
+BLOCK WILL CREATE APPROPRIATE EXECPTION OBJECT, AND THROW THIS EXCEPTION OBJECT to the nearest 
+catch block.
+
+After the execption in the try block, the remaining code of try block will not be executed 
+because control will directly transfer to the catch block.
+
+In between try and catch block we cannot write any kind of statement.
+
+catch block :
+--------------
+The main purpose of catch block to handle the exception which is thrown by try block.
+
+catch block will only executed if there is an exception in the try block.
+-----------------------------------------------------------------
+package com.ravi.exception;
+
+import java.util.Scanner;
+
+public class ExceptionTermination {
+
+	public static void main(String[] args)
+	{
+		System.out.println("Main method started..");
+		Scanner sc = new Scanner(System.in);
+		
+		try
+		{
+			System.out.print("Enter the value of x :");
+			int x = sc.nextInt();
+			
+			System.out.print("Enter the value of y :");
+			int y = sc.nextInt();
+			
+			int res = x/y; 
+			System.out.println("Result is :"+res);
+			System.out.println("Inside try");
+		}
+		catch(Exception e)
+		{
+			System.out.println("Inside catch");
+			System.err.println(e);
+		}
+		
+		System.out.println("Main method ended..");
+		sc.close();
+	}
+
+}
+
+Note :- The above program in the protection of try-catch so, even we have an exception 
+(y=0) but program will be terminated normally.
+------------------------------------------------------------------
+package com.ravi.exception;
+
+public class ExceptionTermination {
+
+	public static void main(String[] args)
+	{
+		try
+		{
+			//System.out.println(10/0);
+			throw new ArithmeticException();
+			
+		}
+		catch(Exception e)
+		{
+			System.err.println("Catch");
+			System.err.println(e);
+		}
+		
+		
+	}
+
+}
+
+The above program describes how to create and throw an exception object explicitly. try 
+block is doing the same implicitly.
+------------------------------------------------------------------

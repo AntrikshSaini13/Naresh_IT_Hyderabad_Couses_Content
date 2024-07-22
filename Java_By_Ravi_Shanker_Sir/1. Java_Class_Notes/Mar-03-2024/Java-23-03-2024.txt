@@ -1,0 +1,51 @@
+---------------------------------------------------------------
+23-03-2024
+----------
+Multithreading :
+----------------
+Uniprocessing :- 
+----------------
+In uniprocessing, only one process can occupy the memory So the
+major drawbacks are 
+
+1) Memory is westage
+2) Resources are westage
+3) Cpu is idle
+
+To avoid the above said problem, multitasking is introduced.
+
+In multitasking multiple task can concurrently work with CPU so, our task will be 
+completed as soon as possible.
+
+Multitasking is further divided into two categories.
+
+a) Process based Multitasking
+b) Thread based Multitasking
+
+
+Process based Multitasking :
+----------------------------
+If a CPU is switching from one subtask(Thread) of one process to 
+another subtask of another process then it is called Process based Multitasking.
+
+Thread based Multitasking :
+---------------------------
+If a CPU is switching from one subtask(Thread) to another subtask within the same 
+process then it is called Thread based Multitasking.
+----------------------------------------------------------------
+Thread :-
+----------
+A thread is light weight process and it is the basic unit of CPU which can run concurrently 
+with another thread within the same context (process).
+
+It is well known for independent execution. The main purpose of multithreading to boost 
+the execution sequence.
+
+A thread can run with another thread at the same time so our task will be completed as 
+soon as possible.
+
+In java whenever we define main method then JVM internally creates a thread called main 
+thread.
+---------------------------------------------------------------
+Program that describes that main is a Thread :
+-----------------------------------------------

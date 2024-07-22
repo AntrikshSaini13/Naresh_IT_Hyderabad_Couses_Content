@@ -1,0 +1,221 @@
+07-04-2024
+-----------
+public boolean equals(Object obj) : [Content Comparison]
+--------------------------------------------------------
+It is a predefined method available in the String class. The main purpose of this method to verify whether two Strings are equal or not based on the content.
+
+If both the Strings are equal it will return true otherwise it will return false.It is case sensitive method.
+
+It takes Object as a parameter because it is an overridden method.It is overridden from Object class.
+--------------------------------------------------------------
+package com.ravi.equals;
+
+public class EqualsComparison {
+
+	public static void main(String[] args) 
+	{
+		String str1 = "India";
+		String str2 = new String("India");
+		
+		System.out.println(str1==str2);
+		System.out.println(str1.equals(str2));
+
+	}
+
+}
+---------------------------------------------------------------
+Contents comparison of two String using equals(Object obj) method by implementing Predicate<T> functional interface.
+
+@FunctionalInterface
+public interfrace Predicate<T>
+{
+   public abstract boolean test(T x);
+}
+----------------------------------------------------------------
+package com.ravi.equals;
+
+import java.util.Scanner;
+import java.util.function.Predicate;
+
+//Verify a name using Predicate
+public class PredicateDemo {
+
+	public static void main(String[] args) 
+	{
+		Predicate<String> p1 = str -> str.equals("Ravi");
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter your Name :");
+		String name = sc.next();
+		
+		System.out.println(p1.test(name));
+		sc.close();
+				
+				
+				
+
+	}
+
+}
+----------------------------------------------------------------
+public boolean equalsIgnoreCase(String str) :-
+--------------------------------------------------
+It is a predefined method available in the String class. The main purpose of this method to Compare two Strings based on the content by ignoring the case.
+This method takes String as a parameter and return type of this method is boolean. It comapres two Strings by ignoring the case so it is not a case sensitive method.
+
+Hence for this method 'A' and 'a' both are same.
+----------------------------------------------------------------
+//Program on boolean equalsIgnoreCase(String s)
+public class Test7 
+{
+	public static void main(String[] args) 
+	{		
+		String username = args[0];
+
+		if(username.equalsIgnoreCase("Raviinfotech"))
+		{
+			System.out.println("Welcome to Raviinfotech channel");
+		}
+		else
+		{
+			System.out.println("Sorry! wrong username /Password");
+		}
+	}
+}
+----------------------------------------------------------------
+IQ 
+What is differenec b/w == operator and equals(Object obj) method of String class
+
+equals(object obj) method of String class compares two strings based on the content because it is an overriden method where as == operator compares two Strings based on the reference i.e memory address.
+
+//IQ
+public class Test8 
+{
+	public static void main(String[] args) 
+	{
+		String s1="India";
+		String s2="India";
+		String s3=new String("India");
+
+		 System.out.println(s1==s2); 
+		 System.out.println(s1==s3); 
+
+		  System.out.println(s1.equals(s2)); 
+		 System.out.println(s1.equals(s3));  
+	}
+}
+
+Note :- String class has overridden equals(Object obj) method from Object class because Object class equals(Object obj) method meant for memory address comparison but this overridden String class equals(Object obj) meant for content comparison.
+
+Note :- String is a final class in java.
+----------------------------------------------------------------
+public int length() :-
+----------------------
+It is a predefined method available in the String class. The main purpose of this method to find out the length of the given String. The return type of this method is int. 
+
+public class Demo 
+{
+	public static void main(String[] args) 
+	{	
+		String x = "India";
+		System.out.println(x.length); //error
+
+		String []y = new String[5];		
+		System.out.println(y.length()); //error
+		
+	}
+
+}
+
+//Program on public int length()  
+class Test9 
+{
+	public static void main(String[] args) 
+	{		
+		String x = "Naresh Tech";
+        int len = x.length();      
+		System.out.println("The length of "+x+" is :"+len);
+	}
+}
+----------------------------------------------------------------
+public String replace(char old, char new) :-
+----------------------------------------------------
+It is a predefined overloaded method available in the String class. The main purpose of this method to replace a character or a String with another character or String. The return type of this method is String. 
+
+By using this method we can replace a single character or a complete String from the given String.
+---------------------------------------------------------------
+//public String replace(char old, char new)
+public class Test10
+{
+public static void main(String [] args) 
+	{
+        String x = "oxoxoxox";  
+		System.out.println("String before replacement :"+x);
+
+		System.out.println("String after replacement :"+x.replace('x','X'));
+
+		String y="Manager";		
+		System.out.println(y.replace("Man","Dam"));	
+    }
+}
+---------------------------------------------------------------
+public int compareTo(String s) :-
+-------------------------------------
+It is a predefined method available in the String class. The main purpose of this method two compare two String based on character by character, comparison of two Strings chracter by chracter based on the UNICODE values are called Lexicographical comparison or dictionary comparison or alphabetical comparison(String case). 
+
+The return type of this method is int.It takes String as a parameter.
+
+If s1 and s2 are two valid Strings 
+
+if s1==s2  -> 0
+
+if s1>s2  -> +ve
+
+if s1<s2   -> -ve
+---------------------------------------------------------------
+//public int compareTo(String s) 
+public class Test11    
+{
+     public static void main(String [] args) 
+     {
+        String s1="Sachin";      //PQRS    S > R
+        String s2="Sachin";
+        String s3="Ratan";  
+
+	   System.out.println(s1.compareTo(s2)); //0
+	   System.out.println(s1.compareTo(s3)); //1   [Sachin   Ratan]  
+	   System.out.println(s3.compareTo(s1)); //-1  [Ratan  Sachin] 
+
+       String s4 = "Apple"; 
+	   String s5 = "apple"; 
+	   System.out.println(s4.compareTo(s5));  // -32
+	   System.out.println(s5.compareTo(s4));  // 32
+
+	   String s6 = "Ravi";
+	   String s7 = "Raj";
+	   System.out.println(s6.compareTo(s7)); // 
+
+    }
+}
+---------------------------------------------------------------
+public boolean isEmpty() :-
+------------------------------
+It is a predefined method available in the String class. The main purpose of this method to
+check whether a String is empty or not. This method returns true if the String is empty 
+that means length is 0, otherwise it will return false.
+
+The return type of this method is boolean.
+-------------------------------------------------------------
+//public boolean isEmpty()
+
+public class Test13
+{
+	public static void main(String args[])
+	{		
+		String str1 = "Java by James Gosling";
+		String str2 = "";
+
+		System.out.println(str1.isEmpty()); 
+		System.out.println(str2.isEmpty()); 	  
+	}
+}

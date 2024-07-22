@@ -1,0 +1,247 @@
+05/04/2024
+----------
+Deadlock :
+------------
+It is a situation where two or more than two threads are in blocked state forever, 
+here threads are waiting to acquire another thread resource without releasing it's 
+own resource.
+
+This situation happens when multiple threads demands same resource without releasing 
+its own attached resource so as a result we get Deadlock situation and our execution 
+of the program will go to an infinite state as shown in the diagram. (05-APR-24)
+
+public class DeadlockExample
+	{
+  public static void main(String[] args) 
+	 {
+     String resource1 = "Ameerpet";  
+     String resource2 = "S R Nagar";  
+
+    // t1 tries to lock resource1 then resource2
+
+    Thread t1 = new Thread() 
+    {
+	  @Override
+          public void run() 
+	  {
+		synchronized (resource1) 
+		{
+			System.out.println("Thread 1: locked resource 1");
+			try 
+			{ 
+				Thread.sleep(1000);
+			} 
+			catch (Exception e) 
+			{}
+				  
+			synchronized (resource2) //Nested synchronized block
+			{
+				System.out.println("Thread 1: locked resource 2");
+			 }
+             	}
+      	  }
+     };
+
+
+    // t2 tries to lock resource2 then resource1
+    Thread t2 = new Thread() 
+	{
+      @Override
+      public void run() 
+	  {
+        synchronized (resource2) 
+			{
+          System.out.println("Thread 2: locked resource 2");
+              try 
+			  { 
+			  Thread.sleep(1000);
+			  } 
+			  catch (Exception e) 
+			{}
+
+          synchronized (resource1) //Nested synchronized block
+		  {
+            System.out.println("Thread 2: locked resource 1");
+          }
+        }
+      }
+    };    
+    t1.start();
+    t2.start();
+  }
+}
+---------------------------------------------------------------
+Daemon Thread [Service Level Thread]:
+--------------------------------------
+Daemon thread is a low- priority thread which is used to provide background maintenance.  
+
+The main purpose of of Daemon thread to provide services to the user thread.              
+
+JVM can't terminate the program till any of the non-daemon (user) thread is active, once 
+all the user thread will be completed then JVM will terminate all Daemon threads, which 
+are running in the background to support user threads.
+
+The example of Daemon thread is Garbage Collection thread, which is running in the background 
+for memory management.
+
+In order to make a thread as a  Daemon thread , we should use setDaemon(true)
+---------------------------------------------------------------
+public class DaemonThreadDemo1 
+{
+  public static void main(String[] args) 
+	{
+	    System.out.println("Main Thread Started...");
+
+        Thread daemonThread = new Thread(() -> 
+		{
+            while (true) 
+			{
+                System.out.println("Daemon Thread is running...");
+                try 
+				{
+                    Thread.sleep(1000);
+                } 
+				catch (InterruptedException e) 
+				{
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        daemonThread.setDaemon(true); 
+        daemonThread.start();
+
+        
+        Thread userThread = new Thread(() -> 
+		{
+            for (int i = 1; i <= 9; i++) 
+			{
+                System.out.println("User Thread: " + i);
+                try 
+				{
+                    Thread.sleep(2000);
+                } 
+				catch (InterruptedException e) 
+				{
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        userThread.start();
+
+        System.out.println("Main Thread Ended...");
+    }
+}
+---------------------------------------------------------------
+Remaining method of Object class :
+----------------------------------
+Object cloning in java :
+----------------------------
+Object cloning is the process of creating an exact copy of an existing object in the 
+memory.
+
+Object cloning can be done by the following process :
+
+1) Creating Shallow copy 
+
+2) Creating Deep copy
+
+3) Using clone() method of java.lang.Object class
+
+4) Passing Object reference to the Constructor.
+
+Shallow Copy :
+-----------------
+In shallow copy, we create a new reference variable which will point to same old existing 
+object so if we make any changes through any of the reference variable then original object 
+content will be modified.
+
+Here we have one object and multiple reference variables.
+
+Hashcode of the object will be same.
+---------------------------------------------------------------
+package com.ravi.clone_method;
+
+class Student
+{
+	int id;
+	String name;
+	
+	@Override
+	public String toString() 
+	{
+		return "Id is :" + id + "\nName is :" + name ;
+	}
+	
+}
+public class ShallowCopy 
+{
+	public static void main(String[] args) 
+	{
+		Student s1 = new Student();
+		s1.id = 111;
+		s1.name = "Ravi";
+        
+		System.out.println(s1);
+		
+		System.out.println("After Shallow Copy");
+		
+		Student s2 = s1; //shallow copy
+		s2.id = 222;
+		s2.name = "Shankar";
+		
+		System.out.println(s1);
+		System.out.println(s2);
+		
+		System.out.println(s1.hashCode());
+		System.out.println(s2.hashCode());
+	}
+
+}
+---------------------------------------------------------------
+Deep Copy :
+--------------
+In deep copy, We create a copy of object in a different memory location. This is called 
+a Deep copy. 
+
+Here objects are created in two different memory locations so if we modify the content 
+of one object it will not reflect another object.
+
+package com.ravi.clone_method;
+
+class Employee
+{
+	int id;
+	String name;
+	
+	@Override
+	public String toString() 
+	{
+		return "Employee [id=" + id + ", name=" + name + "]";
+	}	
+}
+
+public class DeepCopy 
+{
+	public static void main(String[] args)
+	{
+		Employee e1 = new Employee();
+		e1.id = 111;
+		e1.name = "Ravi";
+		
+		Employee e2 = new Employee();
+		e2.id = e1.id;
+		e2.name = e1.name;
+		
+		System.out.println(e1 +" : "+e2);
+		
+		e2.id = 222;
+		e2.name = "shankar";
+		System.out.println(e1 +" : "+e2);
+		
+		System.out.println(e1.hashCode() +" : "+e2.hashCode());
+	}
+
+}
+---------------------------------------------------------------

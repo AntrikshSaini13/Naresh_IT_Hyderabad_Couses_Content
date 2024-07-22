@@ -1,0 +1,193 @@
+1. Arithimatic Exception Example
+Create a class ExceptionDemo and define a non static method as Follow
+public void checkException()
+{
+try
+int num1=30,num2=0;
+int operation=num1/num2;
+Sysout("Result:"+Operation);
+}
+catch(ArithmeticException e)
+{
+Sysout("You Shouldn't divide a number by zero");
+} 
+}
+---------------------------------------------------------------------
+
+2. ArrayIndexOutOfBoundsException
+Create a class ExceptionDemo and define a non static method as follow public void checkException()
+try
+{
+int a[]=new int [50];
+a[6]=20;
+}
+catch (ArrayIndexOutOfBoundsException a)
+{
+Sysout("Array Index Out Of Bounds");
+}
+}
+
+Call the above method from main method and observe the Output.
+---------------------------------------------------------------------
+3. NumberFormatException
+
+Create a class ExceptionDemo and define a method as Follow
+public void checkException()
+{
+try
+{
+int num=Integer.parseInt("xyz");
+Sysout(num);
+}
+catch (NumberFormatException e)
+{
+Sysout(Number Format Exception Occured");
+}
+}
+Call the above method from main method and observe the Output.
+----------------------------------------------------------------------
+4. StringIndexOutOfBoundsException
+
+Create a class ExceptionDemo and define a method as Follow
+public void checkException()
+{ 
+ try
+ {
+String Str = "Hello World"
+Sysout(str.length());
+char c=str.charAt(0);
+c=str.charAt(40);
+Sysout(c);
+}
+catch(StringIndexOutOfBoundsException s)
+{ 
+Sysout("String Index Out Of Bounds Exception !");
+}
+}
+Call the above method from main method and observe the Output.
+----------------------------------------------------------------------
+5. NullPointerException 
+
+Create a class ExceptionDemo and define a method as Follow
+public void checkException()
+{
+try
+{
+String str=null;
+Sysout(str.length());
+}
+catch(NullPointerException e)
+{
+Sysout("Null Pointer Exception");
+}
+}
+Call the above method from main method and observe the Output.
+----------------------------------------------------------------------
+6. How to Resolve Null Pointer Excetion.
+Write a Program to Create a class with name " HandleNullPointerException".
+
+* Define a parameterised method and name it as dispaly.What ever value you will pass as argument,within
+the method print the argument .
+
+*)Define the main method and write the following code
+HandleNullPointerException h=null;
+h.display();
+
+Now see the console, You will get NullPointerException.
+Now how to handle the above the exception or for handling the above exception,design you main method
+in the below manner
+
+HandleNullPointerException h= null;
+if (h==null)
+{
+h= new HandleNullPointerException();
+h.display();
+}
+else
+{
+h.display();
+}
+----------------------------------------------------------------------
+7. When We will get StackOverFlowError
+Write a Program To Create a Class StackOverFlowErrorDemo and define a method display and design as follows.
+public void display()
+{
+Sop(" I am StackOverFlow");
+display();
+}
+Now call this within main method and Observe the Output.
+----------------------------------------------------------------------
+8. Try with Resources
+Create a class with name MyAutoClosable
+which implements AutoClosable interface and Override close() of AutoClosable
+Now Define a method with name display() and design the method as below
+public void display(string str)
+{
+if (str==null)
+{
+throw new RuntimeException();
+}
+else
+{
+Sop("Yeh,I don't have exception");
+}
+}
+Define main method and call the above method using catch Block.
+If you want to use try with resource Concept in the above program,then you need to design Your main methid as follow.
+public static void main(String args[])throws Exception
+{
+MyAutoClosable m = new MyAutoClosable();
+try (m)
+{
+m.dispaly(null);
+}
+Now call the Some method by passing Some appropriate message and Observe the output.
+----------------------------------------------------------------------
+9. Multiple Catch Block
+Create a Class with Multiple catch block and define one method with name multiCatch () and design
+the method as follow.
+
+int a[]=new int[2];
+try
+{
+a [4]=10/2;
+}
+catch(ArrayIndexOutOfBoundsException e){
+e.printStackTrace();
+}
+catch (ArithmeticException e) {
+e.printStackTrace();
+} 
+
+Call the above method in the main method and Observe the output.
+Change in the above method 10/2 into 10/0 and observe the output.
+----------------------------------------------------------------------
+10. Multiple Catch Statement:
+In the above eg.instead of Writing Multiple Catch block We can One catch block witmmultipleException as follow.
+/*catch(ArrayIndexOutOfBoundsException|ArithmeticException |NumberFormatException e){
+e.printStackTrace();
+}*/*
+Now observe the output.
+---------------------------------------------------------------------
+11) Try with Resources :
+
+Create two classes which are as follows :
+
+a) class NetworkResource, which implements from AutoCloseable and 
+   override close method to write some message that network resource
+   closed.
+
+b) class KeyboardResource, which implements from Closeable and override 
+   close method to write some message that keyboard resource closed.
+
+Create one ELC class which contains main method, Write try with resources in java 9 style to call close method of NetworkResource class
+and KeyboardResource class.
+
+Write one catch block for try with resources block which is handling AE, in the first line of try block write sysout(10/0);
+
+
+
+
+
+
+

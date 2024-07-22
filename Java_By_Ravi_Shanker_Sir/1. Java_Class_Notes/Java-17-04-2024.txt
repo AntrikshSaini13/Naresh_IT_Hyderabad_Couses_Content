@@ -1,0 +1,62 @@
+
+The simple meaning of collections is single unit of Objects.
+----------------------------------------------------------------
+
+It provides the following sub interfaces :
+
+1) List (Accept duplicate elements)
+2) Set (Not accepting duplicate elements)
+3) Queue (Storing and Fetching the elements based on some order i.e FIFO)
+
+
+Collection is an interface in java.util package where as Collections is predefined class which contains various static method available in java.util package available from JDK 1.2v.
+----------------------------------------------------------------
+Methods of Collection interface :
+---------------------------------
+a) public boolean add(Object element) :- It is used to add an item/element in the collection.
+
+b) public boolean addAll(Collection c) :- It is used to insert the specified collection elements in the existing collection(For merging the Collection)
+
+c) public boolean retainAll(Collection c) :- It is used to retain all the elements from existing element. (Common Element)
+
+
+d) public boolean removeAll(Collection c) :- It is used to delete all the elements from the existing collection.
+
+e) public boolean remove(Object element) :- It is used to delete an element from the collection.
+
+f) public int size() :- It is used to find out the size of the Collection.
+
+g) public void clear() :- It is used to clear all the elements at once from the Collection.
+
+All the above methods of Collection interface will be applicable to all the sub interfaces like List, Set and Queue.
+----------------------------------------------------------------
+List interface :
+----------------
+It is the sub interface of Collection interface introduced from JDK 1.2v.
+
+It works on the basis of index.
+
+It accepts duplicate elements.
+
+We can perform manual sorting operation on List interface.
+----------------------------------------------------------------
+List interface Hierachy :
+-------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

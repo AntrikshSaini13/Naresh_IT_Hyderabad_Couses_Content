@@ -1,0 +1,281 @@
+22-03-2024
+----------
+transient keyword :
+-------------------
+If we want that some of our field (variable) will not serialized then we should declare 
+that variables with transient keyword so, we will get the defualt value for the variables.
+
+public class Player
+{
+   private transient int playerId;
+   private transient String playerName;
+}
+
+Now if we perform serialization operation on Player object then for playerId we will get 
+0 and for playerName we will get null.
+--------------------------------------------------------------
+3 files :
+---------
+Product.java
+------------
+package com.ravi.serialization_ex;
+
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.Scanner;
+
+//BLC
+public class Product implements Serializable
+{
+	private transient int productId;
+	private transient String productName;
+	private double productPrice;
+	private LocalDate manufactureDate;
+
+	public Product(int productId, String productName, double productPrice, LocalDate manufactureDate) {
+		super();
+		this.productId = productId;
+		this.productName = productName;
+		this.productPrice = productPrice;
+		this.manufactureDate = manufactureDate;
+	}
+	
+	public static Product getProductObject()
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter Product Id :");
+		int id = sc.nextInt();
+		System.out.print("Enter Product Name :");
+		String name = sc.nextLine();
+		name = sc.nextLine();
+		System.out.print("Enter Product Price :");
+		double price = sc.nextDouble();
+		LocalDate d = LocalDate.now();
+		return new Product(id, name, price, d);
+	}
+
+	@Override
+	public String toString() {
+		return "Product [productId=" + productId + ", productName=" + productName + ", productPrice=" + productPrice
+				+ ", manufactureDate=" + manufactureDate + "]";
+	}
+	
+	
+
+}
+
+StoringProductObject.java
+--------------------------
+
+package com.ravi.serialization_ex;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.Scanner;
+
+//ELC
+public class StoringProductObject 
+{
+	public static void main(String[] args) throws IOException
+	{
+	  var fos = new FileOutputStream("C:\\new\\Product.txt");
+	  var oos = new ObjectOutputStream(fos);
+	  Scanner sc = new Scanner(System.in);
+	  
+	  try(fos; oos; sc)
+	  {		 
+		 System.out.println("How many objects :");
+		 int objects = sc.nextInt();
+		 
+		 for(int i=1; i<=objects; i++)
+		 {
+			 Product product = Product.getProductObject();
+			 oos.writeObject(product);
+		 }
+		 
+		 
+	  }
+	  catch(Exception e)
+	  {
+		 e.printStackTrace(); 
+	  }
+       		System.out.println("Product Data stored...");
+	}
+
+}
+
+RetrievingProductObject.java
+----------------------------
+package com.ravi.serialization_ex;
+
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+
+//ELC
+public class RetrievingProductObject 
+{
+	public static void main(String[] args) throws Exception 
+	{
+	   var fin = new FileInputStream("C:\\new\\Product.txt");	
+	   var ois = new ObjectInputStream(fin);
+	   
+	   try(fin;ois)
+	   {
+		  Product p = null;
+		  while((p = (Product)ois.readObject())!=null)
+		  {
+			 System.out.println(p); 
+		  }		      
+	   }
+	   catch(Exception e)
+	   {
+		   System.err.println("End if file reached");
+	   }
+	}
+}
+---------------------------------------------------------------
+Working With Character Oriented Stream :
+----------------------------------------
+In order to work with character oriented Stream, if we two super classes Reader and Writer.
+
+Both are abstract classes and Reader is the super class for all types of reading operation, 
+on the other hand Writer is the super class for all types of writing operation.
+
+Here we can directly work with characters.
+
+FileWriter class :
+------------------
+It is a predefined class available in java.io package,By using this class we can create a file 
+and write character data to the file. 
+
+By using this class we can directly write String (collection of characters) Or character array 
+to the file.
+
+Actually It is a character oriented Stream where as if we work with FileOutputStream class, 
+It is byte oriented Stream.
+----------------------------------------------------------------
+//FileWriter
+import java.io.*;
+public class File11
+{
+    public static void main(String args[]) throws IOException
+    {
+         var fw = new FileWriter("C:\\Batch28\\HelloIndia.txt");
+	 var bw = new  BufferedWriter(fw);
+
+		 try(fw; bw)
+		 {
+         		bw.write("India, It is in Asia");
+         		System.out.println("Success....");
+		 }
+		 catch(IOException e)
+		  {
+			  e.printStackTrace();
+		  }
+    }
+}
+---------------------------------------------------------------
+//FileWriter
+import java.io.*;
+class File12
+{
+    public static void main(String args[]) throws IOException
+    {
+		var fw = new FileWriter("C:\\Batch28\\Data.txt");
+		var bw = new  BufferedWriter(fw);
+
+        try(fw;bw)
+		{        
+		 char c[ ] =  {'H','E','L','L','O', ' ',' ','W','O','R','L','D'};
+		 
+         	 	bw.write(c);
+         		System.out.println("Success....");
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+    }
+}
+----------------------------------------------------------------
+FileReader class :
+--------------------
+It is a predefined class available in java.io package, It is a character oriented Stream. 
+The main purpose of this class to read the data in the character format directly from the file.
+--------------------------------------------------------------
+//FileReader
+import java.io.*;
+public class File13
+{
+    public static void main(String args[]) throws IOException
+    {
+         var fr = new FileReader(args[0]); //Command Line Arg
+	 var br = new BufferedReader(fr);
+
+		 try(fr ; br)
+		 {
+         		while(true)
+         		{
+              		int i = br.read();
+              		if(i == -1)
+                   	break;
+              		System.out.print((char)i);
+         		}
+		 }
+		 catch(IOException e)
+		 {
+			  e.printStackTrace();
+		 }         
+    }
+}
+---------------------------------------------------------------
+import java.io.*;
+public class File14
+{
+  public static void main(String[] args) throws IOException
+	{
+       		var fr = new FileReader("C:\\Batch28\\Image.jpg");
+	   	var  fw = new FileWriter("C:\\Batch28\\xyz.jpg");
+	   
+		try(fr;fw)
+		{
+		        int i;
+		        while((i=fr.read())!= -1)
+			{
+				fw.write(i);
+			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		System.out.println("Success");
+    }
+}
+
+
+Note :- In the above program the image file will not be created in a proper format because 
+images are created by using binary data but FileReader and FileWriter can work with Character 
+data.
+----------------------------------------------------------------
+//PrintWriter 
+import java.io.*;
+public class File15
+{
+  public static void main(String[] args) throws IOException
+	{
+	  PrintWriter writeData = new PrintWriter("C:\\Batch28\\Roll.txt");
+
+           try(writeData)
+	   {      
+              int roll = 15;
+              //Writing primitive data into text format
+              writeData.printf("My roll number is : %d ", roll);    
+           }
+           catch(Exception e) 
+	   {
+               e.printStackTrace();
+    	   }
+  }
+}

@@ -1,0 +1,208 @@
+21-03-2024
+-----------
+Writing and Reading the primitive data to the files :-  
+----------------------------------------------------------
+It is possible to write the primitive data(byte,short,int, long, float, double, 
+char and boolean) to the file. 
+
+In order to write primitive data to the file we should use a predefined class 
+available in java.io package called DataOutputStream. 
+
+var fos = new FileOutputStream("data.txt");
+var dos = new DataOutputStream(fos);
+
+now by using this dos we can write primitive data to the file.
+
+It provides various methods like writeByte(), writeShort(), writeInt() and so on to 
+write the data to the file.
+
+If we want to read the primitive data from the file we can use a predefined class 
+available in java.io package called DataInputStream, this class provides various 
+methods like readByte(), readShort(), readInt() and so on.
+
+var fin = new FileInputStream("data.txt");
+var dis = new DataInputStream(fin);
+
+Note :- For writing String into a file we have writeBytes() and to read the String 
+data from the file we have readLine() method.
+
+[DataInputStream class readLine() method is deprecated now, so compilation warning]
+----------------------------------------------------------------
+//DataOutputStream and DataInputStream
+import java.io.*;
+public class File10
+{
+      public static void main(String args[]) throws IOException
+      {
+		  var fout = new FileOutputStream("C:\\new\\Primitive.txt");
+          	  var dout = new DataOutputStream(fout);
+
+		  try(fout ; dout)
+		  {
+          		dout.writeBoolean(true);
+          		dout.writeChar('A');
+          		dout.writeByte(Byte.MAX_VALUE);
+          		dout.writeShort(Short.MAX_VALUE);
+          		dout.writeInt(Integer.MAX_VALUE); 
+          		dout.writeLong(Long.MAX_VALUE);
+          		dout.writeFloat(Float.MAX_VALUE); 
+          		dout.writeDouble(Math.PI);//PI is a final static variable
+		  	dout.writeBytes("Hello India...");
+          		dout.flush();//For reuse purpose
+          	  }
+		  catch(IOException e)
+		  {
+			  e.printStackTrace();
+		  }
+
+		  System.out.println("Reading the Primitive data from the file!!!");
+          
+		  var fin = new FileInputStream("C:\\new\\Primitive.txt");
+          	  var din = new DataInputStream(fin);
+		  try(fin ; din)
+		  {
+          		boolean f = din.readBoolean();
+          		char c = din.readChar();
+          		byte b = din.readByte();
+          		short s = din.readShort();
+          		int i = din.readInt();
+          		long l = din.readLong();
+          		float ft = din.readFloat();
+          		double d = din.readDouble();
+		   	String x=  din.readLine();//for reading String (deprecated)
+
+          		System.out.println(f +"\n"+c+"\n"+b+"\n"+s+"\n"+i+"\n"+l+"\n"+ft+"\n"+d+"\n"+x);
+		  }
+		  catch(IOException e)
+		  {
+			  e.printStackTrace();
+		  }
+
+      }
+}
+---------------------------------------------------------------
+** Serialization and De-serialization :
+---------------------------------------
+It is a technique through which we can store the object data in a file. Storing the 
+object data into a file is called Serialization on the other hand Reading the object 
+data from a file is called De-serialization.
+
+In order to perform serialization, a class must implements Serializable interfcae, 
+predefined marker interface in java.io package.
+
+Java.io package has also provided a predfined class called ObjectOutputStream to perform 
+serialization i.e writing Object data to a file using writeObject() method.
+
+where as ObjectInputStream is also a predefined class available in java.io package through 
+which we can read the Object data from a file using readObject(). The return type of 
+readObject() is Object.
+
+While reading the object data from the file, if the object is not available in the file 
+then it will throw an execption java.io.EOFException. (End of file Exception)
+
+3 files :
+---------
+Employee.java(R)
+-----------------
+package com.ravi.serialization_demo;
+
+import java.io.Serializable;
+import java.util.Scanner;
+
+public record Employee(int id, String name, double salary) implements Serializable
+{
+	
+	public static Employee getEmployeeObject()
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter Employee Id :");
+		int id = sc.nextInt();
+		System.out.print("Enter Employee Name :");
+		String name = sc.nextLine();
+		name = sc.nextLine();
+		System.out.print("Enter Employee Salary :");
+		double salary = sc.nextDouble();
+		
+		return new Employee(id, name, salary);
+	}
+
+}
+
+Serialization.java
+------------------
+package com.ravi.serialization_demo;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Serialization 
+{
+  public static void main(String[] args) throws IOException
+  {
+	var fos = new FileOutputStream("C:\\new\\Emp.txt");
+	var oos = new ObjectOutputStream(fos);
+	
+	Scanner sc = new Scanner(System.in);
+	
+	try(sc; oos; fos)
+	{
+		System.out.print("How many objects you want to write ?");
+		int noOfObjects = sc.nextInt();
+		
+		for(int i=1; i<=noOfObjects; i++)
+		{
+			Employee obj = Employee.getEmployeeObject();
+			oos.writeObject(obj);
+		}
+	}
+	catch(InputMismatchException e)
+	{
+		e.printStackTrace();
+	}
+	catch(Exception e)
+	{
+		e.printStackTrace();
+	}
+	
+	System.out.println("Object data stored in a file");
+  }
+}
+
+De-Serialization
+-----------------
+package com.ravi.serialization_demo;
+
+import java.io.EOFException;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+
+public class DeSerialization 
+{
+	public static void main(String[] args) throws IOException, ClassNotFoundException 
+	{
+	    var fin = new FileInputStream("C:\\new\\Emp.txt");
+	    var ois = new ObjectInputStream(fin);
+	    
+	    try(fin;ois)
+	    {
+	    	
+	    Employee e1 = null;
+	    
+	    while((e1 = (Employee)ois.readObject())!=null)
+	    {
+	    	System.out.println(e1);
+	    }
+	    }
+	    catch(EOFException e)
+	    {
+	    	System.err.println("File ended :"+e);
+	    }
+
+	}
+
+}
+---------------------------------------------------------------

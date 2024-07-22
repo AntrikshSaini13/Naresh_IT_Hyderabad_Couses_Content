@@ -1,0 +1,98 @@
+
+1.Create an class Person with the following attributes.
+
+Instance Variables: 
+
+Name:string
+Age:int
+Address:string
+
+Parameter constructor must initialize name age and address
+Method:
+Name:DisplayInfo
+return type:string 
+accessmodifier:public 
+return the data of the person in this method.
+
+Create another PersonDetails class
+
+create object for Person class pass the values by using constructor and also call the DisplayInfo method. 
+User has to enter the values.
+
+
+2.Create a class Area with the following attributes
+
+Instance Variables:
+
+Length: double private
+Width: double private
+Radious: double private
+
+generate non parametarised constructor initilize default values
+Create Parametarised constructor with two prameters length width and create another parametarised constructor with one parameter radious
+
+Methods:
+Name:AreaofRectangle
+ReturnType: double
+accessmodifier:public
+
+Name:AreaofCircle
+ReturnType: double
+accessmodifier:public
+
+Create another class ShapeAreas
+
+create object for Area class pass the values of rectangle length and widthn and print the area of rectangle
+
+create another object for Area class pass the value of circle radious and print the area of circle
+
+user has to enter the values.
+
+
+
+3.Create an class Car with the following attributes
+
+Instance Variables:
+
+CarModel:string public
+Color:string public
+CarNumber:int public(last 4 digit number)
+ModelYear:int public
+
+Generate toString Method and return the details of Car.
+
+Create a class constructor must initialize carmodel,color,carnumber and modelyear 
+
+Create another class CarDetails
+
+create object for Car class pass the values by using constructor 
+User has to enter the values.
+
+
+
+4.Create a Product class to represent products in an online store. The Product class should have the following properties:
+
+Instance Variables:
+
+OnlineAppNaame (string)
+ProductId (int)
+ProductName (string)
+Price (double)
+
+Implement two constructors for the Product class:
+
+1. A parameterized constructor that allows you to set the OnlineAppNaame,ProductId, ProductName and Price 
+2. A default constructor that sets default values 
+
+Methods:
+Name:DisplayInfo
+ReturnType:string
+AccessModifier:public
+return the data of the product
+
+Create another class OnlineOrder
+
+create object for Product class pass the values by using constructor and also call the DisplayInfo method. 
+User has to enter the values.
+
+

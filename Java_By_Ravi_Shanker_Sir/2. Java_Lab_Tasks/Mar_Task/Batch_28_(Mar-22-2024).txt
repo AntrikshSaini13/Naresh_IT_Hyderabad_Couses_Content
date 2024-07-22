@@ -1,0 +1,62 @@
+Program 01 :
+-----------
+Perform Serialization and De-Serialization.
+
+Create a BLC class Customer with following attributes :
+private Integer customerId
+private String customerName
+private Double customerBill
+
+Create a parameterized Constructor to initialize all fields
+
+Create a Method getCustomerObject() to get Customer Object from end user
+Name of the Method : getCustomerObject()
+Modifiers : public and static
+Return type : Customer
+
+In this Method take the user input from Scanner class to initialize the 
+instance variable.
+
+Generate toString(), getter and setter.
+
+
+Create another class StoreCustomerObject which will store customer object into a file called CustomerObject.txt.
+
+The number of Customer object you want to store in a file must be taken from end user through Scanner class.
+
+Create another class called RetrieveCustomerObject which will read the 
+Customer object from file and print the customer data through toString()
+method.
+
+
+Program 02
+----------
+Problem: Serialization and Deserialization
+
+You are tasked with implementing a Java program to serialize and deserialize Person objects.
+
+Part 1: Serialization
+Implement the Person class as provided in the starter code. Ensure it implements the Serializable interface.
+Write a SerializationExample class with a main method.
+Inside the main method:
+Create a Person object with the following details:
+Name: "Virat"
+Age: 30
+Email: "virat@example.com"
+Serialize the Person object into a file named "person.ser". Handle any potential IOException that may occur during serialization.
+Print "Person object serialized successfully." upon successful serialization.
+Part 2: Deserialization
+Implement the deserialization part in the same main method.
+Deserialize the Person object from the "person.ser" file.
+Handle potential IOException and ClassNotFoundException during deserialization.
+Upon successful deserialization:
+Print "Person object deserialized successfully."
+Print the details of the deserialized Person object using its toString method.
+Constraints
+Ensure that the Person class and serialization logic remain intact as provided in the starter code.
+Handle any potential exceptions gracefully.
+
+Person object serialized successfully.
+Person object deserialized successfully.
+Deserialized Person details: Person{name='Virat', age=30, email=
+"virat@example.com"

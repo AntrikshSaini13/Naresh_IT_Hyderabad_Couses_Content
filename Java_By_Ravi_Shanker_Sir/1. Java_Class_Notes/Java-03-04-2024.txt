@@ -1,0 +1,330 @@
+03-04-2024
+----------
+//Program that describes if we don't use ITC then the problem is ...
+
+class Test implements Runnable
+{
+	int var = 0;	
+	@Override
+	public void run()
+	{
+		for(int i=1; i<=10; i++)   
+		{
+			var = var + i;  //var = 1 3 6 10 15 21 28
+			try
+			{
+				Thread.sleep(200);
+			}
+			catch (Exception e)
+			{
+			}		          
+		}
+		
+	}
+}
+public class ITCProblem 
+{
+	public static void main(String[] args) 
+	{		
+		Test t = new Test();
+		Thread t1 = new Thread(t);		
+		t1.start();
+		try
+		{
+			Thread.sleep(200);
+		}
+		catch (Exception e)
+		{
+		}		
+	    
+		System.out.println(t.var);
+	}
+}
+
+
+In the above program, there is no communication between main thread and 
+child thread because value of var will modify with loop iteration.
+
+wait(), notify() and notifyAll(), we should use all these methods 
+from the synchronized area only otherwise we will get an exception i.e 
+java.lang.IllegalMonitoStateException
+----------------------------------------------------------------
+//Communication between main thread and child thread using ITC
+
+class SecondThread extends Thread 
+{
+	    int x = 0;
+
+	    @Override
+		public void run() 
+		{
+			//child thread is waiting for lock
+			synchronized(this) 
+			{
+				for(int i=1; i<=10; i++)
+				{
+					x =  x + i;
+				}
+				System.out.println("Sending notification");
+				notify();  
+			}
+	 }
+} 
+public class InterThreadComm
+{
+public static void main(String [] args) 
+{
+		SecondThread b = new SecondThread();  
+		b.start();
+
+		synchronized(b)  //lock is taken by main thread
+			{
+				//main thread is suspended by Thread Schedular
+				try 
+				{
+					System.out.println("Waiting for b to complete...");
+					b.wait(); //main thread will wait and release the lock
+
+					System.out.println("Main thread wake up");
+				} 
+				catch (InterruptedException e)
+				{
+				}
+				System.out.println("Value is: " + b.x);
+			}		
+	}
+}
+
+
+Note :- Here main thread is waiting for Child Thread to send the notification 
+so, we will get proper output for x
+-----------------------------------------------------------------
+class Customer
+{  
+     int balance = 10000;    
+
+	public synchronized void withdraw(int amount) //amount = 15000  
+	{  
+		System.out.println("going to withdraw...");    
+		if(balance < amount)
+			{  
+				System.out.println("Less balance; waiting for deposit...");  
+					try
+					{
+						wait();  //waiting and releasing the lock
+					}
+					catch(Exception e){}  
+			}  
+		balance  = balance - amount;
+		System.out.println("withdraw completed..."+balance+" is remaining balance"); 
+	}    
+
+	public synchronized void deposit(int amount)   //amount = 9000
+		{  
+			System.out.println("going to deposit...");  
+			balance = balance + amount;  
+			System.out.println("Balance after deposit is :"+balance);
+			System.out.println("deposit completed... ");  
+			notify();  
+		}  
+}   
+public class InterThreadBalance
+{  
+public static void main(String args[])
+	{  
+      		Customer c = new Customer();    //lock is created here
+
+		Thread son = new Thread()  //anonymous class concept
+		{  
+			@Override
+			public void run()
+			{
+				c.withdraw(15000);
+			}  
+		};
+		son.start(); 		
+
+		Thread father = new Thread()
+		{  
+			public void run()
+			{
+				c.deposit(9000);
+			}  
+		};
+		
+		father.start();  
+    }
+} 
+----------------------------------------------------------------
+Program on notifyAll() method :
+--------------------------------
+class Resource 
+{
+    private boolean flag = false;
+
+    public synchronized void waitMethod() 
+    {
+		System.out.println("Wait");
+       		while (!flag) 
+		{
+          		try 
+		  	{
+             			System.out.println(Thread.currentThread().getName() + " is waiting...");
+             			wait(); 
+          		} 
+		  	catch (InterruptedException e) 
+		  	{
+                		e.printStackTrace();
+          		}
+        	}
+        	System.out.println(Thread.currentThread().getName() + " thread completed!!");
+    }
+
+    public synchronized void setMethod() 
+    {
+		System.out.println("notifyAll");
+		this.flag = true;
+        	System.out.println(Thread.currentThread().getName() + " has make flag value as a true");
+        	notifyAll(); // Notify all waiting threads that the signal is set
+    }
+}
+
+public class InterThreadNotifyAll
+{
+    public static void main(String[] args) 
+    {
+        Resource r1 = new Resource();  //lock
+
+        Thread t1 = new Thread(() -> r1.waitMethod(), "Child1");
+        Thread t2 = new Thread(() -> r1.waitMethod(), "Child2");
+	Thread t3 = new Thread(() -> r1.waitMethod(), "Child3");
+		
+	Thread setter = new Thread(() -> r1.setMethod(), "Setter_Thread");
+
+        t1.start();
+        t2.start();
+        t3.start();
+       
+	     
+        try 
+	{
+            Thread.sleep(2000);
+        } 
+	catch (InterruptedException e) 
+	{
+            e.printStackTrace();
+        }
+
+
+        setter.start();
+    }
+}
+----------------------------------------------------------------
+Thread Priority :
+------------------
+It is possible in java to assign priority to a Thread. Thread class has provided 
+two predefined methods setPriority(int newPriority) and getPriority() to set and 
+get the priority of the thread respectively.
+
+In java we can set the priority of the Thread in number from 1- 10 only where 1 
+is the minimum priority and 10 is the maximum priority.
+
+Whenever we create a thread in java by default its priority would be 5 that is 
+normal priority.
+
+The user-defined thread created as a part of main thread will acquire the same 
+priority of main Thread.
+
+Thread class has also provided 3 final static variables which are as follows :-
+
+Thread.MIN_PRIORITY  :- 01
+
+Thread.NORM_PRIORITY : 05
+
+Thread.MAX_PRIORITY  :- 10
+
+Note :- We can't set the priority of the Thread beyond the limit(1-10) so if we set 
+the priority beyond the limit (1 to 10) then it will generate an exception 
+java.lang.IllegalArgumentException.
+----------------------------------------------------------------
+package com.ravi.advanced;
+
+public class MainPriority 
+{
+	public static void main(String[] args) 
+	{
+		Thread t = Thread.currentThread();
+				
+		System.out.println(t.getPriority());
+		
+		Thread t1 = new Thread();
+		System.out.println(t1.getPriority());
+	}
+
+}
+----------------------------------------------------------------
+package com.ravi.advanced;
+
+class ThreadP extends Thread
+{
+	@Override
+	public void run()
+	{
+	  int priority = Thread.currentThread().getPriority(); 
+	  
+	  System.out.println("Child Thread priority is :"+priority);  	  
+	}
+}
+public class MainPriority1 
+{
+	public static void main(String[] args) 
+	{
+		Thread t = Thread.currentThread();
+		t.setPriority(8);
+		
+		//t.setPriority(11); Invalid java.lang.IllegalArgumentException 
+		
+		System.out.println("Main thread priority is :"+t.getPriority()); 		
+		
+		ThreadP t1 = new ThreadP();
+		t1.start();		
+	}
+}
+----------------------------------------------------------------
+package com.ravi.advanced;
+
+class ThreadPrior1 extends Thread
+{
+	@Override
+	public void run()   
+	{	
+		int count = 0; 
+		
+		for(int i=1; i<=1000000; i++)
+		{
+		  count++;	
+		}
+		
+		System.out.println("Thread name is:"+Thread.currentThread().getName());
+		System.out.println("Thread priority is:"+Thread.currentThread().getPriority());
+	}	
+	
+	public static void main(String args[])
+	{
+		ThreadPrior1 m1 = new ThreadPrior1();
+		ThreadPrior1 m2 = new ThreadPrior1();
+		
+		m1.setPriority(Thread.MIN_PRIORITY);//1
+		m2.setPriority(Thread.MAX_PRIORITY);//10	
+		
+		m1.setName("Last");
+		m2.setName("First");	
+		
+		m1.start();
+		m2.start();
+	}
+} 
+
+Most of time the thread having highest priority will complete its task but we can't say 
+that it will always complete its task first.
+---------

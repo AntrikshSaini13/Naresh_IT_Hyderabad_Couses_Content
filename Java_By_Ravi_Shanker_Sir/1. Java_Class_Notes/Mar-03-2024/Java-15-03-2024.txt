@@ -1,0 +1,136 @@
+15-03-2024
+----------
+* Why String objects are immutable :
+-------------------------------------
+As we know a String object in the String constant pool can be refer by multiple reference 
+variables, if any of the reference variable will modify the String Object value then it would 
+be very difficult for the another reference variables pointing to same String object to get 
+the original value, what they have defined earlier as shown in the diagram.(15-MAR)
+That is the reason Strings are immutable in java.
+
+Note :- While working with Map interface we can hold String object as a Map key so that time 
+also it must be immutable.
+-----------------------------------------------------------------
+WAP in java to show String objects are not eligible for GC.
+------------------------------------------------------------
+
+public class StringGCEligibility 
+{
+	public static void main(String[] args) throws InterruptedException 
+	{
+		String str1 = "India";
+		System.out.println(str1.hashCode());
+		
+		str1 = null;
+		
+		System.gc();
+		
+		Thread.sleep(2000);
+		
+		String str2 = "India";
+		System.out.println(str2.hashCode());
+		
+		System.out.println("...........");
+		System.out.println(str1);
+		System.out.println(str2);
+	}
+}
+
+From the above program it is clear that Strings are not eligible for GC.
+----------------------------------------------------------------
+* What is the difference between the following two statements ?
+----------------------------------------------------------------
+
+String x = "Naresh";   [Creating String by Literal]
+
+String y = new String("Hyderabad"); [Creating String Object by new keyword]
+
+----------------------------------------------------------------------
+String x = "Naresh"; 
+
+It will create one String object and one reference variable and String object will be 
+created in the String constant pool.
+----------------------------------------------------------------------
+String y = new String("Hyderabad");
+
+It will create two String objects one is inside the heap memory(non SCP area) which will be 
+refered by y reference variable and the same String object will be placed in the String 
+constant pool area, if it is not available there.
+Hence two String Objects and one reference variable will be created.
+-----------------------------------------------------------------
+Program in java that describes whenever we create String object by using new keyword then 
+two String objects are created with same content with same hash code.
+
+package com.ravi.method_parameter_local;
+
+public class Test {
+
+	public static void main(String[] args) 
+	{
+        String str1 = new String("Hyderabad");
+		
+		String str2 = "Hyderabad";
+		
+		System.out.println(str1.hashCode());
+		System.out.println(str2.hashCode());
+		
+		System.out.println(str1 == str2);  //false
+	}
+}
+-----------------------------------------------------------------
+The String object created by using new keyword, how they are automatically placed inside 
+SCP area.
+
+In Java whenever we create the String Object by using new keyword then one object will be 
+created in the non SCP area and same object will be placed inside SCP area, Actually Here 
+JVM internally performs intern process. By using this intern process, JVM is placing the 
+String into SCP Area.
+
+The following program explains how to use intern() method explicitly (By user) to place the 
+String created by new keyword into SCP Area.
+----------------------------------------------------------------
+package com.ravi.string_ex;
+
+public class StringTest 
+{
+	public static void main(String[] args) 
+	{
+	   String str1 = "Java";	   
+	   String str2 = new String("Java");
+	   
+	   System.out.println(str1 == str2); //false
+	   str2 = str2.intern();
+	  
+	   System.out.println(str1 == str2); //true
+	}
+
+}
+
+[Diagram 15-MARCH]
+-----------------------------------------------------------------
+package com.ravi.string_ex;
+
+public class StringHashCode {
+
+	public static void main(String[] args) 
+	{
+		String str1 = "Ravi";
+		String str2 = "Ravi";
+		String str3 = new String("Ravi");
+		
+		System.out.println(str1.hashCode() +" : "+str2.hashCode()+" : "+str3.hashCode());
+		
+
+	}
+
+}
+-----------------------------------------------------------------
+Input Output in java
+Inner class in java
+enum
+Multithreading
+Collection Framework
+  Generics
+  Concurrent Collection
+  New Date and Time API
+  Stream API

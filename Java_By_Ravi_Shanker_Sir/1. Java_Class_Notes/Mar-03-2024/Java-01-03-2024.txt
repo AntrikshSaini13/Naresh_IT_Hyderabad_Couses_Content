@@ -1,0 +1,156 @@
+01-03-2024
+----------
+* What is the difference between java.lang.ClassNotFoundException and java.lang.NoClassDefFoundError :
+
+java.lang.ClassNotFoundException :-
+-----------------------------------------
+It occurs when we try to load the required .class file at runtime by using Class.forName() statement 
+or loadClass() static of ClassLoader class and if the required .class file is not available at 
+runtime then we will get an exception i.e java.lang.ClassNotFoundException
+
+Note :- It does not have any concern at compilation time, at run time, JVM will simply check 
+whether the required .class file is available or not.
+
+Program :
+----------
+class Foo
+{
+	static
+	{
+		System.out.println("static block gets executed...");
+	}
+}
+public class ClassNotFoundExceptionDemo 
+{
+	public static void main(String[] args) throws Exception
+	{
+		Class.forName("Player");
+	}
+}
+
+Note :- In the above program Player.class file is not available so, forName(String className) method 
+is unable to load the Player.class file hence we will get ClassNotFoundException.
+---------------------------------------------------------------------------------------------------------
+java.lang.NoClassDefFoundError :
+--------------------------------
+It occurs when the class was present at the time of COMPILATION but at runtime the required .class 
+file is not available(manually deleted by user) Or it is not available in the current directory 
+(folder) then we will get an exception i.e java.lang.NoClassDefFoundError.
+
+NoClassDefFoundErrorDemo.java
+------------------------------
+class Hello
+{
+	public void m1()
+	{
+		System.out.println("m1 method of Hello class...");
+	}
+}
+public class NoClassDefFoundErrorDemo 
+{
+	public static void main(String[] args) 
+	{
+		Hello h = new Hello();
+		h.m1();
+	}
+}
+
+After compilation delete Hello.class OR put the Hello.class file
+in another folder/location.
+
+So the conclusion is :
+java.lang.ClassNotFoundException does not have any concern at compilation time where as 
+java.lang.NoClassDefFoundError was checking the class name at the time of compilation.
+---------------------------------------------------------------
+Variable Memory Allocation and Initialiozation :
+-------------------------------------------------
+1) static field OR Class variable : 
+-----------------------------------
+Memory allocation done at prepare phase of class loading and initialized with default value.
+
+2) Non static field OR Instance variable 
+-----------------------------------------
+Memory allocation done at the time of object creation using new keyword (Instantiation) and 
+initialized as a part of Constructor
+
+3) Local Variable 
+------------------
+Memory allocation done at stack area and user is responsible to initialize the variable before use.
+
+4) Parameter variable 
+----------------------
+Memory allocation done at stack area  and end user is responsible to pass the value at runtime.
+-----------------------------------------------------------------------------------------------------
+Runtime Data Areas :
+--------------------
+
+Runtime Data Areas :
+--------------------
+a) Method Area :
+-------------------
+In this area all class level information is available. Actually the .class file is dumpped here hence 
+we have all kinds of information related to class is available like name of the class, name of the 
+immediate super class, package name, method name , variable name, static variable, all method available 
+in that particular class and so on.
+
+This method area return type java.lang.Class class , this java.lang.Class class object can hold any 
+".class file" 
+(Class c = AnyClass.class)
+
+There is only one method area per JVM.
+---------------------------------------------------------------------------------------------------------
+2 Files :
+---------
+Employee.java
+--------------
+
+ClassInformation.java
+----------------------
+package com.ravi.class_description;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+
+public class ClassInformation 
+{
+	public static void main(String[] args) throws Exception
+	{
+		
+		Class cls = Class.forName(args[0]);
+		System.out.println("Class Name is :"+cls.getName());
+		System.out.println("Package Name is :"+cls.getPackageName());
+
+		Method[] methods = cls.getDeclaredMethods();
+		
+		int count = 0;
+		
+		for(Method method : methods)
+		{
+			count++;
+			System.out.println(method.getName());
+		}
+		System.out.println("Total number of methods :"+count);
+		count = 0;
+		
+		Field[] fields = cls.getDeclaredFields();
+		
+		for(Field field : fields)
+		{
+			count++;
+			System.out.println(field.getName());
+		}
+		System.out.println("Total number of fields :"+count);
+	}
+
+}
+
+
+Note :- getDeclaredMethods() is a predefined method available in java.lang.Class class , the return type 
+of this method is Method array where Method is a predefined class available in java.lang.reflect sub package
+
+getDeclaredFieldss() is a predefined method available in java.lang.Class class , the return type of this 
+method is Field array where Method is a predefined class available in java.lang.reflect sub package
+
+*getDeclaredConstructors() is a predefined method available in java.lang.Class class , the return type of 
+this method is Constructor array where Method is a predefined class available in java.lang.reflect sub package.
+------------------------------------------------------------------------------------------------------------------

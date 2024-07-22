@@ -1,0 +1,55 @@
+05-03-2024
+----------
+PC Register :
+-------------
+It stands for Program counter Register.
+
+In order to hold the current executing instruction of running thread we 
+separate PC register for each and every thread.
+
+Native Method Stack :
+----------------------
+Native method means, the java methods which are written by using native languages 
+like C and C++. In order to write native method we need native method library support.
+
+Native method stack will hold the native method information in a separate stack.
+---------------------------------------------------------------
+Execution Engine :
+------------------
+Interpreter 
+------------
+In java, JVM is an interpreter which executes the program line by line. JVM (Interpreter)
+ is slow in nature because at the time of execution if we make a mistake at line number 9 
+then it will throw the execption at line number 9 and after solving the execption again it 
+will start the execution from line number 1 so it is slow in execution that is the reason 
+to boost up the execution java software people has provided JIT compiler.
+
+JIT Compiler :
+--------------
+It stands for just in time compiler. The main purpose of JIT compiler to boost up the 
+execution so the execution of the program will be completed as soon as possible.
+
+JIT compiler holds the repeated instruction like method signature, variables and make 
+it available to JVM at the time of execution so the overall execution becomes very fast.
+----------------------------------------------------------------
+Exception Handling :
+--------------------
+What is an execption ?
+----------------------
+An execption is a runtime error.
+
+An execption is an abnormal situation or un-expected situation in a noraml execution flow.
+
+An exception encounter due to dependency, if one part of the program is dependent to another 
+part then there might be a chance of getting Exception.
+
+AN EXCEPTION ALSO ENCOUNTER DUE TO WRONG INPUT GIVEN BY THE USER.
+---------------------------------------------------------------
+Exception Hierarchy :
+--------------------
+This Exception hierarchy is available in the diagram (Exception_Hierarchy.png)
+
+Note :- As a developer we are responsibe to handle the Exception. System admin is responsibe 
+to handle the error because we cannot recover from error.
+----------------------------------------------------------------
+Exception Criteria :

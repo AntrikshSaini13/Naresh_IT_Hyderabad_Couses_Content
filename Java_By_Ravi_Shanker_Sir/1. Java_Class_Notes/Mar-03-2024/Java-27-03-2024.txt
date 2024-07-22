@@ -1,0 +1,249 @@
+27-03-2024
+----------
+package com.ravi.basic;
+
+class Stuff extends Thread
+{
+	@Override
+	public void run() 
+	{		
+		System.out.println("Child Thread is Running!!!!");
+	}	
+}
+public class ExceptionDemo 
+{
+	public static void main(String[] args) 
+	{		
+		System.out.println("Main Thread Started");		
+		
+		Stuff s1 = new Stuff(); 
+		Stuff s2 = new Stuff(); 
+		
+		
+		s1.start();
+		s2.start();
+		
+		System.out.println(10/0);
+		
+		System.out.println("Main Thread Ended");
+	}
+
+}
+Note :- Here main thread is interrupted due to AE but still child thread will be 
+executed because child thread is executing with separate Stack
+---------------------------------------------------------------
+package com.ravi.basic;
+
+class Sample extends Thread
+{
+	@Override
+	public void run()
+	{
+		String name = Thread.currentThread().getName();
+		for(int i=1; i<=10; i++)
+		{
+		   System.out.println(i+" by "+name+ " thread");
+		}
+	}
+}
+public class ThreadLoop 
+{	
+	public static void main(String[] args) 
+	{
+	   System.out.println("Main Thread Started!!!");
+	   
+	   Sample s1 = new Sample();  s1.start();
+	   
+	   
+	   String name = Thread.currentThread().getName();
+	   
+	   for(int i=1; i<=10; i++)
+	   {
+		   System.out.println(i+" by "+name+ " thread");
+	   }
+	   
+	   int x = 1;
+	   do
+	   {
+		   System.out.println("India");
+		   x++;
+	   }
+	   while(x<=10);
+	   
+	   
+	}
+}
+
+Note :- From the above program, It is clear that CPU can frequently move from one 
+thread to another thread. (Main thread to child thread-> Thread-0 thread)
+---------------------------------------------------------------
+How to set and get the name of the Thread : 
+--------------------------------------------------
+Whenever we create a userdefined Thread in java then by default JVM assigns the 
+name of thread is Thread-0, Thread-1, Thread-2 and so on.
+
+If a user wants to assign some user defined name of the Thread, then Thread class 
+has provided a predefined method called setName(String name) to set the name of 
+the Thread.
+
+On the other hand we want to get the name of the Thread then Thread class has 
+provided a predefined method called getName().
+
+public void setName(String name)  //setter
+
+public String getName()  //getter
+---------------------------------------------------------------
+package com.ravi.basic;
+class Test extends Thread
+{
+	@Override
+	public void run()
+	{
+		String name = Thread.currentThread().getName();
+		System.out.println(name +" thread is running Here!!!!");
+	}
+}
+public class ThreadName 
+{
+	public static void main(String[] args) 
+	{
+		Test t1 = new Test(); 
+		Test t2 = new Test(); 
+		
+		t1.start();			
+		t2.start();	
+		
+	System.out.println(Thread.currentThread().getName()+" thread is running.....");
+	}
+}
+
+Note :- If we don't provide our user-defined name for the thread then by default the name 
+would be Thread-0, Thread-1 and so on.
+---------------------------------------------------------------
+package com.ravi.basic;
+class Demo extends Thread
+{
+	@Override
+	public void run()
+	{
+		System.out.println(Thread.currentThread().getName()+" thread is running.....");	
+	}
+}
+public class ThreadName1 
+{
+	public static void main(String[] args) 
+	{
+	  Thread t =  Thread.currentThread();
+	  t.setName("Parent"); //Changing the name of the main thread
+	  
+	   Demo d1 = new Demo();
+	   Demo d2 = new Demo();
+	   
+	   d1.setName("Child1");
+	   d2.setName("Child2");
+	   
+	   d1.start();  d2.start();
+	   
+	   String name = Thread.currentThread().getName();
+	   System.out.println(name + " Thread is running..");
+	}
+}
+In the above program we are setting the name of the Thread.
+---------------------------------------------------------------
+Thread.sleep(long milisecond) :
+-------------------------------
+If we want to put a thread into temporarly waiting state then we should use sleep() method.
+
+The waiting time of the Thread depends upon the time specified by the user as parameter 
+to sleep() method.
+
+Thread.sleep(1000); //Thread will wait for 1 second
+
+It is a static method of Thread class.
+
+It is throwing a checked Exception i.e InterruptedException because there may be chance 
+that this sleeping thread may be interrupted by some another thread.
+--------------------------------------------------------------
+package com.ravi.basic;
+
+class Sleep extends Thread
+{
+   @Override
+   public void run() 
+   {
+	   for(int i=1; i<=10; i++)
+	   {
+		   System.out.println("i value is :"+i);
+		   try
+		   {
+			   Thread.sleep(1000);
+		   }
+		   catch(InterruptedException e)
+		   {
+			   System.err.println("Thread is Interrupted "+e);
+		   }
+	   }
+   }
+}
+public class SleepDemo 
+{
+	public static void main(String[] args) 
+	{
+		Sleep s = new Sleep();
+		s.start();
+			
+	}
+}
+
+Note :- Catch block will not be executed because no other thraed is interrupting the 
+sleeping thread.
+---------------------------------------------------------------
+package com.ravi.basic;
+
+class MyTest extends Thread 
+{	
+	
+	@Override
+	public void run() 
+	{		
+		for (int i = 1; i <= 5; i++) 
+		{			      
+			  try 
+			  {				  
+				  Thread.sleep(1000); //child1
+			  }
+			  catch(Exception e) 
+			  {
+			   System.err.println("thread has interrupted"); 
+			  }
+			 	
+			  System.out.println(i + " by " + Thread.currentThread().getName());
+		}
+	}
+}
+public class SleepDemo1 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println(Thread.currentThread().getName() + " thread");
+
+		MyTest t1 = new MyTest();
+		MyTest t2 = new MyTest();
+
+		t1.setName("Child1");
+		t2.setName("Child2");
+		
+		t1.start();
+		t2.start();	
+		
+	}
+}
+
+Assignment :
+-------------
+WAP to implement sleep(long millis, long nanos) methos which is accepting two parameters.
+---------------------------------------------------------------
+Thread life Cycle :
+-------------------
+
+IQ :- If we write Thread.sleep(1000) then exactly after 1 sec the Thread will re-start?

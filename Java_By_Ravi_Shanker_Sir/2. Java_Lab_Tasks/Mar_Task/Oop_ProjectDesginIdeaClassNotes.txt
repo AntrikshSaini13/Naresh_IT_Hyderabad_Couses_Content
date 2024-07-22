@@ -1,0 +1,438 @@
+*     ---------------------------------------------
+ *   > Favor Composition over Inheritance.
+ *   
+ *   > Design to Interface never Design to 
+ *     Concrete class.
+ *     
+ *   > Code should be open for extension 
+ *     and close for modification.
+ *   ---------------------------------------------
+ *   
+ *  1.Favor Composition over Inheritance
+ *  ------------------------------------------
+ * > In how many way we can use one 
+ *   functionality of a class to another class
+ *    |- Inheritance
+ *    |- Composition 
+ *    
+ *    
+ *    # Inheritance
+ *    _______
+ *    it's about defining the one class functionality 
+ *    into another class by using extends keyword so 
+ *    that all the functionality of one class came to 
+ *    another class.
+ *    
+ *    class A{
+	  public int  m1() {
+		  return 10;
+	   }
+     }
+      class B extends A{
+	   public int m2() {
+		    int i=m1();
+		    return i;
+	     }
+    }
+ *    #Composition
+ *    ________________
+ *    It's about declaring one class ref variable into 
+ *    another class and by using the one class ref variable 
+ *    we can reuse the functionality of one class into 
+ *    another class.
+ *    
+ *    class A{
+	  public int  m1() {
+		  return 10;
+	  }
+     }
+      class B {
+	   A a;
+	   public int m2() {
+		  int i=a.m1();
+		  return i;
+	 }
+    }
+ *    
+ *  # Inheritance ( is a relationShip)  
+ *    |- when we want all the functionality of parent into the 
+ *       child then we can go for is a relation (Inheritance)
+ *     A a=new A();
+	   a.m1();
+	   B b=new B();
+	   b.m1();
+ *    
+ *  # Composition ( has a realtionShip)
+ *    |- when we want few functionality of parent into the 
+ *       child then we can go for has a relation( composition)
+ *     A a=new A();
+       a.m1();
+       B b=new B();
+       b.m2();
+       b.m1();
+ *    
+ *    What is the problem with inheritance and why should we 
+ *    go for composition ?
+ *    
+ *    |- Most of the use cases in the industry is solve through 
+ *       composition as compare to inheritance 
+ *    
+ *      class NaukriApp{
+ *        public void jobStatus(){
+ *        }
+ *        public void profile(){
+ *        }
+ *        public void HrViewMode(){
+ *        }
+ *    }
+ *    
+ *    class JobSeeker extends NaukriApp{
+ *       public void uploadResume(){
+ *        }
+ *        }
+ *        
+ *        class NaukriApp{
+ *        public void jobStatus(){
+ *        }
+ *        public void profile(){
+ *        }
+ *        public void HrViewMode(){
+ *        }
+ *    }
+ *    
+ *    class JobSeeker {
+ *       NaukriApp app;
+ *       public void uploadResume(){
+ *              app.jopStatus();
+ *        }
+ *        }
+ *    
+ *    |- Most of the programming lang not support multiple inheritance
+ *       
+ *    |- By using inheritance our classes become fragile.
+ *       By using composition our classes become less fragile.
+ *       Fragile - easily breakable
+     By using Inheritance
+_________________________________________
+ *    
+ *    class A{
+	  public double m1() {
+		  return 10;
+	  }
+   }
+// we want to change of modify the functionality of super class 
+// m1 method without changing the super class functionality is 
+// this possible ?
+
+    class B extends A{
+	  
+	   public double m1() {
+		 double result=super.m1();
+		 return result*result;
+	 }
+  }
+   
+   class C{
+	    public double m3() {
+	    	 B b=new B();
+	    	 double result=b.m1();
+	    	 return result;
+	    }
+   }   
+  ---------------------------------------------------
+ */
+    By using composition
+________________________________________
+class A {
+	public double m1() {
+		return 10;
+	}
+}
+// we want to change of modify the functionality of super class 
+// m1 method without changing the super class functionality is 
+// this possible ?
+class B {
+	A a;
+	public int m1() {
+		int result = (int)a.m1();
+		return result * result;
+	}
+}
+class C {
+	public int m3() {
+		B b = new B();
+		int result = b.m1();
+		return result;
+	}
+}
+public class Sample01 {
+	public static void main(String[] args) {
+		C c = new C();
+		int updatedValue = c.m3();
+		System.out.println(updatedValue);
+	}
+}
+________________________________________________________________________
+ /*
+ * 
+   |- Testability is not supported through inheritance
+      but if say composition testability is supported
+      through it.
+      
+      Car 
+      _____ ( mode )
+      |- 1 represent cruze car
+      |- 2 represent CNG Car
+      |- 3 represent Automatic
+      
+      
+      Engine
+      _____( status )
+      |- 0 represent "success"
+      |- 1 represent "fail retry"
+      |- 2 represent "need servicing"
+      
+      
+      |------------------ manager   ( 12 hour )  
+      |-------- kajal/swati(car)
+      |-------- suraj(engine)--------  4/8 
+      
+  If AND only one each and every requriment is matched and
+  every single code is reachable then only we can say that 
+  the code after devlopment is tested properly 
+  This is known as UNIT Testing
+  
+  
+    Any realtime things/Api use case of method Overloading
+     
+     
+      
+ */
+abstract class Engine{
+	 public abstract int status();
+}
+
+class MockSuccessEngine extends Engine{
+
+	@Override
+	public int status() {
+		return 0;
+	}
+	 
+}
+class MockFail_RetryEngine extends Engine{
+
+	@Override
+	public int status() {
+		return 1;
+	}
+	 
+}
+class MockNeedServicingEngine extends Engine{
+
+	@Override
+	public int status() {
+		return 2;
+	}
+	 
+}
+
+class Car {
+	 Engine engine;// 
+	  Car(Engine engine) {
+		   this.engine=engine;
+	  }
+	 public void drive(int mode) {
+		  int status=0;
+		  status=engine.status();
+		  if(status==0)
+			  System.out.println("Engine success");
+		  else if(status==1)
+			  System.out.println("Fail & Retry!");
+		  else if(status==2)
+			  System.out.println("Need servicing!!!");
+		  else
+			  System.out.println("Invalid Input");
+	 }
+}
+public class Test {
+public static void main(String[] args) {
+	Car BMW =new Car(new MockSuccessEngine());
+	Car Bmw=new Car(new MockFail_RetryEngine());
+	Car bmw=new Car(new MockNeedServicingEngine());
+	
+	BMW.drive(1);
+	Bmw.drive(1);
+    bmw.drive(1);
+}
+}
+______________________________________________________________________________
+ 2. Design to Interface never Design to 
+ *     Concrete class.
+ *     ______________
+ *     
+ *     What do you mean by tightly coupled ?
+ *     Or when can you say as one class depends 
+ *     upon another ?
+ *     
+ *     |- one class functionality change will effect to other 
+ *        classes who is using the functionality of that class
+ *        is known as tightly coupled.
+ *        
+ *        If one class functionality not going to work
+ *        without another class then we can say one class 
+ *        is dependent on another class.
+ *    
+ *   How can we use one functionality of class to 
+ *   another class ?
+ *   
+ *   |- Inheritance -----  not recommended!
+ *      > 1   2   3   4
+ *      
+ *   |- composition ---    tightly coupled
+ *       
+ *     class A01 {
+	C01 b;
+	public void m2() {
+		 b=new C01();
+		 int result= b.m3();
+		 int cal=result*result;
+		 System.out.println(cal);
+	}
+}
+
+
+class B01{
+	public int m1() {
+		 int value=10;
+		 return value;
+		 // --------------   1000 lines
+	}
+}
+
+// --------------------  smith
+
+class C01{
+	public int m3() {
+		 return 10;
+		 // --------------   500 lines
+	}
+}
+
+   How lossley coupled ?
+     
+ *  class A01 {
+	Req b;
+	public void m2() {
+		 b=new C01();
+		 int result= b.m1();// Runtime polymorphism
+		 int cal=result*result;
+		 System.out.println(cal);
+	}
+}
+
+interface Req{
+	 int m1();
+}
+class B01 implements Req{
+	public int m1() {
+		 int value=10;
+		 return value;
+		 // --------------   1000 lines
+	}
+}
+
+// --------------------  smith
+
+class C01 implements Req{
+	public int m1() {
+		 return 10;
+		 // --------------   500 lines
+	}
+}
+
+   
+ *   Can we achieve the same loosely coupled 
+ *   Scenario  by using abstract class ?
+ *  
+ *       
+ *  class A01 {
+	Req b;
+	public void m2() {
+		 b=new B01();
+		 int result= b.m1();// Runtime polymorphism
+		 int cal=result*result;
+		 System.out.println(cal);
+	}
+}
+
+abstract class Req{
+	public abstract int m1();
+}
+class B01 extends Req{
+	public int m1() {
+		 int value=10;
+		 return value;
+		 // --------------   1000 lines
+	}
+}
+
+// --------------------  smith
+
+class C01  extends Req{
+	public int m1() {
+		 return 10;
+		 // --------------   500 lines
+	}
+}
+ *   Can we achieve the same loosely coupled
+ *   Scenario by using concrete class?      
+ *       
+ *       
+ *       Abstract class-------- 
+ *       |- partial implementation 
+ *       
+ *       Concrete class
+ *       |- dead code 
+ *       
+ *       
+ *       interface
+ *       
+ *       > Design to interface never design to 
+ *         concrete class
+ *       
+ */
+
+
+class A01 {
+	B01 b;
+	public void m2() {
+		 b=new C01();
+		 int result= b.m1();// Runtime polymorphism
+		 int cal=result*result;
+		 System.out.println(cal);
+	}
+}
+
+
+class B01 {
+	public int m1() {
+		 int value=10;
+		 return value;
+		 // --------------   1000 lines
+	}
+}
+
+// --------------------  smith
+
+class C01 extends B01{
+	@Override
+	public int m1() {
+		 return 10;
+		 // --------------   500 lines
+	}
+}
+________________________________________________________________________
+3. Code should be open for extension and close for modification.
+>   We will create the class as a final so that no other class can become 
+    the child class of that class.

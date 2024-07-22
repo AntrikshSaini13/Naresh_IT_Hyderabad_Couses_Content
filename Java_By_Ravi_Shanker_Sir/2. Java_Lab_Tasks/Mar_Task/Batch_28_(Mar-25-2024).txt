@@ -1,0 +1,60 @@
+Program 01 :
+-----------
+We have two classes called as ReadWrite and Test
+For ReadWrite class
+Instance Variables:
+file: RandomAccessFile
+Methods:
+No Argument Constructor
+read(String, int, int) : byte[]
+This method reads the file with filepath and particular position
+write(String, String, int): void
+Write the data to file starts from particular position.
+For Test class
+Instance Variables:
+path: String: final: static
+str: String: static
+This class having main() method to test all the Solution's classes and methods
+by using try and catch, try must print the read file from ReadWrite read class and write the data from variable 'str' into write method in ReadWrite class and the position starts from 22. Catch method is catch IOException.
+
+Program 02
+----------
+We have four classes named as MakeDirectory, MakeFile, DeleteFile and Test
+For MakeDirectory
+Instance Variables:
+dirName: String
+file: File
+Methods:
+MakeDirectory(String) Parameterized Constructor 
+Initialize dirName variable
+dir() : String
+Initialize file variable include path of the file.
+We pass the condition, if folder / directory is created by using mkdir() and the condition  is true then return variable dirName otherwise it return null.
+For MakeFile class
+In MakeFile class must be create an file extension is .txt 
+Instance Variables:
+fileName: String 
+file: File
+Methods:
+MakeFile(String) one argument Constructor
+Initialize fileName variable
+makeFile() : String : throws IOException
+Initialize file variable with new keyword and the path must be your folder \\+fileName+".txt"
+if file is created by using createNewFile() is true then return variable fileName or else it return null.
+For DeleteFile class
+Instance Variables
+fileName: String
+file: File
+Methods:
+DeleteFile(String) One argument Constructor
+Initialize file variable with new keyword and the path must be your folder \\+fileName+".txt"
+if file is deleted by using delete() is true then return variable fileName or else it return null.
+For Test class
+Instance Variables:
+No Instance Variables
+Methods:
+This class having main() method to test all the Solution's classes and methods
+If file or folder is created it prints File or folder is created including name of file or folder otherwise it prints ''File or Folder filed to create" include name of file or folder. 
+It catches exception and print message
+For Delete file, if the file is available and deleted then print 'file is deleted (include file name)' otherwise file is not available it catches 'FIleNotFoundException' then print 'Failed to delete file'.
+

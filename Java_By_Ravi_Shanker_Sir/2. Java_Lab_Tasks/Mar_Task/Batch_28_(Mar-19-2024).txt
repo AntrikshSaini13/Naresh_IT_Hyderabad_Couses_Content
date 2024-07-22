@@ -1,0 +1,282 @@
+1.Choose the correct output of the following code
+public class FilesAndIO {
+	public static void main(String[] args) {
+		File file = new File("/");
+		System.out.println(file.canRead());
+		System.out.println(file.canExecute());
+	}
+}
+A.	false true
+B.	true false
+C.	true true
+D.	fasle false
+Answer: C
+
+2.Choose the correct output of the following code
+public class FilesAndIO {
+	public static void main(String[] args)
+	{
+		File file = new File("\");
+		System.out.println(file.canRead());
+		System.out.println(file.canExecute());
+	}
+}
+A.	false true
+B.	Compile time error
+C.	run time error
+D.	fasle false
+Answer: B
+
+3.Choose the correct output of the following snippet
+public class FilesAndIO {
+	public static void main(String[] args) {
+		File file = new File("C:\\Users\\nit\\Desktop\\No Class.txt");
+		System.out.println(file.isFile());
+	}
+}
+A.	true
+B.	false
+C.	compile time error
+D.	Run time error
+Answer: A
+
+4.What is the output of the following program
+public class FilesAndIO {
+	public static void main(String[] args) {
+		File file = new File("C:/Users/nit/Desktop\No Class.txt");
+		System.out.println(file.isFile());
+	}
+}
+A.	true
+B.	false
+C.	compile time error
+D.	Run time error
+Answer: C
+
+5.Choose the correct output of the following snippet
+public class FilesAndIO {
+	public static void main(String[] args) {
+		File file = new File("C:\Users\nit\Desktop\No Class.txt");
+		System.out.println(file.getAbsolutePath());
+	}
+}
+A.	false
+B.	compile time error
+C.	Run time error
+D.	true
+Answer: B
+
+6.What is the output of the following program
+public class FilesAndIO {
+	public static void main(String[] args) {
+		File file = new File("C:\\Users\\nit\\Desktop\\hai.txt");
+		System.out.println(file.getAbsolutePath());
+	}
+}
+A.	C:\\Users\\nit\\Desktop\\hai.txt
+B.	C:/Users/nit/Desktop/hai.txt
+C.	C://Users//nit//Desktop//hai.txt
+D.	C:\Users\nit\Desktop\hai.txt
+Answer: D
+
+7.What is the output of the following program
+public class FilesAndIO {
+	public static void main(String[] args) {
+		File file = new File("C:\\Users\\nit\\Desktop\\hai.txt");
+		System.out.println(file.getName());
+	}
+}
+A.	hai.txt
+B.	C:\\Users\\nit\\Desktop\\hai.txt
+C.	true
+D.	false
+Answer: A
+
+8.What is the output of the following snippet
+public class FilesAndIO {
+	public static void main(String[] args) throws AccessException {
+		File file = new File("hai.txt");
+		boolean result = file.createNewFile();
+		System.out.println(result);
+	}
+}
+A.	Run time exception
+B.	Compile time exception
+C.	true
+D.	false
+Answer: B
+
+9.What is the output of the following snippet
+public class FilesAndIO {
+	public static void main(String[] args)throws IOException  
+	{
+		File file = new File("hai.txt");
+		boolean result = file.createNewFile();
+		System.out.println(result);
+	}
+}
+A.	Run time exception
+B.	Compile time exception
+C.	true
+D.	false
+Answer: C
+
+10.What is the correct statement for exists() method in the following code
+public class FilesAndIO {
+	public static void main(String[] args)  
+	{
+		File file = new File("hai.txt");
+		boolean result = file.exists();
+		System.out.println(result);
+		
+	}
+}
+A.	If the file or directory is available in system it return true and donated by this interface pathname exists
+B.	If the file or directory is available in system it return true and donated by this abstract pathname exists
+C.	If the file or directory is available in system it return false and donated by this abstract pathname exists
+D.	If the file or directory is available in system it return false and donated by this interface pathname exists
+Answer: B
+
+11.What is the output of the following code
+public class FilesAndIO {
+	public static void main(String[] args)
+	{
+		File file = new File("/hai.txt");
+		boolean result = file.exists();
+		System.out.println(result);	
+	}
+}
+A.	true
+B.	compile time error
+C.	hai.txt
+D.	false
+Answer: D
+
+12.What is the output of the following code
+public class FilesAndIO {
+	public static void main(String[] args)
+	{
+		File file = new File("hai.txt");
+		boolean result = file.exists();
+		System.out.println(result);
+	}
+}
+A.	true
+B.	compile time error
+C.	hai.txt
+D.	false
+Answer: A
+
+13.What is the output of the following code
+public class FilesAndIO {
+	public static void main(String[] args) {
+		File file = new File("C:\\Users\\nit\\Desktop\\hai.txt");
+		System.out.println(file.getParent());
+	}
+}
+A.	C:\\Users\\nit\\Desktop\\hai.txt
+B.	C:\\Users\\nit\\Desktop\\
+C.	C:\Users\nit\Desktop
+D.	C:/Users/nit/Desktop/
+E.	C:\Users\nit\Desktop\
+Answer: C
+
+14.What is the output of the following code
+public class FilesAndIO {
+	public static void main(String[] args) {
+		File file = new File("\\");
+		System.out.println(file.getParent());
+	}
+}
+A.	Compile time error
+B.	Run time error
+C.	null
+D.	None of the above
+Answer: C
+
+15.What is the output of the following code
+public class FilesAndIO {
+	public static void main(String[] args) {
+		File file = new File("C:\\Users\\nit\\Desktop\\hai.txt");
+		System.out.println(file.getPath());
+	}
+}
+A.	C:\\Users\\nit\\Desktop\\hai.txt
+B.	C:\\Users\\nit\\Desktop\\
+C.	C:\Users\nit\Desktop
+D.	C:/Users/nit/Desktop/
+E.	C:\Users\nit\Desktop\hai.txt
+Answer: E
+
+16.What is the output of the following code
+public class FilesAndIO {
+	public static void main(String[] args) {
+		File file = new File("C:\\Users\\nit\\Desktop\\hai.txt");
+		System.out.println(file.getParentFile());
+	}
+}
+A.	C:\\Users\\nit\\Desktop\\hai.txt
+B.	C:\\Users\\nit\\Desktop\\
+C.	C:/Users/nit/Desktop/
+D.	C:\Users\nit\Desktop
+E.	C:\Users\nit\Desktop\
+Answer: D
+
+17.What is the output of the following snippet
+public class FilesAndIO {
+	public static void main(String[] args) throws IOException {
+		int i = System.in.read();
+		System.out.println(i);
+	}
+}
+A.	It return first ascii value
+B.	Compile time error
+C.	It return last ascii value
+D.	Run time error
+Answer: A
+
+18.What is the output of the following snippet
+public class FilesAndIO {
+	public static void main(String[] args) throws IOException {
+		
+		OutputStream out = new OutputStream() {
+			
+			@Override
+			public void write(int b) throws IOException {
+				System.out.println(b);
+			}
+		};
+		out.write('a');
+	}
+}
+A.	98
+B.	97
+C.	65
+D.	71
+Answer: B
+
+19.What is the output of the following snippet
+public class FilesAndIO {
+	public static void main(String[] args) throws FileAlreadyExistsException {
+		FileOutputStream file = new FileOutputStream("\\hai.txt");
+		System.out.println(file.getFD);
+	}
+}
+A.	hai.txt
+B.	java.io.FileDescriptor
+C.	Compile time error
+D.	No output
+Answer: C
+
+20.What is the output of the following snippet
+public class FilesAndIO {
+	public static void main(String[] args) throws IOException {
+		FileOutputStream file = new FileOutputStream("\\hai.txt");
+		System.out.println(file.getFD());
+	}
+}
+A.	hai.txt
+B.	java.io.FileDescriptor
+C.	Compile time error
+D.	No output
+Answer: B

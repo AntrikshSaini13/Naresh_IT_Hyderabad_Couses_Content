@@ -1,0 +1,233 @@
+28-03-2024
+-----------
+Thread life cycle in java :
+-----------------------------
+As we know a thread is well known for Independent execution and it contains 
+a life cycle which internally contains 5 states (Phases). 
+
+During the life cycle of a thread, It can pass from thses 5 states. At a time 
+a thread can reside to only one state of the given 5 states.
+
+1) NEW State (Born state)
+
+2) RUNNABLE state (Ready to Run state) [Thread Pool]
+
+3) RUNNING state
+
+4) WAITING / BLOCKED state
+
+5) EXIT/Dead state
+
+
+New State :-
+-------------
+Whenever we create a thread instance(Thread Object) a thread comes to new state OR 
+born state. New state does not mean that the Thread has started yet only the object 
+or instance of Thread has been created.
+
+Runnable state :-
+-------------------
+Whenever we call start() method on thread object, A thread moves to Runnable state 
+i.e Ready to run state. Here Thread schedular is responsible to select/pick a particular 
+Thread from Runnable state and sending that particular thread to Running state for execution.
+
+Running state :-
+-----------------
+If a thread is in Running state that means the thread is executing its own run() method. 
+
+From Running state a thread can move to waiting state either by an order of thread schedular 
+or user has written some method(wait(), join() or sleep()) to put the thread into temporarly 
+waiting state.
+
+From Running state the Thread may also move to Runnable state directly, if user has written 
+Thread.yield() method explicitly.
+
+Waiting state :-
+------------------
+A thread is in waiting state means it is waiting for it's time period to complete. Once the 
+time period will be completed then it will re-enter inside the Runnable state to complete its 
+remaining task.
+
+Dead or Exit :
+----------------
+Once a thread has successfully completed its run method then the thread will move to dead state. 
+Please remember once a thread is dead we can't restart a thread in java.
+
+IQ :- If we write Thread.sleep(1000) then exactly after 1 sec the Thread will re-start?
+
+Ans :- No, We can't say that the Thread will directly move from waiting state to Running state. 
+
+The Thread will definetly wait for 1 sec in the waiting mode and then again it will re-enter into 
+Runnable state which is control by Thread Schedular so we can't say that the Thread will re-start 
+just after 1 sec.
+---------------------------------------------------------------
+join() method of Thread class :
+------------------------------------
+The main purpose of join() method to put the one thread into waiting mode until the other thread 
+finish its execution.
+
+Here the currently executing thread stops its execution and the thread goes into the waiting state. 
+The current thread remains in the wait state until the thread on which the join() method is invoked 
+has achieved its dead state.
+
+It also throws checked exception i.e InterruptedException so better to use try catch or declare 
+the method as throws.
+
+It is an instance method so we can call this method with the help of Thread object reference.
+---------------------------------------------------------------
+package com.ravi.basic;
+
+class Join extends Thread
+{
+	@Override
+	public void run()
+	{
+		for(int i=1; i<=5; i++)
+		{
+			try
+			{
+				Thread.sleep(1000);
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+			System.out.println("i value is :"+i);
+		}
+	}
+}
+
+
+public class JoinDemo 
+{
+	public static void main(String[] args) throws InterruptedException 
+	{
+       System.out.println("Main thread started....");
+       
+       Join j1 = new Join();
+       Join j2 = new Join();
+       Join j3 = new Join();
+       
+       j1.start();      
+             
+       j1.join();
+       
+       j2.start();
+             
+       j3.start();    
+      
+      
+       System.out.println("Main thread ended....");	
+	}
+
+}
+--------------------------------------------------------------
+package com.ravi.basic;
+
+public class JoinDemo1 
+{
+	public static void main(String[] args) throws InterruptedException 
+	{
+		System.out.println("Main thread started");
+		Thread thread = Thread.currentThread();
+		String name = thread.getName();
+		
+		for(int i=1; i<=5; i++)
+		{			
+			System.out.println(i + " by "+name+ " thread ");
+			Thread.sleep(1000);			
+		}
+		thread.join();  //Deadlock
+	
+		
+		System.out.println("Main thread ended");
+
+	}
+
+}
+
+Here, It is a deadlock state because main thread is waiting for main thread to complete.
+---------------------------------------------------------------
+package com.ravi.basic;
+
+class Alpha extends Thread
+{
+	@Override
+	public void run()
+	{
+		Thread t = Thread.currentThread();
+		String name = t.getName();	//Alpha_Thread		
+		
+		Beta b1 = new Beta();
+		b1.setName("Beta_Thread");
+                b1.start();  
+                try 
+                {
+			b1.join(); //Alpha thread is Blocked
+			System.out.println("--------------------");
+		} 
+                catch (InterruptedException e) 
+                {			
+			e.printStackTrace();
+		}
+		
+		for(int i=1; i<=10; i++)
+		{
+			System.out.println(i+" by "+name);
+		}
+		
+	}
+}
+
+public class JoinDemo2 
+{
+	public static void main(String[] args) 
+	{
+		Alpha a1 = new Alpha();
+		a1.setName("Alpha_Thread");
+		a1.start();
+	}
+}
+
+class Beta extends Thread
+{
+	@Override
+	public void run()
+	{
+		Thread t = Thread.currentThread();
+		String name = t.getName();	
+		for(int i=1; i<=20; i++)
+		{
+			System.out.println(i+" by "+name);
+		}
+		System.out.println(".............");
+	}
+}
+---------------------------------------------------------------
+Creating Thread by implements Runnable approach :
+--------------------------------------------------
+package com.ravi.basic;
+
+class Run implements Runnable
+{
+	@Override
+	public void run() 
+	{
+		System.out.println("Thread is running");		
+	}	
+}
+
+public class RunnableDemo 
+{
+	public static void main(String[] args) 
+	{
+	   System.out.println("Main Thread started"); 
+	   
+	   
+	   Thread t1 = new Thread(new Run()); 
+	   t1.start();
+	  
+		
+	}
+
+}

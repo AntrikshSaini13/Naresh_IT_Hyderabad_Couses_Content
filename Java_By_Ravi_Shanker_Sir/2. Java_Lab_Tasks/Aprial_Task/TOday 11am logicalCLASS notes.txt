@@ -1,0 +1,130 @@
+Que->  Program to perform serilization and deserlization
+
+Solution:-
+
+// Student class and field ( by using lambokApi)
+__________________________________________________
+import java.io.Serializable;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Setter
+@Getter
+@ToString
+public class Student implements Serializable {
+ private String studentName;
+ private int id;
+ private transient String address;
+}
+
+// StudentSerilizable class
+___________________________________
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.util.Scanner;
+
+public class StudentSerilization {
+public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter the name ");
+	String name=sc.next();
+	System.out.println("ENTER the id");
+	int id=sc.nextInt();
+	System.out.println("Enter the address");
+	String address=sc.next();
+	Student s=new Student(name, id, address);
+	FileOutputStream fos=null;
+	ObjectOutputStream oos=null;
+	
+	 try {
+		 String path="C:\\Users\\pjpra\\OneDrive\\Desktop\\studentData"; 
+                           // In my system this is the path name you can give
+                          //  your own path
+		fos=new FileOutputStream(path);  
+		oos=new ObjectOutputStream(fos);
+		oos.writeObject(s);
+		System.out.println("student data serilized");
+	 }
+	 catch(Exception e)
+	 {
+		 e.printStackTrace();
+	 }
+	 finally {
+		  try {
+			   fos.close();
+			   oos.close();
+		  }
+		  catch(Exception e) {
+			   e.printStackTrace();
+		  }
+	 }
+		
+}
+}
+
+//StudentDeserilizable class
+____________________________
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+
+public class StudentDeserilization {
+public static void main(String[] args) {
+	FileInputStream fis=null;
+	ObjectInputStream ois=null;
+	 try {
+		 String path="C:\\Users\\pjpra\\OneDrive\\Desktop\\studentData";
+		  fis=new FileInputStream(path);
+		  ois=new ObjectInputStream(fis);
+		 Student s=(Student) ois.readObject();
+		 System.out.println(s);
+	 }
+	 catch(Exception e ) {
+		  e.printStackTrace();
+	 }
+	 finally {
+		  try {
+			   fis.close();
+			   ois.close();
+		  }
+		  catch(Exception e) {
+			   e.printStackTrace();
+		  }
+	 }
+}
+}
+
+__________________________________________________________________________
+Que-2
+___________
+Write a java program to check the the number is prime number or not 
+by using less line of code and managing the code complexity also ?
+
+Solution 
+____________
+public class Program02 {
+	// 1- 100
+  public static boolean checkPrime(int number) {
+	     if(number<2)
+	    	 return false;
+	     for(int i=2;i<number/2;i++)
+	     {
+	    	  if(number%i==0)
+	    		  return false;
+	     }
+	     return true;
+  }
+  public static void main(String[] args) {
+	if(Program02.checkPrime(15)) {
+		 System.out.println("Prime");
+	}
+	else {
+		 System.out.println("Not prime");
+	}
+}
+}

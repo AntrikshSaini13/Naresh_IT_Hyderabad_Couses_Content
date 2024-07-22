@@ -1,0 +1,195 @@
+11-03-2024
+-----------
+try-catch with return statement
+-------------------------------
+If we write try-catch block inside a method and that method is returning some value then we 
+should write return statement in both the places i.e inside the try block as well as inside 
+the catch block.
+
+We can also write return statement inside the finally block only, if the finally block is 
+present. After this return statement we cannot write any kind of statement. (Unrechable)
+
+Always finally block return statement having more priority then try-catch return statement.
+----------------------------------------------------------------
+package com.ravi.advanced;
+public class ReturnExample
+{
+    public static void main(String[] args) 
+    {     	
+       System.out.println(methodReturningValue());        
+    }	
+	
+    public static int methodReturningValue()
+    {
+        try
+        {
+            System.out.println("Try block");
+            //System.out.println(10/0);
+            return 10;    
+        }
+        catch (Exception e)
+        {
+            System.out.println("catch block");         
+            return 20;  //return statement is compulsory  
+        }
+               
+    }
+}
+-----------------------------------------------------------------
+package com.ravi.advanced;
+
+public class ReturnExample1 {
+
+	public static void main(String[] args)
+	{
+		System.out.println(m1());
+	}
+
+	@SuppressWarnings("finally")
+	public static int m1()
+	{	
+		try
+		{
+			System.out.println("Inside try");
+			return 100;
+		}
+		catch(Exception e)
+		{
+			System.out.println("Inside Catch");
+			return 200;
+		}
+		finally
+		{
+			System.out.println("Inside finally");
+			return 300;
+		}
+		
+		// System.out.println("....");   Unreachable line
+	}
+}
+
+We have return keyword in the program then after this return keywoyd, outside of the 
+finally block we cannot write any kind of statement.
+-----------------------------------------------------------------
+Initialization of a variable in try and catch :
+-----------------------------------------------
+A local variable must be initialized inside try block as well as catch block OR at 
+the time of declaration.
+
+If we initialize inside the try block only then from catch block we cannot access 
+local variable value, Here initialization is compulsory inside catch block.
+
+package com.ravi.basic;
+
+public class VariableInitialization 
+{
+	public static void main(String[] args) 
+	{      
+	   int x;
+       try
+       {   
+    	   
+    	   x = 12;
+    	   System.out.println(x);
+       }
+       catch(Exception e)
+       {    
+    	   x = 15;
+    	   System.out.println(x);
+       }
+      
+       System.out.println("Main completed!!!");
+	}
+
+}
+-----------------------------------------------------------------
+**Difference between Checked Exception and Unchecked Exception :
+----------------------------------------------------------------
+Checked Exception :
+----------------------
+In java some exceptions are very common exceptions are called Checked excption here 
+compiler takes very much care and wanted the clarity regarding the exception by saying 
+that, by using this code you may face some problem at runtime and you did not report me 
+how would you handle this situation at runtime are called Checked exception, so provide 
+either try-catch or declare the method as throws.
+
+All the checked exceptions are directly sub class of java.lang.Exception
+
+Eg:
+---
+FileNotFoundException, IOException, InterruptedException,ClassNotFoundException, 
+SQLException, CloneNotSupportedException and so on
+
+Unchecked Exception :-
+--------------------------
+The exceptions which are rarely occurred in java and for these kinds of exception compiler 
+does not take any care are called unchecked exception.
+
+Unchecked exceptions are directly entertain by JVM because they are rarely occurred in java.
+
+All the un-checked exceptions are sub class of RuntimeException
+
+Eg:
+---
+ArithmeticException, ArrayIndexOutOfBoundsException, NullPointerException, 
+NumberFormatException, ClassCastException, ArrayStoreException and so on.
+-----------------------------------------------------------------
+Some Bullet points regarding Checked and Unchecked :
+-----------------------------------------------------
+Checked Exception :
+------------------
+  1) Common Exception
+  2) Compiler takes care (Will not compile the code)
+  3) Handling is compulsory (try-catch OR throws)
+  4) Directly the sub class of java.lang.Exception
+
+Unchecked Exception :
+----------------------
+  1) Rare Exception
+  2) Comiler will not take any care
+  3) Handling is not Compulsory
+  4) Sub class of RuntimeException
+--------------------------------------------------------------------------
+When to provide try-catch or declare the method as throws :-
+---------------------------------------------------------------------
+We should provide try-catch if we want to handle the exception by own as well as if 
+we want to provide user-defined messages to the client but on the other hand we should 
+declare the method as throws when we are not interested to handle the exception and 
+try to send it to the JVM for handling purpose. 
+
+Note :- It is always better to use try catch so we can provide appropriate user 
+defined messages to our client.
+-----------------------------------------------------------------
+*Why compiler takes very much care regarding the checked Exception ?
+---------------------------------------------------------------------
+As we know Checked Exceptions are very common exception so in case of checked exception 
+"handling is compulsory" because checked Exception depends upon other resources as shown 
+below.
+
+IOException  (we are depending upon System Keyboard OR Files )
+FileNotFoundException(We are depending upon the file)
+InterruptedException (Thread related problem)
+ClassNotFoundException (class related problem)
+SQLException (SQL related or database related problem)
+CloneNotSupportedException (While creating clone object support is required)
+-----------------------------------------------------------------
+* What is the difference between throw and throws :
+----------------------------------------------------
+throw :
+--------
+In case of predefined exception, try block is responsible to create the exception object and 
+throw the exception object to the nearest catch block but it works with predefined exception only.
+
+If a user wants to throw an exception based on his own requirement and specification by using 
+userdefined exception then we should write throw keyword to throw the user defined exception 
+object explicitly. (throw new InvalidMarksException())
+
+THROWING THE EXCEPTION OBJCET EXPLICITLY.
+
+throws :- 
+---------
+In case of checked Exception if a user is not interested to handle the exception and wants  to 
+throw the exception to JVM, wants to skip from the current situation then we should declare the
+ method as throws.
+It is mainly used to work with Checked Exception.
+------------------------------------------------

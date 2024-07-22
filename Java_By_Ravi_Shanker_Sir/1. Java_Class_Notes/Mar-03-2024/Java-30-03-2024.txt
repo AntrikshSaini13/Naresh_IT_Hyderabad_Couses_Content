@@ -1,0 +1,99 @@
+30-03-2024
+-----------
+Thread class Constructor :
+--------------------------
+In Thread class we have total 9 constructors are available but 
+commonly we are using the following 7 constructors 
+
+1) Thread t1 = new Thread();
+
+2) Thread t2 = new Thread(String name);
+
+3) Thread t3 = new Thread(Runnable target);
+
+4) Thread t4 = new Thread(Runnable target, String name);
+
+5) Thread t5 = new Thread(ThreadGroup tg, String name);
+
+6) Thread t6 = new Thread(ThreadGroup tg, Runnable target);
+
+7) Thread t6 = new Thread(ThreadGroup tg, Runnable target, String name);
+----------------------------------------------------------------
+Problem with multithreading :-
+----------------------------------
+Multithreading is very good to complete our task as soon as possible but 
+in some situation, It provides some wrong data or wrong result.
+
+In Data Race or Race condition, all the threads try to access the resource at 
+the same time so the result will be corrupted.
+
+In multithreading if we want to perform read operation and data is not updatable 
+then multithreading is good but if the data is updatable data (modifiable data) 
+then multithreading may produce some wrong result or wrong data as shown in the 
+diagram.(30-MAR-24)
+----------------------------------------------------------------
+package com.ravi.data_race;
+
+class Customer
+{
+	 double balance = 20000;
+	 double withdraw;
+	
+	public Customer(double withdraw) 
+	{
+		super();
+		this.withdraw = withdraw;
+	}
+
+	
+}
+
+public class BankingApplication 
+{
+	public static void main(String[] args) 
+	{
+		Customer cust = new Customer(20000);
+		
+		Runnable r1 = () ->
+		{
+			String name = null;
+			
+			if(cust.withdraw <= cust.balance)
+			{
+				name = Thread.currentThread().getName();
+				System.out.println(cust.withdraw+" amount withdraw successfully by :"+name);
+				cust.balance = cust.balance - cust.withdraw;
+				
+			}
+			else
+			{
+				name = Thread.currentThread().getName();
+				System.err.println("Sorry !"+name+ " you have insufficient balance");
+			}
+			
+		};
+		
+		Thread t1 = new Thread(r1, "Virat");
+		Thread t2 = new Thread(r1, "Dhoni");
+		
+		t1.start();  t2.start();
+		
+		
+		
+	}
+
+}
+
+Note :- In the above program both the threads Virat and Dhoni are accessing the 
+balace to withdraw 20000 amount so it may produce some wrong result or wrong data.
+
+
+
+
+
+
+
+
+
+
+

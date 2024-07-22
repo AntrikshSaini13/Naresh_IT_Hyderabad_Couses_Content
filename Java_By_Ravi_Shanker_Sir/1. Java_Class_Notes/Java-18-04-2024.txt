@@ -1,0 +1,46 @@
+List interface Hierachy :
+-------------------------
+Available in paint diagram 17-Apr-24
+----------------------------------------------------------------
+Behavior of List interface Specific classes :
+----------------------------------------------
+1) It works on the basis of index.
+2) It can accept homogeneous as well as hetrogeneous types of data.
+3) Most of the classes are dynamically growable.
+4) It can accept null value.
+5) Collection stroes everything in the form of object.
+6) By using generics we can hold type safe collection object.
+   It can be hetrogeneous also.
+7) Sorting operation is possible.
+-----------------------------------------------------------------
+Methods of List interface :
+------------------------------
+1) public boolean isEmpty() :- Verify whether List is empty or not
+
+2) public void clear() :- Will clear all the elements
+
+3) public int size() :- To get the size of the Collections
+
+4) public void add(int index, Object o) :- Insert the element based on the index position.
+
+5) public boolean addAll(int index, Collection c) :- Insert the Collection based on the index position
+
+6) public Object get(int index) :- To retrieve the element based on the index position
+
+7) public Object set(int index, Object o) :- To override or replace the existing element based on the index position
+
+8) public Object remove(int index) :- remove the element based on the index position
+
+9) public boolean remove(Object element) :-  remove the element based on the object element, It is the Collection interface method extended by List interface 
+
+10) public int indexOf() :- index position of the element
+
+11) public int lastIndex() :- last index position of the element
+
+12) public Iterator iterator() :- To fetch or iterate or retrieve the elements from Collection in forward direction only.
+
+13) public ListIterator listIterator() :- To fetch or iterate or retrieve the elements from Collection in forward and backward direction
+---------------------------------------------------------------
+How many ways we can fetch the Collection Object
+-----------------------------------------------
+

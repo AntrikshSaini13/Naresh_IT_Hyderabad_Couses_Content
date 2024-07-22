@@ -1,0 +1,269 @@
+.002-04-2024
+----------
+Program on Block Level Synchronization :
+----------------------------------------
+package com.ravi.advanced;
+
+//Block level synchronization
+
+
+class ThreadName
+{
+	public void printThreadName()
+	{		  		
+	  String name = Thread.currentThread().getName();
+	  System.out.println("Thread inside the method is :"+name);
+			
+		   synchronized(this)  //synchronized Block
+		   {  			   
+			for(int i=1; i<=9; i++)
+			{
+				System.out.println("i value is :"+i+" by :"+name);
+			}
+			System.out.println(".............................");
+		   }		
+	}
+}
+public class BlockSynchronization 
+{
+	public static void main(String[] args)
+	{
+		ThreadName obj1 = new ThreadName(); //lock is created	
+		
+		Runnable r1 = () -> obj1.printThreadName();
+		
+		Thread t1 = new Thread(r1,"Child1"); 
+		Thread t2 = new Thread(r1,"Child2"); 
+		t1.start(); t2.start();				
+	}
+}
+
+From the given diagram it is clear that there is no interference between t1 and t2 thread 
+because they are passing throgh Object1 where as on the other hand there is no interferenec 
+even in between t3 and t4 threads because they are also passing through Object2 (another object).
+
+But there may be chance that with t1 Thread, t3 or t4 thread can enter inside the synchronized 
+area at the same time, simillarly it is also possible that with t2 thread, t3 or t4 thread can 
+enter inside the synchronized area so the conclusion is synchronization mechanism does not work 
+with multiple Objects.(Diagram 02-APR-24)
+----------------------------------------------------------------
+package com.ravi.advanced;
+class PrintTable
+{
+	    public synchronized void printTable(int n)
+	    {
+	       for(int i=1; i<=10; i++)
+	       {
+	    	   System.out.println(n+" X "+i+" = "+(n*i));
+	    	   try
+	    	   {
+	    		   Thread.sleep(500);
+	    	   }
+	    	   catch(Exception e)
+	    	   {	    		   
+	    	   }
+	       }
+	       System.out.println(".......................");
+	    }	
+}
+
+public class ProblemWithObjectLevelSynchronization
+{
+	public static void main(String[] args) 
+	{
+		PrintTable pt1 = new PrintTable(); //lock1		
+		PrintTable pt2 = new PrintTable(); //lock2
+		
+		Thread t1 = new Thread()  //Anonymous inner class concept
+				{
+			       @Override
+			       public void run()
+			       {
+			    	   pt1.printTable(2);	//lock1
+			       }			   
+				};
+		       	        
+		        Thread t2 = new Thread()
+				{
+			       @Override
+			       public void run()
+			       {
+			    	   pt1.printTable(3);	//lock1
+			       }			   
+				};
+		                
+		        Thread t3 = new Thread()
+				{
+			       @Override
+			       public void run()
+			       {
+			    	   pt2.printTable(6);	//lock2
+			       }			   
+				};
+		               
+		        Thread t4 = new Thread()
+				{
+			       @Override
+			       public void run()
+			       {
+			    	   pt2.printTable(9); //lock2
+			       }			   
+				};
+				 t1.start();	t2.start();	 t3.start();  t4.start(); 
+	}
+}
+
+So, from the above program it is clear that synchronization will not work with multiple 
+objects.
+
+Now, to avoid this Static Synchronization is came into the picture.
+---------------------------------------------------------------
+Static Synchronization :
+------------------------
+If We declare a synchronized method as a static method then it is called static synchronization.
+
+Now with static synchronization lock will be available at class level but not Object level.
+
+To call the static synchronized method, object is not required so we can call the static 
+method with the help of class name.
+
+Unlike objects we can't create multiple classes for the same application.
+-----------------------------------------------------------------
+package com.ravi.advanced;
+class MyTable     
+{
+	 public static synchronized void printTable(int n)  //static synchronization
+	    {
+	       for(int i=1; i<=10; i++)
+	       {
+	    	   try
+	    	   {
+	    		   Thread.sleep(100);
+	    	   }
+	    	   catch(InterruptedException e)
+	    	   {
+	    		  System.err.println("Thread is Interrupted...");
+	    	   }
+	    	   System.out.println(n+" X "+i+" = "+(n*i));
+	       }
+	       System.out.println("------------------------");
+	    }
+}
+public class StaticSynchronization 
+{
+	public static void main(String[] args)
+	{
+			        Thread t1 = new Thread()
+					{
+				      @Override
+				      public void run()
+				      {
+				    	 MyTable.printTable(5); 
+				      }
+					};		
+					
+					Thread t2 = new Thread()
+					{
+				      @Override
+				      public void run()
+				      {
+				    	  MyTable.printTable(10);
+				      }
+					};										
+
+					Runnable r3 = new Runnable() 
+					{						
+						@Override
+						public void run() 
+						{
+							MyTable.printTable(15);							
+						}
+					};
+					Thread t3 = new Thread(r3);
+					
+					t1.start();
+					t2.start();	t3.start();
+					
+		}
+}
+
+Here the thread will take the lock from Table class.
+----------------------------------------------------------------
+** Inter Thread Communication(ITC) :
+------------------------------------
+It is a mechanism to communicate two synchronized threads within the context to 
+achieve a particular task.
+
+In ITC we put a thread into wait mode by using wait() method and other thread will 
+complete its corresponding task, after completion of the task it will call notify() 
+method so the waiting thread will get a notification to complete its remaining task.
+
+ITC can be implemented by the following method of Object class.
+
+1) public final void wait() throws InterruptedException
+
+2) public native final void notify()
+
+3) public native final void notifyAll()
+
+
+public  final void wait() throws InterruptedException :-
+-------------------------------------------------------------
+It will put a thread into temporarly waiting state and it will release the lock.
+It will wait till the another thread invokes notify() or notifyAll() for this object.
+
+public native final void notify() :-
+-------------------------------------
+It will wake up the single thread that is waiting on the same object.
+
+public native final void notifyAll() :-
+----------------------------------------
+It will wake up all the threads which are waiting on the same object.
+
+*Note :- wait(), notify() and notifyAll() methods are defined in Object class but 
+not in Thread class because these methods are related to lock(because we can use 
+these methods from the synchronized area ONLY) and Object has a lock so, all these 
+methods are defined inside Object class.
+
+*What is the difference between sleep() and wait() 
+----------------------------------------------------------
+(Given in the diagram 02-APR-24) 
+----------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

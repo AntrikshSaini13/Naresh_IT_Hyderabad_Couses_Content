@@ -1,0 +1,75 @@
+Program 01 :
+------------
+We have Two class named as Test and Handling
+For Handling class
+Instance Variables:
+No Instance Variables
+Methods:
+nit(int) : void : static
+nit1(int) : void: static
+
+For method nit(int):
+In try block print ‘Naresh’ and call nit1(int) method pass same parameter as nit(int) method then after print ‘I’.
+
+In catch block need to pass Exception as a parameter print the message.
+
+For method nit1(int):
+nit1() method must throws the Exception
+
+In try block need to check arithmetic operation (division), any value divided by parameter value then print ‘Completed’ 
+
+For example pass the value is zero from parameter it throws ArithmeticException so we need to catch or throw the customize exception
+For example parameter value is 10 it throw the Exception
+Catch Block
+We need to catch ArithmeticException to print message
+Finally block
+In this print ‘Finally’ message
+
+For Test class
+This class is given to you with a main method
+Use this class to test your solution's classes and methods
+Need to check the test cases like 0, 1, 10, 15 as input and write the output
+
+
+Program 02 :
+------------
+We have Four classes named as CarStopped, CarPuncture, CarHeat and CarTest
+For CarStooped: extends Exception
+This class is used for raise the exception if any reason except puncture and heat the car 
+Instance Methods:
+No Instance methods
+Methods:
+Parameterized Construstor with String as parameter
+For CarPuncture: extends Exception
+This class is used for raise the exception if car is punctured
+Instance Methods:
+No Instance methods
+Methods:
+Parameterized Construstor with String as parameter
+Parameterized Construstor with String as parameter
+For CarHeat: extends Exception
+This class is used for raise the exception if the car engine is more than 50 degrees celcious
+Instance Methods:
+No Instance methods
+Methods:
+Parameterized Construstor with String as parameter
+For  CarTest class
+Instance Variables:
+No Instance Variables
+Methods:
+Stop(String): void: static
+This class throws CarStopped. If the string is “stop” throw new exception and get the message or else message is Car not stall
+For  CarPuncture class
+Instance Variables:
+No Instance Variables
+Methods:
+puncture(String): void: static
+This class throws CarPuncture. If the string is “puncture” throw new exception and get the message line “Car is Punchred” or else message is Car not stall.
+For  CarPuncture class
+Instance Variables:
+No Instance Variables
+Methods:
+carHeat(int): void: static
+This class throws CarHeat. If the car heat is more than 50 degrees calicoes it throw new exception and get the message line “Car is heated more the 50 degrees” or else message is Car not stall.
+This class is given to you with a main method
+Use this class to test your solution's classes and methods

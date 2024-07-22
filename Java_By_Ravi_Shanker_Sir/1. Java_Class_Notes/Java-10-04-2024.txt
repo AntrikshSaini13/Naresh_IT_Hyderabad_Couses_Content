@@ -1,0 +1,200 @@
+10-04-2024
+-----------
+public String []  split (String delimiter)  :
+-----------------------------------------------
+It is a predefined method available in the String class. The main purpose of this 
+method to split or break the given String based on specified delimiter(Criteria OR 
+Pattern OR Regular Expression).
+
+The return type of this method is String array because It returns the collection of 
+String tokens or multiple Strings.
+
+//public String []   split(String delimiter)
+
+public class Test22
+{
+public static void main(String args[])
+	{
+		String s1="Hyderabad is a nice city";  
+		String [] words = s1.split(" "); //Space is Delimiter
+		for(String word : words)
+		{
+			System.out.println(word);
+		}       
+	    System.out.println("..............");
+
+        String s2="Hyderabad is a nice city";  
+		words = s2.split("a"); 
+
+		for(String word : words)
+		{
+			System.out.println(word);
+		} 
+	}
+}  
+---------------------------------------------------------------
+There is a predefined class called StringTokenizer available in java.util package, is also 
+used to split the String 
+
+public int countTokens()
+public 
+boolean hasMoreTokens()
+public String nextToken()
+
+package com.ravi.equals;
+
+import java.util.StringTokenizer;
+
+//Verify a name using Predicate
+public class PredicateDemo {
+
+	public static void main(String[] args) 
+	{		
+		String str = "Hyderabad is an IT city";
+		
+        StringTokenizer st = new StringTokenizer(str, " ");
+        
+        System.out.println("Total number of tokens :"+st.countTokens());
+        System.out.println("Tokens are :");
+        
+        while(st.hasMoreTokens())
+        {
+        	System.out.println(st.nextToken());        	
+        }
+
+
+	}
+
+}
+----------------------------------------------------------------
+public char[] toCharArray() :
+-----------------------------
+It is a predefined method available in the String class. The main purpose of this method 
+to convert the given string into a sequence of characters. The returned array length is 
+equal to the length of the string.
+
+This method does not take any parameter and return type is character array.
+
+//public char[] toCharArray()
+public class Test23
+{
+public static void main(String args[])
+	{
+		String str = "Java technology";
+		char ch [] = str.toCharArray();
+
+		for(char c : ch)
+		{
+			System.out.print(c+"  ");
+		}
+		System.out.println();
+	}
+}         
+----------------------------------------------------------------
+public byte [] getBytes() :-
+-------------------------------
+It is a predefined method available in the String class. The main purpose of this method 
+to encode the string into bytes. It converts the string into a sequence of bytes and 
+returns an array of bytes. 
+
+String data we cann't write to the byte oriented Stream files so, it must be converted 
+into byte array.
+
+//public byte [] getBytes()
+//encode the String into sequence of bytes
+
+public class Test24
+{
+public static void main(String args[])
+	{
+		String str = "ABCDEF";	
+		
+		byte [] b = str.getBytes();
+
+		for(byte a : b)
+		{
+			System.out.println(a);  
+		}
+	}
+}         
+----------------------------------------------------------------
+StringBuffer :-
+----------------
+While working with String class the drawback is memory consumption is very high because 
+it is immutable so whenever we want to perform some operation on the existing String 
+Object, a new String object will be created.
+
+In order to solve the problem of immutability as well as high memory consumption, java 
+software people has introdued a separate class called StringBuffer available in 
+java.lang packge from 1.0 onwards.
+
+StringBuffer is a mutable class so we can modify the existing String hence automatically 
+the memory consumption will be low but we have some performance issue because almost all 
+the methods of StringBuffer class are synchronized so at a time only one thread can access 
+the method of StringBuffer hence it is Thread-safe. 
+
+In order to solve this performance issue problem java software people has introduced 
+StringBuilder class from 1.5v onwards.
+
+StringBuilder :-
+-----------------
+It is a predefined class available in java.lang packge. It is also mutable class. The only 
+difference between StringBuffer and StringBuilder is, almost all the methods of StringBuffer 
+are synchronized where as all the methods of StringBuilder are non-synchronized hence 
+performance wise StringBuilder is more better than StringBuffer.
+
+Both the classes are sharing same API so, method name, return type, parameter list all are same.
+---------------------------------------------------------------
+//String, StringBuffer and StringBuilder Objects comparison
+public class Test25
+{
+public static void main(String args[])
+	{
+		StringBuilder sb1=new StringBuilder("Data"); //mutable
+		sb1.append("Base");
+		System.out.println(sb1);	
+
+		StringBuffer sb2=new StringBuffer("Data"); //mutable
+		sb2.append("Base");
+		System.out.println(sb2);	
+
+		String sb3 = new String("Data");  //immutable
+	    sb3.concat("Base");
+        System.out.println(sb3);	
+	}
+}
+----------------------------------------------------------------
+** What is the difference String, StringBuffer and StringBuilder?
+----------------------------------------------------------------
+Diagram is available in paint window
+-------------------------------------
+----------------------------------------------------------------
+public int capacity() :
+-------------------------
+StringBuffer class contains capacity method() through which we can find out the 
+initial capacity of StringBuffer class in the form of Characters.
+
+StringBuffer sb = new StringBuffer(); //default capacity is 16
+
+new capacity = (current capacity * 2) + 2
+
+new Capacity = (16 * 2) + 2 = 34
+----------------------------------------------------------------
+//public int  capacity()   
+//new capacity = ( current capacity*2)+2.
+public class Test26
+{
+public static void main(String args[])
+	{        
+		StringBuffer sb1 = new StringBuffer();
+		System.out.println(sb1.capacity()); //16
+		
+	    StringBuffer sb2 = new StringBuffer("India");  //21 (16+5)
+	   System.out.println(sb2.capacity()); 
+
+        sb2.append("is great. It is in Asia"); //44  (21*2)+2 = 44
+		System.out.println(sb2.capacity()); 	
+		
+	}
+}
+----------------------------------------------------------------

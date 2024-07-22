@@ -1,0 +1,312 @@
+20-03-2024
+-----------
+FileInputStream :-
+-----------------
+It is a predefined class available in java.io package. It is used to read the file data/content. 
+If we want to print the file data in console then data must be available in char format.
+
+Note :- Whenever we want to write the data in the file then data must be available in byte 
+format where as If we want to print the data to the console then the data must be converted 
+into char format.
+----------------------------------------------------------------
+//Reading tha data from the file
+import java.io.*;
+public class File2
+{
+     public static void main(String s[]) throws IOException
+     {         
+		var fin = new FileInputStream("C:\\new\\Hyderabad.txt");
+
+		 try(fin)
+		 {
+			 int i = 0;
+             while(true)
+			 {
+				 i = fin.read();
+				 if(i==-1)
+					 break;
+				 System.out.print((char)i);
+			 }
+
+		 }
+		 catch(Exception e)
+		 {
+			 System.out.println(e);
+		 }
+		 System.out.println();
+     }
+}
+----------------------------------------------------------------
+//wap in java to read the data from one file and to write the data to another file.
+import java.io.*;
+public class File3
+{
+     public static void main(String s[]) throws IOException
+     {  
+	    //Outside of try (Java 9 enhancement in try with resource)
+
+	   var fin = new FileInputStream("File2.java");
+	   
+	   var fout = new FileOutputStream("C:\\new\\f2.java");
+
+	   try(fin; fout)
+		 {
+         while(true)
+		 {
+		     int i = fin.read();
+			 if(i==-1) break;
+			 System.out.print((char)i);
+			 fout.write((byte)i);
+		 }      
+		 }
+		 catch(IOException e)
+		 {
+			 e.printStackTrace();
+		 }
+     }
+}
+----------------------------------------------------------------
+//wap in java to read the data from one file and to write the data to another file.
+import java.io.*;
+public class File3
+{
+     public static void main(String s[]) throws IOException
+     {  
+	    //Outside of try (Java 9 enhancement in try with resource)
+
+	   var fin = new FileInputStream("File2.java");
+	   
+	   var fout = new FileOutputStream("C:\\new\\f2.java");
+
+	   try(fin; fout)
+		 {
+         while(true)
+		 {
+		     int i = fin.read();
+			 if(i==-1) break;
+			 System.out.print((char)i);
+			 fout.write((byte)i);
+		 }      
+		 }
+		 catch(IOException e)
+		 {
+			 e.printStackTrace();
+		 }
+     }
+}
+-----------------------------------------------------------------
+Limitation of FileInputStream class :
+-------------------------------------
+As we know FileInputStream class is used to read the content from the file but it can read 
+the data from a single file only that means if we want to read the data from two files at 
+the same time then we should use a separate Stream called SequenceInputStream.
+
+SequenceInputStream :
+-------------------------
+It is a predefined class available in java.io package. This class is used to read the data 
+from two files at the same time.
+----------------------------------------------------------------
+//Proram to read the data from two files at the same time
+import java.io.*;
+public class File4
+{
+     public static void main(String args[]) throws IOException
+     {
+         var f1 = new FileInputStream("File1.java");
+         var f2 = new FileInputStream("File2.java");
+
+         var s = new SequenceInputStream(f1,f2);
+
+		 try(f1; f2; s)
+		 {
+         int i;
+         while(true)
+		 {
+			  i = s.read();
+			   if(i==-1)
+				  break;
+			  System.out.print((char)i);		 
+		 }     
+		 }
+		 catch(IOException e)
+		 {
+			 e.printStackTrace();
+		 }
+     } 
+}
+----------------------------------------------------------------
+//Reading the data from two files and writing the data to a single file
+import java.io.*;
+public class File5
+{
+	public static void main(String x[]) throws IOException
+	{
+		   var f1 = new FileInputStream("File3.java");
+           var f2 = new FileInputStream("File4.java");
+
+           var fout = new FileOutputStream("C:\\new\\FileData.txt");
+
+           var s = new SequenceInputStream(f1,f2);
+
+           int i;
+		   try(f1; f2; fout; s)
+		   {
+           while(true)
+           {
+			   i = s.read();
+			   if(i==-1)
+				    break;
+               System.out.print((char)i);
+               fout.write((byte)i);
+           }
+		   }
+		   catch(IOException e)
+		   {
+			   e.printStackTrace();
+		   }
+		   System.out.println("File Created Successfully");
+     }
+}
+----------------------------------------------------------------
+Limitation of FileOutputStream :
+--------------------------------
+By using this FileOutputStream class, we can write the data to single file only.
+If we want to write the data to multiple files at the same time then we should use a 
+separate stream called ByteArrayOutputStream.
+
+ByteArrayOutputStream :-
+---------------------------
+It is a predefined class available in java.io package. By using this class we can write 
+the data to multiple files. ByteArrayOutputStream class provides a method called writeTo(), 
+through which we can write the data to multiple files.
+
+//Program to write the data on multiple files.
+import java.io.*;
+public class File6
+{
+     public static void main(String args[]) throws IOException
+     {
+			var fin = new FileInputStream("File1.java");
+
+			var f1 = new FileOutputStream("C:\\new\\a1.txt");  
+			var f2 = new FileOutputStream("C:\\new\\b1.txt");
+			var f3 = new FileOutputStream("C:\\new\\c1.txt"); 
+			
+			var bout = new ByteArrayOutputStream(); 
+
+			try(fin; f1; f2; f3; bout)
+		    {
+             int i;
+			while((i = fin.read()) != -1)
+            {
+               bout.write((byte)i); //writing tha data to ByteArrayOutputStream
+            }
+
+           bout.writeTo(f1);
+           bout.writeTo(f2);
+		   bout.writeTo(f3);
+		   
+           bout.flush();  //clear the buffer for reusing of ByteArrayOutputStream
+           System.out.println("Success");
+			}
+			catch(IOException e)
+		    {
+				e.printStackTrace();
+		    }
+     }
+}
+---------------------------------------------------------------
+//Working with images
+import java.io.*;
+public class File7 
+{
+	public static void main(String[] args) throws IOException
+	{
+		 var fin = new FileInputStream("C:\\new\\Batch28\\Image.jpg");
+
+         var f1 = new FileOutputStream("C:\\new\\Batch28\\a1.jpg");
+         var f2 = new FileOutputStream("C:\\new\\Batch28\\a2.jpg");
+		 var f3 = new FileOutputStream("C:\\new\\Batch28\\a3.jpg");
+
+         var bout = new ByteArrayOutputStream();
+
+         try(fin; f1; f2; f3; bout)
+		 {
+         int i;
+         while((i = fin.read()) != -1)
+         {
+               bout.write((byte)i);
+         }
+         bout.writeTo(f1);
+         bout.writeTo(f2);
+		 bout.writeTo(f3);
+         System.out.println("success...");
+		 bout.flush();
+         }
+		 catch(IOException e)
+		{
+			 e.printStackTrace();
+		}
+	}
+}
+-------------------------------------------------------------------
+BufferedOutputStream :-
+--------------------------
+It is a predefined class available in java.io package.
+
+Whenever we use the class FileOutputStream the data will be available on the Stream but not 
+in the buffer so there may be chance of miss memory management, It is always preferable that 
+the data should be available in the buffer.
+
+By using this BufferedOutputStrean now the data is in the buffer so the execution will become 
+more faster.
+
+//Program to put the data in the buffer for fast execution
+import java.io.*;
+class File8
+{
+      public static void main(String args[]) throws IOException
+      {
+           var fout = new FileOutputStream("C:\\new\\Hyderabad.txt");
+
+           var bout = new BufferedOutputStream(fout);
+          
+		   try(fout ; bout)
+		   {
+           		String s = "Hyderabad is a nice city";
+          	 	byte b[] = s.getBytes();
+           		bout.write(b);
+		   	System.out.print("success..."); 
+		  }
+		  catch(IOException e)
+		  {
+			  e.printStackTrace();
+		  }
+      }
+}
+------------------------------------------------------------------
+//BufferedInputStream
+import java.io.*;
+public class File9
+{
+      public static void main(String args[]) throws IOException
+      {
+           var fin = new FileInputStream("File1.java");
+           var bin = new BufferedInputStream(fin);
+
+		   try(fin ; bin)
+		   {
+           		int i;
+           		while((i = bin.read()) != -1)
+           		{
+                		System.out.print((char)i); 
+           		}
+           	   }
+		   catch(IOException e)
+		   {
+			   e.printStackTrace();
+		   }
+		   System.out.println();
+      }
+}
+------------------------------------------------------------------

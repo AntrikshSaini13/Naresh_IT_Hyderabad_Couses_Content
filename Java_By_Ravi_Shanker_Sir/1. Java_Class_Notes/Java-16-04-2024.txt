@@ -1,0 +1,301 @@
+----------------------------------------------------------------
+16-04-2024
+-----------
+//local inner class we can't access outside of the method
+class MyOuter3
+{
+      private String x = "Outer class Data";
+
+      public void doSttuff()
+      { 
+           String z = "local variable";  
+            class MyInner        
+            {
+		 String z = "CLASS variable"; 
+                 public void seeOuter()
+                 {
+                      System.out.println("Outer x is "+x);
+                      System.out.println("Local variable z is : "+z);
+                 }
+           }
+	  }
+	   MyInner mi = new MyInner();
+	        mi.seeOuter(); 
+		      
+      
+	     	
+	  
+}
+public class Test12
+{
+      public static void main(String args[])
+      {
+            MyOuter3 m = new MyOuter3();
+            m.doSttuff();  
+      } 
+}
+
+Note : Here We will get an error because Method local inner class must be 
+accessible within the same method only.
+----------------------------------------------------------------
+3) Static Nested Inner class :
+---------------------------------
+A static inner class which is declared with static keyword inside an outer 
+class is called static Nested inner class.
+
+It cann't access non-static variables and methods  i.e (instance members) of 
+outer class.
+
+For static nested inner class, Outer class object is not required.
+
+If a static nested inner class contains static method then object is not 
+required for inner class. On the other hand if the static inner class contains 
+instance method then we need to create an object for static nested inner class.
+---------------------------------------------------------------
+//static nested inner class
+class BigOuter
+{
+     static class Nest   //static nested inner class   
+     {
+          void go()  //Instance method of static inner class
+          {
+               System.out.println("Hello welcome to static nested class");  
+          }  
+     }
+}
+class Test13
+{    
+      public static void main(String args[])
+      {
+          BigOuter.Nest n = new BigOuter.Nest();
+          n.go();
+			
+			
+      } 
+}
+
+---------------------------------------------------------------
+class Outer
+{  
+	  static int x=15;  
+
+	  static class Inner
+	  {  
+	     void msg()
+		{
+		System.out.println("x value is  "+x);
+		}  
+	  }
+}
+class Test14
+{  
+	public static void main(String args[])
+	{  
+		Outer.Inner obj=new Outer.Inner();  
+		obj.msg();  
+	}  
+}  
+----------------------------------------------------------------
+class Outer    
+{  
+	  static int x = 25;  
+	  static class Inner 
+	  {  
+			static void msg()
+				{
+					System.out.println("x value is  "+x);					
+				}		
+	  }	  
+}
+class Test15
+{  
+	public static void main(String args[])
+	{  
+		Outer.Inner.msg();
+	}  
+}  
+---------------------------------------------------------------
+class Outer
+{  
+	  int x=15;  //error (not possible because try to access instance variable)
+	  static class Inner
+	  {  
+			void msg()
+				{
+					System.out.println("x value is  "+x);
+				}  
+	  }
+}
+class Test16
+{  
+	public static void main(String args[])
+	{  
+		Outer.Inner obj=new Outer.Inner();  
+		obj.msg();  
+	}  
+}  
+----------------------------------------------------------------
+4) Anonymous inner class :
+------------------------------ 
+It is an inner class which is defined inside a method without any name and for 
+this kind of inner class only single Object is created. (Singleton class)
+
+*An anonymous inner class is mainly used for extending a class or implementing 
+an interface that means creating sub type of a class or interface.
+
+*A normal class can implement any number of interfaces but an anonymous inner 
+class can implement only one interface at a time.
+
+A normal class can extend one class and implement any number of interfaces at 
+the same time but an anonymous inner class can extend one class or can implement 
+one interface at a time.
+
+Inside an anonymous inner class we can write static , non static variable, static 
+block and non-static block. Here we can't write abstract method and constructor.
+---------------------------------------------------------------
+//Anonymous inner class
+class Tech
+{
+       public void tech() 
+       {
+	      System.out.println("Tech");
+       }
+}
+public class Test17
+{     
+       public static void main(String... args)
+       {
+		   
+
+	       Tech a = new Tech()  //Anonymous inner class
+			{
+				    @Override
+					public void tech() 
+					{
+						 System.out.println("anonymous tech");
+					}
+
+                    
+
+			};
+			a.tech();	
+       }
+}
+---------------------------------------------------------------
+@FunctionalInterface
+interface Vehicle
+{
+	void move();  //SAM(Single Abstract Method)
+}
+
+class Test18 
+{
+	public static void main(String[] args) 
+	{
+		Vehicle car = new Vehicle()
+		{
+			@Override
+			public void move()
+			{
+				System.out.println("Moving with Car...");
+			}
+		};
+		car.move();
+
+       		Vehicle bike = new Vehicle()
+		{
+			@Override
+			public void move()
+			{
+				System.out.println("Moving with Bike...");
+			}
+		};
+		bike.move();
+	}
+}
+----------------------------------------------------------------
+class Test19 
+{
+	public static void main(String[] args) 
+	{
+        //Anonymous class with Runnable
+		Runnable r1 = new Runnable()
+		{
+			
+			@Override
+			public void run()
+			{
+                	System.out.println("Run method implementation inside Runnable");
+			}
+		};
+             	Thread obj = new Thread(r1);
+			 obj.start();
+
+
+
+        //Anonymous Thread class with reference
+		Thread t1 = new Thread()
+		{
+			@Override
+			public void run()
+			{
+                	System.out.println("Anonymous Thread class with reference...");
+			}
+		};
+		t1.start();
+		
+        //Anonymous Thread class without reference
+        new Thread()
+		{
+			@Override
+			public void run()
+			{
+                	System.out.println("Anonymous Thread class without reference...");
+			}
+		}.start();
+	}
+}
+----------------------------------------------------------------
+Collection Framework in java (40 - 45% IQ):
+-------------------------------------------
+Collections framework is nothing but handling individual Objects(Collection Interface) 
+and Group of objects(Map interface).
+
+We know only object can move from one network to another network.
+
+A collections framework is a class library to handle group of Objects.
+
+It is implemented by using java.util package.
+
+It provides an architecture to store and manipulate group of objects.
+
+All the operations that we can perform on data such as searching, sorting, insertion 
+and deletion can be done by using collections framework because It is the data structure of Java.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

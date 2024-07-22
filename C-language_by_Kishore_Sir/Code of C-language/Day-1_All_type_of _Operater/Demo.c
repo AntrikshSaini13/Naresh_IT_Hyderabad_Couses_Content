@@ -1,9 +1,12 @@
 #include <stdio.h>
 void main()
 {
-    int i = 2;
-    do
-    {
-        printf("Hi");
-    } while (i < 2)
+    int id;
+    float sal;
+    printf("Enter the id");
+    scanf("%d",id);
+    printf("Enter the Salary");
+    scanf("%f",sal);
+    printf("sum = %f",id+sal);
+    getch();
 }

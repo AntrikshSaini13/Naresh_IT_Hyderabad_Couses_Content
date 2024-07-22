@@ -1,0 +1,268 @@
+04-04-2024
+----------
+Thread.yield() :
+----------------
+It is a static method of Thread class.
+
+It will send a notification to thread schedular to stop the currently executing Thread 
+(In Running state) and provide a chance to Threads which are in Runnable state to enter 
+inside the running state having same priority or highest priority. Here The running Thread 
+will directly move from Running state to Runnable state.
+
+The Thread schedular can ignore this notification message given by currently executing Thread.
+
+Here there is no guarantee that  after using yield() method the running Thread will move to 
+Runnable state and from Runnable state the thread can move to Running state.[That is the 
+reason yield() method is throwing InterruptedExecption]
+
+If the thread which is in runnable state is having low priority then the same running 
+thread will continue its execution.
+
+It is mainly used to avoid the over-utilisation a CPU by the current Thread.
+----------------------------------------------------------------
+class Test implements Runnable
+{
+	@Override
+	public void run()
+	{		
+		for(int i=1; i<=10; i++)
+		{
+			String name = Thread.currentThread().getName();
+
+			System.out.println("i value is :"+i+" by thread :"+name);    
+			
+			 if(name.equals("Child1"))
+			{
+				Thread.yield();  //Give a chance to Child2 Thread
+			}
+
+		}
+   }
+}
+public class ThreadYieldMethod 
+{
+	public static void main(String[] args) 
+	{
+		Test obj = new Test();// Object Create here
+
+		Thread t1 = new Thread(obj, "Child1");
+		Thread t2 = new Thread(obj, "Child2");
+        
+		t1.start();  t2.start();
+	}
+}
+
+Note :- In real time if a thread is acquiring more time of CPU then to release that 
+	Thread we call yield() method the currently executing Thread.
+-----------------------------------------------------------------
+interrupt Method of Thread class :
+----------------------------------
+It is a predefined method of Thread class. The main purpose of this method to disturb the 
+execution of the Thread, if the thread is in waiting or sleeping state.
+
+Whenever a thread is interupted then it throws InterruptedException so the thread (if it is 
+in sleeping or waiting mode) will get a chance to come out from a particular logic.
+
+Points :-
+---------
+If we call interrupt method and if the thread is not in sleeping or waiting state then it 
+will behave normally.
+
+If we call interrupt method and if the thread is in sleeping or waiting state then we can 
+stop the thread  gracefully.
+
+*Overall interrupt method is mainly used to interrupt the
+thread safely so we can manage the resources easily.
+
+Methods :
+---------
+1) public void interrupt () :- Used to interrupt the Thread but the thread must be in 
+sleeping or waiting mode.
+
+2) public boolean isInterrupted() :- Used to verify whether thread is interrupted or not.
+-------------------------------------------------------------
+class Interrupt extends Thread
+{
+   @Override
+   public void run()
+   {
+	   Thread t = Thread.currentThread();
+	   System.out.println(t.isInterrupted()); 
+       
+	   for(int i=1; i<=10; i++)
+	   {
+		   System.out.println(i);  
+		   try
+		   {
+			Thread.sleep(1000);
+		   }
+		   catch (InterruptedException e)
+		   {
+			   System.err.println("Thread is Interrupted ");
+			   e.printStackTrace();
+		   }
+	   }
+    }
+}
+public class  InterruptThread
+{
+	public static void main(String[] args) 
+	{
+		Interrupt it = new Interrupt();
+		System.out.println(it.getState());  
+		it.start();
+		it.interrupt();  //main thread is interrupting the child thread
+	}
+}
+
+Here main thread is interrupting the Child Thread. 
+-------------------------------------------------------------
+class Interrupt extends Thread
+{
+   public void run()
+	{
+	   try
+	   {
+	   Thread.currentThread().interrupt();
+
+	   for(int i=1; i<=10; i++)
+		{
+		   System.out.println("i value is :"+i);
+		   Thread.sleep(1000);
+		}
+
+	   }
+		catch (InterruptedException e)
+		{
+			System.err.println("Thread is Interrupted :"+e);
+		}
+		System.out.println("Child thread completed...");
+	}
+}
+public class  InterruptThread1
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Main thread is started");
+		Interrupt it = new Interrupt();
+		it.start();
+		System.out.println("Main thread is ended");
+	}
+}
+
+Here Child Thread is interrupting to itself.
+-------------------------------------------------------------
+public class InterruptThread2
+{
+    public static void main(String[] args) 
+	{
+        Thread thread = new Thread(new MyRunnable());
+        thread.start();
+     
+        try 
+	{
+           Thread.sleep(3000);//main thread is waiting for 3 sec
+        } 
+	catch (InterruptedException e) 
+	{
+            e.printStackTrace();
+        }
+        
+       thread.interrupt();  //child thread interrupted
+    }
+}
+
+class MyRunnable implements Runnable 
+{
+    @Override
+    public void run() 
+    {
+        try 
+	{
+            while (!Thread.currentThread().isInterrupted())
+	    {
+                System.out.println("Thread is running...");
+                Thread.sleep(500);
+            }
+        } 
+	catch (InterruptedException e) 
+	{
+            System.out.println("Thread interrupted gracefully.");
+        } 
+	finally 
+	{
+            System.out.println("Thread resource can be release here.");
+        }
+    }
+}
+Note :- Here main thread is in sleeping mode for 3 sec, after wake up main thread is interrupting 
+child thread so child thread will come out from infinite loop and if any resource is attached 
+with child thread that will be released because child thread execution completed.
+finally block is there to close the resource.
+-------------------------------------------------------------
+Thread Group :-
+--------------
+There is a predefined class called ThreadGroup available in java.lang package.
+
+In Java it is possible to group multiple threads in a single object so, we can perform a 
+particular operation on a group of threads by a single method call.
+
+The target of thread may be same or may be different.
+
+The Thread class has the following constructor for ThreadGroup 
+
+new Thread(ThreadGroup groupName, Runnable target, String name);
+
+-------------------------------------------------------------
+public class ThreadGroupDemo1
+{
+   public static void main(String[] args) 
+   {       
+        ThreadGroup myThreadGroup = new ThreadGroup("NIT_Thread");
+
+        // Create and start threads within the ThreadGroup
+
+        Thread thread1 = new Thread(myThreadGroup, new MyRunnable(), "Thread 1");
+
+        Thread thread2 = new Thread(myThreadGroup, new MyRunnable(), "Thread 2");
+
+        Thread thread3 = new Thread(myThreadGroup, new MyRunnable(), "Thread 3"); 
+        
+        thread1.start();
+        thread2.start();
+	thread3.start();
+		
+
+        // Display information about the ThreadGroup and its threads
+        System.out.println("ThreadGroup Name: " + myThreadGroup.getName());
+
+        System.out.println("Active Count: " + myThreadGroup.activeCount());       
+    }
+}
+
+class MyRunnable implements Runnable //static nested inner 
+{
+        @Override
+        public void run() 
+	{
+            for (int i = 1; i <= 3; i++) 
+	    {
+                System.out.println(Thread.currentThread().getName() + ": " + i);
+                try 
+		{
+                    Thread.sleep(1000);
+                } 
+		catch (InterruptedException e) 
+		{
+                    e.printStackTrace();
+                }
+            }
+        }
+}
+
+-------------------------------------------------------------
+
+
+
+
+
