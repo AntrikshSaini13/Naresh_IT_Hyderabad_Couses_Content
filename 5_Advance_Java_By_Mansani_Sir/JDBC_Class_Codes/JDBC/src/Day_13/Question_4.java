@@ -28,7 +28,5 @@ public class Question_4 {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-			
-			
 	}
 }
