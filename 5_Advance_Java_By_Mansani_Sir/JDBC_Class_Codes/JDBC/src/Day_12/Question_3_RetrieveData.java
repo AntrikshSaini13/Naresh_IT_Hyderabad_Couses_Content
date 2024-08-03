@@ -2,7 +2,7 @@ package Day_12;
 
 import java.sql.*;
 
-//This program to Insert data  table in Database
+//This program to Retrieve data from table in Database
 
 public class Question_3_RetrieveData {
 	public static void main(String[] args) {
