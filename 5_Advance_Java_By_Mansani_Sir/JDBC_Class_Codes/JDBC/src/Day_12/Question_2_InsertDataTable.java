@@ -5,7 +5,7 @@ import java.sql.*;
 //This program to Insert data in table in Database
 
 public class Question_2_InsertDataTable {
-	public static void main(String[] args) {
+	public static void update(String[] args) {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			Connection con =  DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:MYSYSTEM", "MYDB11AM", "123");

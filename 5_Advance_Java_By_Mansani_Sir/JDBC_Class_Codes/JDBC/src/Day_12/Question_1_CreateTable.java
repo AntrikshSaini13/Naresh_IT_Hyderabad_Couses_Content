@@ -4,7 +4,7 @@ package Day_12;
 import java.sql.*;
 
 public class Question_1_CreateTable{
-	public static void main(String[] args)  {
+	public void tableCreate()  {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:MYSYSTEM", "MYDB11AM", "123");
