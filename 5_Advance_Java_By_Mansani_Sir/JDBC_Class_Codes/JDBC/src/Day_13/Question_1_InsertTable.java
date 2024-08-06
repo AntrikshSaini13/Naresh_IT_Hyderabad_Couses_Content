@@ -7,13 +7,13 @@ import java.sql.SQLException;
 
 // Program for Dynamic Query which is used to insert the data use only DML Query only
 
-public class Question_1 {
+public class Question_1_InsertTable {
 	
 	int roll;
 	String name;
 	int marks;
 	
-	public Question_1(int roll, String name, int marks) {
+	public Question_1_InsertTable(int roll, String name, int marks) {
 		super();
 		this.roll = roll;
 		this.name = name;

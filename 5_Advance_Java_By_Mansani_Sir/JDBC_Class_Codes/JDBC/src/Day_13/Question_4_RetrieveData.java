@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Question_4 {
+public class Question_4_RetrieveData {
 	 public static void main(String[] args) throws SQLException {
 		 try {
 			Class cl = Class.forName("oracle.jdbc.driver.OracleDriver");

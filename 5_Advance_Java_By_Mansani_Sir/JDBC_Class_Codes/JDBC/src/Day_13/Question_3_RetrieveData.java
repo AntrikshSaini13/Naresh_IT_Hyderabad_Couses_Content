@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
-public class Question_3 {
+public class Question_3_RetrieveData {
 	public static void main(String[] args) throws SQLException {
 		try {
 			Class cl = Class.forName("oracle.jdbc.driver.OracleDriver");

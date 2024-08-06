@@ -4,7 +4,7 @@ import java.sql.*;
 
 //this is a program of PL/SQL Query 
 
-public class Question_1 {
+public class Question_1_InsertTable {
 	public static void main(String[] args) {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");

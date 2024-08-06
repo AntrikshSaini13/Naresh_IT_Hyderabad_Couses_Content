@@ -3,7 +3,7 @@ package Day_13;
 import java.sql.*;
 
 //Program for Dynamic Query which is used to Retrieve the data from database use only DQL Query only
-public class Question_2 {
+public class Question_2_RetrieveData {
 	 public static void main(String[] args) throws SQLException {
 		try {
 			Class cl = Class.forName("oracle.jdbc.driver.OracleDriver");

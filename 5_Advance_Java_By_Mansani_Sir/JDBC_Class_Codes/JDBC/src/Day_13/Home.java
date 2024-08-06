@@ -6,7 +6,7 @@ public class Home {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Question_1 sc = new Question_1(1,"aman",410);
+		Question_1_InsertTable sc = new Question_1_InsertTable(1,"aman",410);
 		try {
 			sc.update();
 		} catch (SQLException e) {
