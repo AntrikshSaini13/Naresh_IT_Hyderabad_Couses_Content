@@ -41,7 +41,8 @@ public class ForEachDemo
 
 }
 
-Note :- Arrays is a predefined class available in java.util package which contains a predefined static method sort() through which we can sort the data in ascending order.
+Note :- Arrays is a predefined class available in java.util package which contains a 
+predefined static method sort() through which we can sort the data in ascending order.
 ----------------------------------------------------------------------
 
 Object Orineted Programming (OOPs) :

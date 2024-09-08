@@ -3,7 +3,9 @@
 ----------
 String Literal :-
 ----------------
-A string literal in Java is basically a sequence of characters. These characters can be anything like alphabets, numbers or symbols which are enclosed with double quotes. So we can say String is alpha-numeric collection of character.
+A string literal in Java is basically a sequence of characters. These characters can 
+be anything like alphabets, numbers or symbols which are enclosed with double quotes. 
+So we can say String is alpha-numeric collection of character.
 
 
 How we can create String in Java :-
@@ -72,7 +74,8 @@ public class StringTest3
 ------------------------------------------------------------------------
 How to take the input from the user :
 -------------------------------------
-In order to take the input from the user, Java software people has provided a predefined class called Scanner available in java.util package.
+In order to take the input from the user, Java software people has provided a 
+predefined class called Scanner available in java.util package.
 
 static variable of System class :
 ---------------------------------
@@ -125,7 +128,9 @@ String word =   sc.next();
 */
 
 ------------------------------------------------------------------------
-Note :- java.lang is a default package so it is available in all the classes by default, as a user we need not to import java.lang package that means all the classes which are available in java.lang package we can use from everywhere.
+Note :- java.lang is a default package so it is available in all the classes by default, 
+as a user we need not to import java.lang package that means all the classes which are 
+available in java.lang package we can use from everywhere.
 
 Program on Scanner class :
 ---------------------------
@@ -190,7 +195,8 @@ Example :-  (), {}, [], ; , ... (var args)
 ------------------------------------------------------------------------
 5) Operator :
 --------------
-An operator is a symbol that describes how the calculation will be performed on the operands.
+An operator is a symbol that describes how the calculation will be performed on 
+the operands.
 
 Example :- a + b;  //Here a and b both are operands where as '+' is 
                      operator 

@@ -55,13 +55,17 @@ public class Test7
 -------------------------------------------------------------------------
 Is java pure Object-Oriented language ?
 ----------------------------------------------
-No, Java is not a pure Object-Oriented language. In fact any language which accepts the primary data type like int, float, char is not a pure object oriented language hence java is also not a pure object oriented language.
+No, Java is not a pure Object-Oriented language. In fact any language which 
+accepts the primary data type like int, float, char is not a pure object oriented 
+language hence java is also not a pure object oriented language.
 
 Example of pure object oriented language : Ruby, smalltalk and so on
 
-If we remove all 8 primitive data types from java then Java will become pure object oriented language.
+If we remove all 8 primitive data types from java then Java will become 
+pure object oriented language.
 
-In java we have a concept called Wrapper classes through which we can convert the primary data types into corrosponding Wrapper Object.(Autoboxing 1.5V)
+In java we have a concept called Wrapper classes through which we can convert 
+the primary data types into corrosponding Wrapper Object.(Autoboxing 1.5V)
 
 Primary data types                Corresponding Wrapper Object
 byte				-		Byte
@@ -95,7 +99,9 @@ public class Test8
 -------------------------------------------------------------------------
 How to know the minimum and maximum value as well as size of integral literal data types:
 ----------------------------------------------------------------
-Thses classes (Wrapper classe) are providing the static and final variables through which we can find out the minimum, maximum value as well as size of the data types
+Thses classes (Wrapper classe) are providing the static and final variables 
+through which we can find out the minimum, maximum value as well as size of 
+the data types
 
 Ex:- I want to find out the range and size of Byte class
 
@@ -105,7 +111,8 @@ Byte.MAX_VALUE = 127
 
 Byte.SIZE = 8 (in bits format)
 
-Here MIN_VALUE, MAX_VALUE and SIZE these are static and final variables available in these classes(Byte, Short, Integer and Long).
+Here MIN_VALUE, MAX_VALUE and SIZE these are static and final variables available in 
+these classes(Byte, Short, Integer and Long).
 -------------------------------------------------------------------------
  //Program to find out the range and size of Integeral Data type
 public class Test9 

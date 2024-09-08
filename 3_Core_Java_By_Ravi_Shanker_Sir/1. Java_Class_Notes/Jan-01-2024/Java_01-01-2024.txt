@@ -40,7 +40,8 @@ we were initializing the object properties through object reference.
 -------------------------------------------------------------------------
 What is Constrcutor? (Introduction Only)
 ----------------------------------------
-If the name of the class and name of the method both are exactly same and it does not contain any return type then it is called Constructor.
+If the name of the class and name of the method both are exactly same and it 
+does not contain any return type then it is called Constructor.
 
 Example :
 ---------
@@ -62,9 +63,11 @@ public class Student
 ------------------------------------------------------------------------
 Default constructor added by the compiler :
 -------------------------------------------
-In Java, whenever we write a class and if don't write any type of constructor in that class then automatically one default constructor will be added by compiler.
+In Java, whenever we write a class and if don't write any type of constructor in that class 
+then automatically one default constructor will be added by compiler.
 
-*Every java class must contain at-least one constructor either explicitly written by user or implicitly added by compiler.
+*Every java class must contain at-least one constructor either explicitly written by user 
+or implicitly added by compiler.
 
 The access modifier of defualt constructor depends upon class access 
 modifier.

@@ -25,7 +25,7 @@ Exception Criteria :
 
 4) java.lang.NullPointerException
    If a reference variable is pointing to null and from that reference variable, if we 
-call any method then we will get
+   call any method then we will get
    java.lang.NullPointerException
 
    String str = null;

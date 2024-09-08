@@ -14,7 +14,8 @@ We can represent char literal in different ways which are as follows :
 
  b) We can assign integral literal to char data type to represent the 
     UNICODE value for that character. 
-    In older language like C and C++, the range is 0 - 255 which is representing the ASCII value of the character.
+    In older language like C and C++, the range is 0 - 255 which is representing 
+the ASCII value of the character.
     But Java supports UNICODE where the range is 0 - 65535.
 
     char ch = 65535; //Valid
@@ -89,7 +90,8 @@ public class Test4
 	}
 }
 
-Here we will get the output as ? because the equivalent language translator is not available to represent these characters so we are getting the ? symbol.
+Here we will get the output as ? because the equivalent language translator 
+is not available to represent these characters so we are getting the ? symbol.
 ------------------------------------------------------------------------
 //Addition of two character in the form of Integer
 public class Test5

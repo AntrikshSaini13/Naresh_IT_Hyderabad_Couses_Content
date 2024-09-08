@@ -9,19 +9,7 @@ import java.sql.SQLException;
 
 public class Question_1_InsertTable {
 	
-	int roll;
-	String name;
-	int marks;
-	
-	public Question_1_InsertTable(int roll, String name, int marks) {
-		super();
-		this.roll = roll;
-		this.name = name;
-		this.marks = marks;
-	}
-
-	public void update() throws SQLException {
-
+	public static void main(String[] args) throws SQLException {
 		try {
 //			Loading The Specific Driver
 			Class cl = Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -32,19 +20,20 @@ public class Question_1_InsertTable {
 			PreparedStatement ps = con.prepareStatement("INSERT INTO STUDENTS VALUES(?, ?, ?)");
 			
 //			Set the data index because of array index start 0,1,.. and database index column number star from 1,2,..
-			ps.setInt(1, roll);
-			ps.setString(2, name);
-			ps.setInt(3, marks);
+			ps.setInt(1, Integer.parseInt(args[0]));
+			ps.setString(2, args[1]);
+			ps.setInt(3, Integer.parseInt(args[3]));
 			
 //			This method of DQL Query purpose only
 			ps.executeUpdate();
 			
 			System.out.println("One Record Updated");
 			
-		} catch (ClassNotFoundException e) {
+		} 
+		catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
+	
 }

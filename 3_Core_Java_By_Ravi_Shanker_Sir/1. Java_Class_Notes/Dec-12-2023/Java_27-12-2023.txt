@@ -33,7 +33,8 @@ public class Test1
 	}
 }
 ----------------------------------------------------------------------	
-If a static method available in the same class then we can directly call from another static method, on the other hand static method available
+If a static method available in the same class then we can directly call from another 
+static method, on the other hand static method available
  in another class then we need to call the static method with the help of class name as shown in the program below.
 
 2 Files :
