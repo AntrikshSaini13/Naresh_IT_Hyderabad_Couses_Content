@@ -12,7 +12,7 @@ public class Question_1 {
 			Class cl = Class.forName("oracle.jdbc.driver.OracleDriver");
 			
 //			Connection Established here b/w Application and DataBase
-			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:MYSYSTEM", "MYDB11AM", "123");
+			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:ORCL", "MYDB11AM", "123");
 			System.err.println("Connection is Established");
 //			Statement Interface -> It is execute Static SQl Query only
 			Statement st = con.createStatement();

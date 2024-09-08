@@ -12,7 +12,7 @@ class Question_1 {
 			Class cl = Class.forName("oracle.jdbc.driver.OracleDriver");
 			
 			// Connection Established b/n application and database
-			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:MYSYSTEM", "MYDB11AM", "123");
+			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:ORCL", "MYDB11AM", "123");
 			System.out.println("Connection is Established SucessFully");
 			
 		} catch (ClassNotFoundException e) {

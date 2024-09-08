@@ -10,7 +10,7 @@ class Ouestion_1 {
 	public static void main(String[] args) {
 		try {
 			Class cl = Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection conn1= DriverManager.getConnection("jdbc:oracle:oci8:@MYSYSTEM","system","Satkum15!");
+			Connection conn1= DriverManager.getConnection("jdbc:oracle:oci8:@ORCL","MYDB11AM","123");
 			System.out.println("Connection Established");
 		} catch (Exception e) {
 			System.err.println("Connection not established");
