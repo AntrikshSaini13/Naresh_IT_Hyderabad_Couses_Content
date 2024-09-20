@@ -7,7 +7,8 @@ Poly means "many" and morphism means "forms".
 
 It is a Greek word whose meaning is "same object having different behavior".
 
-In our real life a person or a human being can perform so many task, in the same way in our programming languages a method or a constructor can perform so many task.
+In our real life a person or a human being can perform so many task, in the 
+same way in our programming languages a method or a constructor can perform so many task.
 
 Eg:-
 
@@ -55,7 +56,9 @@ Example of Dynamic Polymorphism : Method Overriding
 ----------------------------------------------------------------------
 Method Overloading :
 --------------------
-Writing two or more methods in the same class or even in the super and sub class in such a way that the method name must be same but the argument must be different.
+Writing two or more methods in the same class or even in the super and 
+sub class in such a way that the method name must be same but the argument 
+must be different.
 
 While Overloading a method we can change the return type of the method.
 
@@ -69,7 +72,8 @@ IQ
 ---
 Can we overload the main method/static method ?
 ------------------------------------------------
-We can overload the main method but JVM will always search the main method which takes String array as a parameter. 
+We can overload the main method but JVM will always search the main method which 
+takes String array as a parameter. 
 
 Example :
 ------------

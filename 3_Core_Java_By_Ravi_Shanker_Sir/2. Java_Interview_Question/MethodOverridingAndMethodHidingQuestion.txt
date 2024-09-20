@@ -56,20 +56,25 @@ class B extends A{                                              |               
 Rules of Overriding 
 ________________________
 1. Overriding and Access Modifiers:
-The access modifier while overriding a method can allow high scope, but not less scope. For example, a protected non static method in the superclass can be made public in child class,but not private,in the child class.Doing so will generate a compile-time error. 
+The access modifier while overriding a method can allow high scope, but not less scope. 
+For example, a protected non static method in the superclass can be made public in child class,
+but not private,in the child class.Doing so will generate a compile-time error. 
 
 2.Final methods can not be overridden:
 If we don’t want a method to be overridden, we declare it as final. 
 
 3.Static methods can not be overridden: 
-When you define a static method with the same signature in child class as a static method in the super class, it is known as method hiding.
+When you define a static method with the same signature in child class as a static method 
+in the super class, it is known as method hiding.
 
 4.Private methods can not be overridden:
 Private methods cannot be overridden as they are bonded during compile time.
 Therefore we can’t even override private methods in a child class.
 
 5.The overriding method must have the same return type (or subtype):
-From Java 5.0 onwards it is possible to have different return types for an overriding method in the child class, but the child’s return type should be a sub-type of the parent’s return type. This phenomenon is known as the covariant return type.
+From Java 5.0 onwards it is possible to have different return types for an overriding method in 
+the child class, but the child’s return type should be a sub-type of the parent’s return type. 
+This phenomenon is known as the covariant return type.
 
 For Example:-
 class SuperClass {

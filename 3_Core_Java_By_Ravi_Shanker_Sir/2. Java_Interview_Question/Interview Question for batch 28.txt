@@ -1,9 +1,14 @@
-Que- What are the modifiers ?
-     |- scopes of modifiers
+Que- What are the access modifiers ?
+     |- scopes of access modifiers
+
+____________________________________________________________________________________________________
 
 Que- how many data Type are there in java ?
      |- Can you tell me the dataType in sequence.
      |- Can you tell me that how many byte the each dataType will take.
+
+______________________________________________________________________________________________________
+
 
 Que- What is static in java 
      |- use of static 
@@ -60,6 +65,10 @@ Que - What is overloading in java
       |- can we overload the method in diff class 
 
 Que- What is polymorphism ?
+
+Que- What is inheritance ?
+
+Que- How many type of Inheritance ? 
      
 Que- What is diffrence between this and super 
 
@@ -91,8 +100,83 @@ Que - What is classloader ? work of class loader
       
 Que- What is class ?
 
+Class is Logiacl Identity its contains the logic of the class
+
+In Java, a class is a blueprint or template for creating objects. It defines 
+the properties (attributes) and behaviors (methods) that the objects created 
+from the class will have. A class can be thought of as a conceptual model, while 
+objects are instances of this model.
+
+Key Components of a Class:
+------------------------------
+Attributes (Fields/Variables): These are data members of the class that 
+hold the state of the object.
+
+Methods: These define the behavior or actions that the objects can perform.
+
+Constructors: Special methods used to initialize objects.
+
+Example:
+-------
+// BLC
+class Car {
+    // Attributes (fields)
+    String brand;
+    int year;
+
+    // Constructor to initialize the object
+    Car(String brand, int year) {
+        this.brand = brand;
+        this.year = year;
+    }
+
+    // Method (behavior)
+    void displayInfo() {
+        System.out.println("Brand: " + brand + ", Year: " + year);
+    }
+}
+
+// ELC
+class MyCar{
+	Car myCar = new Car("Toyota", 2020);
+	myCar.displayInfo();  // Output: Brand: Toyota, Year: 2020	
+}
+
+Output:
+Brand : Toyota, Year : 2020
+________________________________________________________________________________________________________
+
 Que- What is Object ?
 
+Object is pysical identity whic is used to execute or perform the behaviour of class.
+
+An object in Java is an instance of a class. It encapsulates both data (attributes) 
+and behavior (methods). Objects are created using the new keyword and represent 
+real-world entities.
+
+___________________________________________________________________________________________________________
+
+What is Language?
+
+Language is Communiaction Media which is used to communicate each other and eassy to understand.
+
+___________________________________________________________________________________________________________
+
+What is Programming Language ?
+
+A programming Language is an Intermidater between user and Computer System.
+
+Every language contain two important aspects:
+1. Syntex (Rules given by language)
+2. Semantics (Meaning or Structure of the Language)
+ 
+In the case of Java Programming language we have to type of Security:
+1. At Compilation Level : Here our java compiler will verify whether the code
+   is valid or not according to the syntax/
+2. At the Runtime Level : Here our runtime environment will verify the semantic 
+   of the code that means the code is meaningfull or not.
+
+___________________________________________________________________________________________________________
 Que -Drawback of new keyword ?
  
 

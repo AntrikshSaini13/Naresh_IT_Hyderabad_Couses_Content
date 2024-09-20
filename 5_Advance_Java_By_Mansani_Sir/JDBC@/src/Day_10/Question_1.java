@@ -1,41 +1,46 @@
 package Day_10;
 
+
 import java.sql.*;
 
-//Program insert a record by using executeUpdate() method suitable for DMl Query only
+//Program to retrieve data from the database by  using executeQuery() method and DQl Query (Statically)
 
 public class Question_1 {
-	public static void main(String[] args) {
-
+	public static void main(String[] args) {		
 		try {
-//			Loading the Specific driver-4
+//			Loading the Specific  Driver 
 			Class cl = Class.forName("oracle.jdbc.driver.OracleDriver");
 			
-//			Connection Established between Application and Database
-			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:ORCL", "MYDB11AM", "123");
-			System.out.println("Connection Established");
+//			Established The Connection between Application and Database
+			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:ORCL", "MyDB11AM", "123");
 			
-//			Statement interface it is used to createStatement() method for Static SQL Query
-			Statement statement = con.createStatement();			
+//			
+			Statement st = con.createStatement();
 			
-//			execute method it is suitable for DQL Query
-			int num = statement.executeUpdate("INSERT INTO STUDENTS VALUES(180112, 'Antriksh', 800)");
-			System.out.println("Insert the data of Students in table");
-		} 
-		catch (ClassNotFoundException e)  {
-			System.out.println("Connection Is not Established");
+//			
+			ResultSet rs = st.executeQuery("SELECT * FROM STUDENTS");
+			
+//			
+			ResultSetMetaData  rm = rs.getMetaData();			
+			int columnNum = rm.getColumnCount();
+			for(int i=1; i<=columnNum; i++) {
+				System.out.print(rm.getColumnName(i)+"\t");
+			}
+			
+			System.out.println();
+//			
+			while(rs.next()) {
+				System.out.print(rs.getInt(1)+"\t");
+				System.out.print(rs.getString(2)+"\t");
+				System.out.println(rs.getInt(3)+"\t");
+			}
+			
+			
+		} catch (ClassNotFoundException e) {			
 			System.out.println(e);
-		}
-		catch (SQLSyntaxErrorException e) {
-			System.out.println("Table allready availiable in  Database");
+		} catch (SQLException e) {
 			System.out.println(e);
-		}
-		catch (SQLException e) {
-			System.out.println(e);
-		}
-		catch(Exception e) {
-			System.out.println(e);
-		}
-		
-	} 
+		}		
+	}
 }
+

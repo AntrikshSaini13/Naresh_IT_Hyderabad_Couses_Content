@@ -1,23 +1,19 @@
 package Day_13;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
+import java.sql.*;
+;
 
 public class Question_3_RetrieveData {
 	public static void main(String[] args) throws SQLException {
 		try {
 			Class cl = Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:MYSYSTEM", "MyDB11AM", "123");
+			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:ORCL", "MyDB11AM", "123");
 			System.out.println("Connection Establish Succecfully");
 			
-			PreparedStatement ps = con.prepareStatement("SELECT ROLL_NO, STD_NAME, STD_MARKS FROM STUDENTS WHERE ROLL_NO=?");
+			PreparedStatement ps = con.prepareStatement("SELECT STD_ID, STD_NAME, STD_MARKS FROM STUDENTS WHERE STD_MARKS=?");
 			
 //			set the index of array and database
-			ps.setInt(1, Integer.parseInt(args[0]));
+			ps.setInt(1,Integer.parseInt(args[0]));
 			
 //			get the data
 			ResultSet rs = ps.executeQuery();

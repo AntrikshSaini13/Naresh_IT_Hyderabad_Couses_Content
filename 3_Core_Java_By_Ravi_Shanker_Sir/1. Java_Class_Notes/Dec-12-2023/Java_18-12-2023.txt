@@ -1,0 +1,165 @@
+18-12-2023
+----------
+Command Line Argument :
+-----------------------
+Whenever we pass any argument to the main method then it is called Command Line 
+Argument.
+
+By using command line argument we can pass some value at runtime.
+
+The advantage of Command Line Argumenet is "Single time Compilation and 
+number of times execution".
+
+Note :- String is a collection of alpha-numeric character so Java software people 
+decided to pass String as a parameter hence, it can accept all different types of 
+values like int, float, double, character and so on.
+
+Note :- If we modify .java file then we should re-compile our java file to generate 
+a new .class file.
+------------------------------------------------------------------------
+//Accepting value from Command Line
+public class Command 
+{
+	public static void main(String[] x) 
+	{
+		System.out.println(x[0]);
+	}
+}
+
+javac Command.java
+java Command Virat Rohit Siraj
+
+Output :- Virat
+-------------------------------------------------------------------------
+WAP to take different value at the time of running the program 
+
+//WAP to take different value at the time of running the program 
+
+public class DifferentValuesFromCommand
+{
+	public static void main(String[] args) 
+	{
+		System.out.println(args[0]);
+	}
+}
+
+javac DifferentValuesFromCommand.java
+java DifferentValuesFromCommand Rahul Rohit Dhoni
+Output :- Rahul
+java DifferentValuesFromCommand Smiriti Mithali Jhulan
+Output :- Smiriti
+java DifferentValuesFromCommand ABC DEF GHI
+Output :- ABC
+-----------------------------------------------------------------------
+Eclipse IDE :
+-------------
+IDE stands for Integrated Development Environment. By using Eclipse IDE, we 
+can develop, compile and execute our program in a single window. 
+
+The main purpose of Eclipse IDE to reduce the development time, Once developemnt 
+time will be reduced, automatically the cost of the project will be reduced.
+
+WAP in Eclipse IDE to print full name of user through command Line Argument 
+---------------------------------------------------------------------------
+package com.ravi.command;
+
+public class FullNameByCommand 
+{
+  public static void main(String[] args) 
+  {
+	System.out.println(args[0]);
+	
+  }
+}
+
+java FullNameByCommand.java (Compilation)
+java FullNameByCommand  Virat Kohli
+Output :- Virat 
+java FullNameByCommand  "Virat Kohli"
+Output :- Virat Kohli
+---------------------------------------------------------------------------
+WAP to accept integer value from command line Argument :
+--------------------------------------------------------
+package com.ravi.command;
+
+public class AcceptIntUsingCommand 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println(args[0]);
+	}
+
+}
+
+javac AcceptIntUsingCommand.java
+java AcceptIntUsingCommand 12 89
+Output : 12
+java AcceptIntUsingCommand 12.45 89.78
+Output : 12.45
+java AcceptIntUsingCommand true false
+Output : true
+
+From the above it is clear that String parameter in the main method will accept 
+different kinds of values.
+---------------------------------------------------------------------------
+WAP to add two numbers using Command line Argumenent :
+------------------------------------------------------
+package com.ravi.command;
+
+public class CommandAddition 
+{
+	public static void main(String[] num) 
+	{
+		System.out.println(num[0] + num[1]);
+	}
+
+}
+
+javac CommandAddition.java 
+java CommandAddition 123 123
+Output : 123123 [Here '+' operator behaves as a String concatenation Operator]
+
+How to convert String into Integer :
+------------------------------------
+If we want to convert any String value into corresponding integer then java 
+software people has provided predefined class called Integer available in 
+java.lang package. 
+
+In this class we have predefined static method, parseInt(String x) which is 
+accepting a single parameter String as a parameter and convert this String 
+into int value as shown in the below example.
+
+public class Integer
+{
+  public static int parseInt(String x)
+  {
+   //Here logic is written to convert x which is String into corresponding int
+  }
+}
+
+Note :-  "123" ------> parseInt(String x) ---------> 123 [Accepting String and converting into integer]
+------------------------------------------------------------------------------
+WAP to add two numbers using command line Argument with the help of Integer class
+package com.ravi.command;
+
+public class CommandAddition 
+{
+	public static void main(String[] num) 
+	{	   
+		
+		  int a = Integer.parseInt(num[0]);
+		  int b = Integer.parseInt(num[1]);		  
+		  System.out.println("Sum is :"+(a+b));
+	}
+
+}
+
+javac CommandAddition.java 
+java CommandAddition 123 123
+Output 246
+java CommandAddition 500 1000
+Output 1500
+------------------------------------------------------------------------------
+
+
+

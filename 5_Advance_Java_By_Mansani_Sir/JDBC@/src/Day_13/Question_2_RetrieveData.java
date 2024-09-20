@@ -8,7 +8,7 @@ public class Question_2_RetrieveData {
 		try {
 			Class cl = Class.forName("oracle.jdbc.driver.OracleDriver");
 			
-			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:MYSYSTEM", "MyDB11AM", "123");
+			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:ORCL", "MyDB11AM", "123");
 			System.out.println("Connection Establish Succecfully");
 			
 //			PreparedStatement Interface used for dynamic Query method is perparedSatement()

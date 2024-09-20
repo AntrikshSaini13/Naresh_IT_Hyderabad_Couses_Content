@@ -16,7 +16,7 @@ public class Question_3 {
 			Class cl = Class.forName("oracle.jdbc.driver.OracleDriver");
 			
 //			Established The Connection between Application and Database
-			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:MYSYSTEM", "MyDB11AM", "123");
+			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:ORCL", "MyDB11AM", "123");
 			
 //			
 			Statement st = con.createStatement();

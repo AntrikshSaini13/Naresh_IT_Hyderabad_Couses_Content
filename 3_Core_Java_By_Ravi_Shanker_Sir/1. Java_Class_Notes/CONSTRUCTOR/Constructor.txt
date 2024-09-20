@@ -3,7 +3,8 @@ Constructor full Details
 
 What is Constrcutor? (Introduction Only)
 ----------------------------------------
-If the name of the class and name of the method both are exactly same and it does not contain any return type then it is called Constructor.
+If the name of the class and name of the method both are exactly same and it 
+does not contain any return type then it is called Constructor.
 
 Example :
 ---------

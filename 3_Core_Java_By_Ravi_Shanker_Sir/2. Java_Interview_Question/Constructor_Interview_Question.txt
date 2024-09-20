@@ -16,6 +16,7 @@ There are three types of constructors in Java
 * Default Constructor
 * Non-parameterized Constructor
 * Parameterized Constructor
+* Conical Constructor
 
 The syntax for the default constructor is as follows:
 
@@ -129,7 +130,9 @@ public class TestConstructor {
 _________________________________________________________________________________
 9) What is a private constructor?
 
-Like methods, we can have the private constructors in Java. To make or create a constructor as private, use the private keyword while declaring it. It can only be accessed within that class.
+Like methods, we can have the private constructors in Java. To make or create a 
+constructor as private, use the private keyword while declaring it. It can only 
+be accessed within that class.
 
 The following are some usage scenarios when we need a private constructor:
 
@@ -149,7 +152,7 @@ class SingletonDemo {
       // we can call this constructor  
       if (ref == null)  
          ref = new SingletonDemo();  
-      return ref;  
+      	 return ref;  
    }  
    private static SingletonDemo ref;  
 }  
@@ -204,27 +207,39 @@ public class Sample02 {
 __________________________________________________________________________
 10) Why constructors in Java cannot be static?
 
-The constructors cannot be static in Java. When we declare a method as static, it means the method belongs to the class and not to a specific object. But the constructor is always invoked to the reference of objects. So, there is no sense in making a constructor static.
+The constructors cannot be static in Java. When we declare a method as static, 
+it means the method belongs to the class and not to a specific object. But the 
+constructor is always invoked to the reference of objects. So, there is no sense 
+in making a constructor static.
 __________________________________________________________________________
 11) Can we make a constructor final?
 
-No, we cannot make a constructor final. If we made a constructor final, it would throw a compile-time error "modifier final not allowed".
+No, we cannot make a constructor final. If we made a constructor final, it would 
+throw a compile-time error "modifier final not allowed".
 __________________________________________________________________________
 12) Can we make a constructor abstract?
 
-a body, which really makes no sense. It is automatically called at the time of object creation. So, it cannot be a block without a body.
+a body, which really makes no sense. It is automatically called at the time of 
+object creation. So, it cannot be a block without a body.
 __________________________________________________________________________
 13) what will happen when a constructor is declared as protected?
 
-Generally, when we declare a method as protected, other classes can access that method in a different package by using inheritance only. But, when we declare a constructor protected, it behaves slightly differently than a method. The protected constructor can only be accessed by using a super keyword according to Java language standards.
+Generally, when we declare a method as protected, other classes can access 
+that method in a different package by using inheritance only. But, when we 
+declare a constructor protected, it behaves slightly differently than a method. 
+The protected constructor can only be accessed by using a super keyword according 
+to Java language standards.
 __________________________________________________________________________
 14) Why constructor name is similar to the class name?
 
-When we create an object of a class using a new keyword, it should have information about that particular class. That is why the constructor's name must be similar to the class name.
+When we create an object of a class using a new keyword, it should have information 
+about that particular class. That is why the constructor's name must be similar to the class name.
 __________________________________________________________________________
 15) Why return type is not allowed for the constructor?
 
-The return type is not allowed in the constructor because if we provide a return type in the constructor, it will act as the normal method. So, to differentiate between constructor and method block, the return type is not allowed in constructors.
+The return type is not allowed in the constructor because if we provide a return type 
+in the constructor, it will act as the normal method. So, to differentiate between 
+constructor and method block, the return type is not allowed in constructors.
 __________________________________________________________________________
 16) Can we write this() and super() in same constructor ?
 ___________________________________________________________________________

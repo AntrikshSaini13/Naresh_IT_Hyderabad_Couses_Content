@@ -2,13 +2,13 @@ package Day_12;
 
 import java.sql.*;
 
-//This program to Retrieve data from table in Database
+//This program to Retrieve data from table in Database statically
 
 public class Question_3_RetrieveData {
 	public static void main(String[] args) {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con =  DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:MYSYSTEM", "MYDB11AM", "123");
+			Connection con =  DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:ORCL", "MYDB11AM", "123");
 			Statement st = con.createStatement();		
 			ResultSet rs = st.executeQuery("SELECT * FROM STUDENTS");
 			ResultSetMetaData rm = rs.getMetaData();

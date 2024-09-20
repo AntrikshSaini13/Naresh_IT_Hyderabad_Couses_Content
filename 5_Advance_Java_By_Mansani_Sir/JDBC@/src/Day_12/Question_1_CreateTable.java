@@ -1,6 +1,6 @@
 package Day_12;
 
-// This program to create table in Database
+// This program to create table in Database statically
 import java.sql.*;
 
 public class Question_1_CreateTable{

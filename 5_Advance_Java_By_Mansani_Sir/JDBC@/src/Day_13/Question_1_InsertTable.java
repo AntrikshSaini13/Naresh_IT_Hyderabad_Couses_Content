@@ -13,16 +13,16 @@ public class Question_1_InsertTable {
 		try {
 //			Loading The Specific Driver
 			Class cl = Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:MYSYSTEM", "MyDB11AM", "123");
+			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:ORCL", "MyDB11AM", "123");
 			System.out.println("Connection Establish Succecfully");
 			
 //			PreparedStatement Interface used for dynamic Query method is perparedSatement()
 			PreparedStatement ps = con.prepareStatement("INSERT INTO STUDENTS VALUES(?, ?, ?)");
 			
 //			Set the data index because of array index start 0,1,.. and database index column number star from 1,2,..
-			ps.setInt(1, Integer.parseInt(args[0]));
-			ps.setString(2, args[1]);
-			ps.setInt(3, Integer.parseInt(args[3]));
+			ps.setInt(1, 1);
+			ps.setString(2, "aman");
+			ps.setInt(3, 5800);
 			
 //			This method of DQL Query purpose only
 			ps.executeUpdate();

@@ -51,7 +51,8 @@ public class Test1
 ------------------------------------------------------------------
 How to read the value from the user/keyboard (Accepting the data from client)
 -------------------------------------------------------------------------------------------
-In order to read the data from the client or keyboard, java software people has provided a predefined class called Scanner available in java.util package.
+In order to read the data from the client or keyboard, java software people has 
+provided a predefined class called Scanner available in java.util package.
 
 It is available from java 5v. 
 
@@ -167,7 +168,8 @@ class Test3
 --------------------------------------------------------------
 Unary Operator :
 --------------------
-The operator which works upon single operand is called Unary Operator.In java we have so many unary operators which are as follows :
+The operator which works upon single operand is called Unary Operator.In 
+java we have so many unary operators which are as follows :
 
 1) Unary minus operator (-)       
 
@@ -337,8 +339,9 @@ class Test15
 	}
 }
 
-Note :- In the above program it generates error while working with Arithmetic Operator but when we change the operator from 
-Arithmetic to short hand operator then the expression result we can assign on byte data type.
+Note :- In the above program it generates error while working with Arithmetic 
+Operator but when we change the operator from Arithmetic to short hand operator 
+then the expression result we can assign on byte data type.
 --------------------------------------------------------------
 class Test16
 {
@@ -352,7 +355,8 @@ class Test16
 ---------------------------------------------------------------
 What is a local variable :
 ----------------------------
-If a variable is declared inside a method  body(not as a method parameter) then it is called Local / Stack/ Temporary / Automatic variable.
+If a variable is declared inside a method  body(not as a method parameter) then it is 
+called Local / Stack/ Temporary / Automatic variable.
 
 Ex:-
 
@@ -387,9 +391,11 @@ Note :- In the above program we will get compilation error
 ------------------------------------------------------------------
 Why we cannot use local variables outside of the method ?
 ----------------------------------------------------------
-In java all the methods are executed as a part of Stack Memory. Stack Memory works on the basis of LIFO (Last In First Out).
+In java all the methods are executed as a part of Stack Memory. Stack Memory works on 
+the basis of LIFO (Last In First Out).
 
-Once the method execution is over, local variables are also deleted from stack frame so we cannot use local variables outside of the method.(Diagram 27-OCT-23)
+Once the method execution is over, local variables are also deleted from stack frame 
+so we cannot use local variables outside of the method.(Diagram 27-OCT-23)
 
 class StackMemory
 {
@@ -431,13 +437,16 @@ class Test18
 ------------------------------------------------------------------
 What is BLC class :
 ------------------
-BLC stands for Business Logic class. A BLC class never contains main method. It is used to write the logic only.
+BLC stands for Business Logic class. A BLC class never contains main method. 
+It is used to write the logic only.
 
 What is ELC class :
 ------------------
-ELC stands for Executable Logic class. An ELC class always contains main method. It is called ELC class because the execution of the program starts from ELC class.
+ELC stands for Executable Logic class. An ELC class always contains main method. 
+It is called ELC class because the execution of the program starts from ELC class.
 
-Note :- WE SHOULD ALWAYS TAKE OUR JAVA CLASSES IN A SEPARATE FILE OTHERWISE THE RE-USABILITY OF THE CLASS IS NOT POSSIBLE.
+Note :- WE SHOULD ALWAYS TAKE OUR JAVA CLASSES IN A SEPARATE FILE OTHERWISE THE 
+RE-USABILITY OF THE CLASS IS NOT POSSIBLE.
 ------------------------------------------------------------------
 Here we have 2 files :
 ----------------------
@@ -491,7 +500,8 @@ public class AreaOfCircle
 ------------------------------------------------------------------
 Relational Operator :- 
 ------------------------
-These operators are used to compare the values. The return type is boolean. We have total 6 Ralational Operators.
+These operators are used to compare the values. The return type is boolean. 
+We have total 6 Ralational Operators.
 
 1) >   (Greater than)
 
@@ -523,7 +533,8 @@ class Test19
 --------------------------------------------------------------
 If condition :
 ---------------
-It is decision making statement. It is used to test a boolean expression. The expression must return boolean type.
+It is decision making statement. It is used to test a boolean expression. 
+The expression must return boolean type.
 
 //Program to check a number is 0 or +ve or -ve
 import java.util.Scanner;
@@ -587,7 +598,8 @@ public static void main(String args[])
 Nested if:
 ---------
 If an 'if condition' is placed inside another if condition then it is called Nested if.
-In nested if condition, we have one outer if and one inner if condition, the inner if condition will only execute when outer if condition returns true.
+In nested if condition, we have one outer if and one inner if condition, the inner if 
+condition will only execute when outer if condition returns true.
 
 if(condition)  //Outer if condition
 {
@@ -632,7 +644,9 @@ public static void main(String args[])
 	}
 }
 
-Note :- In the above program to find out the biggest number among three number we need to take the help of nested if condition but the code becomes complex, to reduce the length of the code Logical Operator came into the picture.
+Note :- In the above program to find out the biggest number among three number we need 
+to take the help of nested if condition but the code becomes complex, to reduce the 
+length of the code Logical Operator came into the picture.
 --------------------------------------------------------------
 
 Logical Operator :-
@@ -649,13 +663,16 @@ In Java we have 3 logical Operators
 
 3) !   (NOT Logical Operator)
 
-&&   :- All the conditions must be true. if the first expression is false it will not check right side expressions.
+&&   :- All the conditions must be true. if the first expression is false it will 
+not check right side expressions.
 
-||    :- Among multiple conditions, at least one condition must be true. if the first expression is true it will not check right side expressions. 
+||    :- Among multiple conditions, at least one condition must be true. if the 
+first expression is true it will not check right side expressions. 
 
 !      :- It is an inverter, it makes true as a false and false as a true.
 
-Note :- The && and || operator only works with boolean operand so the following code will not compile.
+Note :- The && and || operator only works with boolean operand so the following c
+ode will not compile.
 
 if(5 && 6)
 {
@@ -713,13 +730,16 @@ class Test25
 --------------------------------------------------------------
 Boolean Operators :
 -----------------------
-Boolean Operators work with boolean values that is true and false. It is used to perform boolean logic upon two boolean expressions.
+Boolean Operators work with boolean values that is true and false. It is used to 
+perform boolean logic upon two boolean expressions.
 
 It is also known as non short circuit. There are two non short circuit logical operators.
 
-&   boolean AND operator  (All  condions must be true but if first expression is false still it will check all right side expressions)
+&   boolean AND operator  (All  condions must be true but if first expression is 
+false still it will check all right side expressions)
 
-|    boolean OR operator    (At least one condition must be true but if the first condition is true still it will check all right side expression )
+|    boolean OR operator    (At least one condition must be true but if the first 
+condition is true still it will check all right side expression )
 --------------------------------------------------------------
 //* Boolean Operators
 /*
@@ -769,7 +789,8 @@ class Test27
 ----------
 Bitwise Operator :-
 ---------------------
-In order to work with binary bits java software people has provided Bitwise operator. It also contains 3 operators
+In order to work with binary bits java software people has provided Bitwise operator. 
+It also contains 3 operators
 
 & (Bitwise AND) :- Returns true if both the inputs are true.
 
@@ -811,7 +832,9 @@ public class Test29
 -----------------------------------------------------------------
 Ternary Operator OR Conditional Operator :
 --------------------------------------------------
-The ternary operator (? :) consists of three operands. It is used to evaluate boolean expressions. The operator decides which value will be assigned to the variable.It is used to reduced the size of if-else condition. 
+The ternary operator (? :) consists of three operands. It is used to evaluate boolean expressions. 
+The operator decides which value will be assigned to the variable.It is used to reduced the size 
+of if-else condition. 
 
 //Ternary Operator OR Conditional Operator
 public class Test30
@@ -843,11 +866,15 @@ public class Test
 --------------------------------------------------------------------
 Member access Operator Or Dot Operator :
 --------------------------------------------------
-It is used to access the member of the class so whenever we want to call the member of the class (fields + methods) then we should use dot(.) operator.
+It is used to access the member of the class so whenever we want to call the member of 
+the class (fields + methods) then we should use dot(.) operator.
 
-We can directly call any static method and static variable from the main method with the help of class name , here object is not required as shown in the program below.
+We can directly call any static method and static variable from the main method with the
+ help of class name , here object is not required as shown in the program below.
 
-If static variable or static method is present in the same class where main method is availble then we can directly call but if the static variable and static method is available in another class then to call those static members of the class, class name is required.
+If static variable or static method is present in the same class where main method is 
+availble then we can directly call but if the static variable and static method is available 
+in another class then to call those static members of the class, class name is required.
 
 class Welcome                           
 {
@@ -870,9 +897,12 @@ public class Test
 --------------------------------------------------------------
 //* new Operator
 
-This Operator is used to create Object. If the member of the class (field + method) is static, object is not required. we can directly call with the help of class name.
+This Operator is used to create Object. If the member of the class (field + method) is static, 
+object is not required. we can directly call with the help of class name.
 
-On the other hand if the member of the class (variables + method) is not declared as static then it is called non-static member Or instance member , to call the non-static member object is required.
+On the other hand if the member of the class (variables + method) is not declared as 
+static then it is called non-static member Or instance member , to call the non-static 
+member object is required.
 
 Program :
 ---------
@@ -902,11 +932,13 @@ instanceof operator :-
 
 1)This Operator will return true/false
 
-2) It is used to check a reference variable is holding the particular/corresponding type of Object or not.   
+2) It is used to check a reference variable is holding the particular/corresponding 
+type of Object or not.   
 
 3) It is also a keyword.
 
-4) In between the object reference and class name , we must have some kind of relation (assignment relation) otherwise we will get compilation error.
+4) In between the object reference and class name , we must have some kind of relation 
+(assignment relation) otherwise we will get compilation error.
 
 //* instanceof operator 
 public class Test 
@@ -953,7 +985,8 @@ Types of variables in java
 
    Here 'c' is reference variable 
 
-   Note :- Any variable if we declare with the help of class then it is called reference variable.
+   Note :- Any variable if we declare with the help of class then it is called 
+reference variable.
 
 -> Based on the declaration position we can define a varible
    into 4 categories 
@@ -1030,15 +1063,20 @@ public class Reference
 --------------------------------------------------------------------
 What is drawback of if condition :-
 ---------------------------------------
-The major drawback with if condition is, it checks the condition again and again so It increases the burdon over CPU so we introduced switch-case statement to reduce the overhead of the CPU.
+The major drawback with if condition is, it checks the condition again and again so 
+It increases the burdon over CPU so we introduced switch-case statement to reduce the 
+overhead of the CPU.
 
 switch case :-
 ----------------
-In switch case dpending upon the parameter the appropriate case would be executed otherwise default would be executed.
+In switch case dpending upon the parameter the appropriate case would be executed 
+otherwise default would be executed.
 
-In this approch we need not to check each and every case, if the appropriate case is available then directly it would be executed.
+In this approch we need not to check each and every case, if the appropriate case 
+is available then directly it would be executed.
 
-break keyword is optional here but we can use as per requirement. It will move the control outside of the body of the switch.
+break keyword is optional here but we can use as per requirement. It will move the 
+control outside of the body of the switch.
 -------------------------------------------------------------------
 import java.util.*;
 public class SwitchDemo 
@@ -1284,7 +1322,9 @@ Note :
 
 2) x is an array variable but y is an ordinary variable
 
-3) in java.util package there is a predefined class called Arrays which contains a static method sort(), by using this static method we can sort an array in ascending order. sort() method takes Object array as a parameter.
+3) in java.util package there is a predefined class called Arrays which contains a 
+static method sort(), by using this static method we can sort an array in ascending 
+order. sort() method takes Object array as a parameter.
 -------------------------------------------------------------------
 class ForEachLoopWithString 
 {

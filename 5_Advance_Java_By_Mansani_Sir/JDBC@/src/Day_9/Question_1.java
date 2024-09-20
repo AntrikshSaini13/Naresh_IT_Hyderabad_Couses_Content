@@ -2,7 +2,7 @@ package Day_9;
 
 import java.sql.*;
 
-//Program create a table by using execute() method suitable for DDL Query only
+//Program create a table by using execute() method suitable for DDL Query only (Statically) 
 
 public class Question_1 {
 	public static void main(String[] args) throws SQLException {
@@ -14,6 +14,7 @@ public class Question_1 {
 //			Connection Established here b/w Application and DataBase
 			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:ORCL", "MYDB11AM", "123");
 			System.err.println("Connection is Established");
+			
 //			Statement Interface -> It is execute Static SQl Query only
 			Statement st = con.createStatement();
 			

@@ -1,5 +1,24 @@
 12-02-2024
 ----------
+What is abstraction?
+----------------------
+Abstraction is an object-oriented programming (OOP) concept that focuses on hiding 
+the internal implementation details of a class or object while exposing only the 
+necessary functionalities to the user. The goal is to provide a simplified and clean 
+interface without revealing the complex workings behind it.
+
+In Java, abstraction can be achieved using:
+
+Abstract classes:
+----------------- 
+These are classes that cannot be instantiated and can have abstract methods 
+(methods without implementations).
+
+Interfaces: 
+------------
+These define a contract of methods that a class must implement, without specifying 
+how those methods should work.
+
 Abstract class and abstract methods :
 -------------------------------------------
 A class that does not provide complete implementation (partial implementation) is defined 
