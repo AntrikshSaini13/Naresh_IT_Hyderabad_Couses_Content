@@ -1,6 +1,6 @@
-package Day_12;
+package Day_12_Static;
 
-public class Question_UpdateData{
+public class Question_5_UpdateData{
 	private void amin() {
 		// TODO Auto-generated method stub
 

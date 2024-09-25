@@ -1,0 +1,85 @@
+Ques - How are Antriksh ?
+
+Thank you for asking, I am doing well. 
+I am excited to be here today for this Interview and to learn more about the Oppurtunity.
+
+I am doing great thanku you, 
+I hope you are having a good day as well.
+I am loking forward to our Conversation.
+I am excited to be here today for this Interview and to learn more about the Oppurtunity.
+
+Ques- Tell me about self ?
+
+Good morining Sir and Madam,
+First of all. Thank you for giving me this oppurinity to introduce my self.
+My name is Antriksh Saini. I am from Haridwar. I have completed my bachelor degree in
+Electronic and Communication Engineering at GB Pant Insititute of Technology in Pauri.
+
+During my acadmic journey, I developed a strong intrest in software developnement and
+web technologgy.
+
+Internship/Experience(3-Month)
+------------------------------
+In Additional to my degree,
+I completed 3 month intership at Hachi Web is a Startup Company in Dehardun. Where I 
+worked on Airport Parking Point Project. My role involved desiging and dveloping the
+User Interface for parking reservation using technology like Html, CSS, JvaScript,
+one Framework Bootstrap. I colaborated with Back-End team. This project gave me expienece
+in User Interface Desigin, Responsive web Applicaion and problem solve in a Real time 
+World.
+
+Full Stack Course (Paid)
+------------------------
+ I am also Learning a paid Java Full STack Developnment course, where as I gained hand on 
+experience with Java, Spring, Spring Boot and Database Technology Oracle (SOL/PLSQL) and 
+Github for mantaining the repostories and Linux Operating System and Frontend Technology, 
+C language. 
+
+Skill
+-----
+Through both the Internship and FullStack course. I have develop strong skill in frontend 
+technology like html, css, javascript, bootstrap, Backend Technilogy and as well as Java 
+and JDBC, SERVLETS, JSP, Spring, Spring Boot and one Database oracle  and Github, and 
+Linux Operating System.
+
+Strengh
+-------
+I am Hard Working, Self motivating person and I have strong Communication skill also
+
+Hobbies
+-------
+My Hobbies playing Circket and listing music 
+
+Goal 
+----
+My sort term goal is to get a job in reputed Company and long term goal is to achive a 
+good positon in company. Where build career and help the Orgination.
+
+Motivation/Fit for Company
+---------------------------
+I am Exicited and enthusiasm about the Oppurinity at{Spincotech pvt ltd} because it aligns 
+perfectly with my Experience and skill. I have gained . I am eager to apply my Frontend 
+and Backend skill to contribute your team.
+
+Lastly
+------
+And Lastly I am Quick lerner and Belive in learning from my past mistake and experince.
+
+that all about me,
+  
+
+Ques Tell me about family?
+
+"I come from a supportive family with my mother, father, and elder sister. My parents 
+taught me the values of hard work and compassion, while my sister has been a great role 
+model, inspiring me to stay motivated and goal-driven. Their influence has shaped who 
+I am today."
+
+Ques - Why to 2 year gay?
+--------------------
+
+"Yes, I took a 2-year break from my professional career to focus on managing our family farm. It was a 
+valuable experience where I learned about resource management, problem-solving in a dynamic environment, 
+and leadership. During that time, I also stayed connected to the industry by taking online courses in 
+[specific skills]. Now, I’m fully ready to re-enter the workforce, and I believe the skills I developed 
+during my time in farming will help me bring a unique perspective and contribute effectively to this role."

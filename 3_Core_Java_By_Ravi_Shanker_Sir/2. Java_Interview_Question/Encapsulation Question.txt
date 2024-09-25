@@ -604,11 +604,3 @@ public static void main(String[] args) {
 
 ______________________________________________________________________________________________________________________________________
 
-why to 2 year gay?
---------------------
-
-"Yes, I took a 2-year break from my professional career to focus on managing our family farm. It was a 
-valuable experience where I learned about resource management, problem-solving in a dynamic environment, 
-and leadership. During that time, I also stayed connected to the industry by taking online courses in 
-[specific skills]. Now, I’m fully ready to re-enter the workforce, and I believe the skills I developed 
-during my time in farming will help me bring a unique perspective and contribute effectively to this role."

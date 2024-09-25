@@ -1,0 +1,141 @@
+Ques - What is Backup and types of Backup ?
+
+Backup refers to the process of creating copies of data to protect it from loss due to 
+hardware failure, data corruption, accidental deletion, or disasters. Backups are crucial 
+for data recovery and ensuring business continuity.
+
+Types of Backups:
+
+Full Backup:
+------------
+A complete copy of all data at a specific point in time. It requires the most storage 
+space and time to complete but simplifies restoration since all data is in one place.
+
+Incremental Backup:
+-------------------
+Only backs up data that has changed since the last backup (whether it was a full or 
+incremental backup). This method saves storage space and time but requires the last full 
+backup and all subsequent incremental backups for complete restoration.
+
+Differential Backup:
+--------------------
+Backs up all changes made since the last full backup. This takes more storage and time 
+than incremental backups but simplifies restoration since only the last full backup and 
+the last differential backup are needed.
+
+Mirror Backup:
+--------------
+A direct copy of the source data, mirroring it in real-time or at scheduled intervals. 
+This approach provides quick access but doesn't retain older versions.
+
+Cloud Backup:
+-------------
+Data is backed up to a cloud service. It offers off-site storage, flexibility, and ease 
+of access but relies on internet connectivity and service availability.
+
+Local Backup:
+-------------
+Data is stored on local devices, such as external hard drives or network-attached storage 
+(NAS). It's faster for restoration but vulnerable to physical disasters.
+
+Snapshot Backup:
+----------------
+Captures the state of a system at a specific moment, often used in virtual environments. 
+Snapshots can be quick to create and restore but may consume significant resources over 
+time.
+
+Ques - What is LAN and WAN ?
+
+LAN (Local Area Network)
+------------------------
+Definition: A LAN is a network that connects computers and devices within a 
+limited geographic area, such as a home, office, or campus.
+
+Key Features:
+
+Geographic Scope: Covers a small area (typically up to a few kilometers).
+Speed: High data transfer rates (100 Mbps to several Gbps).
+Ownership: Usually owned and managed by a single organization or individual.
+Technology: Commonly uses Ethernet or Wi-Fi for connectivity.
+Applications: Ideal for local file sharing, printing, and gaming.
+
+WAN (Wide Area Network)
+-----------------------
+Definition: A WAN is a network that connects multiple LANs over larger geographic 
+areas, potentially spanning cities, countries, or continents.
+
+Key Features:
+
+Geographic Scope: Covers large areas, ranging from hundreds to thousands of kilometers.
+Speed: Lower data transfer rates compared to LANs (often a few Mbps to Gbps).
+Ownership: Typically involves multiple organizations, may be public (like the internet) 
+or private (like a corporate network).
+Technology: Utilizes technologies like leased lines, satellites, and fiber optics.
+Applications: Supports wide-scale communications, connecting branch offices and providing 
+internet access.
+
+
+Summary
+In summary, LANs provide high-speed, localized connectivity, while WANs facilitate 
+broader connectivity across larger distances, often requiring more complex infrastructure 
+and management.
+
+
+Ques - What is RAID and Type of RAID?
+
+RAID (Redundant Array of Independent Disks)
+Definition: RAID is a technology that combines multiple physical disk drives into a 
+single logical unit to improve data redundancy, performance, or both. It is commonly 
+used in servers and storage systems to ensure data integrity and availability.
+Types of RAID
+
+RAID 0 (Striping):
+
+Description: Data is split across multiple disks, enhancing performance but offering
+ no redundancy.
+Pros: Increased read/write speeds.
+Cons: If one disk fails, all data is lost.
+
+RAID 1 (Mirroring):
+
+Description: Data is duplicated on two or more disks, providing high redundancy.
+Pros: If one disk fails, data remains accessible from the other disk(s).
+Cons: Storage capacity is halved, as all data is mirrored.
+
+RAID 5 (Striping with Parity):
+
+Description: Data and parity information are distributed across three or more disks. 
+It can tolerate the failure of one disk.
+Pros: Balances performance, redundancy, and storage efficiency.
+Cons: Slower write speeds due to parity calculations.
+
+RAID 6 (Striping with Double Parity):
+
+Description: Similar to RAID 5 but can tolerate the failure of two disks.
+Pros: Higher redundancy than RAID 5.
+Cons: Additional overhead for parity calculations, leading to slower write speeds.
+RAID 10 (1+0):
+
+Description: Combines RAID 1 and RAID 0, providing both striping and mirroring. Data is 
+mirrored across pairs of disks and then striped.
+Pros: Excellent performance and redundancy.
+Cons: Requires at least four disks and has higher storage overhead.
+
+RAID 50 and RAID 60:
+
+Description: These are nested RAID configurations that combine RAID 5 or RAID 6 with 
+
+RAID 0 for improved performance and redundancy.
+Pros: Offers the benefits of both RAID types.
+Cons: More complex and requires a larger number of disks.
+
+
+
+
+
+
+Ques -  What is Windows Server ?
+
+The current version of Windows Server is Windows Server 2022, released in August 2021. 
+It features enhanced security, hybrid cloud integration, and improved performance for 
+modern applications and workloads.

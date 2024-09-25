@@ -1,4 +1,4 @@
-package Day_13;
+package Day_13_Dynamic;
 
 import java.sql.*;
 

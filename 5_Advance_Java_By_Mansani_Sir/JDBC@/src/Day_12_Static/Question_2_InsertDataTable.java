@@ -1,4 +1,4 @@
-package Day_12;
+package Day_12_Static;
 
 import java.sql.*;
 

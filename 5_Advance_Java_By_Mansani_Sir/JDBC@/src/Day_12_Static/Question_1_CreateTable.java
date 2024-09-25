@@ -1,4 +1,4 @@
-package Day_12;
+package Day_12_Static;
 
 // This program to create table in Database statically
 import java.sql.*;
