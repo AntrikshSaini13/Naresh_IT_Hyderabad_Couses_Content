@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee"  id="WebApp_ID" version="6.0">
+  <display-name>Day_38_HiddenFormField</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>SetField</display-name>
+    <servlet-name>SetField</servlet-name>
+    <servlet-class>set_hidden_form_fied.SetField</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SetField</servlet-name>
+    <url-pattern>/set_field</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetField</display-name>
+    <servlet-name>GetField</servlet-name>
+    <servlet-class>set_hidden_form_fied.GetField</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetField</servlet-name>
+    <url-pattern>/get_field</url-pattern>
+  </servlet-mapping>
+</web-app>

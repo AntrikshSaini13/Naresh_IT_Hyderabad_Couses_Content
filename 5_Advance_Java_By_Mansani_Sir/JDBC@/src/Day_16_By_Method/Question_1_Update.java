@@ -44,8 +44,8 @@ public class Question_1_Update {
 				System.out.println();
 			}
 
-			rs.absolute(1);
-			rs.updateInt(3, 8850);				
+			rs.absolute(3);
+			rs.updateInt(2, 1111);				
 			rs.updateRow();
 			rs.beforeFirst();
 

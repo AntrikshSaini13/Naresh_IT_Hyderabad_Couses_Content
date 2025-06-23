@@ -1,0 +1,47 @@
+POC Assignment: Objective: Design a search function that searches the internet and provides relevant YouTube 
+links, articles, academic papers, and blog posts on a given search term. The search results should be ranked 
+based on factors such as views, likes, and relevance.
+
+Requirements:
+
+Functionality:
+
+Search Engine Integration:
+
+Integrate with search engines or APIs to fetch search results based on the given term. Consider using Google 
+Custom Search API, Bing Search API or any other api that you feel suitable for this problem.
+Content Sources:
+
+YouTube: Fetch relevant YouTube video links and rank them based on views and likes.
+Articles: Provide links to articles from reputable sources.
+Academic Papers: Include links to academic papers or research articles.
+Blogs: Aggregate relevant blog posts.
+
+Ranking:
+Implement a ranking system for the search results based on metrics such as views, likes, and relevance.
+Technology Stack:
+
+Backend Framework: Choose a backend framework (e.g., Node.js, Python, Ruby on Rails) to build the 
+search function.
+APIs:
+YouTube Data API: For fetching YouTube video information.
+Google Custom Search API or Bing Search API: For searching articles and blogs.
+Google Scholar API or PubMed API: For academic papers.
+Database (Optional): Use a database to store and manage search results and metadata if needed.
+Submission:
+
+Source Code: Provide the source code with clear instructions on how to set up and run the search 
+function.
+Documentation: Include a brief documentation outlining your approach, the technologies used, and 
+any challenges faced. Describe how you handled the ranking and integration of various content sources.
+Enhancements for the POC Project:
+
+User Interface:
+Develop a simple user interface where users can input a search term and view the results.
+Advanced Filtering:
+Implement filters to allow users to narrow down results by content type (e.g., only YouTube 
+videos, only academic papers).
+Performance Optimization:
+Ensure the search function performs efficiently and provides results in a timely manner.
+We look forward to seeing your innovative solutions and approach to this challenge., 
+Deadline; 7th october

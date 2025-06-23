@@ -1,0 +1,47 @@
+
+Program 01 :
+------------
+Create a class to print an integer and a character with two methods having the same name but different sequence of the integer and the character parameters.
+
+For example, if the parameters of the first method are of the form (int n, char c), then that of the second method will be of the form (char c, int n).
+
+Expected Output:
+
+int=66 char=A
+
+int=67 char=D
+
+
+Program 02:
+------------
+Create a class to print the area of a square and a rectangle. The class has two methods with the same name but different number of parameters. The method for printing area of rectangle has two parameters which are length and breadth respetively while the other method for printing area of square has one parameter which is side of square.
+
+Expected Output:
+Area of a Square = 5.289999999999999
+Area of a Rectangle = 7.589999999999999
+
+Program 03:
+------------
+Create a class named 'PrintNumber' to print various numbers of different datatypes by creating different methods with the same name 'printn' having a parameter for each datatype.
+
+Expected Output:
+
+In integer 3
+
+In long 33223222332
+
+In double 323233.44
+
+In float 33344.5
+
+In Char A
+
+In String Overloading
+
+
+
+
+
+
+
+

@@ -10,17 +10,21 @@ Association (Relationship between the classes through Object reference)
 -----------------------------------------------------------------------
 Association :
 ---------------
-Association is a connection between two separate classes that can be built up through their Objects. 
+Association is a connection between two separate classes that can be built up through 
+their Objects. 
 
-The association builds a relationship between the classes and describes how much a class knows about another class. 
+The association builds a relationship between the classes and describes how much a 
+class knows about another class. 
 
-This relationship can be unidirectional or bi-directional. In Java, the association can have one-to-one, one-to-many, many-to-one and many-to-many relationships.
+This relationship can be unidirectional or bi-directional. In Java, the association 
+can have one-to-one, one-to-many, many-to-one and many-to-many relationships.
 
 Example:-
 One to One: A person can have only one PAN card
 One to many: A Bank can have many Employees
 Many to one:  Many employees can work in single department 
-Many to Many: A Bank can have multiple customers and a customer can have multiple bank accounts.
+Many to Many: A Bank can have multiple customers and a customer can have multiple 
+bank accounts.
 
 3 Files :
 ---------
@@ -112,11 +116,16 @@ public class AssociationDemo {
 -----------------------------------------------------------------------
 Composition (Strong reference) :
 --------------------------------
-Composition in Java is a way to design classes such that one class contains an object of another class. It is a way of establishing a "HAS-A" relationship between classes.
+Composition in Java is a way to design classes such that one class contains an object 
+of another class. It is a way of establishing a "HAS-A" relationship between classes.
 
-Composition represents a strong relationship between the containing class and the contained class.If the containing object (Car object) is destroyed, all the contained objects (Engine object) are also destroyed.
+Composition represents a strong relationship between the containing class and the 
+contained class.If the containing object (Car object) is destroyed, all the contained 
+objects (Engine object) are also destroyed.
 
-A car has an engine. Composition makes strong relationship between the objects. It means that if we destroy the owner object, its members  will be also destroyed with it. For example, if the Car is destroyed the engine will also be destroyed as well.
+A car has an engine. Composition makes strong relationship between the objects. 
+It means that if we destroy the owner object, its members  will be also destroyed 
+with it. For example, if the Car is destroyed the engine will also be destroyed as well.
 
 3 Files :
 ---------

@@ -1,0 +1,128 @@
+Arrays Day02_Notes
+_____________________
+In Java we can create single dimensional array by using following ways :-
+
+    Example 1 :
+    -------------
+    syntax
+    __________
+    DataType [] variableName=new DataType[size];
+
+    int [] y = new int[5];
+    
+    Note:- We should use the example1 approach 
+          * When we know type of value to store.
+          * When we don't know number of value to store.
+          * and also don't know actual value to store.
+
+    Avd:-  We can take the array size dynamically from the user and also ask the user to store element 
+           of their own choice.
+
+    SAMPLE CODE
+    --------------------------------------
+         Scanner sc=new Scanner(System.in);
+         System.out.println("ENTER THE SIZE FOR THE ARRAY");
+         int size=sc.nextInt();
+         int [] arr=new int[size];
+
+         for(int i=0;i<arr.length;i++)
+            {
+              arr[i]=sc.nextInt();
+            }
+
+    ---------------------------------------
+ 
+   Que-> How can we find the length of the array in java?
+
+   Solution:- By using length variable as method support is not there through array object 
+              creation but few pre define methods present in ARRAYS class 
+              Arrays is a class that belongs to the java. util package.
+
+----------------------------------------------------------------------------------
+  Que-> Write a java program to read the element from the user store it in array 
+        and print the size of the array as well as array elements?
+
+  Solution:-
+           import java.util.Scanner;
+
+           public class Program01 {
+           public static void main(String[] args) {
+	   Scanner sc=new Scanner(System.in);
+	   System.out.println("ENTER THE SIZE FOR THE ARRAY");
+	   int size=sc.nextInt();
+	   int [] arr=new int[size];
+	
+	   for(int i=0;i<arr.length;i++) {
+		 System.out.println("ENTER THE ELEMENT FOR INDEX:"+i);
+ 		 arr[i]=sc.nextInt();
+        	}
+	
+	   System.out.println("AFTER INSERTION ELEMENTS ARE");
+	   for(int i=0;i<arr.length;i++) {
+		 System.out.print(arr[i]+" ");
+        	}
+	System.out.println();
+	System.out.println("The size of the array is :"+ arr.length); 
+        }
+}
+
+-----------------------------------------------------------------------------------
+Que- Write the java program by creating an array as non primitve type and read and 
+     print the array ?
+
+import java.util.Scanner;
+
+public class Student {
+ public String name;
+ public int id;
+public Student(String name, int id) {
+	super();
+	this.name = name;
+	this.id = id;
+}
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
+public int getId() {
+	return id;
+}
+public void setId(int id) {
+	this.id = id;
+}
+@Override
+public String toString() {
+	return "Student [name=" + name + ", id=" + id + "]";
+}
+ 
+ public static void main(String[] args) {
+	 Scanner sc=new Scanner(System.in);
+	 System.out.println("Enter how many student object ypu want to store");
+	 int index=sc.nextInt();
+      Student s[]=new Student[index];
+      //   0              1
+      //[ 1000x    |  2000x    ]
+      
+      //  abc  1      def  2
+     for(int i=0;i<s.length;i++) {
+    	 System.out.println("Enter the name");
+    	 String name=sc.next();
+    	 System.out.println("Enter the id");
+    	 int id=sc.nextInt();
+    	  Student s1=new Student(name,id);
+    	  //    2000x      def  2
+    	  s[i]=s1;
+     }
+     
+     for(int i=0;i<s.length;i++) {
+    	  System.out.println(s[i]);
+     }
+     
+     
+     
+}
+}
+
+

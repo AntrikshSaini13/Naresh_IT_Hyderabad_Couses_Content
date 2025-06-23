@@ -249,7 +249,8 @@ public void input()                        public int accept()
 }                                               return 15;
 					    }
 
-Note :- In the main method if we don't write void or any other kind of return type then it will generate a compilation error.
+Note :- In the main method if we don't write void or any other kind of return type then it 
+will generate a compilation error.
 
 In java whenever we define a method then compulsory we should define return type of method.(Syntax rule)
 ----------------------------------------------------------------
@@ -257,7 +258,8 @@ main() :-
 ----------
 It is a user-defined method because a user is responsible to define some logic inside the main method.
 
-main() method is very important method because every program execution will start from main() method only, as well as the execution of the program ends with main() method only.
+main() method is very important method because every program execution will start from main() method 
+only, as well as the execution of the program ends with main() method only.
 
 We can write multiple main methods in our class but argument must be different.
 ----------------------------------------------------------------
@@ -265,15 +267,19 @@ Command Line Argument (Introduction only) :-
 -------------------------------------------
 Whenever we pass an argument/parameter to the main method then it is called Command Line Argument.
 
-The argument inside the main method is String because String is a alpha-numeric collection of character so, It can accept numbers,decimals, characters, combination of number and character.
+The argument inside the main method is String because String is a alpha-numeric collection of character so, 
+It can accept numbers,decimals, characters, combination of number and character.
 
-That is the reason java software people has provided String as a parameter inside the main method.(More Wider scope to accept the value)
+That is the reason java software people has provided String as a parameter inside the main method.
+(More Wider scope to accept the value)
 --------------------------------------------------------------
 System.out.println() :-
 -------------------------
 It is an output statement in java, By using System.out.println() statement we can print anything on the console.
 
-In System.out.println(), System is a predefined class available in java.lang package, out is a final, static reference variable of PrintStream class available in java.io package and println() is a predfined method available in PrintStream class.
+In System.out.println(), System is a predefined class available in java.lang package, out is a 
+final, static reference variable of PrintStream class available in java.io package and println() 
+is a predfined method available in PrintStream class.
 
 In System.out, .(dot) is a member access operator. It is called as period. It is used to access the member of the class.
 --------------------------------------------------------------

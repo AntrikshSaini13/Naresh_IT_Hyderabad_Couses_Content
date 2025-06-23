@@ -81,7 +81,7 @@ public interface Callable
    
 }
 
-From the avove interface, It is clear that inside a Functional interface we can 
+From the above interface, It is clear that inside a Functional interface we can 
 re-declare the method of Object class.
 ---------------------------------------------------------------
 ****What is difference between abstract class and interface ?
