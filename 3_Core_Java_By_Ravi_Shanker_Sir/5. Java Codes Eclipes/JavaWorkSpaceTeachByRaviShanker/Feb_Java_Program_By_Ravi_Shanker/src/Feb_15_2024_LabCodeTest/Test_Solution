@@ -1,0 +1,1220 @@
+What will be the output of below program?
+
+public class RecordConstructorChainingExample {
+public static void main(String[] args) {
+
+    Person person1 = new Person("Raj", 30);
+    Person person2 = new Person("Abhi");
+    Person person3 = new Person(1);
+
+    System.out.println(person1);
+    System.out.println(person2);
+    System.out.println(person3);
+
+}
+
+record Person(String name, int age) {
+
+    Person(String name) {
+        this(name, 0);
+    }
+
+    Person(int age) {
+        this("suraj", age);
+    }
+}
+}
+
+Output : inside the record class provides the toString Method, hashCode, getClass, Cononical Constructor, 
+         we can also write parameterized Constructor, and satic non-static method and static variable we 
+	 can write inside the class. 
+
+this output return tostring implicitly invoke 
+Person[name=Raj, age=30]
+Person[name=Abhi, age=0]
+Person[name=suraj, age=1]
+
+-----------------------------------------------------------------------------------------------------------
+What will be the output of below program?
+
+class MyClass {
+private String name;
+private int id;
+
+public MyClass(String name, int id) {
+    this.name = name;
+    this.id = id;
+}
+
+@Override
+public boolean equals(Object obj) {
+    if (this == obj)
+        return true;
+    if (obj == null || getClass() != obj.getClass())
+        return false;
+    MyClass myClass = (MyClass) obj;
+    return id == myClass.id && name.equals(myClass.name);
+}
+}
+
+public class Test {
+public static void main(String[] args) {
+MyClass obj1 = new MyClass("John", 1);
+MyClass obj2 = new MyClass("John", 1);
+MyClass obj3 = new MyClass("Alice", 2);
+
+    System.out.println("obj1 equals obj2: " + obj1.equals(obj2)); 
+    System.out.println("obj1 equals obj3: " + obj1.equals(obj3)); 
+}
+}
+
+Output : here its check perticular data by reference of object. equal() its a predefine method belongs to object class is super class 
+	 its check behalf of var addres becozof implicitly appy "==" compersion operator
+
+obj1 equals obj2: true
+obj1 equals obj3: false
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+What will be the output of below program?
+
+class A {
+private final void m1() {
+System.out.println("Good Morning");
+}
+}
+
+class B extends A {
+public void m1() {
+System.out.println("Good Aftrnoon");
+}
+}
+
+public class Test {
+public static void main(String[] args) {
+B b = new B();
+b.m1();
+}
+}
+
+Output : here Inside the Super Class of the method declared as a "private final" than method is override
+	 object of sub class becoze of super class method is private  its not vissable that way sub class method invokes
+
+Good Aftrnoon
+-------------------------------------------------------------------------------------------------------------------------------------------------
+class A {
+private final void m1() {
+System.out.println("Good Morning");
+}
+}
+
+class B extends A {
+public void m1() {
+System.out.println("Good Aftrnoon");
+}
+}
+
+public class Test {
+public static void main(String[] args) {
+new A().m1();
+}
+}
+
+Output : here we created the object of Super class than we are call the method of supper call reference  we cannot show becoz of private 
+ 	 keyword we cannot access the outside the class
+
+Error
+=-------------------------------------------------------------------------------------------------------------------------------------------
+
+class A {
+final void m1() {
+System.out.println("Good Morning");
+}
+}
+
+class B extends A {
+public void m1() {
+System.out.println("Good Aftrnoon");
+}
+}
+
+public class Test {
+public static void main(String[] args) {
+new A().m1();//error
+new B().m1();//error
+}
+}
+
+Output : final method cannot perform override
+
+Error
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+What will be the output of below program?
+
+sealed class A permits B {
+public void m1() {
+System.out.println(“Class A”);
+}
+}
+
+class B extends A {
+@Override
+public void m1() {
+System.out.println(“Class B”);
+}
+}
+
+public class Test {
+public static void main(String[] args) {
+A a = new B();
+a.m1();
+}
+}
+
+Output : Because of sub Class its did not be permission
+
+Error
+------------------------------------------------------------------------------------------------------------------------------------------
+
+abstract class Home{
+
+public  abstract void stay();
+public static abstract void rent();
+}
+class Room extends Home{
+
+@Override
+public void stay() {
+
+    System.out.println("Staying");
+}
+
+public static void rent() {
+
+    System.out.println("Room on Rent");
+}
+}
+public class Test {
+public static void main(String[] args) {
+Room r=new Room();
+r.stay();
+Room.rent();
+}
+}
+
+Output : becuse of in abstract class static method can't be write its concept of method hiding but in abstract cannot perform
+
+Error
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+//What will be the output of below program?
+
+class A {
+final int a = 10;//this is not blankfinal variable
+
+A() {
+    this.a = 20;
+}
+
+public void m1() {
+    System.out.println((a + a));
+}
+}
+
+public class Test {
+public static void main(String[] args) {
+A a1 = new A();
+a1.m1();
+}
+}
+
+Output : because of final keyword we can't re-initalize but blank key word is initalize with parameter 
+	 constructor and instance block and non-parameter constructor also initalize
+
+Error
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Which of the following statements about a class that contains an abstract method is (are) true?
+
+I. You can’t have any constructors in this class.
+II. This class must be declared as abstract.
+III. You can’t declare any fields in this class.
+IV. class contains atleast one abstract method
+
+
+Output : II and IV
+-----------------------------------------------------------------------------------------------------------------------
+
+sealed class Human permits Manish, Vartika, Anjali {
+public void printName() {
+System.out.println("Default");
+}
+}
+
+non-sealed class Manish extends Human {
+public void printName() {
+System.out.println("Manish Sharma");
+}
+}
+
+sealed class Vartika extends Human { // error becoz sub class declare sealed not a non-sealed declare should be
+public void printName() {
+System.out.println("Vartika Dadheech”");
+}
+}
+
+final class Anjali extends Human {
+public void printName() {
+System.out.println("Anjali Sharma");
+}
+}
+
+public class Test {
+public static void main(String[] args) {
+Human h1 = new Anjali();
+Human h2 = new Vartika();
+Human h3 = new Manish();
+
+    h1.printName();
+    h2.printName();
+    h3.printName();
+}
+}
+
+Output : Vartika is sub class but we decalred as sealed keyword that way comes error
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+final class A
+{
+private int x = 100;
+public void setData()
+{
+x = 120;
+this.x=x+30;
+System.out.println(x);
+}
+}
+class B extends A
+{
+}
+public class FinalClassEx
+{
+public static void main(String[] args)
+{
+B b1 = new B();
+b1.setData();
+}
+}
+
+Output : Final Class We can't inheritance its requriment of Develpoer becoz he donot want to share the super class data/code
+
+Error
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//What will be the output of below program?
+
+class Car {
+private int fuel;
+
+public Car() {
+    fuel = 0;
+}
+
+public Car(int g) {
+    fuel = g;
+}
+
+public void addFuel() {
+    fuel++;
+}
+
+public void display() {
+    System.out.print(fuel + " ");
+}
+}
+
+public class RaceCar extends Car {
+public RaceCar(int g) {
+super(2 * g);
+}
+
+public static void main(String[] args) {
+    Car car = new Car(5);// sub class object
+    Car fastCar = new RaceCar(5); //up-casting is here object of subclass
+    car.display();
+    car.addFuel();
+    car.display();
+    fastCar.display();
+    fastCar.addFuel();
+    fastCar.display();
+}
+}
+
+Output : 
+
+5  6  10  11
+
+-----------------------------------------------------------------------------------------------------
+
+What will be the output of below program?
+
+abstract class Poly {
+abstract void m1(Integer… i);
+}
+
+class Overload extends Poly {
+
+@Override
+void m1(Integer[] i) {
+    System.out.println("Integer[]");
+}
+
+void m1(Number... i) {
+    System.out.println("Number...");
+}
+
+void m1(Object... i) {
+    System.out.println("Object...");
+}
+}
+
+public class Test {
+public static void main(String[] args) {
+Overload o = new Overload();
+int b1 = 10;
+o.m1(b1, 20);
+}
+}
+	
+Output : Object class > Number class > Wraper class object(AutoBoxing)  
+
+Number...
+------------------------------------------------------------------------------------------------------------------
+
+//What will be the output of below program?
+abstract class Poly {
+	abstract void m1(Integer[] i);
+}
+	
+class Overload extends Poly {
+	
+	@Override
+	void m1(Integer[] i) 
+	{
+	    System.out.println("Integer[]");
+	}
+	
+	void m1(Number... i) 
+	{
+	    System.out.println("Number...");
+	}
+	
+	void m1(Object... i) {
+	    System.out.println("Object...");
+	}
+	}
+
+public class r 
+{
+	public static void main(String[] args) 
+	{
+		Overload o = new Overload();
+		int b1 = 10;
+		o.m1(b1, 20);
+	}
+}
+
+Output : Integer[] i > Number Class "Object"
+
+Number...
+
+---------------------------------------------------------------------------------------------------------
+
+//What will be the output of below program?
+abstract class Poly {
+	abstract void m1(Integer ... i);
+}
+	
+class Overload extends Poly {
+	
+	@Override
+	void m1(Integer... i) 
+	{
+	    System.out.println("Integer...");
+	}
+	
+	void m1(Number... i) 
+	{
+	    System.out.println("Number...");
+	}
+	
+	void m1(Object... i) {
+	    System.out.println("Object...");
+	}
+	}
+
+public class r 
+{
+	public static void main(String[] args) 
+	{
+		Overload o = new Overload();
+		int b1 = 10;
+		o.m1(b1, 20);
+	}
+}
+
+
+OutPut : Object class > Number class > Wraper class object(AutoBoxing)
+
+Interger ...
+
+-------------------------------------------------------------------------------------------------------
+
+//What will be the output of below program?//
+
+record Person(String name, int age) {
+
+public void displayInfo() {
+    System.out.println(" Age: " + age+ ", Name: " + name );
+}
+}
+
+public class RecordAsChildClassExample extends Person {
+public static void main(String[] args) {
+Person p = new Person("Amit", 29);
+p.displayInfo();
+
+}
+}
+
+Output : Record Class we Cannot Extents its means not appy Inheritance
+
+Error
+
+---------------------------------------------------------------------------------------------------------------
+
+
+Choose correct one.
+
+1 abstract public class Employee {
+2. protected abstract double getSalesAmount();
+3. public double getCommision() {
+4. return getSalesAmount() * 0.15;
+5. }
+6. }
+7. class Sales extends Employee {
+8. // insert method her
+9. }
+Which two methods, inserted independently at line 8, correctly complete the Sales
+class? (Choose two.)
+
+A. double getSalesAmount() { return 1230.45; }
+B. public double getSalesAmount() { return 1230.45; }
+C. private double getSalesAmount() { return 1230.45; }
+D. protected double getSalesAmount() { return 1230.45; }
+
+
+Choose correct one.
+
+1 abstract public class Employee {
+2. protected abstract double getSalesAmount();
+3. public double getCommision() {
+4. return getSalesAmount() * 0.15;
+5. }
+6. }
+7. class Sales extends Employee {
+8. // insert method her
+9. }
+Which two methods, inserted independently at line 8, correctly complete the Sales
+class? (Choose two.)
+
+A. double getSalesAmount() { return 1230.45; }
+B. public double getSalesAmount() { return 1230.45; }
+C. private double getSalesAmount() { return 1230.45; }
+
+
+
+---------------------------------------------------------------------------------------------------------------
+
+//What will be the output of below program?
+
+class A {
+
+}
+
+public class Test1 {
+public static void main(String[] args) {
+A t1 = new A();
+A t2 = t1; // here we are giving the A object reference t1 giving to t2 (both are same)
+System.out.println(t1.hashCode() == t2.hashCode());
+
+    A t3 = new A();
+    A t4 = new A();// here we are giving the A object reference t3 giving to t4 (both are different)
+    System.out.println(t3.hashCode() == t4.hashCode());
+}
+
+Output : 
+
+true
+false
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+What will be the output of below program?
+
+abstract class Keyboard {
+abstract final public void type();
+}
+
+class Laptop extends Keyboard {
+
+@Override
+public final void type() {
+    System.out.println("typing practice");
+}
+
+public void call() {
+    type();
+}
+}
+
+public class Test {
+
+public static void main(String[] args) {
+    Laptop l = new Laptop();
+    l.call();
+}
+}
+
+
+Output : privtae and final and static we can't declare abstract method its illegal combinations
+
+Error
+
+-----------------------------------------------------------------------------------------------
+
+//What will be the output of below program?
+
+public class Student {
+private String name;
+private int rollNo;
+
+public Student(String name, int rollNo) {
+    super();
+    this.name = name;
+    this.rollNo = rollNo;
+}
+
+@Override
+public int toString() { //this method is not override becoz of retun type super class contain return type is String that why give Full Qualified Name
+    this.rollNo++;
+    return rollNo;
+}
+
+public static void main(String[] args) {
+    Student s = new Student("Rahul", 101);
+    System.out.println(s);
+
+}
+}
+
+
+Output :
+
+Feb_14_2024_LabCodeTest.Student@4517d9a3
+
+
+
+
+-----------------------------------------------------------------------------------------------
+
+final class Test
+{
+private int data = 100;
+
+public void setData(int data)
+{
+    this.data = data;
+    System.out.println("Data value is :"+data);
+}
+}
+public class FinalClassEx1
+{
+public static void main(String[] args)
+{
+Test t1 = new Test();
+t1.setData(200);
+}
+}
+
+Output : in the final Class we can modefied the data don't think properties and behaviour also final
+	
+Data value is :200
+
+
+-----------------------------------------------------------------------------------------------
+
+
+class A {
+}
+
+public class Test extends A {
+public static void main(String[] args) {
+
+    String s = "java";
+    Test t = new Test();
+    A a = new Test(); // Up-Casting now Test object belong the A Class
+
+    if (s instanceof String)
+        System.out.println("Yes");
+    else
+        System.out.println("No");
+
+    if (t instanceof Test)
+        System.out.println("Yes");
+    else
+        System.out.println("No");
+
+    if (a instanceof Test)
+        System.out.println("Yes");
+    else
+        System.out.println("No");
+
+    if (a instanceof A)
+        System.out.println("Yes");
+    else
+        System.out.println("No");
+}
+}
+
+Output : Up-Casting now Test object belong the A Class
+	
+	Yes
+	Yes
+	Yes
+	Yes
+
+-----------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+abstract class Alphabates {
+public abstract Alphabates checkupper(char c);
+}
+
+class A extends Alphabates {
+
+@Override
+public Alphabates checkupper(char c) {
+    if (c >= 'A' && c <= 'Z')
+        System.out.println("Upper_case");
+    else
+        System.out.println("Lower_case");
+    return new Alphabates();
+}
+}
+
+class B extends Alphabates {
+
+@Override
+public Alphabates checkupper(char c) {
+    if (c >= 'A' && c <= 'Z')
+        System.out.println("Upper_case");
+    else
+        System.out.println("Lower_case");
+    return new B();
+}
+}
+
+public class Test {
+public static void main(String[] args) {
+A a = new A();
+B b = new B();
+a.checkupper('A');
+b.checkupper('B');
+}
+}
+
+Output : 
+
+Error: Unresolved compilation problem: 
+	Cannot instantiate the type Alphabates
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+abstract class Alphabates {
+public abstract Alphabates checkupper(char c);
+}
+
+class A extends Alphabates {
+
+@Override
+public Alphabates checkupper(char c) {
+    if (c >= 'A' && c <= 'Z')
+        System.out.println("Upper_case");
+    else
+        System.out.println("Lower_case");
+    return new A(); // return Own class name
+}
+}
+
+class B extends Alphabates {
+
+@Override
+public Alphabates checkupper(char c) {
+    if (c >= 'A' && c <= 'Z')
+        System.out.println("Upper_case");
+    else
+        System.out.println("Lower_case");
+    return new B();  // return Own class name
+}
+}
+
+public class Test {
+public static void main(String[] args) {
+A a = new A();
+B b = new B();
+a.checkupper('A');
+b.checkupper('B');
+}
+}
+
+
+Output :
+
+("Upper_case");
+("Upper_case");
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+abstract class Alphabates {
+public abstract Alphabates checkupper(char c);
+}
+
+class A extends Alphabates {
+
+@Override
+public A checkupper(char c) {
+    if (c >= 'A' && c <= 'Z')
+        System.out.println("Upper_case");
+    else
+        System.out.println("Lower_case");
+    return new A(); // return Own class name
+}
+}
+
+class B extends Alphabates {
+
+@Override
+public B checkupper(char c) {
+    if (c >= 'A' && c <= 'Z')
+        System.out.println("Upper_case");
+    else
+        System.out.println("Lower_case");
+    return new B();  // return Own class name
+}
+}
+
+public class Test {
+public static void main(String[] args) {
+A a = new A();
+B b = new B();
+a.checkupper('A');
+b.checkupper('B');
+}
+}
+
+Output : 
+
+Upper Case
+Upper Case
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+public class Test {
+final int a;
+int b = 20;
+
+void m1() {
+    a = 10;
+    m2();
+}
+
+void m2() {
+    this.a = 50;
+}
+
+public static void main(String[] args) {
+    Test t = new Test();
+    t.m1();
+    System.out.println(t.a + t.b);
+}
+}
+
+Output : This is blank Final variable its only on initalize paramerter, non-parametr Constructor and instance Block not instance 
+	  method and default Constructor and static block and Static method can't  initalize the Blank final
+
+Compile time Error
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+abstract class Shape {
+abstract void draw();
+}
+
+class Circle extends Shape {
+void draw() {
+System.out.println("Drawing a Circl");
+}
+
+void calculateArea() {
+    System.out.println("Calculating Circle Area");
+}
+}
+
+class Square extends Shape {
+void draw() {
+System.out.println("Drawing a Square");
+}
+
+void calculateArea() {
+    System.out.println("Calculating Square Area");
+}
+}
+
+public class Test{
+public static void main(String [] args){
+Shape shape1 = new Circle();// Up-Csting
+Shape shape2 = new Square();// Up-Csting
+
+((Circle) shape1).calculateArea();// here is perfrm type castings for converting the object type
+((Square) shape2).calculateArea();// here is perfrm type castings for converting the object type
+
+}
+}
+
+
+Output :
+
+Calculating Circle Area
+Calculating Square Area
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Choose correct one
+
+Suppose A class is an abstract class and Sub class B is a concrete class and
+both have no parameterized constructor.Which of the following is correct ?
+
+Output :
+
+A) A a = new B();
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Choose correct one.
+
+public abstract Status {
+
+/* insert code here */ int MY_VALUE = 10;
+
+}
+
+Which are valid on line 2?
+A. final
+B. static
+C. native
+D. public
+E. private
+F. abstract
+
+Output :
+
+i. A, B, D and E
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+abstract class Fitness{
+private int time=30;
+
+public int getTime() {
+    return time;
+}
+
+private abstract void workout(); 
+}
+class Gym extends Fitness{
+public void workout() {
+System.out.println("workout time :"+getTime()+" min");
+}
+}
+public class Test {
+public static void main(String[] args) {
+	
+//Fitness f1 = new Fitness(); we cannot create the object of abstract class
+
+Fitness f1 = new Gym();	//upCating
+System.out.println(f1.getTime());
+
+Fitness f2 = new Gym();	//upCating
+//System.out.println(f2.workout());// here is Comes the Error
+
+Gym g = new Gym();// normal
+g.workout();
+}
+}
+
+
+Output : if we we upcasting and Create the sub Class of Object the program compile but we are calling the private method
+	 invoke the error method is not vissiable
+
+30
+workout time :30 min
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+abstract class C1 {
+public C1() {
+System.out.print(1);
+}
+}
+
+class C2 extends C1 {
+public C2() {
+System.out.print(2);
+}
+}
+
+class C3 extends C2 {
+public C3() {
+System.out.println(3);
+}
+}
+
+public class Test {
+
+public final static void main(String[] a) {
+    new C3();
+}
+}
+
+Output: 
+123
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+public record Person() {
+		static String name;
+		public static void main(String[] args) {
+		Person p=new Person();
+		System.out.println(p);
+		}
+		}
+
+Output : becozof Inside the Record Class we can't write the instance variable
+
+Error 
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+public record Person() {
+		String name;
+		public static void main(String[] args) {
+		Person p=new Person();
+		System.out.println(p);
+		}
+		}
+
+Output :
+
+Person[]
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+public record Person() {
+		String name;
+		public static void main(String[] args) {
+		Person p=new Person("Aman");
+		System.out.println(p);
+		}
+		}
+
+Output :
+
+Person[Aman]
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+	public record Person(String name1,int num) {
+		static String name;
+		public Person{//Component Constructor
+		name = name1;
+		}
+		public static void main(String[] args) {
+		Person p=new Person("Antriksh",12);
+		System.out.println(p);
+		}
+		}
+
+Output :
+
+Person[name1=Antriksh, num=12]
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+abstract class Base {
+int x = 9, y = 8;
+
+void show() {
+    System.out.println("x "+x);
+    System.out.println("y "+y);
+}
+
+abstract void display();
+}
+
+public class child extends Base {
+void set(int x, int y) {
+this.x = x; // on this class we cannot initalize the any instance or ststic variable that why its initalise the super class variable
+super.y = y;
+System.out.println("x " + x);
+System.out.println("y " + y);
+
+}
+
+void display() {
+    System.out.println("display");
+
+}
+
+public static void main(String args[]) {
+    child c1 = new child();
+    c1.set(10, 20);
+    c1.show();
+    c1.display();
+}
+}
+
+Output 
+
+x 10
+y 20
+x 10
+y 20
+display
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+abstract class Base {
+int x = 9, y = 8;
+
+void show() {
+    System.out.println("x "+x);
+    System.out.println("y "+y);
+}
+
+abstract void display();
+}
+
+public class child extends Base {
+int x; // we initalized  the intance variable 
+void set(int x, int y) {
+this.x = x;
+super.y = y;
+System.out.println("x " + x);
+System.out.println("y " + y);
+
+}
+
+void display() {
+    System.out.println("display");
+
+}
+
+public static void main(String args[]) {
+    child c1 = new child();
+    c1.set(10, 20);
+    c1.show();
+    c1.display();
+}
+}
+
+Output 
+
+x 10
+y 20
+x 9
+y 20
+display
+---------------------------------------------------------------------------------------------------------------------------------------------
+abstract class Food {
+{
+System.out.println(“Food”);
+}
+}
+
+abstract class Launch extends Food {
+{
+System.out.println(“Launch”);
+}
+}
+
+class Biriyani extends Launch {
+{
+System.out.println(“Biriyani”);
+}
+}
+
+public class Test {
+public static void main(String[] args) {
+Biriyani b = new Biriyani();
+}
+}
+
+Output: here invoke default Constructor inside the default Constructor invoke the Super keyWord That way all Classes Will implemet
+
+Food
+Launch
+Biriyani
+Feb_14_2024_LabCodeTest.Biriyani@28a418fc
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,206 @@
+Write a Java program to find and print all the leader elements in an integer array.
+       A leader element is defined as an element that is greater than all the elements to its right in the array.
+       For example, if the input array is {1, 2, 3, 23, 6, 15, 14, 19}.
+       the output should be 23, 15, 19 as these elements are greater than all the elements to their right.
+
+
+----------------------------------------------------------------------------------------------------------------------------
+Write a Java program to remove duplicate elements from an array and return a new array containing only the unique elements using a method. 
+
+    Assume that the original array contains integers. For example, if the input array is {1, 2, 3, 1, 2, 1, 4}, the program should return a new array {1, 2, 3, 4}.
+
+
+
+    Your task is to implement the method removeDuplicates(int[] arr) that takes an array of integers arr as input and returns a new array with duplicate elements removed.
+
+    Make sure to provide the complete Java program with the method implementation.
+-----------------------------------------------------------------------------------------------------------
+  Write a java program which will implements sum(int arr[]) method and will return sum of second max and second smallest element of array.
+       Example : {1,2,1,1,3,4,5,4,5,5};
+       Output : 6  (beacause second max is = 4 && second smallest is = 2 and the addition is = 6)
+
+ --------------------------------------------------------------------------------------------------------------------------------   
+ 
+    Create a Java program consisting of two classes: Student and StudentMain.
+
+       Student Class:
+
+       Define a class named Student with the following instance variables:
+       sName: representing the name of the student (String).
+       sAddress: representing the address of the student (String).
+       rollNo: representing the roll number of the student (int).
+       age: representing the age of the student (int).
+       Implement a constructor Student(String sName, String sAddress, int rollNo, int age) to initialize the instance variables.
+       Provide getter and setter methods for each instance variable to facilitate access and modification.
+       Override the toString() method to return a string representation of the Student object.
+       StudentMain Class:
+
+       Define a class named StudentMain with a main method as the program's entry point.
+       Inside the main method, prompt the user to input the number of Student objects to create.
+       Create an array student[] of Student objects based on the user input.
+       Prompt the user to input details (roll number, name, age, and address) for each student and populate the student[] array.
+       Create another array result[] to store Student objects meeting specific criteria (age >= 18 and address is "Hyderabad").
+       Iterate through the student[] array and filter out Student objects meeting the criteria, storing them in the result[] array.
+       Display the filtered Student objects stored in the result[] array to the user as the program's output.
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+     Write a Java program that finds and prints the second largest element in an integer array. 
+       Given an array of integers, the program should identify and output the second largest element present in the array. 
+       For example, if the input array is {10, 1, 2, 10, 10, 9, 10, 10}, the output should be 9, as it is the second largest element in the array, after 10.
+
+---------------------------------------------------------------------------------------------------------------------------------------
+Write a java program which will Implement a Java method, incrementLargeInteger(int[] digits), 
+       that takes the array of digits as input and returns a new array representing the large integer incremented by one. 
+
+       Example 1:
+       Input: digits = [1,2,3]
+       Output: [1,2,4]
+       Explanation: The array represents the integer 123. Incrementing by one gives 123 + 1 = 124. Thus, the result should be [1,2,4].
+
+       Example 2:
+       Input: digits = [4,3,2,1]
+       Output: [4,3,2,2]
+       Explanation: The array represents the integer 4321. Incrementing by one gives 4321 + 1 = 4322. Thus, the result should be [4,3,2,2].
+
+       Example 3:
+       Input: digits = [9]
+       Output: [1,0]
+       Explanation: The array represents the integer 9. Incrementing by one gives 9+ 1 = 10. Thus, the result 
+
+------------------------------------------------------------------------------------------------------------------
+Write a java program which will implements sorting(int arr[]) method. which will take array as parameter and will return new sorted array in descending order.
+
+--------------------------------------------------------------------------------------------------------------------------
+Write a Java program that demonstrates sorting objects based on a specific attribute using arrays and loops.
+
+       The program should include the following:
+
+       Define a class named Student with the following attributes:
+
+       student_Name (String)
+       student_Id (int)
+       Implement a constructor in the Student class to initialize the attributes.
+
+       Implement getter and setter methods for each attribute in the Student class.
+
+       Override the toString() method in the Student class to provide a string representation of the object.
+
+       Create a Java class named Program02 with a main() method.
+
+       Inside the main() method, create three Student objects with different names and IDs.
+
+       Store these Student objects in an array named students.
+
+       Print out the array of Student objects using Arrays.toString() method.
+
+       Create an integer array named id with the same length as the students array.
+
+       Iterate through the students array and store the IDs of each student in the id array.
+
+       Print out the id array.
+
+       Implement a sorting algorithm to sort the id array in ascending order.
+
+       Print out the sorted id array.
+
+       Run and test the program to ensure it sorts the IDs of the students correctly.
+
+       Add comments to explain the functionality of each part of the code.
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+       Instance variables:-
+       ----------------------
+       private String name;
+       private int id;
+       private String company_name;
+       private double  Salary;
+
+       Construct parameterise constructor to initialise instance variable as given above.
+
+       Generate Setter and Getter for the variables and Override to String Method.
+
+       Create another class MainEmployee which contains main method to test your code.
+       Create Some Employee Objects here.
+       Create an array of type Employee which is having Employee Object.
+       Create another String array this array is storing Employee name if the salary of the employee is greater then 30000
+       and companyname is TCS the add the employee name into the array.
+       Now print the Employee's name.
+
+       Input:-
+       Ravi 101 Wipro 35000
+       Prashant 102 TCS 40000
+       Juber 103 Wipro 38000
+       Rehman 104 TCS 33000
+       Shankar 105 TCS 28000
+
+       Output:-
+       Prashant
+       Rehman
+---------------------------------------------------------------------------------------------------------------------------------
+ Write a Java program that finds and prints all groups of four elements in an integer array whose sum equals a given target number. 
+       Given an array of integers and a target sum, the program should identify and output all combinations of four elements from the array whose sum is equal to the given target.
+       For example, if the input array is {10, 20, 30, 40, 1, 2} and the target sum is 53.
+       the output should be:
+       Groups of four elements whose sum is 53:
+       [10, 40, 1, 2]
+       [20, 30, 1, 2]
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+ Write a Java program to rotate an array by a given number of times. The program should take an integer array and the number of rotations as input, and then rotate the array accordingly.
+       For example:
+       If the input array is {1, 2, 3, 4, 5} and the given number of rotations is 1, the output should be {5, 1, 2, 3, 4}.
+       If the input array is {1, 2, 3, 4, 5} and the given number of rotations is 2, the output should be {4, 5, 1, 2, 3}.
+      
+----------------------------------------------------------------------------------------------------------------------------------------
+
+ Write a java program which will implements sorting(int arr[]) method. which will take array as parameter and will return new sorted array in ascending order.
+
+
+
+ 
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

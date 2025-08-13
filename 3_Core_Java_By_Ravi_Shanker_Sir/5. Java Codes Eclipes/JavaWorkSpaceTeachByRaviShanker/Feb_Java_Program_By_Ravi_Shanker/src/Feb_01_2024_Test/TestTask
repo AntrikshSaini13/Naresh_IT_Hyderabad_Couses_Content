@@ -1,0 +1,74 @@
+Question-1
+You are developing a Shape class in Java to handle various geometric shapes, including rectangles, circles, 
+and triangles. The class should include a method named calculateArea that is overloaded to compute the area for each shape.
+
+
+
+Rectangle Area Calculation:
+
+
+
+Implement the calculateArea method to handle rectangles. This version should take two parameters - length and width - 
+and return the area of the rectangle.
+
+Circle Area Calculation:
+
+
+
+Overload the calculateArea method to handle circles. This version should take one parameter - the radius - and
+ return the area of the circle.
+
+Triangle Area Calculation:
+
+
+
+Further overload the calculateArea method to handle triangles. This version should take two parameters - 
+base and height - and return the area of the triangle.
+
+Explain how method overloading in the Shape class simplifies the usage of the calculateArea method for users 
+dealing with different shapes. Discuss the advantages of using method overloading in this context, including code readability, 
+ease of use, and the ability to accommodate various geometric shapes seamlessly.
+
+Question-2
+
+You are developing a multimedia player, and your task is to implement a playMedia method. The goal is to utilize method overloading to 
+support playing different types of media, including audio files, video files, and streaming services. Each type of media may have varying parameters.
+
+
+
+Explanation:
+
+
+
+Audio Files:
+
+
+
+For playing audio files, create a version of the playMedia method that accepts parameters such as the file path, volume level, and possibly equalizer settings.
+
+This version of the method focuses on the specific needs related to audio playback, allowing users to customize aspects like volume and audio enhancements.
+
+Video Files:
+
+
+
+To handle video files, another version of the playMedia method can be created. This version might take parameters such as the video file path, playback speed, screen size, 
+and audio settings.
+
+Video playback often requires additional configurations compared to audio, such as screen-related settings and video-specific controls like playback speed.
+
+Streaming Services:
+
+
+
+For streaming services, method overloading can be used to create a version of playMedia that accepts parameters related to the streaming source, quality settings, 
+and potentially authentication details.
+
+Streaming services may involve additional considerations such as network connectivity, buffering, and security, which can be encapsulated in this version of the method.
+
+In summary, by utilizing method overloading, the playMedia method is structured to handle different types of media with varying parameters. Each version caters to the 
+specific requirements of its media type, promoting a modular and organized approach to multimedia playback in the player.
+
+
+
+

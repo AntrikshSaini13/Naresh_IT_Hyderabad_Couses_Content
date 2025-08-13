@@ -1,0 +1,77 @@
+Question-1
+
+Write a Java program to read a username and password from the user and check whether 
+they are valid or not using lambda expression and functional interface.  
+think and create your own interface,class and method required for this program.
+NOTE : use equals() method to comapare username and password.
+
+Question-2
+
+Write a java program to print N natural number using Consumer funtional interface.  
+Example : input number = 7
+Output : 1 2 3 4 5 6 7
+
+Question-3
+
+you are tasked with developing a simple calculator program in Java that allows users to 
+perform basic arithmetic operations on two integers. 
+However, you want to design the program in a way that promotes loose coupling and 
+flexibility, allowing for easy extension with additional arithmetic operations in the future.
+
+Creating the Operation Functional Interface:
+You create a functional interface named Operation with an abstract method performOperation
+(int a, int b). 
+This interface will serve as the blueprint for defining arithmetic operations.
+
+Implementing the Calculator Class:
+Next, you implement the Calculator class, which will perform arithmetic operations. 
+It contains a method named operate that takes two integers and an Operation functional 
+interface as arguments.
+Inside this method, it invokes the performOperation method of the functional interface 
+to execute the arithmetic operation.
+
+Create Main Class(ELC):
+In the Main class, you define the main method to serve as the entry point of the program. 
+Here, you'll instantiate the Calculator class and perform arithmetic operations using 
+different operations defined by lambda expressions.
+Defining Arithmetic Operations using Lambda Expressions:
+Using lambda expressions, you define different arithmetic operations 
+(addition, subtraction, multiplication, division) 
+as instances of the Operation functional interface.
+Each lambda expression represents a specific arithmetic operation.
+Perform Arithmetic Operations:
+Use the operate method of the Calculator class to perform arithmetic operations 
+by passing integers and the appropriate lambda expression representing the operation.
+Output Results:
+Print the results of each arithmetic operation performed by the Calculator class.
+
+Question-4
+
+Create two user-defined functional interfaces:
+
+    Operation Interface:
+    A functional interface with the method perform(int a, int b) that returns an int.
+    The perform method should implement complex mathematical operations based on conditions.
+    Conditions:
+    If both a and b are greater than 0, return the sum of the squares of a and b.
+    If the above condition is not met, return the sum of a and b.
+
+    Greeting Interface:
+    A functional interface with the method greet(String name, int age) that returns void.
+    The greet method should implement intricate logic based on age and name length.
+    Conditions:
+    If the age is 18 or older, print a greeting indicating that the person is an adult.
+    If the length of the name is greater than 5 and the age is less than 18, print a greeting 
+    indicating that the person has a long name and is not an adult yet.
+    If none of the above conditions are met, print a suitable greeting.
+
+    In the main method:
+    Use an anonymous inner class to create an instance of the Operation interface with the 
+    implemented complex mathematical operations.
+    Use another anonymous inner class to create an instance of the Greeting interface with the 
+    implemented intricate logic based on age and name length.
+    Execute the complex mathematical operation with sample values (e.g., a = 4, b = 3) and 
+    print the result.
+    Execute the complex greeting logic with sample age and name values (e.g., age = 38, name = 
+    "Virat") and print the personalized message.
+

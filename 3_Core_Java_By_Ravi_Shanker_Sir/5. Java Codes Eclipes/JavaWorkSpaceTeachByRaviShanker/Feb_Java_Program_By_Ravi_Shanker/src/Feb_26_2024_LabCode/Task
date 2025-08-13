@@ -1,0 +1,960 @@
+Q1) Find the output of the following program
+
+interface A
+ {
+ public void innerMeth();
+ }
+public class Test2 
+{
+    A a;
+    int memVar = 1;
+    void aMethod()
+    {
+       a = new A()
+       {
+          public void innerMeth(){
+          	System.out.println(memVar);
+       } 
+   };
+}
+ public static void main(String[] args)
+{
+             Test2 t = new Test2();
+             t.a.innerMeth();
+	     t.aMethod();
+			 
+      }
+}
+
+Error : Exception in thread "main" java.lang.NullPointerException: Cannot invoke "Feb_26_2024_LabCode.A.innerMeth()" because "t.a" is null
+	at Feb_26_2024_LabCode.Test2.main(Test2.java:21)
+-------------------------------------------------------------------------
+Q2) Find the output of the following program
+
+class Base
+{
+    int value=0;//   10  40  50  80
+    Base(){
+    	System.out.println("Super C-1");
+    	addValue();
+    }
+    void addValue(){
+    	System.err.println("method-1");
+        value += 10;  
+    }
+    int getValue(){
+    return value;
+   }
+ }
+class Derived extends Base{
+	Derived(){
+		System.out.println("sub C-2");
+        addValue();
+    }
+	void addValue(){
+		System.out.println("method-2");
+		super.addValue();
+		value +=  30;  
+    }
+}
+public class Test5 {
+  public static void main(String[] args){
+      Base b = new Derived();		  
+      System.out.println(b.getValue());
+  }
+}
+
+output = 80
+------------------------------------------------------------------------
+Q3) Find the output of the following program
+
+package Feb_26_2024_LabCode;
+
+class Base{
+	static  int value = 0;//10   30
+      Base(){
+      addValue();
+      }
+    static void addValue(){
+      value += 10;
+     }
+     int getValue(){
+       return value;
+     }
+ }
+class Derived extends Base{
+    Derived(){
+    addValue();
+    }
+    static void addValue(){
+       value +=  20; //30
+    }
+}
+public class Test6 {
+    public static void main(String[] args){
+        Base b = new Derived();
+        System.out.println(b.getValue());
+    }
+  }
+
+Output : 30
+ -----------------------------------------------------------------------
+Q4) Find the output of the following program
+
+interface ITest
+{
+     public void setVal();
+}
+public class Test7  
+{
+    private String a;
+    void aMethod()
+	{
+	    final String b="World";
+	    ITest it = new ITest() {
+	        public void setVal(){
+	          a = "Hello";               
+	        }
+		};
+	    it.setVal();
+	    System.out.println(a + b);
+    }
+    public static void main(String[] args)
+    {
+    Test7 t = new Test7();
+    t.aMethod();
+    }
+}
+
+Output : HelloWorld
+------------------------------------------------------------------------
+Q5) Find the output of the following program
+
+interface ITest
+{
+    public void setVal();
+}
+public class Test9 {
+	 private String a;
+	 void aMethod(){
+	 final String b = " World";
+	 ITest it = new ITest() {
+             public void setVal(){
+            	 a = "Hello" + b;
+             }
+     };
+     it.setVal();
+     System.out.println(a);
+	 }
+     public static void main(String[] args) {
+     Test9 t = new Test9();
+     t.aMethod();
+     }
+}
+
+Hello World
+-----------------------------------------------------------------------
+Q6) Find the output of the following program
+
+abstract class Test10
+{  
+	private void doSomething() 
+		{  
+		System.out.println("A");  
+		}  
+	public static void main(String [] args)
+	{  
+		Test10 a = new B();  
+		a.doSomething();  
+	}  
+} 
+
+class B extends Test10 
+{  
+protected void doSomething()
+	{  
+		System.out.println("B");  
+	}  
+} 
+
+Error: Could not find or load main class Feb_26_2024_LabCode.Test9
+Caused by: java.lang.ClassNotFoundException: Feb_26_2024_LabCode.Test9 
+-----------------------------------------------------------------------
+Q7) Find the output of the following program
+public class A
+{
+	static public void main (String[] args) 
+	{
+		A a1 = new B();
+		a1.foo();
+	}
+	void foo()
+	{
+		System.out.println("A");
+	}
+}
+class B extends A 
+{
+	void foo()
+	{
+		System.out.println("B"); 
+	}
+} 
+
+Error: Could not find or load main class Feb_26_2024_LabCode.Test9
+Caused by: java.lang.ClassNotFoundException: Feb_26_2024_LabCode.Test9
+-----------------------------------------------------------------------
+Q8) Find the output of the following program
+class A 
+{
+static void foo()
+{
+System.out.println("A");
+}
+}
+
+class B extends A
+{
+static int foo()     //here is comes Error
+{
+System.out.println("B");
+return 1;
+}
+}
+
+
+Output : Error
+-----------------------------------------------------------------------
+Q9) Find the output of the following program
+class A 
+{
+static void foo() 
+{ 
+System.out.println("A");
+}
+}
+
+class B extends A 
+{
+static void foo() 
+{ 
+System.out.println("B");
+}
+}	
+
+public class Test14 
+{
+public static void main(String[] args) 
+{
+A obja;
+B objb = new B();
+objb.foo();
+obja = objb;
+obja.foo();
+}
+}
+
+output : A here is method hiding
+	 A
+------------------------------------------------------------------------
+Q10) Find the output of the following program
+
+class A 
+{
+void foo() 
+{
+System.out.println("A");
+}
+}
+
+class B extends A 
+{
+void foo() 
+{
+System.out.println("B");
+}
+}	
+
+class Test15
+{
+public static void main(String[] args)
+{
+A obja;
+B objb = new B();
+objb.foo();
+obja = objb;
+obja.foo();
+}
+}
+
+Output : B Method Overriding
+	 B 
+-----------------------------------------------------------------------
+Q11) Find the output of the following program
+
+public class Test18
+{
+ public static void main(String[] args)
+{
+    B b = new C();
+    A a = b;
+    if (a instanceof A) System.out.println("A");
+    if (a instanceof B) System.out.println("B");
+    if (a instanceof C) System.out.println("C");
+    if (a instanceof D) System.out.println("D");
+  }
+}
+
+class A {}
+class B extends A {}
+class C extends B {}
+class D extends C {}
+
+Output : A here is instance operator check based on Type of class reference match with class is ture other wise false
+	B
+	C
+-----------------------------------------------------------------------
+Q12) Find the output of the following program
+public class Test19 extends Singer
+ {
+  public static String sing() 
+  {
+    return "fa";
+  }
+
+  public static void main(String[] args) 
+  {
+    Test19 t = new Test19();
+    Singer s = new Test19();
+    System.out.println(t.sing() + " " + s.sing());
+  }
+}
+
+class Singer {
+  public static String sing() {
+    return "la";
+  }
+}
+
+Output : fa la here is method hiding
+-----------------------------------------------------------------------
+Q13) Find the output of the following program
+class First 
+{
+public Object method1()
+{
+System.out.println("super method1");
+return new String("Base");
+}
+}
+
+class Second extends First 
+{
+public String method1() 
+{
+System.out.println("Subclass method1");
+return new String("Derived");
+}
+}
+
+class Test20
+{
+public static void main(String[] args)
+{
+First f = new Second();
+String s = f.method1(); //here is apply typeCasting then output Comes(String s = (String)f.method1();)
+}
+
+}
+
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	Type mismatch: cannot convert from Object to String
+
+-----------------------------------------------------------------------
+Q14) Find the output of the following program
+
+class A 
+{
+private void printName(){ // error is here because super class access modifier >= sub class thats why
+System.out.println("Value-A");
+}
+}
+class B extends A
+{
+public void printName(){
+System.out.println("Name-B");
+}
+}
+public class Test23
+{
+public static void main (String[] args) 
+{
+A b = new B();
+b.printName();
+}
+}
+------------------------------------------------------------------------
+Q15) Find the output of the following program
+public class Test26
+	{
+public static void main (String args[])
+	{
+ Test26 t1 = new Test26();
+ 
+ if(t1 instanceof Object)
+ {
+ System.out.println("equal");
+ }
+ else
+ {
+ System.out.println("Not equal");
+ }
+ }
+ }
+
+Output : equal 
+ 
+------------------------------------------------------------------------
+Q16) Find the output of the following program
+class A 
+{
+public void printValue()
+{
+System.out.println("Value-A");
+}
+}
+class B extends A
+{
+public void printNameB()
+{
+System.out.println("Name-B");
+}
+}
+class C extends A
+{
+public void printNameC()
+{
+System.out.println("Name-C");
+}
+}
+ public class Test27
+{
+ public static void main (String[] args) 
+{
+ B b = new B();
+ C c = new C();
+ newPrint(b);
+ newPrint(c);
+ }
+ public static void newPrint(A a) // here come the reference of B class & C class
+{
+ a.printValue();
+ }
+ }
+
+Ouput : Value-A
+	Value-A
+
+ -----------------------------------------------------------------------
+Q17) Find the output of the following program
+
+class A1 
+{
+public void printName()
+{
+System.out.println("Value-A");
+}
+}
+class B1 extends A1
+{
+public void printName()
+{
+System.out.println("Name-B");
+}
+}
+public class Test28
+{
+public static void main (String[] args)
+{
+A1 b = new B1();
+newPrint(b);
+}
+public static void newPrint(A1 a)
+{
+a.printName();
+}
+}
+
+Output : Name-B 
+----------------------------------------------------------------------
+Q18) Find the output of the following program
+
+class A 
+{
+public void printName()
+{
+System.out.println("Value-A");
+}
+}
+class B extends A
+{
+public void printName()
+{
+System.out.println("Name-B");
+}
+}
+class C extends A
+{
+public void printName()
+{
+System.out.println("Name-C");
+}
+}
+public class Test29
+{
+public static void main (String[] args) {
+A b = new B();
+C c = new C();
+b = c;
+newPrint(b);
+}
+public static void newPrint(A a){
+a.printName();
+}
+}
+
+Output : Name-C
+------------------------------------------------------------------------
+Q19) Find the output of the following program
+
+class A 
+{
+public void printName()
+{
+System.out.println("Value-A");
+}
+}
+class B extends A
+{
+public void printName()
+{
+System.out.println("Name-B");
+}
+}
+class C extends A
+{
+public void printName()
+{
+System.out.println("Name-C");
+}
+}
+public class Test30
+{
+public static void main (String[] args) 
+{
+B b = new B();
+C c = new C();
+b = c;
+newPrint(b);
+}
+public static void newPrint(A a)
+{
+a.printName();
+ }
+ }
+
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	Type mismatch: cannot convert from C to B
+-----------------------------------------------------------------------
+Q20) Find the output of the following program
+
+// Apply here Co-Variant 
+class C 
+{
+}
+class D extends C
+{
+}
+class A
+{
+public C getOBJ()
+{
+System.out.println("class A - return C");
+return new C();
+}
+}
+class B extends A
+{
+public D getOBJ()
+{
+System.out.println("class B - return D");
+return new D();
+}
+}
+public class Test31
+{
+public static void main(String... args) 
+{
+     A a = new B();
+     a.getOBJ();
+}
+}
+
+Output : class B - return D
+-----------------------------------------------------------------------
+Q21) Find the output of the following program
+
+
+class A1 
+{
+public void printName()
+{
+System.out.println("Value-A");
+}
+}
+class B1 extends A1
+{
+protected void printName()
+{
+System.out.println("Name-B");
+}
+}
+public class Test33
+{
+public static void main (String[] args)
+{
+A1 b = new B1();
+newPrint(b);
+}
+public static void newPrint(A1 a)
+{
+a.printName();
+}
+}
+
+Output : Name-B
+
+------------------------------------------------------------------------
+Q22) Find the output of the following program
+
+class A 
+{
+private void printName() // Super Access Modifier >= Sub class Access Modifier
+{
+System.out.println("Value-A");
+}
+}
+class B extends A
+{
+public void printName()
+{
+System.out.println("Name-B");
+}
+}
+public class Test35
+{
+public static void main (String[] args) 
+{
+A b = new B();
+b.printName();
+}
+}
+
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	The method printName() from the type A is not visible
+
+------------------------------------------------------------------------
+Q23) Find the output of the following program
+
+class A  
+{
+public  A()
+{
+System.out.println("A");
+}
+public  A(int i)
+{
+this();
+System.out.println(i);
+}
+}
+class B extends A
+{
+public B ()
+{
+System.out.println("B");
+}
+public B (int i)
+{
+this();
+System.out.println(i+3);
+}
+}
+public class Test39
+{
+public static void main (String[] args)
+{
+new B(5);
+}
+}
+
+Output : A
+	 B
+	 8
+
+------------------------------------------------------------------------
+Q24) Find the output of the following program
+
+class A 
+{
+public void printName()
+{
+System.out.println("Name-A");
+}
+}
+class B extends A
+{
+public void printName()
+{
+System.out.println("Name-B");
+}
+public void printValue() 
+{
+System.out.println("Value-B");
+}
+}
+public class Test42
+{
+public static void main (String[] args)
+{
+A a = new A();
+B b = (B)a;  here is perform Down Casting and Error is Come
+b.printName();
+}
+}
+
+Exception in thread "main" java.lang.ClassCastException: class Feb_26_2024_LabCode.A cannot be cast to class Feb_26_2024_LabCode.B (Feb_26_2024_LabCode.A and Feb_26_2024_LabCode.B are in unnamed module of loader 'app')
+	at Feb_26_2024_LabCode.Test42.main(Test42.java:26)
+-----------------------------------------------------------------------
+Q25) Find the output of the following program
+class A 
+{
+public void printName() 
+{
+System.out.println("Name-A");
+}
+}
+class B extends A
+{
+public void printName()
+{
+System.out.println("Name-B");
+}
+public void printValue()
+{
+System.out.println("Value-B");
+}
+}
+public class Test43
+{
+public static void main (String[] args){
+B b = new B();
+A a = (A)b;
+a.printName();
+}
+}
+
+Output : Name-B
+-----------------------------------------------------------------------
+Q26) Find the output of the following program
+
+class A 
+{
+int i;
+public A(int i) // whenever We are declare the paramerterized Constructor inside the Super Class we should Declare inside the Sub Class compulasry
+{
+this.i=i;
+}
+public void printName()
+{
+System.out.println("Name-A");
+}
+}
+class C extends A
+{ 
+	// here is not declare the parameterized constructor
+}
+public class Test47
+{
+public static void main (String[] args)
+{
+A c = new C();
+c.printName();
+}
+}
+
+Output : Error 
+----------------------------------------------------------------------
+Q27) Find the output of the following program
+class A 
+{
+public A(int i)
+{
+System.out.println(i);
+}
+}
+class B extends A
+{
+public B()
+{
+super(6);
+this(); // here is not declare the construcotr of child class first priority of constructor
+}
+}
+public class Test48
+{
+public static void main (String[] args)
+{
+B b = new B();
+}
+}
+
+
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	Constructor call must be the first statement in a constructor
+
+-----------------------------------------------------------------------
+Q28) Find the output of the following program
+class A 
+{
+public A()
+{
+this(8);
+}
+public A(int i)
+{
+this();
+}
+}
+public class Test49
+{
+public static void main (String[] args)
+{
+A a = new A();
+}
+}
+
+Exception in thread "main" java.lang.Error: Unresolved compilation problems: 
+	Recursive constructor invocation A(int)
+	Recursive constructor invocation A()
+------------------------------------------------------------------------
+Q29) Find the output of the following program
+
+class Vehicle {
+    public void printSound() {
+        System.out.print("vehicle");
+    }
+}
+
+class Car extends Vehicle {
+    public void printSound() {
+        System.out.print("car");
+    }
+}
+
+class Bike extends Vehicle {
+    public void printSound() {
+        System.out.print("bike");
+    }
+}
+
+public class Test62 {
+    public static void main(String[] args) {
+        Vehicle v = new Car(); Upcasting
+	//Second s = (Second)new First(); //DownCasting
+        Car c = (Car) v; // Here is  typeCasting apply comes Output
+        
+        v.printSound();
+        c.printSound();
+    }   
+}
+
+Output : Car Car
+
+Output : carcar
+------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

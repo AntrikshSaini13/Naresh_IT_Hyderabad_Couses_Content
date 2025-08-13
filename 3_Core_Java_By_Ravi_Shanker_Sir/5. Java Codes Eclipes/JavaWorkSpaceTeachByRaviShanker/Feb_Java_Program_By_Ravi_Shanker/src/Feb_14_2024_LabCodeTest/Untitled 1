@@ -1,0 +1,378 @@
+Abstract Task Management System
+
+
+
+Create an abstract class named Task with the following attributes and methods:
+
+
+
+Attributes:
+
+
+
+taskName (String): representing the name of the task.
+
+priority (int): indicating the priority level of the task.
+
+Methods:
+
+
+
+completeTask(): abstract method that should return a string indicating the completion status of the task.
+
+displayTaskInfo(): abstract method that should return a string representing task information.
+
+Additionally, implement a common method:
+
+
+
+displayPriority(): a method with a default implementation in the abstract class that returns a string displaying the priority level.
+
+Create a concrete subclass that extends Task:
+
+
+
+Create Class AssignmentTask:
+
+Create an additional attribute dueDate (String) for the assignment deadline.
+
+Initialize the attributes using a parameterized constructor.
+
+Implement the completeTask and displayTaskInfo methods.
+
+
+
+Create Class HomeWorkTask:
+
+Create an additional attribute dueDate (String) for the assignment deadline.
+
+Initialize the attributes using a parameterized constructor.
+
+Implement the completeTask and displayTaskInfo methods.
+
+
+
+In a TaskMain class:
+
+
+
+Create instances of AssignmentTask and HomeWorkTask
+
+Demonstrate the usage of all methods, including the common displayPriority method.
+--------------------------------------------------------------------------------------------
+Create an abstract class named Employee with the following attributes and methods:
+
+
+
+Attributes:
+
+
+
+name (String): representing the name of the employee.
+
+employeeId (int): containing the employee ID.
+
+Methods:
+
+
+
+calculateSalary(): abstract method that should return the salary of the employee.
+
+generatePayStub(): abstract method that should return a string displaying the pay stub.
+
+Additionally, implement a common method:
+
+
+
+displayEmployeeInfo(): a method with a default implementation in the abstract
+ class that returns a string displaying general employee information.
+
+Create a concrete subclass that extends Employee:
+
+
+
+Create Class Supervisor:
+
+Create an additional attribute numberOfSubordinates (int) for the number of 
+subordinates the Supervisor oversees.
+
+Initialize the attributes using a parameterized constructor.
+
+Implement the calculateSalary and generatePayStub methods.
+
+Include a getter method for retrieving the number of subordinates.
+
+
+
+
+
+Create Class Manager:
+
+Create an additional attribute numberOfSubordinates (int) for the number of subordinates the manager oversees.
+
+Initialize the attributes using a parameterized constructor.
+
+Implement the calculateSalary and generatePayStub methods.
+
+Include a getter method for retrieving the number of subordinates.
+
+In an EmployeeMain class:
+
+
+
+Create instances of both Supervisor and Manager.
+
+Demonstrate the usage of all methods, including the common displayEmployeeInfo method.
+
+------------------------------------------------------------------------------------------------
+
+Abstract Task Management System
+
+
+
+Create an abstract class named Task with the following attributes and methods:
+
+
+
+Attributes:
+
+
+
+taskName (String): representing the name of the task.
+
+priority (int): indicating the priority level of the task.
+
+Methods:
+
+
+
+completeTask(): abstract method that should return a string indicating the completion status of the task.
+
+displayTaskInfo(): abstract method that should return a string representing task information.
+
+Additionally, implement a common method:
+
+
+
+displayPriority(): a method with a default implementation in the abstract class that returns a string displaying the priority level.
+
+Create a concrete subclass that extends Task:
+
+
+
+Create Class AssignmentTask:
+
+Create an additional attribute dueDate (String) for the assignment deadline.
+
+Initialize the attributes using a parameterized constructor.
+
+Implement the completeTask and displayTaskInfo methods.
+
+
+
+Create Class HomeWorkTask:
+
+Create an additional attribute dueDate (String) for the assignment deadline.
+
+Initialize the attributes using a parameterized constructor.
+
+Implement the completeTask and displayTaskInfo methods.
+
+
+
+In a TaskMain class:
+
+
+
+Create instances of AssignmentTask and HomeWorkTask
+
+Demonstrate the usage of all methods, including the common displayPriority method.
+
+
+----------------------------------------------------------------------------------------------------------
+Create an abstract class named Employee with the following attributes and methods:
+
+
+
+Attributes:
+
+
+
+name (String): representing the name of the employee.
+
+employeeId (int): containing the employee ID.
+
+Methods:
+
+
+
+calculateSalary(): abstract method that should return the salary of the employee.
+
+generatePayStub(): abstract method that should return a string displaying the pay stub.
+
+Additionally, implement a common method:
+
+
+
+displayEmployeeInfo(): a method with a default implementation in the abstract class that returns a string displaying general employee information.
+
+Create a concrete subclass that extends Employee:
+
+
+
+Create Class Supervisor:
+
+Create an additional attribute numberOfSubordinates (int) for the number of subordinates the Supervisor oversees.
+
+Initialize the attributes using a parameterized constructor.
+
+Implement the calculateSalary and generatePayStub methods.
+
+Include a getter method for retrieving the number of subordinates.
+
+
+
+
+
+Create Class Manager:
+
+Create an additional attribute numberOfSubordinates (int) for the number of subordinates the manager oversees.
+
+Initialize the attributes using a parameterized constructor.
+
+Implement the calculateSalary and generatePayStub methods.
+
+Include a getter method for retrieving the number of subordinates.
+
+In an EmployeeMain class:
+
+
+
+Create instances of both Supervisor and Manager.
+
+Demonstrate the usage of all methods, including the common displayEmployeeInfo method
+---------------------------------------------------------------------------------------------
+Create an abstract class named Animal with the following attributes and methods:
+
+
+
+Attributes:
+
+
+
+name (String): representing the name of the animal.
+
+age (int): indicating the age of the animal.
+
+Methods:
+
+
+
+makeSound(): abstract method that should return a string representing the sound the animal makes.
+
+displayInfo(): abstract method that should return a string representing general information about the animal.
+
+Additionally, implement a common method:
+
+
+
+displayAge(): a method with a default implementation in the abstract class that returns a string displaying the age of the animal.
+
+Create a concrete subclass that extends Animal:
+
+
+
+create class Dog:
+
+Create an additional attribute breed (String) for the dog's breed.
+
+Initialize the attributes using a parameterized constructor.
+
+Implement the makeSound and displayInfo methods.
+
+In an AnimalMain class:
+
+
+
+
+
+create class Cat:
+
+Create an additional attribute breed (String) for the Cat's breed.
+
+Initialize the attributes using a parameterized constructor.
+
+Implement the makeSound and displayInfo methods.
+
+In an AnimalMain class:
+
+
+
+Create instances of both cat and Dog.
+
+Demonstrate the usage of all methods, including the common displayAge method.
+
+
+
+----------------------------------------------------------------------------------------------
+Create an abstract class named Shape with the following attributes and methods:
+
+
+
+Attributes:
+
+
+
+color (String): representing the color of the shape.
+
+area (double): indicating the area of the shape.
+
+Methods:
+
+
+
+calculateArea(): abstract method to calculate the area of the shape.
+
+displayShapeInfo(): abstract method that should return a string representing shape information.
+
+Additionally, implement a common method:
+
+
+
+displayColor(): a method with a default implementation in the abstract class that returns a string displaying the color of the shape.
+
+Create a concrete subclass that extends Shape:
+
+
+
+Circle:
+
+Create an additional attribute radius (double) for the circle's radius.
+
+Initialize the attributes using a parameterized constructor.
+
+Implement the calculateArea and displayShapeInfo methods.
+
+In a ShapeMain class:
+
+
+
+
+
+
+
+Square:
+
+Create an additional attribute side (double) for the square side.
+
+Initialize the attributes using a parameterized constructor.
+
+Implement the calculateArea and displayShapeInfo methods.
+
+In a ShapeMain class:
+
+
+
+Create instances of both Shape and Circle.
+
+Demonstrate the usage of all methods, including the common displayColor method.

@@ -1,0 +1,289 @@
+1.Choose the correct output of the following code?
+
+enum Course
+{
+	Java, python, Spring, Testing
+};
+public class EnumTest {
+	public static void main(String[] args) {
+		for(String nit : Course.values())// here is invoked the error because of enum class type is Course that why come error
+		{
+			System.out.println(c);
+		}
+	}
+}
+A.	Compile time error
+B.	Run time error
+C.	Java
+D.	Java, python, Spring, Testing
+Answer : A
+
+2. What is the output of the following program
+enum Course
+{
+	Java, python, Spring, Testing
+};
+public class EnumTest {
+	public static void main(String[] args) {
+		System.out.println(Course.Java.name());
+	}
+}
+A.	Compile time error
+B.	Run time error
+C.	Java
+D.	Java, python, Spring, Testing
+Answer: C
+
+3.Choose the correct output of the following code?
+enum Course
+{
+	Java, python, Spring, Testing
+};
+public class EnumTest {
+	public static void main(String[] args) {
+		System.out.println(Course.Spring.getClass());
+	}
+}
+A.	It prints name of the enum class
+B.	It returns complete package and including enum class name
+C.	It returns complete package and including EnumTest class that is main class
+D.	It failed to compile
+Answer: B
+
+
+4.What is the output of the following code
+enum Course
+{
+	Java, python, Spring, Testing
+};
+public class EnumTest {
+	public static void main(String[] args) {
+		System.out.println(Course.Spring.ordinal());// there is gives the order of the enum constant
+	}
+}
+A.	0
+B.	1
+C.	2
+D.	3
+Answer: C
+
+
+5.Choose the correct option for the following snippet
+enum Course
+{
+	private Java; // Enum does not allow any modifiers by default its public, static and final
+	public python, Spring, Testing;
+};
+public class EnumTest {
+	public static void main(String[] args) {
+		System.out.println(Course.Spring.name());
+	}
+}
+A.	It compile successful
+B.	Spring
+C.	Java
+D.	It does not compile
+Answer: D
+Enum does not allow any modifiers by default its public, static and final
+
+
+6.Choose the correct option for the following snippet
+class Transfer
+{
+	
+}
+
+enum Money extends Transfer // here is invoking the error because of enum implicitly final we can't extends any class
+{
+	transfer, withdrawl;
+};
+A.	Run time error
+B.	It executes successful
+C.	Enum does not extends class
+D.	Enum extends successful by class but Transfer class must be implement any method
+
+Answer: C
+
+
+7.What is the output of the following code
+enum Course
+{
+	Java, Python;
+	private Course() { //we can writie of constructor with access modifier like private and default
+		System.out.println(25);
+	}
+}
+class EnumTest
+{
+	public static void main(String[] args) {
+		Course nit = new Course(); //we can't create the object because of enum is  its a abstract class
+	}
+}
+A.	Enum instantiate but No output
+B.	Enum cannot be instantiate
+C.	Run time error
+D.	25
+Answer: B
+
+
+8.What is the output of the following code
+enum Course
+{
+	Java, Python;
+	private Course() {
+		System.out.println(25); // constructor is two time of calling because of enum constant are object type if we have four constant than call four time
+	}
+}
+class EnumTest
+{
+	public static void main(String[] args) {
+		Course nit = Course.Java;
+	}
+}
+
+A.25
+B.25 25
+C.Compile time error
+D.Run time error
+Answer: B
+
+
+9.What is the output of the following program?
+enum Movie
+{
+	Pathaan, Sir,Hit, Geme_over, Lost;
+	Movie() {	
+	}
+	public void movieMethod() 
+	{
+		System.out.println(Movie.this);
+	}
+}
+public class EnumTest
+{
+	public static void main(String[] args) {
+		Movie movie[] = Movie.values();
+		movie[2].movieMethod(); here is pass the refernce of array position 2
+	}
+}
+Answer: Hit
+
+
+10.What is the output of the following program
+enum Movie
+{
+	Pathaan, Sir,Hit, Geme_over, Lost;	
+	Movie() {
+	}
+}
+public class EnumTest
+{
+	public static void main(String[] args) {
+		Movie movie[] = Movie.values();// values gives the array of enum 
+		for(Movie mov : movie) 
+		{
+			System.out.println(mov);
+		}
+	}
+}
+Answer : 
+Pathaan
+Sir
+Hit
+Geme_over
+Lost
+
+11.Can You create enum class inside the class Solution 
+public class EnumTest
+{
+	enum Mobile
+	{
+		samsung, motorola, realme, mi, vivo;
+	}
+	public static void main(String[] args) {
+		Mobile samsung = Mobile.samsung;
+		System.out.println(samsung);
+	}
+}
+Output: Samsung
+
+
+12.What is the output of the following program
+public class EnumTest
+{
+	enum Mobile
+	{
+		samsung, motorola, realme, mi, vivo;
+	}
+	public static void main(String[] args) {
+		Mobile samsung = Mobile.samsung;
+		samsung = Mobile.realme;
+		System.out.println(samsung);
+	}
+}
+Answer : realme
+
+
+13.What is the output of the following program
+enum Day {
+    Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+ }
+
+public class EnumTest {
+	   
+	public static void main(String[] args) {
+		System.out.println("today "+Day.Monday);
+		System.out.println(Day.Wednesday+ " is holiday");
+		}
+	}
+Answer: 
+today Monday
+Wednesday is holiday
+
+14.What is the output of the following program
+enum Movie {
+	Pathaan, sir, Hit, Geme_over, Lost;
+	}
+	public class EnumTest {
+	  public static void main(String[] args) {
+	    System.out.println(EnumTest.getMovie("Sir"));
+	  }
+	  public static Movie getMovie(String s) {
+	    return Enum.valueOf(Movie.class, s.toLowerCase());// in the valueof() method we pass two parameter first is class name and second is name of enum constants
+	  }
+	  public static Movie getMovie(int n){
+	    return Movie.values()[n];
+	  }
+	}
+Answer: sir
+
+
+15.What is the output of the following program
+enum Designation
+{
+	Developer, Tester, Manager, TEAM_LEADER; 
+}
+public class EnumTest
+{
+	public static void main(String[] args) {
+		Designation designation = Designation.Manager;
+		switch (designation) {
+		case Developer:
+			System.out.println("Developer");
+			break;
+		case Tester:
+			System.out.println("Tester");
+			break;
+		case Manager:
+			System.out.println("Manager");
+			break;
+		case TEAM_LEADER:
+			System.out.println("TEAM_LEADER");
+			break;
+		default:
+			break;
+		}
+	}
+}
+Answer:
+Manager

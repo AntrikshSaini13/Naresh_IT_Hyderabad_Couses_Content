@@ -1,0 +1,50 @@
+ Program 01 
+ ----------
+ Program to describe Coffee shop application where we can provide coffee type and coffee size.
+
+       Define an enum for different types of coffee constant like cold coffee, Black coffee, milk coffee.
+
+       Define an enum for different sizes of coffee like Small, Big and medium.
+
+       Create one BLC class CoffeeOrder which contains two instance variables which are as follows :
+
+        private CoffeeType type;
+        private CoffeeSize size;
+      
+       Create a parameterized constructor to initialize all fields.
+      
+       create a non static method getOrderDetails which will return 
+       the type of coffee and size of coffee in String format.
+
+       Create an ELC class to print different types of Coffee order by customer using getOrderDetails() methods.
+
+Program - 02
+------------
+ You're tasked with implementing a shopping application in Java for an online clothing store. 
+       The application should allow customers to place orders for clothing items, such as shirts and pants, in different sizes (long and medium). 
+       The prices for each combination of product type and size are predefined.
+
+       Based on this scenario, your task is to design and implement the Shopping class in Java. Here are the specific requirements:
+
+       Define enums for product types (Product) and sizes (Size). Product types include "Shirt" and "Pant", while sizes include "LongSize" and "MediumSize".
+
+       Create a Shopping(BLC) class with the following instance variables:
+
+       private Product productType
+       private Size dressSize
+       private double totalPrice
+       Implement a parameterized constructor in the Shopping class that takes Product and Size as parameters.
+       This constructor should initialize the instance variables and call a method named setPrice() to determine and set the total price based on the product type and size.
+
+       Implement the setPrice() method in the Shopping class. This method should set the total price according to the following conditions:
+
+       If the product type is a shirt and the size is long, set the total price to 1000.00.
+       If the product type is a shirt and the size is medium, set the total price to 900.00.
+       If the product type is a pant and the size is long, set the total price to 1200.00.
+       If the product type is a pant and the size is medium, set the total price to 1100.00.
+       If none of the above conditions match, set the total price to 0.00.
+       Implement a method named book() in the Shopping class. This method should return a String representing the booking details. 
+       If the total price is 0.00, the method should return "Invalid type". Otherwise, it should return a string in the format 
+       "Long shirt is booked and the price is = 1000" or "Long pant is booked and the price is = 1200", depending on the product type and size.
+
+       Now create Test(ELC) class and test the application.

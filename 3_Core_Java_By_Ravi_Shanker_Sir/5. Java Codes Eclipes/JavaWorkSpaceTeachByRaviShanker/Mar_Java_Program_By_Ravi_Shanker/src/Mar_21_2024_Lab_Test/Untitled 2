@@ -1,0 +1,122 @@
+ Write a Java program that reads the contents of a text file named 
+ "file.txt" and prints each line to the console. 
+ The program should use Scanner to read the file line by line. 
+ If any IOException occurs during the process, it should print the 
+ stack trace of the exception.
+ -----------------------------------------------------------------------
+ Write a Java program that checks if a file named "file.txt" exists in the current 
+ directory. 
+
+    If the file exists, print "File or directory exists." 
+
+    If the file does not exist, print "File or directory does not exist." 
+
+    After that, attempt to delete the file. If the file is deleted successfully, 
+    print "File deleted successfully." 
+
+    If the file deletion fails, print "Failed to delete the file."
+
+------------------------------------------------------------------------------------------
+Java Program with BufferedInputStream and Custom Exception Handling
+
+
+
+    You are tasked with developing a Java program that reads data from a file using 
+    BufferedInputStream and includes custom exception handling to manage potential 
+    errors during the file reading process.
+
+
+
+    Define a custom exception class named FileReadException to handle errors that may 
+    occur during file reading operations. This class should extend the Exception class 
+    and include a constructor that accepts a String parameter for the error message.
+
+    
+
+    Implement a method named readFile in the BufferedInputStreamExample class. This method 
+    should:
+
+    Accept a String parameter fileName representing the name of the file to be read.
+
+    Use a BufferedInputStream to read data from the specified file.
+
+    Print the content of the file to the console.
+
+    Handle any potential IOException by throwing a FileReadException with an appropriate 
+    error message.
+
+
+
+    Write the main method in the BufferedInputStreamExample class to:
+
+    Create an instance of the BufferedInputStreamExample class.
+
+    Attempt to read data from a file named example.txt using the readFile method.
+
+    Handle any FileReadException that may occur by printing the error message to the console.
+
+---------------------------------------------------------------------------------------------------
+Coffee Ordering System
+
+
+
+    Imagine you are developing a coffee ordering system for a newly opened coffee shop. 
+    The system is designed to handle customer orders and prepare various types of coffee.
+
+
+
+    Define an enum named CoffeeType to represent different types of coffee that the coffee 
+    shop offers. The available types are:
+
+    Espresso
+
+    Americano
+
+    Latte
+
+    Cappuccino
+
+
+
+    Implement a class named CoffeeOrder to represent a coffee order. This class should
+     have the following attributes:
+
+    type: A variable of type CoffeeType representing the type of coffee ordered.
+
+    sugarLevel: An integer representing the amount of sugar the customer wants in their 
+    coffee.
+
+    Provide appropriate constructor and accessor methods.
+
+
+
+    Create a class named CoffeeShop to simulate the coffee shop operations. This class should
+     contain the following methods:
+
+    takeOrder: A method to take a coffee order. It should accept parameters for the CoffeeType 
+    and sugar level and return a CoffeeOrder object representing the order.
+
+    prepareCoffee: A method to prepare the coffee based on the provided CoffeeOrder. This 
+    method should print a message indicating the coffee being prepared and the sugar level.
+
+    Ensure proper encapsulation and error handling in your methods.
+
+
+
+    Write a Main class containing the main method to simulate the coffee ordering process. 
+    In the main method:
+
+
+
+    Create an instance of the CoffeeShop class.
+
+    Take orders for at least two different types of coffee with varying sugar levels.
+
+    Print messages indicating the orders taken and the coffee preparation process.
+
+    Note: Ensure that your implementation follows best practices of object-oriented 
+    programming, including proper encapsulation, meaningful method and variable names, 
+    and appropriate use of enums.
+
+
+ 

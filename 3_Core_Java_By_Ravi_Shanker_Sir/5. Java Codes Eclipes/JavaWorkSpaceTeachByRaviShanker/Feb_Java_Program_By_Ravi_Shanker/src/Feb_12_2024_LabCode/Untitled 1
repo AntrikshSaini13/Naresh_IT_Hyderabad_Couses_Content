@@ -1,0 +1,902 @@
+1) Find the Output :
+
+class A 
+{
+void foo() 
+{
+System.out.println("A");
+}
+}
+
+class B extends A 
+{
+void foo() 
+{
+System.out.println("B");
+}
+}	
+
+class Test15
+{
+public static void main(String[] args)
+{
+A obja;
+B objb = new B();
+objb.foo();
+obja = objb;        //objb ne apna reference obja ko diya hai
+obja.foo();
+}
+}
+
+Output : B 
+		 B
+-------------------------------------------------------------------------
+2) Find the Output :
+public class Test18
+{
+ public static void main(String[] args)
+{
+    B b = new C(); //Upcasting is here 
+    A a = b;
+    if (a instanceof A) System.out.println("A");
+    if (a instanceof B) System.out.println("B");
+    if (a instanceof C) System.out.println("C");
+    if (a instanceof D) System.out.println("D");
+  }
+}
+
+// inheritance is here
+
+class A {}
+class B extends A {}
+class C extends B {}
+class D extends C {}
+
+Output :
+
+A
+B
+C
+
+-------------------------------------------------------------------------
+3) Find the Output :
+
+public class Test19 extends Singer
+ {
+  public static String sing() 
+  {
+    return "fa";
+  }
+
+  public static void main(String[] args) 
+  {
+    Test19 t = new Test19();//normal object but  inheritance
+    Singer s = new Test19();// up casting static method only method hiding
+    System.out.println(t.sing() + " " + s.sing());
+  }
+}
+
+// super class
+class Singer {
+  public static String sing() {
+    return "la";
+  }
+}
+
+Output : fa  la because static method not override its only 
+         method hiding of sub class 
+-------------------------------------------------------------------------
+4) Find the Output :
+
+class Animal
+{
+	public void eat()
+	{
+	System.out.println("Animal eating ");
+	}
+}
+
+
+class Horse extends Animal
+{
+	public void eat() 
+	{
+	System.out.println("Horse eating");
+	}
+
+	public void eat(String s) 
+	{
+	System.out.println("Horse eating "+s);
+	}
+}
+public class Test21
+{
+	public static void main(String [] args) 
+	{
+		Animal a = new Horse(); // up-casting that why its not access the parameterized method
+		a.eat(); 
+		a.eat("Grass");
+	}
+}
+
+Output : Error because here we are perform method override but super class also contain sub and super class same method 
+-------------------------------------------------------------------------
+class Animal
+{
+	public void eat()
+	{
+	System.out.println("Animal eating ");
+	}
+}
+
+
+class Horse extends Animal
+{
+	@Override
+	public void eat() 
+	{
+	System.out.println("Horse eating");
+	}
+
+	public void eat(String s) 
+	{
+	System.out.println("Horse eating "+s);
+	}
+}
+public class Test21
+{
+	public static void main(String [] args) 
+	{
+		Horse a = new Horse(); //here we are casting of object sub class then after access the super class here is inheritance
+		a.eat(); 
+		a.eat("Grass");
+	}
+}
+
+Output : 
+
+Horse eating
+Horse eating Grass
+---------------------------------------------------------------------
+class Animal
+{
+	public void eat(String s) 
+	{
+	System.out.println("Horse eating "+s);
+	}
+	
+	public void eat()
+	{
+	System.out.println("Animal eating ");
+	}
+}
+
+
+class Horse extends Animal
+{
+	@Override
+	public void eat() 
+	{
+	System.out.println("Horse eating");
+	}
+
+	public void eat(String s) 
+	{
+	System.out.println("Horse eating "+s);
+	}
+}
+public class Test21
+{
+	public static void main(String [] args) 
+	{
+		Horse a = new Horse(); // up-casting
+		a.eat(); 
+		a.eat("Grass");
+	}
+}
+
+output :
+
+Horse eating
+Horse eating Grass
+
+-------------------------------------------------------------------------
+5) Find the Output :
+
+class A 
+{
+	private void printName(){
+		System.out.println("Value-A");
+	}
+}
+class B extends A
+	{
+	public void printName(){
+	System.out.println("Name-B");
+	}
+}
+public class Test23
+{
+	public static void main (String[] args) 
+	{
+		A b = new B();
+		b.printName();
+	}
+}
+
+Output : Error: Unresolved compilation problem: 
+	The method printName() from the type A is not visible
+	
+	because here is in the case of override we are perform up-casting 
+	should not be private method of Super class 
+
+-------------------------------------------------------------------------
+6) Find the Output :
+
+class A 
+{
+	public void printName()
+	{
+		System.out.println("Value-A");
+	}
+}
+class B extends A
+{
+	public void printName()
+	{
+			System.out.println("Name-B");
+	}
+}
+class C extends A
+{
+	public void printName()
+	{
+		System.out.println("Name-C");
+	}
+}
+public class Test30
+{
+	public static void main (String[] args) 
+	{
+		B b = new B();// sub class object is here
+		C c = new C();
+		b = c;          // here type is not match because b reference and c reference class type is different 
+		newPrint(b);
+	}
+	public static void newPrint(A a)
+	{
+		a.printName();
+	}
+}
+Output :
+
+Error: Unresolved compilation problem: 
+	   Type mismatch: cannot convert from C to B
+
+-------------------------------------------------------------------------
+7) Find the Output :
+
+class C 
+{
+}
+class D extends C
+{
+}
+
+class A
+{
+public C getOBJ()
+{
+System.out.println("class A - return C");
+return new C();
+}
+}
+class B extends A
+{
+public D getOBJ()
+{
+System.out.println("class B - return D");
+return new D();
+}
+}
+public class Test31
+{
+public static void main(String... args) 
+{
+     A a = new B();
+     a.getOBJ();
+}
+}
+
+Output :class B - return D
+		 here is apply Co-varient Form 
+
+-------------------------------------------------------------------------
+8) Find the Output :
+
+class A1 
+{
+public void printName()
+{
+System.out.println("Value-A");
+}
+}
+class B1 extends A1
+{
+protected void printName()
+{
+System.out.println("Name-B");
+}
+}
+public class Test33
+{
+public static void main (String[] args)
+{
+A1 b = new B1();
+newPrint(b);
+}
+public static void newPrint(A1 a)
+{
+a.printName();
+}
+}
+
+Output : Error becoz of in the Override the method access Modifier should 
+		 be same or Greater than from the sub Class Access modifier override method
+-------------------------------------------------------------------------
+9) Find the Output :
+
+class A 
+{
+public void printName()
+{
+System.out.println("Name-A");
+}
+}
+
+class B extends A
+{
+public void printName()
+{
+System.out.println("Name-B");
+}
+public void printValue() 
+{
+System.out.println("Value-B");
+}
+}
+
+public class Test42
+{
+public static void main (String[] args)
+{
+A a = new A();//if we write like this -> A a = new B() That is work 
+B b = (B)a;// here is Downcating not show any error but CastExceptio is gives
+b.printName();
+}
+}
+
+Output : CastException
+
+-------------------------------------------------------------------------
+10) Find the Output :
+
+class Test51
+{
+int count;
+public Test51(){
+count = count +1 ;
+}
+
+public static void main(String argv[])
+{
+new Test51();
+new Test51();
+new Test51();
+System.out.println(count);
+}
+}
+
+Output : Error: Unresolved compilation problem: 
+	     Cannot make a static reference to the non-static field cou
+	     
+	     
+-----------------------------------------------------------------------------
+
+class Test51
+{
+int count;
+public Test51(){
+count = count +1 ;
+}
+
+public static void main(String argv[])
+{
+	
+	Test51 t1 = new Test51();
+	Test51 t2 = new Test51();
+	Test51 t3 = new Test51();
+	System.out.println(t1.count);
+	System.out.println(t2.count);
+	System.out.println(t3.count);
+
+}
+}
+
+Output :  1 1 1
+--------------------------------------------------------------------------
+class Test51
+{
+int count;
+public Test51(){
+count = count +1 ;
+}
+
+public static void main(String argv[])
+{
+	
+	Test51 t1 = new Test51();
+	Test51 t2 = new Test51();
+	Test51 t3 = new Test51();
+	System.out.println(t1.count);
+	System.out.println(t2.count);
+	System.out.println(t3.count);
+
+}
+}
+Output : 3 3 3
+-------------------------------------------------------------------------
+11) Find the Output :
+
+class A
+{
+static String str = "";
+
+protected A()
+{
+System.out.println(str + "A");
+}
+}
+
+class B extends A
+{
+private B ()
+{
+System.out.println(str + "B");
+}
+}
+
+public class Test53 extends A
+{
+private Test53()
+{
+System.out.println(str + "Test");
+}
+public static void main (String[] args)
+{
+new Test53();     //  here we are create of the object of that class Test53() than 
+System.out.println(str);
+}
+}
+
+Output : A
+		 Test
+
+-------------------------------------------------------------------------
+12) Find the Output :
+
+class A
+{
+public void test1()
+{
+System.out.println("test1 A");
+}
+}
+
+class B extends A
+{
+public void test1()
+{
+super.test1();
+System.out.println("test1 B");
+}
+}
+
+public class Test57
+{
+public static void main(String[] args)
+{
+A b = new B(); //Up-casting 
+b.test1();
+}
+}
+
+output : A B
+-------------------------------------------------------------------------
+13) Find the Output :
+
+class Dog
+{
+}
+class Cat extends Dog
+{
+}
+
+class Test60
+{
+	public static void main(String... args)
+	{
+		Dog d = new Dog();
+		Cat c = new Cat();
+		if(d.equals(c))
+		{
+			System.out.println("true");
+		}
+			else
+		{
+				System.out.println("false");
+		}
+	}
+}
+
+
+Output : false
+-------------------------------------------------------------------------
+14) Find the Output :
+
+class Test61 
+{
+	public static void main(String[] args) 
+	{
+		Math m = new Math();// math is predefine method that is a constructor is private 
+		                     // that way we can use inside the class static method then after we can 
+		                     // acces the math()
+		m.min(88,86);
+	}
+}
+
+Output : Error: Unresolved compilation problem: 
+		 The constructor Math() is not visible
+-------------------------------------------------------------------------------
+class Test57
+{
+	public static void main(String[] args) 
+	{
+//		Math m = new Math();
+		System.out.println(Math.min(88,86));
+	}
+}
+Output : 86
+-------------------------------------------------------------------------
+15) Find the Output :
+
+public class Animal 
+{
+       String name;//null
+       Animal(String name) 
+       {
+              this.name = name;
+       }
+       Animal() 
+       {
+              this(makeRandomName());//hum "makeRandomName()" ko inside this ki word mai dal kr use nhai kr sakti 
+              						// kyo ki object create kre ge toh stackoverflow ho ga bs hum is method ko call krna hai usko static bana chaihiye												
+       }
+       String makeRandomName() 
+       {
+              String name = "i";
+              return name;
+       }
+       public static void main (String [] args) 
+       {
+              Animal a = new Animal();
+              System.out.println(a.name);
+              Animal b = new Animal("Zeus");
+              System.out.println(b.name);
+       }
+}
+
+-------------------------------------------------------------------------
+16) Find the Output :
+
+class Animal { }
+class Horse extends Animal { }
+class q31
+{
+      public void doStuff(Animal a) // we are passing the parameter of Animal Class type its accept like int a and we are passing the num than check that type or no
+      {
+           System.out.println("In the Animal version");
+      }
+      public void doStuff(Horse h) 
+      {
+           System.out.println("In the Horse version");
+      }
+      public static void main (String [] args) 
+      {
+            q31 q = new q31();
+            Animal ob1 = new Animal();// normal 
+            
+            Animal ob2 = new Horse();//upcasting
+            q.doStuff(ob1);// here we are passing the reference of annimal class
+            q.doStuff(ob2);//here we are passinthe refence of horse class but belong to Animal class
+     }
+}
+----------------------------------------------------------------------------
+16) Find the Output :
+
+class Animal { }
+class Horse extends Animal { }
+class q31
+{
+      public void doStuff(Animal a) 
+      {
+           System.out.println("In the Animal version");
+      }
+      public void doStuff(Horse h) 
+      {
+           System.out.println("In the Horse version");
+      }
+      public static void main (String [] args) 
+      {
+            q31 q = new q31();
+            Animal ob1 = new Animal();
+            Horse ob2 = new Horse();
+            q.doStuff(ob1);
+            q.doStuff(ob2);
+     }
+}
+
+Output :    Animal
+			Horse 
+		 
+-------------------------------------------------------------------------
+17) Find the Output :
+
+class Animal 
+{
+      static void doStuff() 
+      {
+             System.out.print("a  ");
+      }
+}
+class q31 extends Animal 
+{
+      static void doStuff() 
+      {        
+            System.out.print("d  ");
+      }
+      public static void main(String [] args) 
+      {
+            Animal [] a = {new Animal(), 
+            new q31(), 
+            new Animal()
+            };
+            for(int x = 0; x < a.length; x++)
+                 a[x].doStuff();               
+      }
+}
+-------------------------------------------------------------------------
+18) Find the Output :
+class Test23 
+{
+	public static void main(String[] args) 
+	{
+		float f = 4.12f;
+		if(f<4.12)
+		{
+          System.out.println("ABC");
+		}
+		else
+		{
+			System.out.println("XYZ");
+		}
+		
+	}
+}
+
+-------------------------------------------------------------------------
+19) Find the Output :
+
+class Test12
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("M");
+		Alpha.val=100;
+		System.out.println("F");
+		Alpha a = new Alpha();
+	}
+}
+class Beta
+{
+	static 
+	{
+		System.out.println("Q");
+		
+	}
+	Beta()
+	{
+		System.out.println("D");
+	}
+}
+class Alpha extends Beta
+{
+	static int val;
+	static 
+	{
+		System.out.println("W");
+		val=1000;
+	}
+	
+	Alpha()
+	{
+		System.out.println("C");
+	}
+
+	static 
+	{
+		System.out.println("R");
+		val=1000;
+	}
+}
+-------------------------------------------------------------------------
+20) Find the Output :
+
+class Grandparent {
+    String name = "granparent";
+    void act() {
+        System.out.println(name);
+    }
+}
+
+class Parent extends Grandparent 
+{
+    String name = "parent";
+}
+
+class Child extends Parent {
+    String name = "child";
+    void act() {
+        System.out.println(name);
+    }
+}
+
+public class Test33 {
+    public static void main(String[] args) {
+        Parent yo = new Child();
+        yo.act();
+    }
+}
+
+-------------------------------------------------------------------------
+21) Find the Output :
+
+public class Test55 {     
+    int a = 10;
+    
+    public void doStuff(int a) {
+        a += 1;
+        System.out.println(a++);
+    }
+    public static void main(String args[]) {
+        Test55 t = new Test55();
+        t.doStuff(3);
+    }
+}
+------------------------------------------------------------------------
+22) Find the Output :
+
+class Animal {
+ String name = "Rocky ";
+ String makeNoise() { return "generic noise"; }
+ }
+ class Tiger extends Animal {
+String name = "stripes ";
+ String makeNoise() { return "roarrrrrrrrrrr"; }
+ }
+ public class Zoo {
+ public static void main(String[] args) { new Zoo().go(); }
+ void go() {
+ Animal m = new Tiger();
+ System.out.println(m.name + m.makeNoise());
+ }
+}
+-----------------------------------------------------------------------
+23) Find the Output :
+
+public class b39
+{
+        public static void main(String[] argv)
+        {
+              int a = 1;
+              System.out.println(a instanceof Integer);
+        }
+}
+
+-----------------------------------------------------------------------
+24) Which among the following code have errors
+
+a) abstract class A {	
+     void m1();
+   }
+
+b) public class A {	
+     abstract void m1();
+   }
+
+c) abstract public class A {	
+    abstract void m1();
+   }
+
+d) abstract public class A 
+   {	
+     void m1() { }
+   }
+
+e) public abstract class A {
+    abstract void m1();	
+    A(){ }	
+    void m2() { }
+    }
+
+f) public abstract class A {
+     abstract int x = 100;	
+     abstract void m1();
+     abstract void m2();
+    }
+
+g) public abstract class A {	
+    abstract void m1();
+   }
+   public class Test {
+   public static void main(String[] args) {
+    A a = new A();
+    }
+   }
+
+h) public abstract class A 
+   {	
+    abstract void m1();
+    A(){ }
+    static void m2() 
+    {
+    System.out.println("Hello Java!"); 
+    }
+   }
+    public class B extends A {
+     void m1(){
+        A.m2(); 
+     }
+    }
+
+i) public abstract class A {	
+    abstract void m1();
+   private A(){ }
+   }
+   public class B extends A { }
+
+-----------------------------------------------------------------------
+25) Find the output 
+
+public abstract class Alpha {
+  abstract void m1(Alpha a);
+}
+public class Beta extends Alpha {
+void m1(Alpha a) {
+  System.out.println("One"); 	
+ }
+}
+public class Gamma extends Beta {
+void m1(Beta b) {	
+ System.out.println("Two");
+ super.m1(new Beta());
+ }
+}
+public class Test {
+public static void main(String[] args) {
+Gamma c = new Gamma();
+ c.m1(new Beta());
+  }
+}
+
+

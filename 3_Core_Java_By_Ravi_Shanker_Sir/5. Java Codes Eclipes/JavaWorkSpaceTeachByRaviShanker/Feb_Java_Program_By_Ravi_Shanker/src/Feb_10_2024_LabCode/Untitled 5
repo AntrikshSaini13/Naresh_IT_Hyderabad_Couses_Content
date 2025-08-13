@@ -1,0 +1,1150 @@
+QUE 1) what is method overriding in java?
+
+A.Redefining a superclass method in a subclass
+B.Making a method private in a subclass
+C.Hiding methods in a superclass
+D.Non of above
+
+ANS : A
+-------------------------------------------------------------------
+
+QUE 2) what is method hidding in java?
+
+A.Making a method private in a subclass
+B.Redefining a method with a different return type in a subclass
+C.Creating a static method with the same signature as a superclass method
+D.Defining a new method with the same name in a subclass
+
+ANS : C
+
+-------------------------------------------------------------------
+
+QUE 3) Out of the listed access modifiers, which can be applied to a class?
+
+a. public
+b. private
+c. protected
+d. default
+
+A : a & b
+
+B : a & d
+
+C : a, b, & d
+
+D : All of the above
+
+Ans:B
+
+-------------------------------------------------------------------
+
+QUE 4) What is the result of the following code snippet?
+
+class A {
+
+	private void m1() {
+		System.out.println("parrent m1()");
+	}
+}
+
+public class Test extends A {
+	public void m1() {
+		System.out.println("child m1()");
+	}
+
+	public static void main(String[] args) {
+
+		Test t = new Test();
+		t.m1();
+	}
+}
+
+A : parrent m1()
+B : child m1()
+C : CompileTimeError
+D : Non of above
+
+ANS : B
+-------------------------------------------------------------------
+
+QUE 5)  What is the result of the following code snippet?
+
+class A {
+	String s = "NIT1";
+	private void m1() {
+		System.out.println(s);
+	}
+}
+
+public class Test extends A {
+	String s = "NIT2";
+	public void m1() {
+		System.out.println(s);
+		super.m1();
+	}
+
+	public static void main(String[] args) {
+
+		A a = new Test();
+		a.m1();
+	}
+}
+
+
+A : NIT1
+
+B : NIT1
+    NIT2
+
+C : CompileTimeError
+
+D : NIT2
+    NIT1
+
+ANS : C
+-------------------------------------------------------------------
+
+QUE 6) What is the result of the following code snippet?
+
+class A {
+
+	protected String m1() {
+		return "Parrent m1()";
+	}
+
+	public String m2() {
+		return this.m1();
+	}
+}
+
+public class Test extends A {
+	protected String m1() {
+		System.out.println(super.m2());
+		return "";
+	}
+
+	public static void main(String[] args) {
+
+		Test t = new Test();
+		t.m1();
+	}
+}
+
+A : Parrent m1()
+
+B : StackOverflowError
+
+C : CompileTimeError
+
+D : Non of above
+
+ANS : B
+-------------------------------------------------------------------
+
+QUE 7)  What is the result of the following code snippet?
+
+
+class A {
+
+	public String m1() {
+		return m2() + " HI";
+	}
+
+	public String m2() {
+		return "NIT";
+	}
+}
+
+public class Test extends A {
+	private String m1() {
+		System.out.print(super.m1() + " ");
+		return "OK";
+	}
+
+	public static void main(String[] args) {
+
+		Test t = new Test();
+		System.out.print(t.m1());
+	}
+}
+
+A : NIT HI
+
+B : NIT
+
+C : CompileTimeError
+
+D : NIT HI OK
+
+ANS : C
+-------------------------------------------------------------------
+
+QUE 8) What is the result of the following code snippet?
+
+class A {
+
+	protected String m1() {
+		return "Parrent m1()";
+	}
+
+}
+
+public class Test extends A {
+	private String m1() {
+		return this.m1();
+	}
+
+	public static void main(String[] args) {
+
+		Test t = new Test();
+		System.out.println(t.m1());
+	}
+}
+
+A : parrent m1()
+
+B : StackOverflowError
+
+C : CompileTimeError
+
+D : Non of above
+
+ANS : C
+
+
+-------------------------------------------------------------------
+
+QUE 9) ) What will be the output of this program?
+
+class A{
+    int i = 10;
+}
+ 
+class B extends A{
+    int i = 20;
+}
+ 
+public class MainClass{
+    public static void main(String[] args){
+        A a = new B();
+ 
+        System.out.println(a.i);
+    }
+}
+
+A : 10
+B : 20
+C : CompileTimeError
+D : Non of above
+
+ANS : A
+-------------------------------------------------------------------
+
+QUE 10) Which one is the correct way to call walk() method and fly() method.
+
+class Animal{
+    void walk(){
+        System.out.println("I am walking");
+    }
+}
+class Bird extends Animal {
+    void fly() {
+        System.out.println("I am flying");
+    }
+}
+
+
+A:
+public class Test{
+   public static void main(String args[]){
+   {
+    Animal animal = new Animal();
+    animal .walk();
+    animal.fly();
+   }
+}
+
+
+B : 
+public class Test{
+   public static void main(String args[]){
+   {
+    Bird bird = new Bird();
+    bird.walk();
+    bird.fly();
+    }
+}
+
+C :
+public class Test{
+   public static void main(String args[]){
+   {
+    Test test= new Test();
+    test.walk();
+    test.fly();
+    }
+}
+ 
+
+D :
+public class Test{
+   public static void main(String args[]){
+   {
+    Animal animal = new Bird ();
+    animal .walk();
+    animal .fly();
+    }
+}
+
+
+ANS : B
+-------------------------------------------------------------------
+
+QUE 11) What will be the output of this program?
+
+
+class SuperClass {
+	public SuperClass myMethod() {
+		System.out.println("In SuperClass myMethod()");
+		return new SuperClass();
+	}
+
+	public static void myClass() {
+		System.out.println("Superclass");
+	}
+}
+
+class SubClass extends SuperClass {
+	@Override
+	public SuperClass myMethod() {
+		System.out.println("In SubClass myMethod()");
+		return new SubClass();
+	}
+
+	public static void myClass() {
+		System.out.println("SubClass");
+	}
+}
+
+public class Test {
+	public static void main(String[] args) {
+		SuperClass obj = new SubClass();
+
+		obj.myMethod();
+		obj.myClass();
+	}
+}
+
+
+A : In SuperClass myMethod()
+    Superclass
+
+B : In SubClass myMethod()
+    SubClass
+
+C : In SubClass myMethod()
+     Superclass
+
+D:  In SuperClass myMethod()
+    SubClass
+
+E : CompileTimeError
+
+ANS : C
+
+-------------------------------------------------------------------
+
+QUE 12) What will be the output of this program?
+
+class One {
+	One get() {
+		return this;
+	}
+
+	static void message() {
+		System.out.println("Hi...");
+	}
+}
+
+public class Two extends One {
+	
+	One get() {
+		return this;
+	}
+
+	static void message() {
+		System.out.println("Hello...");
+	}
+
+	public static void main(String args[]) {
+		new Two().get().message();
+	}
+}
+
+A : Hello...
+B : Hi...
+C : CompileTimeError
+D : Non of above
+
+ANS : B
+-------------------------------------------------------------------
+
+QUE 13) What will be the output of this program?
+
+class Demo {
+	public static void method1() {
+		System.out.println("Method-1 of the Demo class is executed.");
+	}
+
+	public void method2() {
+		System.out.println("Method-2 of the Demo class is executed.");
+	}
+}
+
+public class Sample extends Demo {
+	public static void method1() {
+		System.out.println("Method-1 of the Sample class is executed.");
+	}
+
+	public void method2() {
+		System.out.println("Method-2 of the Sample class is executed.");
+	}
+
+	public static void main(String args[]) {
+		Demo d1 = new Demo();
+		Demo d2 = new Sample();
+
+		d1.method1();
+		d2.method1();
+
+		d1.method2();
+		d2.method2();
+	}
+}
+
+A : Method-1 of the Demo class is executed.
+    Method-1 of the Demo class is executed.
+    Method-2 of the Demo class is executed.
+    Method-2 of the Sample class is executed.
+
+B : CompileTimeError
+
+C : Method-1 of the Sample class is executed.
+    Method-2 of the Sample class is executed.
+    Method-2 of the Demo class is executed.
+    Method-1 of the Demo class is executed.
+
+D : Method-1 of the Sample class is executed.
+    Method-2 of the Demo class is executed.
+    Method-2 of the Sample class is executed.
+    Method-1 of the Demo class is executed.
+
+ANS : A
+-------------------------------------------------------------------
+
+QUE 14) What will be the output of this program?
+
+class Demo {
+	public static String m1() {
+		return "welcome";
+	}
+
+}
+
+public class Test extends Demo {
+	@Override
+	public static String m1() {
+		return "Naresh it";
+	}
+
+	public static void main(String[] args) {
+		Demo d = new Test();
+		System.out.println(d.m1());
+	}
+}
+
+A : welcome
+B : Naresh it
+C : CompileTimeError
+D : Non of above
+
+ANS : C
+-------------------------------------------------------------------
+
+QUE 15) What will be the output of this program?
+
+class Demo {
+	Demo() {
+		System.out.println("Demo()");
+	}
+
+	public Demo m1() {
+		return new Demo();
+	}
+
+}
+
+public class Test extends Demo {
+	public Test() {
+		System.out.println("Test()");
+	}
+
+	public Demo m1() {
+		return new Test();
+	}
+
+	public static void main(String[] args) {
+		Demo d = new Test();
+		d.m1();
+
+	}
+}
+
+A : Test()
+    
+B : Test()
+    Demo()
+
+C : Demo()
+    Test()
+
+D : Demo()
+    Test()
+    Demo()
+    Test()
+
+E : Non of above
+
+ANS : D
+-------------------------------------------------------------------
+
+QUE 16) What will be the output of this program?
+
+class Demo1 {
+
+	public static String m1() {
+		return "Demo1";
+	}
+}
+
+class Demo2 extends Demo1 {
+	
+	public static int m1() {
+		return 1;
+	}
+}
+
+public class Test {
+	public static void main(String[] args) {
+		Demo1 d = new Demo2();
+		System.out.println(d.m1());
+	}
+}
+
+A : 1
+B : Demo1
+C : CompileTimeError
+D : Non of above
+
+ANS : C
+-------------------------------------------------------------------
+
+QUE 17) Which of the following is an example of covariant return type in Java?
+
+A :   
+=====
+
+class Superclass {
+    Superclass method() {
+        return new Subclass();
+    }
+}
+
+class Subclass extends Superclass {
+    @Override
+    Superclass method() {
+        return new Superclass();
+    }
+}
+
+
+
+B :
+====
+
+class Superclass {
+    Superclass method() {
+        return new Superclass();
+    }
+}
+
+class Subclass extends Superclass {
+    @Override
+    Superclass method() {
+        return new Subclass();
+    }
+}
+
+
+
+C :
+====
+
+class Superclass {
+    Superclass method() {
+        return new Subclass();
+    }
+}
+
+class Subclass extends Superclass {
+    @Override
+    Subclass method() {
+        return new Subclass();
+    }
+}
+
+
+
+D: 
+====
+class Superclass {
+    Superclass method() {
+        return new Superclass();
+    }
+}
+
+class Subclass extends Superclass {
+    @Override
+    Subclass method() {
+        return new Subclass();
+    }
+}
+
+
+ANS : D
+-------------------------------------------------------------------
+
+QUE 18) What will be the output of this program?
+
+class Base {
+	Base() {
+		this(10);
+	}
+
+	Base(int a) {
+		m1(a);
+	}
+
+	void m1(int a) {
+		System.out.println(a);
+	}
+
+}
+
+class Derived extends Base {
+	Derived() {
+		this(20);
+	}
+
+	Derived(int a) {
+		m1(a);
+	}
+
+	void m1(int a) {
+		System.out.println(a);
+	}
+}
+
+public class TestMCQ {
+	public static void main(String[] args) {
+		Derived d = new Derived();
+
+	}
+}
+
+A : 10
+
+B : 20
+
+C : 10
+    20
+
+D : 20 
+    10
+
+ANS : C
+-------------------------------------------------------------------
+
+QUE 19) Which of the below code can be insert at line 7 to make clean compilation ?
+
+class A{
+      A(String s){}
+
+      A(){}
+}
+
+class B extends A{
+       B(){}
+       B(String s){
+             super(s);
+       }
+       void test(){
+             // insert code here
+       }
+ }
+
+A. A a= new B();
+B. A a=new B(5);
+C. A a=new A(String s);
+D. All of the above
+
+
+ANS : A
+-------------------------------------------------------------------
+
+QUE 20) What will be the output of this program?
+
+class Demo1 {
+
+	Demo1 m1() {
+		return this;
+	}
+
+	static void m2() {
+		System.out.println("Welcome");
+	}
+
+}
+
+class Demo2 extends Demo1 {
+	@Override
+	Demo2 m1() {
+		return this;
+	}
+
+	static void m2() {
+		System.out.println("Hi");
+	}
+
+}
+
+public class Test {
+	public static void main(String[] args) {
+		Demo1 d1 = new Demo1();
+		d1.m1().m2();
+
+		Demo1 d2 = new Demo2();
+		d2.m1().m2();
+
+	}
+}
+
+A : CompileTimeError
+
+B : Welcome
+    Welcome
+
+C : Hi
+    Hi
+
+D : Welcome
+    Hi
+
+E : Non of above
+
+ANS : B
+-------------------------------------------------------------------
+
+QUE 21) What will be the output of this program?
+
+class Demo1 {
+	Demo1() {
+		this(10);
+	}
+
+	Demo1(int a) {
+		this.m1();
+	}
+
+	Demo1 m1() {
+		System.out.println("Good Morning");
+		return new Demo1();
+	}
+}
+
+class Demo2 extends Demo1 {
+	
+	Demo2 m1() {
+		return this.m2();
+	}
+
+	Demo2 m2() {
+		System.out.println("Good Afternoon");
+		return this;
+	}
+}
+
+public class Test {
+	public static void main(String[] args) {
+
+		Demo1 d2 = new Demo2();
+	}
+}
+
+A : No Output
+B : Good Morning
+C : CompileTimeError 
+D : Good Afternoon
+
+ANS : C
+-------------------------------------------------------------------
+
+
+QUE 22) What will be the output of this program?
+
+class Vehicle {
+	Vehicle() {
+		honk().display();
+	}
+
+	public Vehicle honk() {
+		System.out.println("Vehicle is honking");
+		return this;
+	}
+
+	public void display() {
+		honk();
+	}
+}
+
+class BMW extends Vehicle {
+	BMW() {
+		honk().display();
+	}
+
+	public Vehicle honk() {
+		System.out.println("BMW is honking");
+		return this;
+	}
+
+	public void display() {
+		honk();
+	}
+}
+
+public class TestMCQ {
+	public static void main(String[] args) {
+		Vehicle v = new BMW();
+
+	}
+}
+
+A : BMW is honking
+    BMW is honking
+    BMW is honking
+    BMW is honking
+
+B : Vehicle is honking
+    Vehicle is honking
+    BMW is honking
+    BMW is honking
+
+C : BMW is honking
+    BMW is honking
+
+D : Vehicle is honking
+    BMW is honking
+
+E : Non of above
+
+
+ANS : A
+-------------------------------------------------------------------
+
+QUE 23) What will be the output of this program?
+
+class Some {
+	int i = 10;
+	void m1() {
+		System.out.println("Some "+this.i);
+	}
+}
+class Thing extends Some {
+	int i = 20;
+	Some s = new Some();
+}
+public class TestMCQ {
+	public static void main(String[] args) {
+		Thing t = new Thing();
+		t.s.m1();
+	}
+}
+
+A : Some 20
+B : Some 10
+C : Compilation Error
+D : Some 10 20
+
+ANS : B
+-------------------------------------------------------------------
+
+QUE 24) What will be the output of this program?
+
+class Base {
+
+	int a;
+
+	Base() {
+		this.a = 10;
+	}
+
+	Base m1() {
+		this.a=20;
+		return this;
+	}
+}
+
+class Child extends Base {
+	int a;
+
+	Child() {
+		this.a = 30;
+	}
+
+	Child m1() {
+		super.a = 40;
+		return this;
+	}
+}
+
+public class Test {
+	public static void main(String[] args) {
+
+		Base base = new Child();
+		System.out.println(base.m1().a);
+		System.out.println(new Child().m1().a + new Base().a);
+	}
+}
+
+A : Compilation Error
+
+B : 20
+    60
+
+C : 40
+    60
+
+D : 40
+    40
+
+ANS : D
+-------------------------------------------------------------------
+
+QUE 25) What will be the output of this program?
+
+class Animal {
+	String name  = "Any";
+	public void eat(Animal a) {
+		System.out.println("Eating "+a.name+" animal");
+	}
+}
+class Rabbit extends Animal {
+	String name = "Bunny";
+	public void eat(Animal a) {
+		System.out.println("Eating "+a.name+" grass");
+	}
+}
+class Grass {
+	public static void execute(Animal a) {
+		a.eat(a);
+	}
+}
+public class TestMCQ {
+	public static void main(String[] args) { 
+		Animal a = new Rabbit();
+		Grass.execute(a);
+	}
+}
+
+A : CompileTimeError
+
+B : Eating Any grass
+
+C : Eating Any animal
+
+D : Eating Bunny grass
+
+ANS : B
+-------------------------------------------------------------------
+
+QUE 26) What will be the output of this program?
+
+class Example {
+	Example(){
+		this(new int[] {1,2,3,4});
+		System.out.println("Done");
+	}
+	
+	Example(int...a){
+		super();
+		System.out.println("int var args");
+	}
+	Example(Integer[] a){
+                this();
+		System.out.println("Integer []");
+		
+	}
+}
+public class TestMCQ {
+	public static void main(String[] args) {
+       Example e = new Example();
+	}
+}
+
+A : StackOverFlowError
+
+B : int var args
+    Done
+
+C : Integer []
+    Done
+
+D : CompileTimeError
+
+ANS : B
+-------------------------------------------------------------------
+
+QUE 27) What will be the result of compiling and running the following program?
+
+public class Polymorphism2 {
+ public static void main(String[] args) {
+ A ref1 = new C();
+ B ref2 = (B) ref1;
+ System.out.println(ref2.g());
+ }
+}
+
+class A {
+ private int f() { return 0; }
+ public int g() { return 3; }
+}
+
+class B extends A {
+ private int f() { return 1; }
+ public int g() { return f(); }
+}
+
+class C extends B {
+ public int f() { return 2; }
+}
+
+A : The program will fail to compile.
+B : The program will compile and print 0, when run.
+C : The program will compile and print 1, when run.
+D : The program will compile and print 2, when run.
+E : The program will compile and print 3, when run.
+
+ANS : C
+-------------------------------------------------------------------
+
+QUE 28) What will be the outcome of the following program?
+	
+class ABC
+{
+    void methodABC()
+    {
+        new XYZ().methodXYZ();
+    }
+}
+ 
+class XYZ extends ABC
+{
+    void methodXYZ()
+    {
+        methodABC();
+    }
+}
+ 
+public class MainClass
+{
+    public static void main(String[] args)
+    {
+        new ABC().methodABC();
+    }
+}
+
+A : Compiletime Error 
+B : stackoverflow error
+C : it's no compilation error
+D : no output
+
+
+ANS : B
+-------------------------------------------------------------------
+
+QUE 29) What will be the output of this program?
+
+class Cat {
+	int jumpingHeight(int weight) {
+		System.out.println(10);
+		return 10;
+	}
+}
+
+class WildCat extends Cat {
+	void jumpingHeight(int weight) {
+		System.out.println("20");
+	}
+}
+
+public class TestMCQ {
+	public static void main(String[] args) {
+		WildCat wc = new WildCat();
+		wc.jumpingHeight(30);
+	}
+}
+
+A : 10
+B : 20
+C : 30
+D : Compiler error
+
+ANS : D
+-------------------------------------------------------------------
+
+QUE 30) What will be the output of this program?
+
+class Sparrow{ }
+class BigSparrow extends Sparrow { }
+class Cat2
+{
+  Sparrow jumpingHeight(int weight)
+  {
+    System.out.println(40);
+    return new Sparrow();
+  }
+}
+class WildCat2 extends Cat2
+{
+  BigSparrow jumpingHeight(int weight)
+  {
+    System.out.println("50");
+    return new BigSparrow();
+  }
+}
+public class MethodOverriding4
+{
+  public static void main(String[] args)
+  {
+    WildCat2 wc = new WildCat2();
+    wc.jumpingHeight(80);
+  }
+}
+
+A : 40
+B : 50
+C : 80
+D : Compiler error
+
+
+ANS : B

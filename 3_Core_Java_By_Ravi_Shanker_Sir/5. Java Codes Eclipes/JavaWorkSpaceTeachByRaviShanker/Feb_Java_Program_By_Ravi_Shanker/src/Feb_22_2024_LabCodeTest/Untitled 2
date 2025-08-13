@@ -1,0 +1,93 @@
+You are tasked with developing a program that greets users in different languages based on their preferences. 
+The program should prompt users to input their preferred language and then display a greeting message accordingly.
+You decide to implement this program in Java using interfaces, abstract classes, and a mediator class to handle language selection dynamically.
+
+Create Language interface:
+Explanation: The Language interface is created with an abstract method getMsg(),
+ which will be implemented by classes representing different languages.
+
+
+Create Hindi class which implements Language interface:
+Explanation: The Hindi class implements the Language interface and provides its own 
+implementation for the getMsg() method, returning "Namaste" as the greeting message.
+
+
+Create Telugu class which implements Language interface:
+Explanation: Similar to the Hindi class, the Telugu class implements the Language interface with its own implementation for the getMsg() method, returning "Namaskaram" as the greeting message.
+
+
+Create Non class which implements Language interface:
+Explanation: The Non class implements the Language interface and serves as a default or fallback option when an unsupported language is selected. It returns "Invalid Language....".
+
+
+Create Mediator class:
+Explanation: The Mediator class acts as a factory to instantiate the 
+appropriate language class based on the input provided by the user.
+             It contains a static method mediator(String lang) that takes a 
+             language string as input and will comapre given String input using 
+             equals()method and will returns the corresponding language object.
+
+
+Create Main Class(ELC):
+Finally, Main class which serves as the entry point of the program. It prompts the user to input their preferred language, 
+converts it to lowercase, calls the Mediator class to get the appropriate language instance, and then displays the greeting message using the getMsg() method.
+
+
+
+
+
+
+
+
+
+=================================================================
+
+
+
+=================================================================
+
+
+
+
+ Title: Development of a Loosely Coupled Ride-Hailing Service Booking System in Java
+
+
+
+Objective:
+
+The objective of this task is to design and implement a ride-hailing service booking system 
+in Java, emphasizing loose coupling between the main application logic and the ride service 
+providers. 
+
+The system should allow users to book rides to their desired destinations using various 
+ride-hailing services like Ola and Uber.
+
+
+
+Define the Car abstract class with a method bookRide(String destination) to represent the 
+ride-hailing service.
+
+Implement the Ola class which extends the Car abstract class, providing its specific 
+implementation for booking rides with Ola.
+
+Implement the Uber class which extends the Car abstract class, providing its specific 
+implementation for booking rides with Uber.
+
+Create the RiderService class that interacts with the Car abstract class. This class should 
+take a Car instance in its constructor and provide a method bookRideToDestination(String 
+destination) to book rides to user-specified destinations.
+
+Develop the Main class(ELC) as the entry point of the program. Instantiate instances of Ola 
+and Uber, create RiderService instances for each service, and book rides to different 
+destinations using these services
+
+
+
+
+
+
+
+
+
+
+

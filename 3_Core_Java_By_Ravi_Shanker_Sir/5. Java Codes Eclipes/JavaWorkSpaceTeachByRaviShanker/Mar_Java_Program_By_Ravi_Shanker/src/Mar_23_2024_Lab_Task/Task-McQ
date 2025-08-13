@@ -1,0 +1,409 @@
+1)Which class in Java is used to create a new directory?
+
+A) FileReader
+B) FileWriter
+C) File
+D) Directory
+
+Ans : c
+------
+2) What is the purpose of the FileOutputStream class in Java?
+
+A) To write binary data to a file.
+B) To read binary data from a file.
+C) To create a new file.
+D) To append text to a file.
+
+-----
+Answer: Option A
+----------
+3)
+Which method is used to check if a file or directory exists in Java?
+
+A) exists()
+B) createNewFile()
+C) makeDirectory()
+D) isFileOrDirectory()
+
+
+Answer: Option A
+
+---------
+4) What is the purpose of the FileReader class in Java?
+
+A) To read binary data from a file.
+B) To write binary data to a file.
+C) To read character data from a file.
+D) To write character data to a file.
+
+Answer: Option C
+
+----------
+5)Which class in Java is used to read data line by line from a file?
+
+A) BufferedReader
+B) FileInputStream
+C) FileWriter
+D) OutputStream
+
+
+Answer: Option A
+
+
+---------
+6)What is the purpose of the File.separator constant in Java?
+
+A) To separate text within a file.
+B) To separate directories and files in file paths.
+C) To define the end of a file.
+D) To concatenate strings in file operations.
+
+
+Answer: Option B
+
+
+----------
+7)
+Which class is used for efficient reading of characters from a file in Java?
+
+A) FileReader
+B) FileInputStream
+C) BufferedReader
+D) DataInputStream
+
+
+Answer: Option C
+
+---------
+8) What does the FileWriter class in Java do?
+
+A) Reads binary data from a file.
+B) Appends text to an existing file.
+C) Deletes a file.
+D) Creates a new directory.
+
+Answer: Option B
+
+
+----------
+9)What is the primary purpose of the BufferedOutputStream class in Java?
+
+A) To write binary data to a file efficiently.
+B) To read binary data from a file efficiently.
+C) To create a new directory.
+D) To read character data from a file.
+
+
+Answer: Option A
+
+
+---------
+10)Which class is used to write serialized objects to a file in Java?
+
+A) ObjectInputStream
+B) FileOutputStream
+C) ObjectOutputStream
+D) FileWriter
+
+Answer: Option C
+
+----------
+11)In Java, which class is used for reading and writing character data to a file in a platform-independent way?
+
+A) FileReader
+B) FileWriter
+C) BufferedReader
+D) PrintWriter
+
+Answer: Option D
+
+
+---------
+12)What does the File.delete() method do in Java?
+
+A) Delete a file.
+B) Appends text to an existing file.
+C) Deletes a file or directory.
+D) Delete binary data from a file.
+
+Answer: Option C
+
+
+----------
+13)What does the File.renameTo() method do in Java?
+
+A) Renames a file or directory.
+B) Renames only a file.
+C) Renames only a directory.
+D) None of these.
+
+Answer: Option A
+
+
+---------
+14)
+Which method is used to close a file stream in Java?
+
+A) close()
+B) flush()
+C) closeStream()
+D) exit()
+
+Answer: Option A
+
+----------
+15)What is the primary purpose of the RandomAccessFile class in Java?
+
+A) To read data from a file.
+B) To write data to a file.
+C) To read and write data at a specific position in a file.
+D) To create directories.
+
+Answer: Option C
+
+
+---------
+16)What is the role of the BufferedInputStream class in Java file handling?
+
+A) To read character data from a file.
+B) To read binary data from a file efficiently.
+C) To create a new file.
+D) To append text to an existing file.
+
+Answer: Option B
+
+
+----------
+17)Which class is used to represent a directory in Java’s file handling?
+
+A) FileReader
+B) File
+C) BufferedReader
+D) FileWriter
+
+
+Answer: Option B
+
+
+---------
+18)What is the primary purpose of input streams in Java?
+
+A) To write data to a file.
+B) To read data from a file.
+C) To append data to a file.
+D) To create directories.
+
+
+Answer: Option B
+
+----------
+19)Is this code create new file name a.txt?
+
+try{
+	File f=new File("a.txt");
+  }catch(Exception e){
+  }catch(IOException io){
+}
+
+A. true
+B.false
+C.Compilation Error
+D.None of these
+
+Answer:-C
+
+---------
+20)
+What will be the output of the following Java program if input given is 'abcqfghqbcd'?
+class Input_Output
+{
+ public static void main(String args[]) throws IOException
+ {
+   char c;
+    BufferedReader obj = new BufferedReader(new InputStreamReader(System.in));
+  do
+   {
+     c = (char) obj.read();
+      System.out.print(c);
+    } while(c != 'q');
+ }
+}
+
+A. abcqfgh
+B. abc
+C. abcq
+D. abcqfghq
+
+Answer:-C
+
+----------
+21)What will be output for the following code?
+
+    import java.io.*;
+    class files 
+    {
+        public static void main(String args[]) 
+        {
+            File obj = new File(""/java/system"");
+            System.out.print(obj.getName());
+        }
+    }
+A. java
+B. system
+C. java/system
+D. /java/system
+
+Answer:-B
+
+---------
+22)What will be output for the following code? Note: file is made in c drive
+
+import java.io.*;
+    class files 
+    {
+        public static void main(String args[]) 
+        {
+            File obj = new File(""/java/system"");
+            System.out.print(obj.canWrite());
+            System.out.print("" "" + obj.canRead());
+        }
+    }
+A. true false
+B. false true
+C. true true
+D. false false
+
+Answer:-D
+
+-----
+23)What is the output of this program?
+Note: inputoutput.java is stored in the disk.
+    import java.io.*;
+    class Filesinputoutput
+    {
+        public static void main(String args[])
+        {
+            InputStream obj = new FileInputStream("inputoutput.java");
+            System.out.print(obj.available());
+        }
+    }
+a.true
+
+b.false
+
+c.prints number of bytes in file
+
+d.prints number of characters in the file
+
+Answer:-c
+
+
+----------
+24)
+ What will be the output of the following Java program if input given is "abc'def/'egh"?
+class Input_Output
+{
+	public static void main(String args[]) throws IOException
+     		{
+		   char c;
+		   BufferedReader obj = new BufferedReader(new InputStreamReader(System.i
+n));
+		      do
+			{
+			 c = (char) obj.read();
+  			 System.out.print(c);
+			} while(c!='\'');
+		}
+}
+A.abc'
+B.abcdef/'
+C.abc'def/'egh
+D.abcqfghq
+
+Answer:-A
+
+---------
+25)What will be the output of the following Java program if input given is “Hello stop World”?
+ class Input_Output 
+    {
+        public static void main(String args[]) throws IOException
+        {	 
+            string str;
+            BufferedReader obj = new BufferedReader(new InputStreamReader(System.in));
+            do
+            {
+                str = (char) obj.readLine();
+	        System.out.print(str);
+            } while(!str.equals("strong"));
+        }
+  }
+a) Hello
+b) Hello stop
+c) World
+d) Hello stop World
+
+Answer:-d
+
+
+----------
+26)What will be the output of the following code?
+
+import java.io.*;
+class DemoFile 
+{
+   public static void main(String args[]) 
+   {
+      File f = new File("C:/java/xyz");
+      System.out.print(f.getName());
+   }
+}
+
+(a)java
+
+(b)xyz
+
+(c)java/xyz
+
+(d)C:/java/xyz
+
+Answer:-b
+
+
+---------
+27)Which of these exception is thrown in cases when the file specified for writing is not found?
+a) IOException
+b) FileException
+c) FileNotFoundException
+d) FileInputException
+
+Ans : c
+
+----------
+28) Which of these methods are used to read in from file?
+a) get()
+b) read()
+c) scan()
+d) readFileInput()
+
+Ans : B
+
+---------
+29)Which of these values is returned by read() method is end of file (EOF) is encountered?
+a) 0
+b) 1
+c) -1
+d) Null
+
+Ans : C
+
+
+-----
+30) Which of these exception is thrown by close() and read() methods?
+a) IOException
+b) FileException
+c) FileNotFoundException
+d) FileInputOutputException
+
+Ans : a
+
+
